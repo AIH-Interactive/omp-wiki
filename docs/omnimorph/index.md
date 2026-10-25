@@ -50,4 +50,4 @@ title: OmniMorph 功能
 
 - [模型文件格式](/start_here/Avatar%20File%20Format)
 - [多人游戏与云端](/start_here/Multiplayer)
-- [脚本新特性](/scripting/)
+- [脚本新特性](/scripting)

@@ -15,8 +15,8 @@ title: OmniMorph Wiki
 | 我是…… | 建议阅读 |
 | --- | --- |
 | 刚安装，想先看到模型 | [创建形象](/start_here/Avatar) → [模型文件格式](/start_here/Avatar%20File%20Format) |
-| 想管理多个模型与装扮 | [OmniMorph 功能](/omnimorph/) |
-| 想写 Lua 脚本 | [脚本新特性](/scripting/) → [API 参考](/globals/Player) |
+| 想管理多个模型与装扮 | [OmniMorph 功能](/omnimorph) |
+| 想写 Lua 脚本 | [脚本新特性](/scripting) → [API 参考](/globals/Player) |
 | 想了解多人游戏 | [多人游戏与云端](/start_here/Multiplayer) |
 
 ## OmniMorph 新增了什么

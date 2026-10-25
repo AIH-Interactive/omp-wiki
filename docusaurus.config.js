@@ -84,12 +84,12 @@ const config = {
             position: "left",
           },
           {
-            to: "/omnimorph/",
+            to: "/omnimorph",
             label: "OmniMorph 功能",
             position: "left",
           },
           {
-            to: "/scripting/",
+            to: "/scripting",
             label: "脚本 API",
             position: "left",
           },
@@ -112,11 +112,11 @@ const config = {
               },
               {
                 label: "OmniMorph 功能",
-                to: "/omnimorph/",
+                to: "/omnimorph",
               },
               {
                 label: "脚本 API",
-                to: "/scripting/",
+                to: "/scripting",
               },
             ],
           },

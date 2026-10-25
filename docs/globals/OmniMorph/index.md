@@ -41,6 +41,6 @@ OmniMorph 在 Figura 原有 API 之上新增了以下全局对象与类型。方
 
 ## 相关页面
 
-- [脚本新特性](/scripting/)
+- [脚本新特性](/scripting)
 - [预算与限制](/scripting/budgets)
 - [API 参考](/globals/Player)

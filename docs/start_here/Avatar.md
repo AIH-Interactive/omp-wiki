@@ -90,4 +90,4 @@ YSM 模型也可以不经过创建向导，直接把受支持格式的目录、Z
 - [模型文件格式](/start_here/Avatar%20File%20Format)
 - [衣柜总览](/start_here/Wardrobe)
 - [Blockbench 与骨架蒙皮](/start_here/BlockBench)
-- [脚本新特性](/scripting/)
+- [脚本新特性](/scripting)

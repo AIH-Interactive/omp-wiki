@@ -60,5 +60,5 @@ title: 文档贡献指南
 ## 相关页面
 
 - [版本与兼容性](/appendix/Versions)
-- [脚本新特性](/scripting/)
-- [OmniMorph 功能](/omnimorph/)
+- [脚本新特性](/scripting)
+- [OmniMorph 功能](/omnimorph)

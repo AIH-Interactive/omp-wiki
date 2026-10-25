@@ -15,7 +15,7 @@ OmniMorph 是基于 [Figura](https://github.com/FiguraMC/Figura) 的 Minecraft J
 - **兼容 Figura**：Figura Avatar 的目录结构、`avatar.json`、`.bbmodel`、`.lua`、`.ogg` 与 Lua API 继续可用。
 - **新增 YSM**：同一衣柜可以加载 YSM 目录、ZIP 与加密 `.ysm` 文件；纯 YSM 模型无需编写 Lua 即可运行。
 - **新增界面**：形象、装饰、配装、我的形象集四个入口，以及模型库、装饰动画、模型专用设置等页面。
-- **新增脚本接口**：`ysm_model`、`ysm_actions`、`avatar_controls`、`cosmetic_state`、`cosmetic_animations` 等，详见[脚本新特性](/scripting/)。
+- **新增脚本接口**：`ysm_model`、`ysm_actions`、`avatar_controls`、`cosmetic_state`、`cosmetic_animations` 等，详见[脚本新特性](/scripting)。
 - **配置迁移**：首次启动可读取原有 `figura.json`，并保留旧配置文件。
 
 ## 支持的内容

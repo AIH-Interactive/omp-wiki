@@ -174,4 +174,4 @@ left_foot_anchor, right_foot_anchor
 - [骨骼挂载与虚拟锚点](/omnimorph/anchors)
 - [装扮预设](/omnimorph/presets)
 - [装饰动画](/omnimorph/cosmetic-animations)
-- [脚本新特性](/scripting/)
+- [脚本新特性](/scripting)
