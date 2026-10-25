@@ -2,15 +2,15 @@ import Emoji from '@site/src/components/Emoji';
 import FileTreeRoot from '@site/src/components/FileTree/Root';
 import FileTreeNode from '@site/src/components/FileTree/Node';
 
-This page describes the process to access any ModelPart from the global ModelPart <code>models</code>
+本页介绍如何从全局 ModelPart <code>models</code> 访问任意 ModelPart
 
-# Getting a ModelPart
+# 获取 ModelPart
 
-A property of all ModelParts is that you can get a child ModelPart of a parent ModelPart by [indexing](/tutorials/types/Tables#generic-indexing) the parent with the child's name.<br/>
-<code>models</code> itself is a ModelPart. All bbmodel files in the avatar act as child ModelParts to <code>models</code>.<br/>
-Everything in the root of a Blockbench project is a child of the bbmodel ModelPart.<br/>
-After that, parenting follows the parent structure as defined in the Blockbench OUTLINER.<br/>
-For example the cube <Emoji icon="blockbench/cube"/> <code>RightArm</code>,<br/>
+所有 ModelPart 都有一个共同特性：用子 ModelPart 的名称[索引](/tutorials/types/Tables#generic-indexing)父 ModelPart，即可取得该子 ModelPart。<br/>
+<code>models</code> 本身就是一个 ModelPart。形象中的所有 bbmodel 文件都是 <code>models</code> 的子 ModelPart。<br/>
+Blockbench 项目根目录下的所有内容都是该 bbmodel ModelPart 的子项。<br/>
+再往下，父子关系遵循 Blockbench 大纲（OUTLINER）中定义的父级结构。<br/>
+例如方块（cube）<Emoji icon="blockbench/cube"/> <code>RightArm</code>，<br/>
 
 <FileTreeRoot>
   <FileTreeNode label="model.bbmodel" icon="file/bbmodel">
@@ -25,11 +25,11 @@ For example the cube <Emoji icon="blockbench/cube"/> <code>RightArm</code>,<br/>
   </FileTreeNode>
 </FileTreeRoot>
 
-Would be accessed via <code>models.model.RightArm.RightArm</code>
+可通过 <code>models.model.RightArm.RightArm</code> 访问
 
-# Storing a ModelPart
+# 存储 ModelPart
 
-As there is nothing special about indexing straight from <code>models</code> all the time (its just another ModelPart), if a specific ModelPart is used multiple times in a script we can store it in a variable for ease of access.
+始终直接从 <code>models</code> 开始索引并没有什么特别之处（它只是另一个 ModelPart）。如果脚本中会多次使用某个 ModelPart，可以把它存入变量，方便后续访问。
 
 ```lua
 --sets a World parented part to match the player's position and body rotation
@@ -40,9 +40,9 @@ function events.RENDER(delta, context)
 end
 ```
 
-# BBmodels in subfolders
+# 子文件夹中的 bbmodel
 
-bbmodel files in subfolders are a special case. For them, the folder itself acts as another ModelPart.<br/>
+子文件夹中的 bbmodel 文件属于特殊情况：此时文件夹本身会充当另一个 ModelPart。<br/>
 
 <FileTreeRoot>
   <FileTreeNode label="subfolderA" icon="file/folder">
@@ -55,4 +55,4 @@ bbmodel files in subfolders are a special case. For them, the folder itself acts
   </FileTreeNode>
 </FileTreeRoot>
 
-The bbmodel <Emoji icon="file/bbmodel"/> <code>Pet.bbmodel</code> would be accessed by <code>models.subfolderA.Pet</code>.<br/>
+bbmodel <Emoji icon="file/bbmodel"/> <code>Pet.bbmodel</code> 可通过 <code>models.subfolderA.Pet</code> 访问。<br/>

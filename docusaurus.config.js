@@ -6,8 +6,8 @@ const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Figura Wiki",
-  tagline: "Wiki for FiguraMC",
+  title: "OmniMorph Wiki",
+  tagline: "OmniMorph 模型、衣柜与脚本文档",
   favicon: "img/favicon.png",
 
   // Set the production url of your site here
@@ -19,18 +19,17 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "figuramc", // Usually your GitHub org/user name.
-  projectName: "wiki", // Usually your repo name.
+  organizationName: "AIH-Interactive", // Usually your GitHub org/user name.
+  projectName: "omp-wiki", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  // The wiki is Chinese-first. All prose, labels and navigation are Simplified
+  // Chinese; API identifiers and code stay in English.
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "zh-Hans",
+    locales: ["zh-Hans"],
   },
 
   presets: [
@@ -41,7 +40,7 @@ const config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/figuramc/wiki/tree/main/",
+          editUrl: "https://github.com/AIH-Interactive/omp-wiki/tree/main/",
         },
         blog: false,
         theme: {
@@ -54,61 +53,102 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {
+          name: "description",
+          content:
+            "OmniMorph 中文文档：Figura 与 YSM 模型、衣柜、装饰、配装、模型库、Lua 与 Molang。",
+        },
+        {
+          name: "keywords",
+          content:
+            "OmniMorph, Figura, YSM, Minecraft, 模型, 衣柜, 装饰, 配装, Lua, Molang",
+        },
+      ],
       colorMode: {
         defaultMode: "dark",
         disableSwitch: false,
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: "Figura Wiki",
+        title: "OmniMorph 文档",
         logo: {
-          alt: "Figura Logo",
+          alt: "OmniMorph Logo",
           src: "img/logo.svg",
           srcDark: "img/logoDark.svg",
         },
-        items: [],
+        items: [
+          {
+            to: "/start_here/OmniMorph",
+            label: "开始使用",
+            position: "left",
+          },
+          {
+            to: "/omnimorph/",
+            label: "OmniMorph 功能",
+            position: "left",
+          },
+          {
+            to: "/scripting/",
+            label: "脚本 API",
+            position: "left",
+          },
+          {
+            href: "https://github.com/AIH-Interactive/omp-wiki",
+            label: "GitHub",
+            position: "right",
+          },
+        ],
       },
       footer: {
         style: "dark",
         links: [
-          // TODO: these aren't being centered correctly, figure out why
-          //   {
-          //     title: 'Links',
-          //     items: [
-          //       {
-          //         label: 'Modrinth',
-          //         to: 'https://modrinth.com/mod/figura',
-          //       },
-          //       {
-          //         label: 'Curseforge',
-          //         to: 'https://curseforge.com/minecraft/mc-mods/figura',
-          //       },
-          //       {
-          //         label: 'Github',
-          //         to: 'https://github.com/figuramc',
-          //       },
-          //     ],
-          //   },
-          //   {
-          //     title: 'Community',
-          //     items: [
-          //       {
-          //         label: 'Discord',
-          //         href: 'https://discord.com/invite/figuramc',
-          //       },
-          //       {
-          //         label: 'Reddit',
-          //         href: 'https://reddit.com/r/figura',
-          //       },
-          //     ],
-          //   },
+          {
+            title: "文档",
+            items: [
+              {
+                label: "开始使用",
+                to: "/start_here/OmniMorph",
+              },
+              {
+                label: "OmniMorph 功能",
+                to: "/omnimorph/",
+              },
+              {
+                label: "脚本 API",
+                to: "/scripting/",
+              },
+            ],
+          },
+          {
+            title: "项目",
+            items: [
+              {
+                label: "OmniMorph GitHub",
+                href: "https://github.com/AIH-Interactive/omni-morph",
+              },
+              {
+                label: "Figura 上游",
+                href: "https://github.com/FiguraMC/Figura",
+              },
+            ],
+          },
+          {
+            title: "社区",
+            items: [
+              {
+                label: "问题反馈",
+                href: "https://github.com/AIH-Interactive/omni-morph/issues",
+              },
+            ],
+          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} FiguraMC`,
+        copyright: `Copyright © ${new Date().getFullYear()} OmniMorph 项目组`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["lua"],
+        additionalLanguages: ["lua", "json"],
         magicComments: [
           {
             className: "code-block-highlighted-line",

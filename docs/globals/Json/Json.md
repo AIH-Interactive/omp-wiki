@@ -1,36 +1,38 @@
 ---
 sidebar_position: 1
+title: Json（JSON 工具）
+sidebar_label: Json（JSON 工具）
 ---
 
-A global API that contains features to work with JSON
+用于处理 JSON 的全局 API。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
 ---
 
 ### <code>isSerializable()</code> \{#isSerializable}
 
-Checks if specified value can be serialized
+检查指定值是否可以序列化。
 
 ```lua
 isSerializable(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                 | Description | Default |
+| 名称 | 类型                 | 说明 | 默认值 |
 | ---- | -------------------- | ----------- | ------- |
 | val  | <code>AnyType</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -40,19 +42,19 @@ isSerializable(val)
 
 ### <code>newArray()</code> \{#newArray}
 
-Creates a new json array
+创建一个新的 JSON 数组。
 
 ```lua
 newArray()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[JsonArray](/globals/Json/JsonArray)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -62,19 +64,19 @@ newArray()
 
 ### <code>newBuilder()</code> \{#newBuilder}
 
-Creates a new json serializer builder
+创建一个新的 JSON 序列化构建器。
 
 ```lua
 newBuilder()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明 |
 | ----------------------------------------------------- | ----------- |
 | <code>[JsonBuilder](/globals/Json/JsonBuilder)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -84,19 +86,19 @@ newBuilder()
 
 ### <code>newObject()</code> \{#newObject}
 
-Creates a new json object
+创建一个新的 JSON 对象。
 
 ```lua
 newObject()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description |
+| 类型                                                | 说明 |
 | --------------------------------------------------- | ----------- |
 | <code>[JsonObject](/globals/Json/JsonObject)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

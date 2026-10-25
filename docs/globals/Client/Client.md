@@ -1,31 +1,36 @@
+---
+title: Client（客户端）
+sidebar_label: Client（客户端）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API used to interact with the current Minecraft client
+用于与当前 Minecraft 客户端交互的全局 API。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
-Most of its functions return things that can be found in the F3 menu
+其中大部分函数返回的值都能在 F3 菜单中找到。
 
 ---
 
 ### <code>getViewer()</code> \{#getViewer}
 
-Returns the player entity from the running client
+返回当前运行客户端的玩家实体。
 
 ```lua
 getViewer()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[ViewerAPI](/globals/Player/Viewer)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getViewer()
@@ -33,23 +38,23 @@ client.getViewer()
 
 ---
 
-## Versions
+## 版本
 
 ### <code>getVersion()</code> \{#getVersion}
 
-Returns the Minecraft version of your client
+返回客户端的 Minecraft 版本。
 
 ```lua
 getVersion()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getVersion()
@@ -59,19 +64,19 @@ client.getVersion()
 
 ### <code>getVersionName()</code> \{#getVersionName}
 
-Returns the extended name of the Minecraft version of your client
+返回客户端 Minecraft 版本的完整名称。
 
 ```lua
 getVersionName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getVersionName()
@@ -81,19 +86,19 @@ client.getVersionName()
 
 ### <code>getJavaVersion()</code> \{#getJavaVersion}
 
-Returns your current Java version you're playing Minecraft with
+返回你当前运行 Minecraft 所使用的 Java 版本。
 
 ```lua
 getJavaVersion()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getJavaVersion()
@@ -103,19 +108,19 @@ client.getJavaVersion()
 
 ### <code>isSnapshot()</code> \{#isSnapshot}
 
-Returns if the client is running a snapshot or full release version
+返回客户端运行的是快照版还是正式版。
 
 ```lua
 isSnapshot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.isSnapshot()
@@ -125,19 +130,19 @@ client.isSnapshot()
 
 ### <code>getFiguraVersion()</code> \{#getFiguraVersion}
 
-Gets the client Figura version
+获取客户端上的 Figura 版本。
 
 ```lua
 getFiguraVersion()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getFiguraVersion()
@@ -147,26 +152,26 @@ client.getFiguraVersion()
 
 ### <code>compareVersions()</code> \{#compareVersions}
 
-Compares two versions if they are less than (-1), equals (0) or greater than (1)
+比较两个版本：小于返回 -1，等于返回 0，大于返回 1。
 
 ```lua
 compareVersions(version1, version2)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
-| -------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | version1 | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 | version2 | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.compareVersions("0.1.0", "0.1.3")
@@ -176,25 +181,25 @@ client.compareVersions("0.1.0", "0.1.3")
 
 ### <code>isModLoaded()</code> \{#isModLoaded}
 
-Checks if the client has loaded the given mod ID
+检查客户端是否加载了指定的模组 ID。
 
 ```lua
 isModLoaded(modID)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | modID | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.isModLoaded("origins")
@@ -204,19 +209,19 @@ client.isModLoaded("origins")
 
 ### <code>hasShaderPackMod()</code> \{#hasShaderPackMod}
 
-Checks if the client has a Shader Pack mod installed
+检查客户端是否安装了光影包模组。
 
 ```lua
 hasShaderPackMod()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.hasShaderPackMod()
@@ -226,19 +231,19 @@ client.hasShaderPackMod()
 
 ### <code>hasShaderPack()</code> \{#hasShaderPack}
 
-Checks if the client is currently using a Shader Pack
+检查客户端当前是否正在使用光影包。
 
 ```lua
 hasShaderPack()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.hasShaderPack()
@@ -248,19 +253,19 @@ client.hasShaderPack()
 
 ### <code>getShaderPackName()</code> \{#getShaderPackName}
 
-Returns a string with the current shader pack name, empty if none is being used.
+返回当前光影包的名称；未使用光影包时返回空字符串。
 
 ```lua
 getShaderPackName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getShaderPackName()
@@ -270,19 +275,19 @@ client.getShaderPackName()
 
 ### <code>getClientBrand()</code> \{#getClientBrand}
 
-Returns the "version type" of your client, usually the client modloader brand
+返回客户端的“版本类型”，通常是客户端模组加载器的品牌名。
 
 ```lua
 getClientBrand()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getClientBrand()
@@ -292,21 +297,21 @@ client.getClientBrand()
 
 ### <code>getServerBrand()</code> \{#getServerBrand}
 
-Returns the type of server you're on
+返回你所在服务器的类型。
 
-In singleplayer, this is "Integrated"
+在单人游戏中，该值为“Integrated”。
 
 ```lua
 getServerBrand()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getServerBrand()
@@ -314,23 +319,23 @@ client.getServerBrand()
 
 ---
 
-## Client Camera
+## 客户端相机
 
 ### <code>getCameraPos()</code> \{#getCameraPos}
 
-Returns the position of the viewer's camera
+返回观察者相机的坐标。
 
 ```lua
 getCameraPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getCameraPos()
@@ -340,19 +345,19 @@ client.getCameraPos()
 
 ### <code>getCameraRot()</code> \{#getCameraRot}
 
-Returns the rotation of the viewer's camera
+返回观察者相机的旋转。
 
 ```lua
 getCameraRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getCameraRot()
@@ -362,19 +367,19 @@ client.getCameraRot()
 
 ### <code>getCameraDir()</code> \{#getCameraDir}
 
-Returns a unit vector pointing in the direction that the camera is facing
+返回一个指向相机朝向的单位向量。
 
 ```lua
 getCameraDir()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getCameraDir()
@@ -384,19 +389,19 @@ client.getCameraDir()
 
 ### <code>getCameraEntity()</code> \{#getCameraEntity}
 
-Returns the entity the camera is currently targeting, so returns the entity you are currently spectating, including yourself
+返回相机当前指向的实体，也就是你正在旁观的实体，包括你自己。
 
 ```lua
 getCameraEntity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[EntityAPI](/globals/Player/Entity)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getCameraEntity()
@@ -406,19 +411,19 @@ client.getCameraEntity()
 
 ### <code>getFOV()</code> \{#getFOV}
 
-Returns the current FOV option of the client, not including additional effects such as speed or sprinting
+返回客户端当前的 FOV 设置值，不包含速度、疾跑等额外效果的影响。
 
 ```lua
 getFOV()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getFOV()
@@ -428,19 +433,19 @@ client.getFOV()
 
 ### <code>getWindowSize()</code> \{#getWindowSize}
 
-Returns the size of the Minecraft window in pixels, as (width, height)
+以像素为单位返回 Minecraft 窗口的尺寸，格式为（宽度，高度）。
 
 ```lua
 getWindowSize()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getWindowSize()
@@ -450,19 +455,19 @@ client.getWindowSize()
 
 ### <code>getScaledWindowSize()</code> \{#getScaledWindowSize}
 
-Returns the size of the window in Minecraft's internal GUI units
+返回窗口在 Minecraft 内部 GUI 单位下的尺寸。
 
 ```lua
 getScaledWindowSize()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getScaledWindowSize()
@@ -472,21 +477,21 @@ client.getScaledWindowSize()
 
 ### <code>getGuiScale()</code> \{#getGuiScale}
 
-Returns the current value of your Gui Scale setting
+返回你当前“GUI 缩放”设置的值。
 
-If you use auto, then it gets the actual current scale
+如果设置为自动，则返回当前实际生效的缩放值。
 
 ```lua
 getGuiScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getGuiScale()
@@ -496,19 +501,19 @@ client.getGuiScale()
 
 ### <code>getMousePos()</code> \{#getMousePos}
 
-Returns the position of the mouse in pixels, relative to the top-left corner
+以像素为单位返回鼠标位置，坐标相对于窗口左上角。
 
 ```lua
 getMousePos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getMousePos()
@@ -516,23 +521,23 @@ client.getMousePos()
 
 ---
 
-## Client State
+## 客户端状态
 
 ### <code>isPaused()</code> \{#isPaused}
 
-Returns true if the client is paused
+如果客户端已暂停，则返回 true。
 
 ```lua
 isPaused()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.isPaused()
@@ -542,19 +547,19 @@ client.isPaused()
 
 ### <code>isHudEnabled()</code> \{#isHudEnabled}
 
-Returns true if the hud is enabled (F1 disables the HUD)
+如果 HUD 已启用，则返回 true（按 F1 可关闭 HUD）。
 
 ```lua
 isHudEnabled()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.isHudEnabled()
@@ -564,19 +569,19 @@ client.isHudEnabled()
 
 ### <code>isDebugOverlayEnabled()</code> \{#isDebugOverlayEnabled}
 
-Returns true if the F3 screen is currently open
+如果 F3 调试界面当前已打开，则返回 true。
 
 ```lua
 isDebugOverlayEnabled()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.isDebugOverlayEnabled()
@@ -586,19 +591,19 @@ client.isDebugOverlayEnabled()
 
 ### <code>getActiveResourcePacks()</code> \{#getActiveResourcePacks}
 
-Returns a table with the active resource pack names
+返回包含已启用资源包名称的 table。
 
 ```lua
 getActiveResourcePacks()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getActiveResourcePacks()
@@ -608,25 +613,25 @@ client.getActiveResourcePacks()
 
 ### <code>hasResource()</code> \{#hasResource}
 
-Checks if the specific resource exists within the client resources
+检查指定资源是否存在于客户端资源中。
 
 ```lua
 hasResource(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.hasResource()
@@ -636,19 +641,19 @@ client.hasResource()
 
 ### <code>getActiveLang()</code> \{#getActiveLang}
 
-Returns a string representation of the current game language
+返回当前游戏语言的字符串表示。
 
 ```lua
 getActiveLang()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getActiveLang()
@@ -658,19 +663,19 @@ client.getActiveLang()
 
 ### <code>isWindowFocused()</code> \{#isWindowFocused}
 
-Returns true if the Minecraft window is currently focused
+如果 Minecraft 窗口当前处于焦点状态，则返回 true。
 
 ```lua
 isWindowFocused()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.isWindowFocused()
@@ -680,21 +685,21 @@ client.isWindowFocused()
 
 ### <code>getCurrentEffect()</code> \{#getCurrentEffect}
 
-Returns the path to the currently applied shader, used when spectating an entity that has different vision than normal
+返回当前应用的着色器路径，用于旁观视野与普通情况不同的实体时。
 
-Normally returns nil
+通常返回 nil。
 
 ```lua
 getCurrentEffect()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getCurrentEffect()
@@ -702,23 +707,23 @@ client.getCurrentEffect()
 
 ---
 
-## Stats
+## 统计
 
 ### <code>getEntityCount()</code> \{#getEntityCount}
 
-Returns the number of currently loaded entities
+返回当前已加载的实体数量。
 
 ```lua
 getEntityCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getEntityCount()
@@ -728,21 +733,21 @@ client.getEntityCount()
 
 ### <code>getEntityStatistics()</code> \{#getEntityStatistics}
 
-Returns a string containing information about the loaded entities on the client
+返回包含客户端已加载实体信息的字符串。
 
-This string appears in the F3 menu
+该字符串会显示在 F3 菜单中。
 
 ```lua
 getEntityStatistics()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getEntityStatistics()
@@ -752,19 +757,19 @@ client.getEntityStatistics()
 
 ### <code>getServerData()</code> \{#getServerData}
 
-Returns a table with information on the currently connected server (also for singleplayer worlds)
+返回包含当前连接服务器信息的 table（单人世界同样适用）。
 
 ```lua
 getServerData()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getServerData()
@@ -774,19 +779,19 @@ client.getServerData()
 
 ### <code>getDate()</code> \{#getDate}
 
-Returns a table with information about the client's current time
+返回包含客户端当前时间信息的 table。
 
 ```lua
 getDate()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getDate()
@@ -796,19 +801,19 @@ client.getDate()
 
 ### <code>getSystemTime()</code> \{#getSystemTime}
 
-Returns the current system time in milliseconds
+返回当前系统时间，单位为毫秒。
 
 ```lua
 getSystemTime()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getSystemTime()
@@ -818,21 +823,21 @@ client.getSystemTime()
 
 ### <code>getFPS()</code> \{#getFPS}
 
-Gets the FPS of the client
+获取客户端的 FPS。
 
-Returns 0 if the fps counter isn't ready yet (or if your PC is just that bad)
+如果 FPS 计数器尚未就绪，则返回 0（也可能是你的电脑确实太慢了）。
 
 ```lua
 getFPS()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getFPS()
@@ -842,21 +847,21 @@ client.getFPS()
 
 ### <code>getFPSString()</code> \{#getFPSString}
 
-Gets the FPS string of the client, displayed in the F3 menu
+获取客户端的 FPS 字符串，该字符串显示在 F3 菜单中。
 
-Contains info on the fps, the fps limit, vsync, cloud types, and biome blend radius
+其中包含 FPS、FPS 上限、垂直同步、云类型和生物群系混合半径等信息。
 
 ```lua
 getFPSString()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getFPSString()
@@ -866,21 +871,21 @@ client.getFPSString()
 
 ### <code>getFrameTime()</code> \{#getFrameTime}
 
-Returns the current fraction between the last tick and the next tick
+返回上一个 tick 到下一个 tick 之间的当前进度比例。
 
-This is the value used as "delta" in the RENDER event
+这就是 RENDER 事件中作为“delta”传入的值。
 
 ```lua
 getFrameTime()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getFrameTime()
@@ -890,21 +895,21 @@ client.getFrameTime()
 
 ### <code>getSoundStatistics()</code> \{#getSoundStatistics}
 
-Returns a string containing information about the currently playing sounds on the client
+返回包含客户端当前正在播放的声音信息的字符串。
 
-This string appears in the F3 menu
+该字符串会显示在 F3 菜单中。
 
 ```lua
 getSoundStatistics()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getSoundStatistics()
@@ -914,19 +919,19 @@ client.getSoundStatistics()
 
 ### <code>getMaxMemory()</code> \{#getMaxMemory}
 
-Returns the maximum amount of memory that Minecraft will try to use
+返回 Minecraft 会尝试使用的最大内存量。
 
 ```lua
 getMaxMemory()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getMaxMemory()
@@ -936,19 +941,19 @@ client.getMaxMemory()
 
 ### <code>getAllocatedMemory()</code> \{#getAllocatedMemory}
 
-Returns the maximum amount of memory that Minecraft could possibly use
+返回 Minecraft 最多可能使用的内存量。
 
 ```lua
 getAllocatedMemory()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getAllocatedMemory()
@@ -958,19 +963,19 @@ client.getAllocatedMemory()
 
 ### <code>getUsedMemory()</code> \{#getUsedMemory}
 
-Returns the number of bytes of memory Minecraft is currently using
+返回 Minecraft 当前已使用的内存字节数。
 
 ```lua
 getUsedMemory()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getUsedMemory()
@@ -980,21 +985,21 @@ client.getUsedMemory()
 
 ### <code>getChunkStatistics()</code> \{#getChunkStatistics}
 
-Returns a string containing information about the player's chunk
+返回包含玩家所在区块信息的字符串。
 
-This string appears in the F3 menu
+该字符串会显示在 F3 菜单中。
 
 ```lua
 getChunkStatistics()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getChunkStatistics()
@@ -1004,19 +1009,19 @@ client.getChunkStatistics()
 
 ### <code>getParticleCount()</code> \{#getParticleCount}
 
-Returns the number of currently loaded particles
+返回当前已加载的粒子数量。
 
 ```lua
 getParticleCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getParticleCount()
@@ -1026,19 +1031,19 @@ client.getParticleCount()
 
 ### <code>isIntegratedServer()</code> \{#isIntegratedServer}
 
-Returns true if the player's connected server is singleplayer
+如果玩家连接的服务器是单人游戏，则返回 true。
 
 ```lua
 isIntegratedServer()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/Types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.isIntegratedServer()
@@ -1046,23 +1051,23 @@ client.isIntegratedServer()
 
 ---
 
-## Misc
+## 其他
 
 ### <code>getActionbar()</code> \{#getActionbar}
 
-Returns the current actionbar text, or nil if the action bar isn't visible
+返回当前动作栏文本；动作栏不可见时返回 nil。
 
 ```lua
 getActionbar()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getActionbar()
@@ -1072,27 +1077,27 @@ client.getActionbar()
 
 ### <code>getAtlas()</code> \{#getAtlas}
 
-Returns a TextureAtlasAPI object with information about the given atlas
+返回一个 TextureAtlasAPI 对象，包含指定图集的信息。
 
-Returns nil if the atlas was not found
+如果未找到该图集，则返回 nil。
 
 ```lua
 getAtlas(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                        | Description |
-| ----------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[TextureAtlas](/globals/Textures/TextureAtlas)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getAtlas()
@@ -1102,27 +1107,27 @@ client.getAtlas()
 
 ### <code>getEnum()</code> \{#getEnum}
 
-Return an array containing the entries in the given enum
+返回包含指定枚举各项的数组。
 
-Enums can be found in /figura docs enums
+枚举列表可通过 /figura docs enums 查看。
 
 ```lua
 getEnum(enumName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
-| -------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | enumName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getEnum("ParentTypes")
@@ -1132,27 +1137,27 @@ client.getEnum("ParentTypes")
 
 ### <code>getRegistry()</code> \{#getRegistry}
 
-Returns a list of all values in the specified registry
+返回指定注册表中所有值的列表。
 
-See the `registries` enum for a list of valid registries
+有效注册表的列表见 `registries` 枚举。
 
 ```lua
 getRegistry(registryName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name         | Type                                            | Description | Default |
-| ------------ | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | registryName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 for _, variant in ipairs(client.getRegistry("frog_variant")) do
@@ -1164,19 +1169,19 @@ end
 
 ### <code>getScoreboard()</code> \{#getScoreboard}
 
-Returns data about the current scoreboard(s). Multiple scoreboards can be visible at the same time (sidebar, team sidebar, list, and below name), so each scoreboard is grouped by its display location
+返回当前记分板的数据。多个记分板可以同时显示（侧边栏、队伍侧边栏、列表和名称下方），因此每个记分板会按显示位置分组。
 
 ```lua
 getScoreboard()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getScoreboard()
@@ -1186,19 +1191,19 @@ client.getScoreboard()
 
 ### <code>getSubtitle()</code> \{#getSubtitle}
 
-Returns the current subtitle text, or nil if the title or subtitle isn't visible
+返回当前副标题文本；标题或副标题不可见时返回 nil。
 
 ```lua
 getSubtitle()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getSubtitle()
@@ -1208,19 +1213,19 @@ client.getSubtitle()
 
 ### <code>getTabList()</code> \{#getTabList}
 
-Returns a table with the text shown in the tablist
+返回包含玩家列表（tablist）中所显示文本的 table。
 
 ```lua
 getTabList()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getTabList()
@@ -1230,52 +1235,52 @@ client.getTabList()
 
 ### <code>getTextDimensions()</code> \{#getTextDimensions}
 
-Returns the width and height of the given text, wrapping lines and trimming to a max width
+返回指定文本的宽度和高度，可按最大宽度换行并裁剪。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getTextDimensions(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getTextDimensions(text, maxWidth, wrap)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                              | Description | Default |
-| -------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text     | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
 | maxWidth | <code>[Integer](/tutorials/types/Numbers)</code>  | -           | -       |
 | wrap     | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 client.getTextDimensions("Example text", 40, true)
@@ -1285,25 +1290,25 @@ client.getTextDimensions("Example text", 40, true)
 
 ### <code>getTextHeight()</code> \{#getTextHeight}
 
-Returns the height of the given text in pixels
+以像素为单位返回指定文本的高度。
 
 ```lua
 getTextHeight(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getTextHeight("Example text")
@@ -1313,27 +1318,27 @@ client.getTextHeight("Example text")
 
 ### <code>getTextWidth()</code> \{#getTextWidth}
 
-Returns the width of the given text in pixels
+以像素为单位返回指定文本的宽度。
 
-In case of multiple lines, return the largest width of all lines
+文本有多行时，返回所有行中最宽的一行宽度。
 
 ```lua
 getTextWidth(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getTextWidth("Example text")
@@ -1343,19 +1348,19 @@ client.getTextWidth("Example text")
 
 ### <code>getTitle()</code> \{#getTitle}
 
-Returns the current title text, or nil if the title isn't visible
+返回当前标题文本；标题不可见时返回 nil。
 
 ```lua
 getTitle()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.getTitle()
@@ -1365,55 +1370,55 @@ client.getTitle()
 
 ### <code>getTranslatedString()</code> \{#getTranslatedString}
 
-Returns the translated string of the given key
+返回指定键对应的翻译字符串。
 
-Translation is done using the current client language
+翻译使用客户端当前语言。
 
-Optionally takes a single argument, or a list with all arguments, that will populate the translation
+还可以额外传入单个参数，或包含全部参数的列表，用于填充翻译文本。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getTranslatedString(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getTranslatedString(text, args)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 | args | <code>AnyType</code>                            | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 client.getTranslatedString("figura.gui.wardrobe.drop_files")
@@ -1423,22 +1428,22 @@ client.getTranslatedString("figura.gui.wardrobe.drop_files")
 
 ### <code>generateUUID()</code> \{#generateUUID}
 
-Generates a random UUID
+生成一个随机 UUID。
 
 ```lua
 generateUUID()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | uuid[1]     |
 | <code>[Integer](/tutorials/types/Numbers)</code> | uuid[2]     |
 | <code>[Integer](/tutorials/types/Numbers)</code> | uuid[3]     |
 | <code>[Integer](/tutorials/types/Numbers)</code> | uuid[4]     |
 
-**Example:**
+**示例：**
 
 ```lua
 local a, b, c, d = client.generateUUID()
@@ -1448,28 +1453,28 @@ local a, b, c, d = client.generateUUID()
 
 ### <code>intUUIDToString()</code> \{#intUUIDToString}
 
-Converts an int array UUID (as 4 separated arguments) into its hexadecimal string representation
+把整数数组形式的 UUID（以 4 个独立参数传入）转换为十六进制字符串表示。
 
 ```lua
 intUUIDToString(a, b, c, d)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | a    | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | b    | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | c    | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | d    | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.intUUIDToString()
@@ -1479,19 +1484,19 @@ client.intUUIDToString()
 
 ### <code>listAtlases()</code> \{#listAtlases}
 
-Returns a list of all registered atlases paths
+返回所有已注册图集的路径列表。
 
 ```lua
 listAtlases()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 client.listAtlases()
@@ -1501,28 +1506,28 @@ client.listAtlases()
 
 ### <code>uuidToIntArray()</code> \{#uuidToIntArray}
 
-Converts a string UUID into its int array representation, returning four seperate integers
+把字符串形式的 UUID 转换为整数数组表示，返回四个独立的整数。
 
 ```lua
 uuidToIntArray(uuid)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | uuid | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | uuid[1]     |
 | <code>[Integer](/tutorials/types/Numbers)</code> | uuid[2]     |
 | <code>[Integer](/tutorials/types/Numbers)</code> | uuid[3]     |
 | <code>[Integer](/tutorials/types/Numbers)</code> | uuid[4]     |
 
-**Example:**
+**示例：**
 
 ```lua
 local a, b, c, d = client.uuidToIntArray("5003b2ce-7a8d-4c56-8b91-ec705985fe08")

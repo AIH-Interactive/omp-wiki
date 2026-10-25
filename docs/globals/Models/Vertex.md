@@ -1,13 +1,18 @@
+---
+title: Vertex（顶点）
+sidebar_label: Vertex（顶点）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A vertex object
+顶点对象
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
-For this entire page assume:
+本页假定：
 
 ```lua
 local myVertex = models:getVertices("myTexture")[1]
@@ -17,54 +22,54 @@ local myVertex = models:getVertices("myTexture")[1]
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the position vector of this vertex
+设置该顶点的位置向量
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description               |
-| --------------------------------------------- | ------------------------- |
-| <code>[Vertex](/globals/Models/Vertex)</code> | Returns self for chaining |
+| 类型                                          | 说明                 |
+| --------------------------------------------- | -------------------- |
+| <code>[Vertex](/globals/Models/Vertex)</code> | 返回自身以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description               |
-| --------------------------------------------- | ------------------------- |
-| <code>[Vertex](/globals/Models/Vertex)</code> | Returns self for chaining |
+| 类型                                          | 说明                 |
+| --------------------------------------------- | -------------------- |
+| <code>[Vertex](/globals/Models/Vertex)</code> | 返回自身以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myVertex:setPos(1, 2, 3)
@@ -74,19 +79,19 @@ myVertex:setPos(1, 2, 3)
 
 ### <code>getPos()</code> \{#getPos}
 
-Returns the position vector of this vertex
+返回该顶点的位置向量
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myVertex:getPos()
@@ -96,53 +101,53 @@ myVertex:getPos()
 
 ### <code>setUV()</code> \{#setUV}
 
-**Aliases:** `uv()`
+**别名：** `uv()`
 
-Sets the UV vector of this vertex
+设置该顶点的 UV 向量
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setUV(UV)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| UV   | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| UV   | <code>[Vector2](/globals/Vectors/Vector2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description               |
-| --------------------------------------------- | ------------------------- |
-| <code>[Vertex](/globals/Models/Vertex)</code> | Returns self for chaining |
+| 类型                                          | 说明                 |
+| --------------------------------------------- | -------------------- |
+| <code>[Vertex](/globals/Models/Vertex)</code> | 返回自身以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setUV(u, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| u    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| v    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| u    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| v    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description               |
-| --------------------------------------------- | ------------------------- |
-| <code>[Vertex](/globals/Models/Vertex)</code> | Returns self for chaining |
+| 类型                                          | 说明                 |
+| --------------------------------------------- | -------------------- |
+| <code>[Vertex](/globals/Models/Vertex)</code> | 返回自身以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myVertex:setUV(8, 8)
@@ -152,19 +157,19 @@ myVertex:setUV(8, 8)
 
 ### <code>getUV()</code> \{#getUV}
 
-Returns the UV vector of this vertex
+返回该顶点的 UV 向量
 
 ```lua
 getUV()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector2](/globals/Vectors/Vector2)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myVertex:getUV()
@@ -174,54 +179,54 @@ myVertex:getUV()
 
 ### <code>setNormal()</code> \{#setNormal}
 
-**Aliases:** `normal()`
+**别名：** `normal()`
 
-Sets the normal vector of this vertex
+设置该顶点的法线向量
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setNormal(normal)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
-| ------ | ------------------------------------------------ | ----------- | ------- |
-| normal | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称   | 类型                                             | 说明 | 默认值 |
+| ------ | ------------------------------------------------ | ---- | ------ |
+| normal | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**66
+**返回值：**
 
-| Type                                          | Description               |
-| --------------------------------------------- | ------------------------- |
-| <code>[Vertex](/globals/Models/Vertex)</code> | Returns self for chaining |
+| 类型                                          | 说明                 |
+| --------------------------------------------- | -------------------- |
+| <code>[Vertex](/globals/Models/Vertex)</code> | 返回自身以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setNormal(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description               |
-| --------------------------------------------- | ------------------------- |
-| <code>[Vertex](/globals/Models/Vertex)</code> | Returns self for chaining |
+| 类型                                          | 说明                 |
+| --------------------------------------------- | -------------------- |
+| <code>[Vertex](/globals/Models/Vertex)</code> | 返回自身以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myVertex:setNormal(0, 1, 0)
@@ -231,19 +236,19 @@ myVertex:setNormal(0, 1, 0)
 
 ### <code>getNormal()</code> \{#getNormal}
 
-Returns the normal vector of this vertex
+返回该顶点的法线向量
 
 ```lua
 getNormal()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myVertex:getNormal()

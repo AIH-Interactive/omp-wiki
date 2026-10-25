@@ -1,10 +1,11 @@
 {
-  "label": "Data",
+  "label": "数据",
   "link": {
     "type": "generated-index",
-    "description": "List of all classes in the Data API."
+    "description": "数据分类下的页面。",
+    "slug": "/category/data"
   },
   "customProps": {
-    "description": "A global API that provides functions to work with data related features"
+    "description": "数据相关的全局对象说明。"
   }
 }

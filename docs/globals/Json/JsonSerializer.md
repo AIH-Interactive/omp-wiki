@@ -1,32 +1,37 @@
-An object that is made for serializing and deserializing JSON strings with specific settings
+---
+title: JsonSerializer（JSON 序列化器）
+sidebar_label: JsonSerializer（JSON 序列化器）
+---
+
+用于按指定设置序列化与反序列化 JSON 字符串的对象
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>deserialize()</code> \{#deserialize}
 
-Serializes provided JSON string to a lua value
+把传入的 JSON 字符串反序列化为 Lua 值
 
 ```lua
 deserialize(str)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| str  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| str  | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                 | Description |
-| -------------------- | ----------- |
-| <code>AnyType</code> | -           |
+| 类型                 | 说明 |
+| -------------------- | ---- |
+| <code>AnyType</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -36,25 +41,25 @@ deserialize(str)
 
 ### <code>serialize()</code> \{#serialize}
 
-Serializes provided value to a JSON string
+把传入的值序列化为 JSON 字符串
 
 ```lua
 serialize(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                 | Description | Default |
-| ---- | -------------------- | ----------- | ------- |
-| val  | <code>AnyType</code> | -           | -       |
+| 名称 | 类型                 | 说明 | 默认值 |
+| ---- | -------------------- | ---- | ------ |
+| val  | <code>AnyType</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

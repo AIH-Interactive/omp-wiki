@@ -1,47 +1,49 @@
 ---
 sidebar_position: 1
+title: ModelPart（模型部件）
+sidebar_label: ModelPart（模型部件）
 ---
 
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Represents a node in the model tree, basically a group/cube/mesh in Blockbench
+表示模型树中的一个节点，在 Blockbench 中通常对应一个组、立方体或网格。
 
-Each bbmodel file is itself a ModelPart, and all of your models are contained in a global ModelPart called `models`
+每个 bbmodel 文件本身就是一个 ModelPart，你的所有模型都包含在一个名为 `models` 的全局 ModelPart 中。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
 ---
 
-## Transformations
+## 变换
 
 ### <code>setVisible()</code> \{#setVisible}
 
-**Aliases:** `visible()`
+**别名：** `visible()`
 
-Sets this part to be visible or invisible
+设置该部件显示或隐藏。
 
-The default value is nil, meaning the part copies its visibility from its parent part
+默认值为 nil，表示该部件沿用父部件的可见性。
 
 ```lua
 setVisible(visible)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------- | ------------------------------------------------- | ----------- | ------- |
 | visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setVisible(false)
@@ -51,21 +53,21 @@ models:setVisible(false)
 
 ### <code>getVisible()</code> \{#getVisible}
 
-Gets whether or not this model part is visible
+获取该模型部件是否可见。
 
-The default value is nil, meaning it copies the visibility of its parent part during rendering
+默认值为 nil，表示渲染时沿用父部件的可见性。
 
 ```lua
 getVisible()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getVisible()
@@ -75,60 +77,60 @@ models:getVisible()
 
 ### <code>setRot()</code> \{#setRot}
 
-**Aliases:** `rot()`
+**别名：** `rot()`
 
-Sets the absolute rotation for this part
+设置该部件的绝对旋转。
 
-Nil values for rotation are assumed to be 0
+旋转值为 nil 时按 0 处理。
 
-Angles are given in degrees
+角度以度为单位。
 
-For relative rotation values, check out the "offset" rot functions
+如需相对旋转值，请参阅 “offset” 系列旋转函数。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setRot(rot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | rot  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setRot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setRot(0, 90, 0)
@@ -138,21 +140,21 @@ models:setRot(0, 90, 0)
 
 ### <code>getRot()</code> \{#getRot}
 
-Gets the rotation of the model part, including its rotation in Blockbench
+获取模型部件的旋转，包含它在 Blockbench 中的旋转。
 
-For relative rotation values, check out the "offset" rot functions
+如需相对旋转值，请参阅 “offset” 系列旋转函数。
 
 ```lua
 getRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getRot()
@@ -162,56 +164,56 @@ models:getRot()
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the position offset for this part from its Blockbench position
+设置该部件相对于 Blockbench 中位置的坐标偏移。
 
-Nil values for position are assumed to be 0
+坐标值为 nil 时按 0 处理。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setPos(0, 5, 0)
@@ -221,21 +223,21 @@ models:setPos(0, 5, 0)
 
 ### <code>getPos()</code> \{#getPos}
 
-Gets the position of the model part, as an offset from its position in Blockbench
+获取模型部件的位置，即相对于它在 Blockbench 中位置的偏移。
 
-Only changes from \{0,0,0} when you call setPos()
+只有调用 setPos() 后才会偏离 \{0,0,0}。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getPos()
@@ -245,56 +247,56 @@ models:getPos()
 
 ### <code>setScale()</code> \{#setScale}
 
-**Aliases:** `scale()`
+**别名：** `scale()`
 
-Sets the scale factor for this part
+设置该部件的缩放系数。
 
-Nil values for scale are assumed to be 1
+缩放值为 nil 时按 1 处理。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setScale(scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setScale(2, 2, 2)
@@ -304,21 +306,21 @@ models:setScale(2, 2, 2)
 
 ### <code>getScale()</code> \{#getScale}
 
-Gets the scale of the model part, as a multiple of its Blockbench size
+获取模型部件的缩放，即相对于它在 Blockbench 中尺寸的倍数。
 
-Only changes from \{1,1,1} when you call setScale()
+只有调用 setScale() 后才会偏离 \{1,1,1}。
 
 ```lua
 getScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getScale()
@@ -328,58 +330,58 @@ models:getScale()
 
 ### <code>setPivot()</code> \{#setPivot}
 
-**Aliases:** `pivot()`
+**别名：** `pivot()`
 
-Sets the absolute pivot for this part
+设置该部件的绝对轴心。
 
-Nil values are assumed to be 0
+值为 nil 时按 0 处理。
 
-For relative pivot offsets, check out the "offset" pivot functions
+如需相对轴心偏移，请参阅 “offset” 系列轴心函数。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPivot(pivot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | pivot | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPivot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setPivot(0, 5, 0)
@@ -389,21 +391,21 @@ models:setPivot(0, 5, 0)
 
 ### <code>getPivot()</code> \{#getPivot}
 
-Gets the pivot point of the model part, including its pivot in Blockbench
+获取模型部件的轴心点，包含它在 Blockbench 中的轴心。
 
-For relative values, check out the "offset" pivot functions
+如需相对值，请参阅 “offset” 系列轴心函数。
 
 ```lua
 getPivot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getPivot()
@@ -413,60 +415,60 @@ models:getPivot()
 
 ### <code>setOffsetRot()</code> \{#setOffsetRot}
 
-**Aliases:** `offsetRot()`
+**别名：** `offsetRot()`
 
-Sets the rotation offset for this part
+设置该部件的旋转偏移。
 
-Nil values for rotation are assumed to be 0
+旋转值为 nil 时按 0 处理。
 
-Angles are given in degrees
+角度以度为单位。
 
-For absolute rotation values, check out the non-offset rot functions
+如需绝对旋转值，请参阅不带 offset 的旋转函数。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOffsetRot(offsetRot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | --------- | ------------------------------------------------ | ----------- | ------- |
 | offsetRot | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOffsetRot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setOffsetRot(0, 90, 0)
@@ -476,21 +478,21 @@ models:setOffsetRot(0, 90, 0)
 
 ### <code>getOffsetRot()</code> \{#getOffsetRot}
 
-Gets the rotation offset of the model part, offset from its rotation in Blockbench
+获取模型部件的旋转偏移，即相对于它在 Blockbench 中旋转的偏移。
 
-For absolute rotation values, check out the non-offset rot functions
+如需绝对旋转值，请参阅不带 offset 的旋转函数。
 
 ```lua
 getOffsetRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getOffsetRot()
@@ -500,58 +502,58 @@ models:getOffsetRot()
 
 ### <code>setOffsetScale()</code> \{#setOffsetScale}
 
-**Aliases:** `offsetScale()`
+**别名：** `offsetScale()`
 
-Sets the scale offset for this part
+设置该部件的缩放偏移。
 
-Nil values are assumed to be 1
+值为 nil 时按 1 处理。
 
-For absolute scale values, check out the non-offset rot functions
+如需绝对缩放值，请参阅不带 offset 的缩放函数。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOffsetScale(offsetScale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name        | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----------- | ------------------------------------------------ | ----------- | ------- |
 | offsetScale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOffsetScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setOffsetScale(2, 2, 2)
@@ -561,21 +563,21 @@ models:setOffsetScale(2, 2, 2)
 
 ### <code>getOffsetScale()</code> \{#getOffsetScale}
 
-Gets the scale offset of the model part, offset from its default scale
+获取模型部件的缩放偏移，即相对于默认缩放的偏移。
 
-For absolute scale values, check out the non-offset rot functions
+如需绝对缩放值，请参阅不带 offset 的缩放函数。
 
 ```lua
 getOffsetScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getOffsetScale()
@@ -585,58 +587,58 @@ models:getOffsetScale()
 
 ### <code>setOffsetPivot()</code> \{#setOffsetPivot}
 
-**Aliases:** `offsetPivot()`
+**别名：** `offsetPivot()`
 
-Sets the pivot offset point for this part (multiplicative)
+设置该部件的轴心偏移点（乘算）。
 
-Nil values are assumed to be 0
+值为 nil 时按 0 处理。
 
-For absolute pivot point values, check out the non-offset pivot functions
+如需绝对轴心点，请参阅不带 offset 的轴心函数。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOffsetPivot(offsetPivot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name        | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----------- | ------------------------------------------------ | ----------- | ------- |
 | offsetPivot | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOffsetPivot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setOffsetPivot(0, 5, 0)
@@ -646,21 +648,21 @@ models:setOffsetPivot(0, 5, 0)
 
 ### <code>getOffsetPivot()</code> \{#getOffsetPivot}
 
-Gets the pivot offset of the model part, offset from its pivot in Blockbench
+获取模型部件的轴心偏移，即相对于它在 Blockbench 中轴心的偏移。
 
-For absolute pivot point values, check out the non-offset pivot functions
+如需绝对轴心点，请参阅不带 offset 的轴心函数。
 
 ```lua
 getOffsetPivot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getOffsetPivot()
@@ -670,33 +672,33 @@ models:getOffsetPivot()
 
 ### <code>setMatrix()</code> \{#setMatrix}
 
-**Aliases:** `matrix()`
+**别名：** `matrix()`
 
-Sets the given matrix as the position matrix for this model part
+将给定矩阵设为该模型部件的位置矩阵。
 
-The normal matrix is automatically calculated as the inverse transpose of this matrix
+法线矩阵会自动按该矩阵的逆转置计算。
 
-Calling this DOES NOT CHANGE the values of position, rot, or scale in the model part
+调用该函数不会改变模型部件中 position、rot、scale 的数值。
 
-If you call setPos() or a similar function, the effects of setMatrix() will be overwritten
+如果调用 setPos() 或类似函数，setMatrix() 的效果会被覆盖。
 
 ```lua
 setMatrix(matrix)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------ | ------------------------------------------------- | ----------- | ------- |
 | matrix | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setMatrix(matrices.mat4())
@@ -706,19 +708,19 @@ models:setMatrix(matrices.mat4())
 
 ### <code>getPositionMatrix()</code> \{#getPositionMatrix}
 
-Recalculates the matrix for this model part, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据该模型部件当前的位置、旋转、缩放和轴心重新计算矩阵，然后返回该矩阵。
 
 ```lua
 getPositionMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getPositionMatrix()
@@ -728,21 +730,21 @@ models:getPositionMatrix()
 
 ### <code>getPositionMatrixRaw()</code> \{#getPositionMatrixRaw}
 
-Returns the position matrix for this model part
+返回该模型部件的位置矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before getting it
+Raw 版本的区别在于：获取前不会重新计算矩阵。
 
 ```lua
 getPositionMatrixRaw()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getPositionMatrixRaw()
@@ -752,19 +754,19 @@ models:getPositionMatrixRaw()
 
 ### <code>getNormalMatrix()</code> \{#getNormalMatrix}
 
-Recalculates the normal matrix for this model part, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据该模型部件当前的位置、旋转、缩放和轴心重新计算法线矩阵，然后返回该矩阵。
 
 ```lua
 getNormalMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getNormalMatrix()
@@ -774,21 +776,21 @@ models:getNormalMatrix()
 
 ### <code>getNormalMatrixRaw()</code> \{#getNormalMatrixRaw}
 
-Returns the normal matrix for this model part
+返回该模型部件的法线矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before returning it
+Raw 版本的区别在于：返回前不会重新计算矩阵。
 
 ```lua
 getNormalMatrixRaw()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getNormalMatrixRaw()
@@ -796,23 +798,23 @@ models:getNormalMatrixRaw()
 
 ---
 
-## Part Information
+## 部件信息
 
 ### <code>getName()</code> \{#getName}
 
-The name of this model part
+该模型部件的名称。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getName()
@@ -822,19 +824,19 @@ models:getName()
 
 ### <code>getType()</code> \{#getType}
 
-Returns whether this part is a "GROUP", a "CUBE", or a "MESH"
+返回该部件是 "GROUP"、"CUBE" 还是 "MESH"。
 
 ```lua
 getType()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getType()
@@ -844,19 +846,19 @@ models:getType()
 
 ### <code>getTrueRot()</code> \{#getTrueRot}
 
-Gets the true rotation of this model part, which is a sum of the rotation, the offset rotation and the animation position
+获取该模型部件的真实旋转，即旋转、偏移旋转与动画位置之和。
 
 ```lua
 getTrueRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getTrueRot()
@@ -866,19 +868,19 @@ models:getTrueRot()
 
 ### <code>getTruePos()</code> \{#getTruePos}
 
-Gets the true position of this model part, which is a sum of the position and the animation position
+获取该模型部件的真实位置，即位置与动画位置之和。
 
 ```lua
 getTruePos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getTruePos()
@@ -888,19 +890,19 @@ models:getTruePos()
 
 ### <code>getTrueScale()</code> \{#getTrueScale}
 
-Gets the true scale of this model part, which is a sum of the scale, the offset scale and the animation scale
+获取该模型部件的真实缩放，即缩放、偏移缩放与动画缩放之和。
 
 ```lua
 getTrueScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getTrueScale()
@@ -910,19 +912,19 @@ models:getTrueScale()
 
 ### <code>getTruePivot()</code> \{#getTruePivot}
 
-Gets the true pivot of this model part, which is a sum of the pivot and the offset pivot
+获取该模型部件的真实轴心，即轴心与轴心偏移之和。
 
 ```lua
 getTruePivot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getTruePivot()
@@ -932,27 +934,27 @@ models:getTruePivot()
 
 ### <code>partToWorldMatrix()</code> \{#partToWorldMatrix}
 
-Gets a matrix which transforms a point from this part's position to a world location
+获取一个矩阵，用于把点从该部件的位置变换到世界坐标。
 
-Recommended to use this in POST_RENDER, as by then the matrix is updated
+建议在 POST_RENDER 中使用，此时矩阵已更新。
 
-In RENDER it will be 1 frame behind the part's visual position for that frame
+在 RENDER 中，它会比该部件当帧的视觉位置落后 1 帧。
 
-Also, if the model is not rendered in-world, the part's matrix will not be updated
+另外，如果模型未在世界中渲染，该部件的矩阵不会更新。
 
-Paperdoll rendering and other UI renderings will not affect this matrix
+纸娃娃渲染和其他 UI 渲染不会影响该矩阵。
 
 ```lua
 partToWorldMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:partToWorldMatrix():apply()
@@ -960,35 +962,35 @@ models:partToWorldMatrix():apply()
 
 ---
 
-## Rendering
+## 渲染
 
 ### <code>setPrimaryRenderType()</code> \{#setPrimaryRenderType}
 
-**Aliases:** `primaryRenderType()`
+**别名：** `primaryRenderType()`
 
-Sets the current primary render type of this model part
+设置该模型部件当前的主渲染类型。
 
-Nil by default, meaning the part copies the primary render type of its parent during rendering
+默认为 nil，表示渲染时该部件沿用父部件的主渲染类型。
 
-Check the docs enum command for all render types
+全部渲染类型可通过 docs enum 命令查看。
 
 ```lua
 setPrimaryRenderType(renderType)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---------- | ----------------------------------------------- | ----------- | ------- |
 | renderType | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setPrimaryRenderType("END_PORTAL")
@@ -998,21 +1000,21 @@ models:setPrimaryRenderType("END_PORTAL")
 
 ### <code>getPrimaryRenderType()</code> \{#getPrimaryRenderType}
 
-Gets the current primary render type of this model part
+获取该模型部件当前的主渲染类型。
 
-Nil by default, meaning the part copies the primary render type of its parent
+默认为 nil，表示该部件沿用父部件的主渲染类型。
 
 ```lua
 getPrimaryRenderType()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getPrimaryRenderType() == "TRANSLUCENT_CULL"
@@ -1022,31 +1024,31 @@ models:getPrimaryRenderType() == "TRANSLUCENT_CULL"
 
 ### <code>setSecondaryRenderType()</code> \{#setSecondaryRenderType}
 
-**Aliases:** `secondaryRenderType()`
+**别名：** `secondaryRenderType()`
 
-Sets the current secondary render type of this model part
+设置该模型部件当前的次渲染类型。
 
-Nil by default, meaning the part copies the secondary render type of its parent during rendering
+默认为 nil，表示渲染时该部件沿用父部件的次渲染类型。
 
-Check the docs enum command for all render types
+全部渲染类型可通过 docs enum 命令查看。
 
 ```lua
 setSecondaryRenderType(renderType)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---------- | ----------------------------------------------- | ----------- | ------- |
 | renderType | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setSecondaryRenderType("GLINT")
@@ -1056,21 +1058,21 @@ models:setSecondaryRenderType("GLINT")
 
 ### <code>getSecondaryRenderType()</code> \{#getSecondaryRenderType}
 
-Gets the current secondary render type of this model part
+获取该模型部件当前的次渲染类型。
 
-Nil by default, meaning the part copies the secondary render type of its parent
+默认为 nil，表示该部件沿用父部件的次渲染类型。
 
 ```lua
 getSecondaryRenderType()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getSecondaryRenderType() == "LINES"
@@ -1080,31 +1082,31 @@ models:getSecondaryRenderType() == "LINES"
 
 ### <code>setOpacity()</code> \{#setOpacity}
 
-**Aliases:** `opacity()`
+**别名：** `opacity()`
 
-Sets the opacity multiplier of this part
+设置该部件的不透明度倍率。
 
-Note that opacity settings will only take effect if the part has a suitable Render Type for them, mainly TRANSLUCENT
+请注意，不透明度设置只有在部件使用合适的渲染类型时才会生效，主要是 TRANSLUCENT。
 
-Check out modelPart.setPrimaryRenderType() for how to do this
+具体做法请参阅 modelPart.setPrimaryRenderType()。
 
 ```lua
 setOpacity(opacity)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------- | ----------------------------------------------- | ----------- | ------- |
 | opacity | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setOpacity(0.5)
@@ -1114,23 +1116,23 @@ models:setOpacity(0.5)
 
 ### <code>getOpacity()</code> \{#getOpacity}
 
-Gets the opacity multiplier of this part
+获取该部件的不透明度倍率。
 
-Note that opacity settings will only take effect if the part has a suitable Render Type for them, mainly TRANSLUCENT
+请注意，不透明度设置只有在部件使用合适的渲染类型时才会生效，主要是 TRANSLUCENT。
 
-Check out modelPart.setPrimaryRenderType() for how to do this
+具体做法请参阅 modelPart.setPrimaryRenderType()。
 
 ```lua
 getOpacity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getOpacity()
@@ -1140,57 +1142,57 @@ models:getOpacity()
 
 ### <code>setLight()</code> \{#setLight}
 
-**Aliases:** `light()`
+**别名：** `light()`
 
-Sets the light level to be used when rendering this part
+设置渲染该部件时使用的光照等级。
 
-Values you give are 0 to 15, indicating the block light and sky light levels you want to use
+取值为 0 到 15，分别表示要使用的方块光与天空光等级。
 
-Passing nil will reset the lighting override for this part
+传入 nil 会清除该部件的自定义光照设置。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setLight(light)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | light | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setLight(blockLight, skyLight)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---------- | ------------------------------------------------ | ----------- | ------- |
 | blockLight | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | skyLight   | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- Example for mimicking vanilla lighting
@@ -1203,21 +1205,21 @@ models:setLight(blockLight, skyLight)
 
 ### <code>getLight()</code> \{#getLight}
 
-Gets the light level you set earlier to this part
+获取你之前为该部件设置的光照等级。
 
-Does not interact with Minecraft's lighting system, only retrieving values you set earlier with setLight()
+该函数不与 Minecraft 的光照系统交互，只返回你之前用 setLight() 设置的值。
 
 ```lua
 getLight()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getLight()
@@ -1227,57 +1229,57 @@ models:getLight()
 
 ### <code>setOverlay()</code> \{#setOverlay}
 
-**Aliases:** `overlay()`
+**别名：** `overlay()`
 
-Sets the overlay color to be used when rendering this part
+设置渲染该部件时使用的叠加颜色。
 
-Values you give are 0 to 15, indicating the white overlay and the damage overlay levels you want to use
+取值为 0 到 15，分别表示要使用的白色叠加与受伤叠加等级。
 
-Passing nil will reset the overlay override for this part
+传入 nil 会清除该部件的自定义叠加设置。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOverlay(overlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------- | ------------------------------------------------ | ----------- | ------- |
 | overlay | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOverlay(whiteOverlay, hurtOverlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name         | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------------ | ------------------------------------------------ | ----------- | ------- |
 | whiteOverlay | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | hurtOverlay  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- Example for a hurt overlay
@@ -1289,21 +1291,21 @@ models:setOverlay(hurt and 0 or nil, 1)
 
 ### <code>getOverlay()</code> \{#getOverlay}
 
-Gets the overlay color you set earlier to this part
+获取你之前为该部件设置的叠加颜色。
 
-Does not interact with Minecraft's overlay system, only retrieving values you set earlier with setOverlay()
+该函数不与 Minecraft 的叠加系统交互，只返回你之前用 setOverlay() 设置的值。
 
 ```lua
 getOverlay()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getOverlay()
@@ -1313,56 +1315,56 @@ models:getOverlay()
 
 ### <code>setColor()</code> \{#setColor}
 
-**Aliases:** `color()`
+**别名：** `color()`
 
-Sets the color multiplier for this part for primary and secondary colors
+设置该部件的主颜色与次颜色的颜色倍率。
 
-Values are RGB from 0 to 1
+取值为 0 到 1 的 RGB 值。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | color | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setColor(0 / 255, 0 / 255, 255 / 255)
@@ -1372,21 +1374,21 @@ models:setColor(0 / 255, 0 / 255, 255 / 255)
 
 ### <code>getColor()</code> \{#getColor}
 
-Returns the average set color from this part, as adding the primary color with the secondary, then dividing them
+返回该部件设置的平均颜色，即主颜色与次颜色相加后取平均。
 
-Values are RGB from 0 to 1
+取值为 0 到 1 的 RGB 值。
 
 ```lua
 getColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getColor()
@@ -1396,56 +1398,56 @@ models:getColor()
 
 ### <code>setPrimaryColor()</code> \{#setPrimaryColor}
 
-**Aliases:** `primaryColor()`
+**别名：** `primaryColor()`
 
-Sets the primary color multiplier for this part
+设置该部件的主颜色倍率。
 
-Values are RGB from 0 to 1
+取值为 0 到 1 的 RGB 值。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPrimaryColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | color | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPrimaryColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setPrimaryColor(0 / 255, 0 / 255, 255 / 255)
@@ -1455,21 +1457,21 @@ models:setPrimaryColor(0 / 255, 0 / 255, 255 / 255)
 
 ### <code>getPrimaryColor()</code> \{#getPrimaryColor}
 
-Gets the primary color multiplier of this part
+获取该部件的主颜色倍率。
 
-Values are RGB from 0 to 1
+取值为 0 到 1 的 RGB 值。
 
 ```lua
 getPrimaryColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getPrimaryColor()
@@ -1479,56 +1481,56 @@ models:getPrimaryColor()
 
 ### <code>setSecondaryColor()</code> \{#setSecondaryColor}
 
-**Aliases:** `secondaryColor()`
+**别名：** `secondaryColor()`
 
-Sets the secondary color multiplier for this part
+设置该部件的次颜色倍率。
 
-Values are RGB from 0 to 1
+取值为 0 到 1 的 RGB 值。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setSecondaryColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | color | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setSecondaryColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setSecondaryColor(0 / 255, 0 / 255, 255 / 255)
@@ -1538,21 +1540,21 @@ models:setSecondaryColor(0 / 255, 0 / 255, 255 / 255)
 
 ### <code>getSecondaryColor()</code> \{#getSecondaryColor}
 
-Gets the secondary color multiplier of this part
+获取该部件的次颜色倍率。
 
-Values are RGB from 0 to 1
+取值为 0 到 1 的 RGB 值。
 
 ```lua
 getSecondaryColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getSecondaryColor()
@@ -1562,25 +1564,25 @@ models:getSecondaryColor()
 
 ### <code>setPreRender()</code> \{#setPreRender}
 
-Sets a function to run before this part starts being rendered
+设置在该部件开始渲染前执行的函数。
 
 ```lua
 setPreRender(function)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                                | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | --------------------------------------------------- | ----------- | ------- |
 | function | <code>[Function](/tutorials/types/Functions)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setPreRender(function()
@@ -1592,25 +1594,25 @@ end)
 
 ### <code>setMidRender()</code> \{#setMidRender}
 
-Sets a function to run during the middle of this part's rendering, after its matrices are calculated
+设置在该部件渲染过程中、矩阵计算完成后执行的函数。
 
 ```lua
 setMidRender(function)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                                | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | --------------------------------------------------- | ----------- | ------- |
 | function | <code>[Function](/tutorials/types/Functions)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setMidRender(function()
@@ -1622,25 +1624,25 @@ end)
 
 ### <code>setPostRender()</code> \{#setPostRender}
 
-Sets a function to run after this part and its children are rendered
+设置在该部件及其子部件渲染完成后执行的函数。
 
 ```lua
 setPostRender(function)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                                | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | --------------------------------------------------- | ----------- | ------- |
 | function | <code>[Function](/tutorials/types/Functions)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setPostRender(function()
@@ -1650,23 +1652,23 @@ end)
 
 ---
 
-## Animations
+## 动画
 
 ### <code>getAnimRot()</code> \{#getAnimRot}
 
-Gets the rotation offset provided by the currently active animation of this model part
+获取该模型部件当前动画提供的旋转偏移。
 
 ```lua
 getAnimRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getAnimRot()
@@ -1676,19 +1678,19 @@ models:getAnimRot()
 
 ### <code>getAnimPos()</code> \{#getAnimPos}
 
-Gets the position offset provided by the currently active animation of this model part
+获取该模型部件当前动画提供的坐标偏移。
 
 ```lua
 getAnimPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getAnimPos()
@@ -1698,19 +1700,19 @@ models:getAnimPos()
 
 ### <code>getAnimScale()</code> \{#getAnimScale}
 
-Gets the scale multiplier provided by the currently active animation of this model part
+获取该模型部件当前动画提供的缩放倍率。
 
 ```lua
 getAnimScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getAnimScale()
@@ -1720,19 +1722,19 @@ models:getAnimScale()
 
 ### <code>overrideVanillaRot()</code> \{#overrideVanillaRot}
 
-Returns if this part vanilla rotation is being overridden by an animation
+返回该部件的原版旋转是否正被动画覆盖。
 
 ```lua
 overrideVanillaRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:overrideVanillaRot()
@@ -1742,19 +1744,19 @@ models:overrideVanillaRot()
 
 ### <code>overrideVanillaPos()</code> \{#overrideVanillaPos}
 
-Returns if this part vanilla position is being overridden by an animation
+返回该部件的原版坐标是否正被动画覆盖。
 
 ```lua
 overrideVanillaPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:overrideVanillaPos()
@@ -1764,19 +1766,19 @@ models:overrideVanillaPos()
 
 ### <code>overrideVanillaScale()</code> \{#overrideVanillaScale}
 
-Returns if this part vanilla scale is being overridden by an animation
+返回该部件的原版缩放是否正被动画覆盖。
 
 ```lua
 overrideVanillaScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:overrideVanillaScale()
@@ -1784,83 +1786,83 @@ models:overrideVanillaScale()
 
 ---
 
-## Texturing
+## 纹理
 
 ### <code>setPrimaryTexture()</code> \{#setPrimaryTexture}
 
-**Aliases:** `primaryTexture()`
+**别名：** `primaryTexture()`
 
-Sets the primary texture override of this part
+设置该部件的主纹理覆盖。
 
-Check the TextureType types in the list docs
+可用的 TextureType 类型请查看列表文档。
 
-If using "resource", the second parameter should indicate the path to the Minecraft texture you want to use
+使用 "resource" 时，第二个参数应填要使用的 Minecraft 纹理路径。
 
-If using "custom", the second parameter should indicate a texture object
+使用 "custom" 时，第二个参数应填纹理对象。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPrimaryTexture(textureType)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name        | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----------- | ----------------------------------------------- | ----------- | ------- |
 | textureType | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPrimaryTexture(resource, path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | resource | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 | path     | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setPrimaryTexture(custom, texture)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------- | ------------------------------------------------- | ----------- | ------- |
 | custom  | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
 | texture | <code>[Texture](/globals/Textures/Texture)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- Vanilla Skin
@@ -1875,22 +1877,22 @@ models:setPrimaryTexture("Resource", "textures/entity/pig/pig.png")
 
 ### <code>getPrimaryTexture()</code> \{#getPrimaryTexture}
 
-Gets the primary texture of this part
+获取该部件的主纹理。
 
-Returns two values, first being the override type, second being the texture object, if any.
+返回两个值：第一个是覆盖类型，第二个是纹理对象（如果有）。
 
 ```lua
 getPrimaryTexture()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                                                                 | Description     |
+| 类型 | 说明 |
 | ---------------------------------------------------------------------------------------------------- | --------------- |
-| <code>[TextureType](/enums/TextureTypes)</code>                                                      | Override type   |
-| <code>[String](/tutorials/types/Strings)</code> or <code>[Texture](/globals/Textures/Texture)</code> | Primary texture |
+| <code>[TextureType](/enums/TextureTypes)</code>                                                      | 覆盖类型 |
+| <code>[String](/tutorials/types/Strings)</code> or <code>[Texture](/globals/Textures/Texture)</code> | 主纹理 |
 
-**Example:**
+**示例：**
 
 ```lua
 local texType, tex = models:getPrimaryTexture() -- this saves both of the potential returns to two variables in a single line of code
@@ -1901,21 +1903,21 @@ log(textType, tex)
 
 ### <code>getPrimaryDefinedTextures()</code> \{#getPrimaryDefinedTextures}
 
-Gets the primary textures of this part
+获取该部件的主纹理。
 
-Returns a table of each texture for the specified face.
+返回一个表，包含指定面上使用的各个纹理。
 
 ```lua
 getPrimaryDefinedTextures()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                 | Description |
+| 类型 | 说明 |
 | -------------------- | ----------- |
 | <code>AnyType</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getPrimaryDefinedTextures()
@@ -1925,79 +1927,79 @@ models:getPrimaryDefinedTextures()
 
 ### <code>setSecondaryTexture()</code> \{#setSecondaryTexture}
 
-**Aliases:** `secondaryTexture()`
+**别名：** `secondaryTexture()`
 
-Sets the secondary texture override of this part
+设置该部件的次纹理覆盖。
 
-Check the TextureType types in the list docs
+可用的 TextureType 类型请查看列表文档。
 
-If using "resource", the second parameter should indicate the path to the Minecraft texture you want to use
+使用 "resource" 时，第二个参数应填要使用的 Minecraft 纹理路径。
 
-If using "custom", the second parameter should indicate a texture object
+使用 "custom" 时，第二个参数应填纹理对象。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setSecondaryTexture(textureType)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name        | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----------- | ----------------------------------------------- | ----------- | ------- |
 | textureType | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setSecondaryTexture(resource, path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | resource | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 | path     | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setSecondaryTexture(custom, texture)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------- | ------------------------------------------------- | ----------- | ------- |
 | custom  | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
 | texture | <code>[Texture](/globals/Textures/Texture)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- Vanilla Skin
@@ -2012,22 +2014,22 @@ models:setSecondaryTexture("Resource", "textures/entity/pig/pig.png")
 
 ### <code>getSecondaryTexture()</code> \{#getSecondaryTexture}
 
-Gets the secondary texture of this part
+获取该部件的次纹理。
 
-Returns two values, first being the override type, second being the value, if any.
+返回两个值：第一个是覆盖类型，第二个是对应的值（如果有）。
 
 ```lua
 getSecondaryTexture()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                                                                 | Description       |
+| 类型 | 说明 |
 | ---------------------------------------------------------------------------------------------------- | ----------------- |
-| <code>[TextureType](/enums/TextureTypes)</code>                                                      | Override type     |
-| <code>[String](/tutorials/types/Strings)</code> or <code>[Texture](/globals/Textures/Texture)</code> | Secondary texture |
+| <code>[TextureType](/enums/TextureTypes)</code>                                                      | 覆盖类型 |
+| <code>[String](/tutorials/types/Strings)</code> or <code>[Texture](/globals/Textures/Texture)</code> | 次纹理 |
 
-**Example:**
+**示例：**
 
 ```lua
 local texType, tex = models:getSecondaryTexture()
@@ -2037,21 +2039,21 @@ local texType, tex = models:getSecondaryTexture()
 
 ### <code>getSecondaryDefinedTextures()</code> \{#getSecondaryDefinedTextures}
 
-Gets the secondary textures of this part
+获取该部件的次纹理。
 
-Returns a table of each texture for the specified face.
+返回一个表，包含指定面上使用的各个纹理。
 
 ```lua
 getSecondaryDefinedTextures()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                 | Description |
+| 类型 | 说明 |
 | -------------------- | ----------- |
 | <code>AnyType</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getSecondaryDefinedTextures()
@@ -2063,25 +2065,25 @@ models:getSecondaryDefinedTextures()
 
 :::caution
 
-This function is currently bugged, but it is mainly useless anyway
+该函数目前存在缺陷，不过它本身基本没什么用处。
 
 :::
 
-Returns a table with all textures used by this part
+返回一个表，包含该部件使用的所有纹理。
 
-Does not include children textures, so groups usually will return an empty table
+不包含子部件的纹理，因此组通常返回空表。
 
 ```lua
 getTextures()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
+| 类型 | 说明 |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getTextures()
@@ -2091,21 +2093,21 @@ models:getTextures()
 
 ### <code>getTextureSize()</code> \{#getTextureSize}
 
-Gets the width, height of this part's texture in pixels
+获取该部件纹理的宽度和高度，单位为像素。
 
-Throws an error if this part has multiple different-sized textures on it, or if the part is a Group
+如果该部件上有多张尺寸不同的纹理，或该部件是组，则会抛出错误。
 
 ```lua
 getTextureSize()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getTextureSize()
@@ -2115,57 +2117,57 @@ models:getTextureSize()
 
 ### <code>setUV()</code> \{#setUV}
 
-**Aliases:** `uv()`
+**别名：** `uv()`
 
-Sets the UV of this part
+设置该部件的 UV。
 
-This function is normalized, meaning it works with values 0 to 1
+该函数使用归一化数值，取值 0 到 1。
 
-If you say setUV(0.5, 0.25), for example, it will scroll by half of your texture width to the right, and one-fourth of the texture width downwards
+例如调用 setUV(0.5, 0.25)，UV 会向右滚动半个纹理宽度，向下滚动四分之一个纹理宽度。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setUV(uv)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | uv   | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setUV(u, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | u    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | v    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setUV(0.5, 0.5)
@@ -2175,21 +2177,21 @@ models:setUV(0.5, 0.5)
 
 ### <code>getUV()</code> \{#getUV}
 
-Gets the UV of this part
+获取该部件的 UV。
 
-This function is normalized, meaning it will return values between 0 to 1
+该函数返回归一化数值，取值在 0 到 1 之间。
 
 ```lua
 getUV()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getUV()
@@ -2199,59 +2201,59 @@ models:getUV()
 
 ### <code>setUVPixels()</code> \{#setUVPixels}
 
-**Aliases:** `uvPixels()`
+**别名：** `uvPixels()`
 
-Sets the UV of this part in pixels
+以像素为单位设置该部件的 UV。
 
-Automatically divides by the results of getTextureSize(), so you can just input the number of pixels you want the UV to scroll by
+会自动除以 getTextureSize() 的结果，因此直接传入想让 UV 滚动的像素数即可。
 
-Errors if the part has multiple different-sized textures
+如果该部件有多张尺寸不同的纹理，则会报错。
 
-If this part is a Group, it will attempt to setUVPixels on its children
+如果该部件是组，则会尝试对它的子部件调用 setUVPixels。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setUVPixels(uv)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | uv   | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setUVPixels(u, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | u    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | v    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:setUVPixels(16.16)
@@ -2261,23 +2263,23 @@ models:setUVPixels(16.16)
 
 ### <code>getUVPixels()</code> \{#getUVPixels}
 
-Gets the UV of this part
+获取该部件的 UV。
 
-Automatically multiplies the result by getTextureSize()
+会自动把结果乘以 getTextureSize()。
 
-Errors if the part has multiple different-sized textures of if the part is a Group
+如果该部件有多张尺寸不同的纹理，或该部件是组，则会报错。
 
 ```lua
 getUVPixels()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getUVPixels()
@@ -2287,31 +2289,31 @@ models:getUVPixels()
 
 ### <code>setUVMatrix()</code> \{#setUVMatrix}
 
-**Aliases:** `uvMatrix()`
+**别名：** `uvMatrix()`
 
-Sets the UV matrix of this part
+设置该部件的 UV 矩阵。
 
-This matrix is applied to all UV points during the transform, with the UVs treated as homogeneous vectors
+变换时该矩阵会作用于所有 UV 点，UV 按齐次向量处理。
 
-setUV() and setUVPixels() are just simpler ways of setting this matrix
+setUV() 和 setUVPixels() 只是设置该矩阵的更简便方式。
 
 ```lua
 setUVMatrix(matrix)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------ | ------------------------------------------------- | ----------- | ------- |
 | matrix | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setUVMatrix(matrices.mat3())
@@ -2321,19 +2323,19 @@ models:setUVMatrix(matrices.mat3())
 
 ### <code>getUVMatrix()</code> \{#getUVMatrix}
 
-Gets the UV matrix of this part
+获取该部件的 UV 矩阵。
 
 ```lua
 getUVMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getUVMatrix()
@@ -2341,29 +2343,29 @@ models:getUVMatrix()
 
 ---
 
-## Render Tasks
+## 渲染任务
 
 ### <code>newText()</code> \{#newText}
 
-Adds a new Text Render Task on this part
+在该部件上添加一个新的文本渲染任务。
 
 ```lua
 newText(taskName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | taskName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[TextTask](/globals/Models/TextTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:newText("Example")
@@ -2373,25 +2375,25 @@ models:newText("Example")
 
 ### <code>newEntity()</code> \{#newEntity}
 
-Adds a new Entity Render Task on this part
+在该部件上添加一个新的实体渲染任务。
 
 ```lua
 newEntity(taskName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | taskName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
+| 类型 | 说明 |
 | ----------------------------------------------------- | ----------- |
 | <code>[EntityTask](/globals/Models/EntityTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:newEntity("Example")
@@ -2401,25 +2403,25 @@ models:newEntity("Example")
 
 ### <code>newItem()</code> \{#newItem}
 
-Adds a new Item Render Task on this part
+在该部件上添加一个新的物品渲染任务。
 
 ```lua
 newItem(taskName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | taskName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[ItemTask](/globals/Models/ItemTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:newItem("Example")
@@ -2429,25 +2431,25 @@ models:newItem("Example")
 
 ### <code>newBlock()</code> \{#newBlock}
 
-Adds a new Block Render Task on this part
+在该部件上添加一个新的方块渲染任务。
 
 ```lua
 newBlock(taskName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | taskName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                | Description |
+| 类型 | 说明 |
 | --------------------------------------------------- | ----------- |
 | <code>[BlockTask](/globals/Models/BlockTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:newBlock("Example")
@@ -2457,25 +2459,25 @@ models:newBlock("Example")
 
 ### <code>newSprite()</code> \{#newSprite}
 
-Adds a new Sprite Render Task on this part
+在该部件上添加一个新的精灵渲染任务。
 
 ```lua
 newSprite(taskName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | taskName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
+| 类型 | 说明 |
 | ----------------------------------------------------- | ----------- |
 | <code>[SpriteTask](/globals/Models/SpriteTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:newSprite("Example")
@@ -2485,25 +2487,25 @@ models:newSprite("Example")
 
 ### <code>addTask()</code> \{#addTask}
 
-Adds the given Render Task on this part
+在该部件上添加给定的渲染任务。
 
 ```lua
 addTask(renderTask)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                                  | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---------- | ----------------------------------------------------- | ----------- | ------- |
 | renderTask | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
+| 类型 | 说明 |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 local myItem = models:newItem("foo")
@@ -2516,46 +2518,46 @@ models.model.root.Head:addTask(myItem)
 
 ### <code>getTask()</code> \{#getTask}
 
-Gets the Render Task with the given name from this part
+从该部件获取指定名称的渲染任务。
 
-Returns a table with all tasks if a name is not given
+未给出名称时返回包含全部任务的表。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getTask()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
+| 类型 | 说明 |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getTask(taskName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | taskName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
+| 类型 | 说明 |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:getTask()
@@ -2565,65 +2567,65 @@ models:getTask()
 
 ### <code>removeTask()</code> \{#removeTask}
 
-Removes the Task with the given name from this part
+从该部件移除指定名称的任务。
 
-Removes ALL tasks if a name is not given
+未给出名称时移除全部任务。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 removeTask()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 removeTask(taskName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | taskName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 removeTask(renderTask)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                                  | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---------- | ----------------------------------------------------- | ----------- | ------- |
 | renderTask | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 models:removeTask()
@@ -2631,33 +2633,33 @@ models:removeTask()
 
 ---
 
-## Misc
+## 其他
 
 ### <code>setParentType()</code> \{#setParentType}
 
-**Aliases:** `parentType()`
+**别名：** `parentType()`
 
-Sets the parent type of the part
+设置该部件的父类型。
 
-See the ParentType parts in the list docs for legal types
+合法类型请查看列表文档中的 ParentType 一节。
 
 ```lua
 setParentType(parentType)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---------- | ----------------------------------------------- | ----------- | ------- |
 | parentType | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:setParentType("Head")
@@ -2667,19 +2669,19 @@ models:setParentType("Head")
 
 ### <code>getParentType()</code> \{#getParentType}
 
-Returns the current parent type of the part
+返回该部件当前的父类型。
 
 ```lua
 getParentType()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getParentType()
@@ -2689,27 +2691,27 @@ models:getParentType()
 
 ### <code>getVertices()</code> \{#getVertices}
 
-Return a table with all vertices from the given texture id
+返回一个表，包含给定纹理 ID 对应的所有顶点。
 
-Returns nil if no vertices were found
+未找到顶点时返回 nil。
 
 ```lua
 getVertices(textureID)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | --------- | ----------------------------------------------- | ----------- | ------- |
 | textureID | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
+| 类型 | 说明 |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getVertices("myTexture")
@@ -2719,19 +2721,19 @@ models:getVertices("myTexture")
 
 ### <code>getAllVertices()</code> \{#getAllVertices}
 
-Return a table of all texture ids and their vertices
+返回一个表，包含所有纹理 ID 及其顶点。
 
 ```lua
 getAllVertices()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
+| 类型 | 说明 |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getAllVertices()
@@ -2741,21 +2743,21 @@ models:getAllVertices()
 
 ### <code>getParent()</code> \{#getParent}
 
-Gets the parent part of this part
+获取该部件的父部件。
 
-If this part has no parent, returns nil
+如果该部件没有父部件，则返回 nil。
 
 ```lua
 getParent()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getParentType()
@@ -2765,19 +2767,19 @@ models:getParentType()
 
 ### <code>remove()</code> \{#remove}
 
-Removes this part from the parent model part
+从父模型部件中移除该部件。
 
 ```lua
 remove()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 -- halloween costume in one line!
@@ -2788,19 +2790,19 @@ models.model.root.Head:remove()
 
 ### <code>getChildren()</code> \{#getChildren}
 
-Gets the children of this part, stored in a table
+获取该部件的子部件，结果存放在一个表中。
 
 ```lua
 getChildren()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
+| 类型 | 说明 |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:getChildren()
@@ -2810,25 +2812,25 @@ models:getChildren()
 
 ### <code>isChildOf()</code> \{#isChildOf}
 
-Checks if this part is a child of the given part
+检查该部件是否为给定部件的子部件。
 
 ```lua
 isChildOf(part)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                      | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------- | ----------- | ------- |
 | part | <code>[ModelPart](/globals/Models)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 models:isChildOf(models)
@@ -2838,25 +2840,25 @@ models:isChildOf(models)
 
 ### <code>moveTo()</code> \{#moveTo}
 
-Moves this part to be a child of the given part
+把该部件移动为给定部件的子部件。
 
 ```lua
 moveTo(part)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                      | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------- | ----------- | ------- |
 | part | <code>[ModelPart](/globals/Models)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 -- error-next-line
@@ -2868,25 +2870,25 @@ models:moveTo(models)
 
 ### <code>addChild()</code> \{#addChild}
 
-Adds the given part into this part's children list
+把给定部件加入该部件的子部件列表。
 
 ```lua
 addChild(part)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                      | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------- | ----------- | ------- |
 | part | <code>[ModelPart](/globals/Models)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 -- error-next-line
@@ -2898,25 +2900,25 @@ models:addChild(models)
 
 ### <code>removeChild()</code> \{#removeChild}
 
-Removes the given part from this part's children list
+从该部件的子部件列表中移除给定部件。
 
 ```lua
 removeChild(part)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                      | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------- | ----------- | ------- |
 | part | <code>[ModelPart](/globals/Models)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 -- error-next-line
@@ -2928,27 +2930,27 @@ models:removeChild(models)
 
 ### <code>copy()</code> \{#copy}
 
-Returns a copy of this part, with all customizations and vertices copied
+返回该部件的副本，包含所有自定义设置和顶点。
 
-Children parts are passed as reference, in a new list
+子部件以引用方式放入新的列表。
 
 ```lua
 copy(name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 models:copy("Example")
@@ -2958,53 +2960,53 @@ models:copy("Example")
 
 ### <code>newPart()</code> \{#newPart}
 
-Creates a new, empty, group model part as a child of this part, at the same pivot point
+在该部件下创建一个空的组模型部件作为子部件，轴心点与该部件相同。
 
-Takes two arguments, the new part's name, and optionally its parent type
+接受两个参数：新部件的名称，以及可选的父类型。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 newPart(name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 newPart(name, parentType)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---------- | ----------------------------------------------- | ----------- | ------- |
-| name       | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 | parentType | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
+| 类型 | 说明 |
 | ----------------------------------------- | ------------------------- |
-| <code>[ModelPart](/globals/Models)</code> | Returns self for chaining |
+| <code>[ModelPart](/globals/Models)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- Example with same parent type
@@ -3015,22 +3017,22 @@ models:newPart("Example", "Head")
 
 ---
 
-## Fields
+## 字段
 
 ### <code>preRender</code> \{#preRender}
 
-Function to run before this part starts being rendered
+在该部件开始渲染前执行的函数。
 
 ---
 
 ### <code>midRender</code> \{#midRender}
 
-Function to run during the middle of this part's rendering, after its matrices are calculated
+在该部件渲染过程中、矩阵计算完成后执行的函数。
 
 ---
 
 ### <code>postRender</code> \{#postRender}
 
-Function to run after this part and its children are rendered
+在该部件及其子部件渲染完成后执行的函数。
 
 ---

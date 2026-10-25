@@ -1,8 +1,9 @@
 {
-  "label": "Enums",
-  "position": 4,
+  "label": "枚举",
+  "position": 6,
   "link": {
     "type": "generated-index",
-    "description": "All of Figura's enums, which are lists of strings that are used for methods or returned by them."
+    "description": "枚举分类下的页面。",
+    "slug": "/category/enums"
   }
 }

@@ -1,15 +1,20 @@
+---
+title: Viewer（观看者）
+sidebar_label: Viewer（观看者）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Viewer is an alias of [Player](../Player). It's used to access people who are viewing your avatar to allow access to some host-only functions. All methods available to `player` are also available under `viewer` with the addition of those documented below.
+Viewer 是 [Player](../Player) 的别名。它用于访问正在观看你形象的人，以便调用一些仅房主可用的函数。`player` 可用的所有方法在 `viewer` 下也同样可用，此外还额外提供下文列出的方法。
 
-Accessed via `client:getViewer()`.
+通过 `client:getViewer()` 获取。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
-For this page assume:
+本页示例均假定：
 
 ```lua
 local myViewer = client:getViewer()
@@ -19,19 +24,19 @@ local myViewer = client:getViewer()
 
 ### <code>getAir()</code> \{#getAir}
 
-Gets the remaining amount of air of the player
+获取玩家剩余的氧气值
 
 ```lua
 getAir()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myViewer:getAir()
@@ -41,21 +46,21 @@ myViewer:getAir()
 
 ### <code>getAttackCharge()</code> \{#getAttackCharge}
 
-Returns a fraction (0 to 1) of the charge of the player attack
+返回玩家攻击蓄力的比例（0 到 1）
 
-If less than 1, every attack will result in a weak attack
+如果该值小于 1，每次攻击都会成为弱攻击
 
 ```lua
 getAttackCharge()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myViewer:getAttackCharge()
@@ -65,19 +70,19 @@ myViewer:getAttackCharge()
 
 ### <code>getReachDistance()</code> \{#getReachDistance}
 
-Returns the current reach distance of the player
+返回玩家当前的可触及距离
 
 ```lua
 getReachDistance()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myViewer:getReachDistance()
@@ -87,21 +92,21 @@ myViewer:getReachDistance()
 
 ### <code>getStatusEffects()</code> \{#getStatusEffects}
 
-Returns a table of all of the player's status effects
+返回玩家所有状态效果组成的表
 
-The table contains sub-tables, each of which contains the name, amplifier, duration, and particle visibility of each status effect
+该表包含多个子表，每个子表记录一种状态效果的名称、等级（amplifier）、持续时间和粒子可见性
 
 ```lua
 getStatusEffects()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Table](/tutorials/types/Tables)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 for _, effect in pairs(myViewer:getStatusEffects()) do
@@ -113,19 +118,19 @@ end
 
 ### <code>isFlying()</code> \{#isFlying}
 
-Checks if the player is currently flying
+检查玩家当前是否正在飞行
 
 ```lua
 isFlying()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myViewer:isFlying()
@@ -135,21 +140,21 @@ myViewer:isFlying()
 
 ### <code>isJumping()</code> \{#isJumping}
 
-Checks if the player is jumping
+检查玩家是否正在跳跃
 
-Note this is only true during the first tick the player started jumping
+注意：只有玩家开始跳跃的第一个刻，该值才为真
 
 ```lua
 isJumping()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myViewer:isJumping()

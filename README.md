@@ -1,52 +1,51 @@
 <div align="center">
 
-# Figura Wiki
+# OmniMorph Wiki
 
-[View the Wiki](https://wiki.figuramc.org/)
-  
+[访问 Wiki](https://wiki.figuramc.org/)
+
 </div>
 
-## About
+## 关于
 
-The Figura Wiki serves as a comprehensive resource for the Figura mod in Minecraft. It offers detailed guides, documentation, and information to help users and contributors effectively engage with and utilize the Figura mod.
+OmniMorph Wiki 是 OmniMorph 的中文文档站。OmniMorph 是基于 [Figura](https://github.com/FiguraMC/Figura) 的 Minecraft Java 客户端模型模组，在统一的衣柜、预览和交互界面中使用 Figura Avatar 与 YSM 模型。
 
-## Getting Started
+本站覆盖安装、模型格式、衣柜与配装、装饰与锚点、模型库与云端、YSM/Molang、Lua 新接口与粒子系统。
 
-### Prerequisites
+## 开始使用
 
-Before you start, ensure you have the following installed:
+### 前置条件
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/en/download/)
 - [pnpm](https://pnpm.io/installation)
 
-### Local Development
+### 本地开发
 
-To set up the wiki for local development:
+1. 安装上述前置工具。
+2. 克隆仓库：`git clone https://github.com/AIH-Interactive/omp-wiki.git`
+3. 进入目录：`cd omp-wiki`
+4. 安装依赖：`pnpm install`
+5. 启动开发服务器：`pnpm start`
 
-1. **Install [Prerequisites](#prerequisites)**: Ensure you have Git, Node.js, and pnpm installed on your machine.
-2. **Clone the Repository**: Run `git clone https://github.com/FiguraMC/wiki.git` to clone the repository.
-3. **Navigate to the Project Directory**: Use `cd wiki` to enter the project directory.
-4. **Install Dependencies**: Execute `pnpm install` or `pnpm i` to install necessary dependencies.
-5. **Start the Development Server**: Run `pnpm start` to launch the local development server and view changes in real-time.
+### 贡献
 
-### Contributing
+1. Fork 仓库并克隆到本地。
+2. 新建分支：`git checkout -b your-branch`
+3. 修改文档并在本地预览。
+4. 运行 `pnpm format` 格式化。
+5. 运行 `pnpm build` 检查断链与构建错误。
+6. 提交并推送，然后创建 Pull Request。
 
-To contribute to the Figura Wiki:
+编写规范见 [docs/.style_guide.md](docs/.style_guide.md)。
 
-1. **Fork the Repository**: [Fork](https://github.com/figuraMC/wiki/fork) this repo and clone it using `git clone https://github.com/<YOUR-USERNAME>/wiki`.
-2. **Create a New Branch**: Use `git checkout -b your-cool-branch` to create and switch to a new branch for your changes.
-3. **Make and Preview Changes**: Edit files and preview changes locally by following the [Local Development](#local-development) instructions (starting from step 3).
-4. **Format Your Code**: Run `pnpm format` to ensure your code follows the project's formatting rules. It's a good practice to commit your changes before formatting so you can easily review changes the formatter made.
-5. **Build the Website**: Use `pnpm build` to generate the static site and check for broken links or other issues.
-6. **Commit and Push Changes**: Commit your changes and push them to your forked repository.
-7. **Create a Pull Request**: Open a pull request to merge your changes into the `main` branch of the original repository.
+## 相关资源
 
-## Additional Resources
+- [Docusaurus](https://docusaurus.io/)：本站使用的文档框架。
+- [Figura](https://github.com/FiguraMC/Figura)：上游项目。
+- [OmniMorph](https://github.com/AIH-Interactive/omni-morph)：模组源码与构建。
+- [YSM Wiki](https://ysm.cfpa.team/wiki/intro/)：YSM 模型制作指南。
 
-- [Docusaurus](https://docusaurus.io/) - This website was built using docusaurus. Checkout their docs for help with making changes to our wiki.
-- [Figura](https://github.com/FiguraMC/Figura) - The Figura source code
+## 联系
 
-## Contact
-
-For questions or assistance, reach out to the maintainers on [Discord](https://discord.gg/figuramc).
+如有问题，请通过 [GitHub Issues](https://github.com/AIH-Interactive/omni-morph/issues) 反馈。

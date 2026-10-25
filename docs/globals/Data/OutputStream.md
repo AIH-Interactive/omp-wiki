@@ -1,26 +1,31 @@
-An output data stream
+---
+title: OutputStream（输出流）
+sidebar_label: OutputStream（输出流）
+---
+
+输出数据流
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>close()</code> \{#close}
 
-Closes this output stream.
+关闭此输出流
 
 ```lua
 close()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -30,19 +35,19 @@ close()
 
 ### <code>flush()</code> \{#flush}
 
-Flushes data in this output stream.
+刷新此输出流中的数据
 
 ```lua
 flush()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -52,25 +57,25 @@ flush()
 
 ### <code>write()</code> \{#write}
 
-Writes one byte to this stream
+向此流写入一个字节
 
 ```lua
 write(b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| b    | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| b    | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

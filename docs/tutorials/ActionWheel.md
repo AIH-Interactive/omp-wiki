@@ -1,44 +1,44 @@
 ---
-title: Action Wheel
+title: 动作轮盘
 ---
 
-Tutorial for most things action wheel
+动作轮盘大部分功能的教程。
 
-If you're just here to copy-paste something without the tutorial go [here](./ActionWheel/#here-is-the-full-copy-paste-for-an-example-action-wheel)
+如果只想直接复制现成代码、不想看教程，请跳到[这里](./ActionWheel/#here-is-the-full-copy-paste-for-an-example-action-wheel)。
 
-The Action Wheel is a gui element provided by Figura that allows for adding highly customizable Actions that can provide additional functionality to your avatar.
+动作轮盘是 Figura 提供的界面元素，可以添加高度可自定义的动作，为你的形象提供额外功能。
 
-The Action Wheel operates on Pages. Only a single Page can be active at a time.<br/>
-Pages contain Actions. A Page can have an unlimited amount of Actions, but the Action Wheel can only render 8 at a time. While a Page with more than 8 Actions is active, you can use the scroll wheel to move between the groups of 8 Actions within the Page.
+动作轮盘以页面为单位运作，同一时间只能有一个页面处于激活状态。<br/>
+页面包含动作。一个页面可以放任意数量的动作，但动作轮盘一次最多只能渲染 8 个。当激活的页面动作多于 8 个时，可以用鼠标滚轮在该页面内各组 8 个动作之间切换。
 
-The docs page for the [Action Wheel](../globals/action-wheel) has more examples for specific action wheel functions
+[动作轮盘](../globals/action-wheel)的文档页有更多针对具体函数的示例。
 
-## Example Action Wheel
+## 示例动作轮盘
 
-The first step is to create the Page that will hold the Actions. This is done via the <code>newPage</code> function.
+第一步是创建用来存放动作的页面，通过 <code>newPage</code> 函数完成。
 
 ```lua
 local mainPage = action_wheel:newPage()
 ```
 
-This creates a new page, but thats it. If you save and try to open the Action Wheel (Default Keybind B), you will see a message stating that there is no active page. We can use the <code>setPage</code> function while providing a reference to a Page object to set the active page.
+这样只是创建了一个新页面，仅此而已。保存后尝试打开动作轮盘（默认按键为 B），会看到提示说当前没有激活的页面。用 <code>setPage</code> 函数传入一个页面对象的引用，即可设置激活页面。
 
 ```lua
 action_wheel:setPage(mainPage)
 ```
 
-Tada. New blank page and Figura isn't screaming at us. Now for some actions.<br/>
-You can call the <code>newAction</code> function on a Page object. This will create a new Action _and_ add it to the Page.
+搞定。有了一个空白新页面，Figura 不再报错。接下来添加一些动作。<br/>
+可以在页面对象上调用 <code>newAction</code> 函数。它会创建一个新动作，_并且_把它添加到该页面。
 
-You technically do not need to store the Action in a variable. If you do, please give it a unique variable name. Using the same variable name for all actions can cause issues when doing more advanced stuff.
+严格来说，不必把动作存到变量里。如果要存，请给每个动作取唯一的变量名。所有动作共用同一个变量名，在做更高级的用法时会出问题。
 
 ```lua
 local action = mainPage:newAction()
 ```
 
-New Action, but it really doesn't look like much. Lets add a title, a display item, and perhaps change the color that appears when the Action is hovered over.
+新动作有了，但外观几乎看不出什么。我们来加标题、加显示物品，顺便改一下鼠标悬停时显示的颜色。
 
-One thing to remember is that all Action functions return itself. This allows for functions to be chained together, always modifying the same action
+要记住，所有动作函数都返回自身。因此可以把函数链式串起来，始终修改同一个动作。
 
 <!-- prettier-ignore -->
 ```lua
@@ -48,7 +48,7 @@ local action = mainPage:newAction()
     :hoverColor(1, 0, 1)
 ```
 
-Pretty, but functionally useless. Lets add a function to the <code>leftClick</code> field. When the Action is left clicked, the function stored in the Action's <code>leftClick</code> field gets invoked.
+好看，但没有实际功能。我们给 <code>leftClick</code> 字段加一个函数。左键点击该动作时，保存在动作 <code>leftClick</code> 字段中的函数就会被调用。
 
 <!-- prettier-ignore -->
 ```lua
@@ -62,16 +62,16 @@ local action = mainPage:newAction()
     end)
 ```
 
-Now we have an Action that does stuff. You may not notice anything, but there is a glaring issue with the current code.
+现在这个动作能做事了。你可能没注意到，但当前代码有一个明显的问题。
 
-The issue is that the leftClick code will only execute on your computer.
+问题在于 leftClick 中的代码只会在你自己的电脑上执行。
 
-As described in [Pings](./Pings), Figura is completely clientside. The Action Wheel is a feature added by Figura, meaning it will never be synced between clients via the Minecraft Server. So instead, we must use Pings that utilize Figura's Backend to sync data between clients.
+正如 [Pings](./Pings) 中所述，Figura 完全运行在客户端。动作轮盘是 Figura 添加的功能，因此它永远不会通过 Minecraft 服务器在客户端之间同步。所以必须使用 Pings，借助 Figura 的后端在客户端之间同步数据。
 
-First step is to take the code that would be executed on leftClick, and turn it into a ping function. Then, instead of assigning an anonymous function to <code>leftClick</code>, we assign the ping function itself to <code>leftClick</code>
+第一步，把原本在 leftClick 中执行的代码写成一个 ping 函数。然后不再给 <code>leftClick</code> 赋匿名函数，而是直接把 ping 函数本身赋给 <code>leftClick</code>。
 
-**_IMPORTANT: ALL PING FUNCTIONS MUST HAVE UNIQUE NAMES_**<br/>
-Also, please name your ping function so that it describes what it does. I _hate_ seeing <code>pings.actionClicked</code> in the hellp channel in discord. Do something like <code>pings.playEmote1</code> or <code>pings.setArmorVisibility</code>.
+**_重要：所有 ping 函数名必须唯一_**<br/>
+另外，请让 ping 函数的名字能说明它的作用。我 _很讨厌_ 在 Discord 的求助频道里看到 <code>pings.actionClicked</code> 这种名字。请写成 <code>pings.playEmote1</code> 或 <code>pings.setArmorVisibility</code> 这样。
 
 <!-- prettier-ignore -->
 ```lua
@@ -89,9 +89,9 @@ local action = mainPage:newAction()
     :onLeftClick(pings.actionClicked)
 ```
 
-And there you have it. An Action that correctly executes it's contents across all clients.
+这样，这个动作就能在所有客户端上正确执行其内容了。
 
-While this will correctly sync the timing of the execution of the ping function with all clients, it needs a slight modification if you want to send arguments with the ping.
+这能正确地把 ping 函数的执行时机同步到所有客户端；但如果要在 ping 中传参数，还需要稍作修改。
 
 <!-- prettier-ignore -->
 ```lua
@@ -108,11 +108,11 @@ local action = mainPage:newAction()
     end)
 ```
 
-What we are doing is wrapping the call to the ping function inside another function.
+这里的做法是在另一个函数里调用 ping 函数。
 
-The code below is a common mistake beginners can fall into.<br/>
-While the code might seem correct to those less code literate, it translates to "call the ping function, then assign the return result to the <code>leftClick</code> field".<br/>
-A ping will never have a return value, meaning <code>leftClick</code> is being assigned the value <code>nil</code>, meaning nothing.
+下面的代码是新手常犯的错误。<br/>
+对不熟悉代码的人来说它看起来是对的，但它的含义是“先调用 ping 函数，再把返回值赋给 <code>leftClick</code> 字段”。<br/>
+ping 永远没有返回值，因此 <code>leftClick</code> 被赋成了 <code>nil</code>，也就是什么都没有。
 
 <!-- prettier-ignore -->
 ```lua
@@ -121,7 +121,7 @@ mainPage:newAction()
     -- Do not do use this code. It will not work.
 ```
 
-#### Here is the full copy paste for an example Action Wheel
+#### 完整示例：一份可直接复制的动作轮盘 \{#here-is-the-full-copy-paste-for-an-example-action-wheel}
 
 <!-- prettier-ignore -->
 ```lua
@@ -141,9 +141,9 @@ local action = mainPage:newAction()
     :onLeftClick(pings.actionClicked)
 ```
 
-### Toggle Example
+### 开关示例 \{#toggle-example}
 
-This is an example of the onToggle function, which swaps between two states. It does not work on its own as it doesn't have a page.
+这是 onToggle 函数的示例，它会在两种状态之间切换。它本身无法直接运行，因为没有创建页面。
 
 <!-- prettier-ignore -->
 ```lua
@@ -161,9 +161,9 @@ local toggleaction = mainPage:newAction() -- If you're getting an error here it'
     :setOnToggle(pings.toggling)
 ```
 
-### Multiple Actions Example
+### 多个动作示例
 
-When working with multiple actions, it's important to give the actions and pings unique names
+使用多个动作时，给动作和 ping 取唯一的名字很重要。
 
 <!-- prettier-ignore -->
 ```lua
@@ -198,7 +198,7 @@ local toggleaction = mainPage:newAction()
     -- this calls the ping named toggling
 ```
 
-### Multiple Pages Example
+### 多个页面示例
 
 <!-- prettier-ignore -->
 ```lua
@@ -233,16 +233,16 @@ local newAction = secondPage:newAction()
     end)
 ```
 
-## Further Reading
+## 延伸阅读
 
-Go [here](../globals/Action-Wheel/Action.md) for more information on Actions.
+动作的更多信息见[这里](../globals/Action-Wheel/Action.md)。
 
-Go [here](../globals/Action-Wheel/Page.md) for more information on Pages.
+页面的更多信息见[这里](../globals/Action-Wheel/Page.md)。
 
-## Advanced Action Wheel
+## 进阶动作轮盘
 
-Go [here](../tutorials/ActionWheel-Advanced) for an advanced action wheel tutorial.
+进阶动作轮盘教程见[这里](../tutorials/ActionWheel-Advanced)。
 
-#### For when you want to skip the tutorials altogether
+#### 想直接跳过教程看代码
 
-If you scrolled to the bottom of the page just to copy-paste something without the tutorial go [here](./ActionWheel/#here-is-the-full-copy-paste-for-an-example-action-wheel)
+如果直接翻到页面底部，只想复制代码而不看教程，请跳到[这里](./ActionWheel/#here-is-the-full-copy-paste-for-an-example-action-wheel)。

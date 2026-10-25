@@ -5,60 +5,60 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-# Action Wheel
+# 动作轮盘
 
-A global API which is used for customizing your player's Action Wheel
+用于定制玩家动作轮盘的全局 API。
 
 ---
 
-## Page
+## 页面
 
-For more on pages go to [Page](./Page.md)
+页面的更多说明见 [Page（页面）](./Page.md)。
 
 ### <code>newPage()</code> \{#newPage}
 
-Creates a new Page for the action wheel
+为动作轮盘创建一个新页面。
 
-A Title can be given to store this page internally
+可以给它一个标题，用于在内部保存该页面。
 
-If no Title is given, the Page will just be returned from this function
+如果不提供标题，该函数会直接返回这个页面。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 newPage()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description                                |
+| 类型                                            | 说明                                |
 | ----------------------------------------------- | ------------------------------------------ |
-| <code>[Page](/globals/Action-Wheel/Page)</code> | An action wheel page that contains actions |
+| <code>[Page](/globals/Action-Wheel/Page)</code> | 一个包含动作的动作轮盘页面 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 newPage(title)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description                                   | Default |
+| 名称  | 类型                                            | 说明                                   | 默认值 |
 | ----- | ----------------------------------------------- | --------------------------------------------- | ------- |
-| title | <code>[String](/tutorials/types/Strings)</code> | The name for the page that is used internally | `nil`   |
+| title | <code>[String](/tutorials/types/Strings)</code> | 用于在内部保存该页面的名称 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description                                |
+| 类型                                            | 说明                                |
 | ----------------------------------------------- | ------------------------------------------ |
-| <code>[Page](/globals/Action-Wheel/Page)</code> | An action wheel page that contains actions |
+| <code>[Page](/globals/Action-Wheel/Page)</code> | 一个包含动作的动作轮盘页面 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 1):**
+**示例（重载 1）：**
 
 ```lua
 local myPage = action_wheel:newPage()
@@ -68,50 +68,50 @@ local myPage = action_wheel:newPage()
 
 ### <code>setPage()</code> \{#setPage}
 
-Sets the Page of the action wheel to the given Title or Page
+把动作轮盘的页面设置为指定的标题或页面。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPage(pageTitle)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                            | Description                                   | Default |
+| 名称      | 类型                                            | 说明                                   | 默认值 |
 | --------- | ----------------------------------------------- | --------------------------------------------- | ------- |
-| pageTitle | <code>[String](/tutorials/types/Strings)</code> | The name for the page that is used internally | `nil`   |
+| pageTitle | <code>[String](/tutorials/types/Strings)</code> | 用于在内部保存该页面的名称 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description               |
+| 类型                                                 | 说明               |
 | ---------------------------------------------------- | ------------------------- |
-| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | Returns self for chaining |
+| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setPage(page)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                         | Default |
+| 名称 | 类型                                            | 说明                         | 默认值 |
 | ---- | ----------------------------------------------- | ----------------------------------- | ------- |
-| page | <code>[Page](/globals/Action-Wheel/Page)</code> | A reference to an action wheel page | `nil`   |
+| page | <code>[Page](/globals/Action-Wheel/Page)</code> | 一个动作轮盘页面的引用 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description               |
+| 类型                                                 | 说明               |
 | ---------------------------------------------------- | ------------------------- |
-| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | Returns self for chaining |
+| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 2):**
+**示例（重载 2）：**
 
 ```lua
 local myPage = action_wheel:newPage()
@@ -122,46 +122,46 @@ action_wheel:setPage(myPage)
 
 ### <code>getPage()</code> \{#getPage}
 
-Returns a stored Page by the given title
+按给定标题返回已保存的页面。
 
-If no title is given, returns a table with all registered Pages
+如果不提供标题，则返回包含全部已注册页面的表。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getPage()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description                                            |
+| 类型                                          | 说明                                            |
 | --------------------------------------------- | ------------------------------------------------------ |
-| <code>[Table](/tutorials/types/Tables)</code> | A table where each index is a page in the action wheel |
+| <code>[Table](/tutorials/types/Tables)</code> | 一个表，其中每个索引都是动作轮盘中的一个页面 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 getPage(pageTitle)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                            | Description                                   | Default |
+| 名称      | 类型                                            | 说明                                   | 默认值 |
 | --------- | ----------------------------------------------- | --------------------------------------------- | ------- |
-| pageTitle | <code>[String](/tutorials/types/Strings)</code> | The name for the page that is used internally | `nil`   |
+| pageTitle | <code>[String](/tutorials/types/Strings)</code> | 用于在内部保存该页面的名称 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description                                |
+| 类型                                            | 说明                                |
 | ----------------------------------------------- | ------------------------------------------ |
-| <code>[Page](/globals/Action-Wheel/Page)</code> | An action wheel page that contains actions |
+| <code>[Page](/globals/Action-Wheel/Page)</code> | 一个包含动作的动作轮盘页面 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 2):**
+**示例（重载 2）：**
 
 ```lua
 action_wheel:newPage("myPage")
@@ -174,19 +174,19 @@ action_wheel:getPage("myPage")
 
 ### <code>getCurrentPage()</code> \{#getCurrentPage}
 
-Returns the current set Page from the Action Wheel, or NIL if no Page has been set
+返回动作轮盘当前设置的页面；如果尚未设置页面，则返回 nil。
 
 ```lua
 getCurrentPage()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description                                |
+| 类型                                            | 说明                                |
 | ----------------------------------------------- | ------------------------------------------ |
-| <code>[Page](/globals/Action-Wheel/Page)</code> | An action wheel page that contains actions |
+| <code>[Page](/globals/Action-Wheel/Page)</code> | 一个包含动作的动作轮盘页面 |
 
-**Example:**
+**示例：**
 
 ```lua
 action_wheel:getCurrentPage()
@@ -194,25 +194,25 @@ action_wheel:getCurrentPage()
 
 ---
 
-## Action
+## 动作
 
-For more on actions go to [Action](./Action.md)
+动作的更多说明见 [Action（动作）](./Action.md)。
 
 ### <code>newAction()</code> \{#newAction}
 
-Creates a new Action that is not automatically assigned to a Page
+创建一个新动作，不会自动分配到任何页面。
 
 ```lua
 newAction()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description            |
+| 类型                                                | 说明            |
 | --------------------------------------------------- | ---------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | An action wheel action |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 一个动作轮盘动作 |
 
-**Example:**
+**示例：**
 
 ```lua
 local myAction = action_wheel:newAction()
@@ -222,19 +222,19 @@ local myAction = action_wheel:newAction()
 
 ### <code>getSelectedAction()</code> \{#getSelectedAction}
 
-Returns the Action that is currently selected in the Action Wheel
+返回动作轮盘中当前选中的动作。
 
 ```lua
 getSelectedAction()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description            |
+| 类型                                                | 说明            |
 | --------------------------------------------------- | ---------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | An action wheel action |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 一个动作轮盘动作 |
 
-**Example:**
+**示例：**
 
 ```lua
 action_wheel:getSelectedAction()
@@ -244,19 +244,19 @@ action_wheel:getSelectedAction()
 
 ### <code>getSelected()</code> \{#getSelected}
 
-Returns the index of the currently selected action
+返回当前选中动作的索引。
 
 ```lua
 getSelected()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description                                              |
+| 类型                                             | 说明                                              |
 | ------------------------------------------------ | -------------------------------------------------------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | A number indicating which slot the selected action is in |
+| <code>[Integer](/tutorials/types/Numbers)</code> | 一个数字，表示选中动作所在的槽位 |
 
-**Example:**
+**示例：**
 
 ```lua
 action_wheel:getSelected()
@@ -264,72 +264,72 @@ action_wheel:getSelected()
 
 ---
 
-## Wheel
+## 轮盘
 
 ### <code>execute()</code> \{#execute}
 
-Executes the action of the given index
+执行给定索引对应的动作。
 
-If the index is null, it will execute the last selected action
+如果索引为空，则执行上一次选中的动作。
 
-A second parameter can be given to specify if it should execute the left click or right click action
+可以传入第二个参数，指定执行左键还是右键动作。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 execute()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description               |
+| 类型                                                 | 说明               |
 | ---------------------------------------------------- | ------------------------- |
-| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | Returns self for chaining |
+| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 execute(index)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                                        | Default |
+| 名称  | 类型                                             | 说明                                        | 默认值 |
 | ----- | ------------------------------------------------ | -------------------------------------------------- | ------- |
-| index | <code>[Integer](/tutorials/types/Numbers)</code> | A number indicating which slot's action to execute | `nil`   |
+| index | <code>[Integer](/tutorials/types/Numbers)</code> | 一个数字，表示要执行哪个槽位的动作 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description               |
+| 类型                                                 | 说明               |
 | ---------------------------------------------------- | ------------------------- |
-| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | Returns self for chaining |
+| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3" default>
+<TabItem value="overload-3" label="重载 3" default>
 
 ```lua
 execute(index, rightClick)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                              | Description                                                    | Default |
+| 名称       | 类型                                              | 说明                                                    | 默认值 |
 | ---------- | ------------------------------------------------- | -------------------------------------------------------------- | ------- |
-| index      | <code>[Integer](/tutorials/types/Numbers)</code>  | A number indicating which slot's action to execute             | `nil`   |
-| rightClick | <code>[Boolean](/tutorials/types/Booleans)</code> | If set to true it will execute the action's right click action | `false` |
+| index      | <code>[Integer](/tutorials/types/Numbers)</code>  | 一个数字，表示要执行哪个槽位的动作             | `nil`   |
+| rightClick | <code>[Boolean](/tutorials/types/Booleans)</code> | 设为 true 时执行该动作的右键动作 | `false` |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description               |
+| 类型                                                 | 说明               |
 | ---------------------------------------------------- | ------------------------- |
-| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | Returns self for chaining |
+| <code>[ActionWheelAPI](/globals/Action-Wheel)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 3):**
+**示例（重载 3）：**
 
 ```lua
 action_wheel:execute(1, false)
@@ -339,19 +339,19 @@ action_wheel:execute(1, false)
 
 ### <code>isEnabled()</code> \{#isEnabled}
 
-Returns if the Action Wheel is being currently rendered or not
+返回动作轮盘当前是否正在渲染。
 
 ```lua
 isEnabled()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description                                            |
+| 类型                                              | 说明                                            |
 | ------------------------------------------------- | ------------------------------------------------------ |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | If true the action wheel is visible, if false it isn't |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 为 true 表示动作轮盘可见，为 false 表示不可见 |
 
-**Example:**
+**示例：**
 
 ```lua
 action_wheel:isEnabled()
@@ -359,13 +359,13 @@ action_wheel:isEnabled()
 
 ---
 
-## Fields
+## 字段
 
 ### <code>leftClick</code> \{#leftClick}
 
-Function that is executed when the left mouse button is clicked
+左键点击时执行的函数。
 
-**Examples:**
+**示例：**
 
 ```lua
 -- pingless example
@@ -387,9 +387,9 @@ action_wheel.leftClick = pings.example
 
 ### <code>rightClick</code> \{#rightClick}
 
-Function that is executed when the right mouse button is clicked
+右键点击时执行的函数。
 
-**Example:**
+**示例：**
 
 ```lua
 function action_wheel.rightClick()
@@ -401,9 +401,9 @@ end
 
 ### <code>scroll</code> \{#scroll}
 
-Function that is executed when the mouse is scrolled
+滚动鼠标滚轮时执行的函数。
 
-**Example:**
+**示例：**
 
 ```lua
 function action_wheel.scroll()
@@ -412,3 +412,13 @@ end
 ```
 
 ---
+
+## OmniMorph 扩展
+
+YSM 动作不走这个 `action_wheel` 全局，而使用 [`ysm_actions`](/scripting/ysm-actions)：
+
+- 每页最多 8 个槽位；
+- 支持动作定义、页/槽管理、键位绑定；
+- 动作与 `ysm_action` 对象关联。
+
+详见 [YSM 动作轮盘](/omnimorph/action-wheel)。

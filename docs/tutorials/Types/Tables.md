@@ -1,16 +1,21 @@
-A table is a Lua value that can store values in specific keys. The act of getting a value from a table using a key is called "indexing".
+---
+title: 表
+sidebar_label: 表
+---
 
-## Initialize Table
+表（table）是 Lua 中的一种值，可以在指定的键上存放值。用键从表中取值的操作称为“索引”。
 
-A table can be created using curly brackets.
+## 初始化表
+
+用一对花括号即可创建表。
 
 ```lua
 local t = {}
 ```
 
-## Generic Indexing
+## 通用索引
 
-<code>table[key]</code> is the way to index a table. You can either get what is currently at that key, or assign a value to that key. There is no limitation to what can be used as keys or values in a table. If you index a table with an unknown key, it will return <code>nil</code>. You can also use variables as a key to index a table using this method.
+<code>table[key]</code> 是索引表的方式。既可以读取该键当前的值，也可以给该键赋值。表的键和值都没有类型限制。用不存在的键索引表时，会返回 <code>nil</code>。这种方式也允许把变量当作键来索引表。
 
 ```lua
 local v = 6
@@ -24,14 +29,14 @@ print(t["reeee"]) --> nil
 print(t["string key, table value"]) --> table 3be7a8
 ```
 
-## String Indexing Shorthand
+## 字符串索引简写
 
-If that seems like a lot of work to index by a string, yes it is.<br/>
-<code>table.key</code> is the shorthand for indexing a table with a string. This has very specific restrictions for what the string can contain.
+如果觉得用字符串索引写起来太啰嗦，那确实如此。<br/>
+<code>table.key</code> 是用字符串索引表的简写形式。这种写法对字符串的内容有严格限制。
 
--   Cannot start with a number (<code>t.2fort</code> will not work. Use <code>[]</code> indexing, or use a different string)
--   Cannot contain spaces, periods, or other special characters
--   Cannot be Lua Keywords (true, false, local, function)
+-   不能以数字开头（<code>t.2fort</code> 无效，请改用 <code>[]</code> 索引，或换一个字符串）
+-   不能包含空格、句点或其他特殊字符
+-   不能是 Lua 关键字（true、false、local、function）
 
 ```lua
 t.name = "Katt"
@@ -40,9 +45,9 @@ t.gender = t.name
 t.underscores_are_allowed = true
 ```
 
-## Object Oriented Method Indexing
+## 面向对象方法索引
 
-There is one more way to index a table. Many of the functions in Figura take in the object that called said function as the first parameter. This is because every object of the same type has the exact same functions. This is done via <code>table:key()</code>.<br/>
+还有第三种索引表的方式。Figura 中的许多函数会把自己所属的对象作为第一个参数接收，因为同一类型的所有对象都拥有完全相同的函数。这一机制通过 <code>table:key()</code> 实现。<br/>
 
 ```lua
 local posA = player:getPos()
@@ -50,9 +55,9 @@ local posA = player:getPos()
 local posB = player.getPos(player)
 ```
 
-## Initialize Table with Values
+## 初始化表时赋值
 
-You can assign values to keys when the table is initialized. Each key-value pair must be separated by a comma (<code>,</code>)<br/>
+可以在创建表的同时给键赋值。每对键值之间必须用逗号（<code>,</code>）分隔<br/>
 
 <!-- prettier-ignore -->
 ```lua
@@ -68,7 +73,7 @@ local a = {
 }
 ```
 
-If you do not specify an index, the provided values will automatically be assigned a numeric index, starting at <code>1</code>. This is how arrays are handled in lua, just a table that acts as an array. A table array if you will. Unlike other languages, Lua arrays begin indexing at <code>1</code> and functions that take in an array expect the first element at <code>1</code>.
+如果不指定索引，给出的值会自动获得从 <code>1</code> 开始的数字索引。Lua 就是这样处理数组的：数组只是一个当作数组来用的表，也就是所谓的“表数组”。与其他语言不同，Lua 数组的索引从 <code>1</code> 开始，接收数组的函数也期望第一个元素位于 <code>1</code>。
 
 <!-- prettier-ignore -->
 ```lua
@@ -85,10 +90,10 @@ local array = {
 local array2 = { 42, 36, 1024, 1, "string", v, t }
 ```
 
-## Iterating Over a Table
+## 遍历表
 
-Iterating over a table is simple.<br/>
-You can iterate over every single index using <code>pairs</code>. This will go through every index, but it will be in an undefined order. <code>pairs</code> has 2 values it returns when used in a for loop: the current <code>key</code>, and the current <code>value</code> at that <code>key</code>.<br/>
+遍历表很简单。<br/>
+可以用 <code>pairs</code> 遍历每一个索引。它会访问所有索引，但顺序不确定。在 for 循环中使用 <code>pairs</code> 时，它会返回 2 个值：当前的 <code>key</code>，以及该 <code>key</code> 上当前的 <code>value</code>。<br/>
 
 ```lua
 for key, value in pairs(t) do
@@ -96,7 +101,7 @@ for key, value in pairs(t) do
 end
 ```
 
-If the order of the iteration is important, you can use <code>ipairs</code>, but it only goes over numerical indices. This is what you want to use for table arrays. It starts at index <code>1</code>, and increments by <code>1</code> until the table returns <code>nil</code>. When used in a for loop, <code>ipairs</code> returns the current index and the <code>value</code> at that <code>index</code>.<br/>
+如果遍历顺序很重要，可以用 <code>ipairs</code>，但它只遍历数字索引。遍历表数组时应当用它。它从索引 <code>1</code> 开始，每次加 <code>1</code>，直到表返回 <code>nil</code> 为止。在 for 循环中使用 <code>ipairs</code> 时，它会返回当前索引，以及该 <code>index</code> 上的 <code>value</code>。<br/>
 
 ```lua
 for index, value in ipairs(array) do
@@ -104,10 +109,10 @@ for index, value in ipairs(array) do
 end
 ```
 
-## Length of Table Array
+## 表数组的长度
 
-You can use the <code>#</code> operator to get the length of a table array. For tables with non-numeric indexes, you have to use <code>pairs</code> and calculate the length yourself, though the "length" of that kind of table isn't really useful. This follows the same rules as <code>ipairs</code> in the way that the table's length is every numeric index until one returns <code>nil</code>. So <code>#\{1,2,3,4}</code> will return <code>4</code>, and <code>#\{1,2,nil,4}</code> will return <code>2</code>.<br/>
-As an example, <code>ipairs</code> is pretty much just this.
+可以用 <code>#</code> 运算符获取表数组的长度。对于使用非数字索引的表，只能借助 <code>pairs</code> 自行统计长度，不过这类表的“长度”通常没有实际用途。长度规则与 <code>ipairs</code> 一致：表中从第一个数字索引开始连续计数，直到某个索引返回 <code>nil</code> 为止。因此 <code>#\{1,2,3,4}</code> 会返回 <code>4</code>，<code>#\{1,2,nil,4}</code> 会返回 <code>2</code>。<br/>
+举例来说，<code>ipairs</code> 大致相当于下面这段代码。
 
 ```lua
 for index = 1, #array, 1 do
@@ -115,19 +120,19 @@ for index = 1, #array, 1 do
 end
 ```
 
-## Manipulating Table Arrays
+## 操作表数组
 
-Lua comes built in with ways to manipulate tables. Not all are described here, just the ones that I feel are most important.<br/>
-All of these functions are available via the <code>tables</code> global.
+Lua 内置了一些操作表的方法。这里只介绍几个最主要的。<br/>
+这些函数都可以通过 <code>tables</code> 全局对象使用。
 
 ### <code>table.insert(t, pos, value)</code>
 
-This function can add a value at any index, shifting the other values to account for the added value.<br/>
-<code>table.insert(array, 1, "e")</code> will insert <code>"e"</code> at the beginning of the table <code>array</code>, shifting every other value forward one index.<br/>
-When adding elements to the end of the array, you use the function as <code>table.insert(t, value)</code>. So <code>table.insert(array, "l")</code> appends <code>"l"</code> to the end of the table <code>array</code>.
+此函数可以在任意索引处添加值，并把其他值后移，为新增的值腾出位置。<br/>
+<code>table.insert(array, 1, "e")</code> 会把 <code>"e"</code> 插入到表 <code>array</code> 的开头，其他每个值都后移一个索引。<br/>
+要把元素添加到数组末尾时，以 <code>table.insert(t, value)</code> 的形式调用。例如 <code>table.insert(array, "l")</code> 会把 <code>"l"</code> 追加到表 <code>array</code> 的末尾。
 
 ### <code>table.remove(t, pos)</code>
 
-This function can remove a value at any index, shifting the other values to account for the removed value. The value that was removed will be returned by this function as well.<br/>
-<code>table.remove(array, 1)</code> will remove the value at index <code>1</code> from the table, shifting all the values back an index.<br/>
-<code>pos</code> is optional, with the default value being <code>#t</code>. <code>table.remove(array)</code> will remove the last value in the table.
+此函数可以删除任意索引处的值，并把其他值前移，填补删除后留下的空位。被删除的值也会作为返回值返回。<br/>
+<code>table.remove(array, 1)</code> 会删除表中索引 <code>1</code> 处的值，其余所有值都前移一个索引。<br/>
+<code>pos</code> 可选，默认值为 <code>#t</code>。<code>table.remove(array)</code> 会删除表中的最后一个值。

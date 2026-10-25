@@ -1,34 +1,36 @@
 ---
 sidebar_position: 1
+title: Events（事件）
+sidebar_label: Events（事件）
 ---
 
-A global API that contains all of the figura Events
+包含 Figura 全部事件的全局 API。
 
-Accessed using the name `events`
+通过名称 `events` 访问。
 
 ---
 
-### Init
+### Init（初始化阶段）
 
-If code is run outside of any event or function that is the init phase, and it runs first before any other event. Calling the player API will error here, use entity_init instead.
+如果代码不在任何事件或函数内运行，就属于 init 阶段，并且会在其他任何事件之前最先运行。此阶段调用 player API 会报错，请改用 entity_init。
 
 ---
 
 ### <code>getEvents()</code> \{#getEvents}
 
-Returns a table with all events types
+返回一个包含所有事件类型的表。
 
 ```lua
 getEvents()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description                 |
-| --------------------------------------------- | --------------------------- |
-| <code>[Table](/tutorials/types/Tables)</code> | Returns all the event types |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Table](/tutorials/types/Tables)</code> | 返回所有事件类型 |
 
-**Example:**
+**示例：**
 
 ```lua
 events:getEvents()
@@ -36,15 +38,15 @@ events:getEvents()
 
 ---
 
-## Events
+## 事件
 
 ### <code>ENTITY_INIT()</code> \{#ENTITY_INIT}
 
-The entity_init event runs when the avatar's entity (usually the player) first starts existing.
+entity_init 事件在形象对应的实体（通常是玩家）首次出现时运行。
 
-It runs once and has no arguments. Calling the player API is safe here, making it a player-oriented init method.
+它只运行一次，且没有参数。在此调用 player API 是安全的，因此它是面向玩家的初始化方式。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.entity_init()
@@ -56,11 +58,11 @@ end
 
 ### <code>TICK()</code> \{#TICK}
 
-The tick event runs every in-game tick if the avatar's entity (the player) exists. There are 20 ticks in a second. This is the most commonly used event.
+如果形象对应的实体（玩家）存在，tick 事件会在每个游戏刻运行。一秒有 20 个游戏刻。这是最常用的事件。
 
-Tick has no arguments and calling the player API is safe here.
+Tick 没有参数，在此调用 player API 是安全的。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.tick()
@@ -72,11 +74,11 @@ end
 
 ### <code>WORLD_TICK()</code> \{#WORLD_TICK}
 
-The world_tick event runs every in game tick. There are 20 ticks in a second.
+world_tick 事件在每个游戏刻运行。一秒有 20 个游戏刻。
 
-World_tick has no arguments and calling the player API without a <code>player:isLoaded()</code> check will error here.
+World_tick 没有参数，在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.world_tick()
@@ -88,17 +90,17 @@ end
 
 ### <code>RENDER(delta,context,matrix)</code> \{#RENDER}
 
-The render event runs once a frame before the avatar is rendered, after the avatar's entity exists. Calling the player is safe here.
+render 事件在形象渲染之前、每帧运行一次，并且要求形象对应的实体已经存在。在此调用 player API 是安全的。
 
-Render has three parameters, all parameters are optional.
+Render 有三个参数，所有参数都是可选的。
 
-The first is delta, which is a number from 0 to 1 indicating the time between ticks (so at the start of a tick it always resets to 0). Delta is most often used to smooth values Minecraft updates once a tick.
+第一个是 delta，取值 0 到 1，表示处于两个游戏刻之间的时间比例（因此在游戏刻开始时总是重置为 0）。Delta 最常用于平滑 Minecraft 每刻才更新一次的值。
 
-The second parameter is the context of the current render mode. IE: If you're in first person you're viewing the FIRST_PERSON context, but if you have the paperdoll on you also have the PAPERDOLL context.
+第二个参数是当前渲染模式的上下文。例如：如果你处于第一人称，看到的是 FIRST_PERSON 上下文；如果同时开启了纸娃娃，则还会得到 PAPERDOLL 上下文。
 
-The third is the source matrix used to render the avatar. Because of a Minecraft bug this matrix will be NaN when moving very fast like when elytra flying.
+第三个是用于渲染形象的源矩阵。由于 Minecraft 的一个 bug，当移动速度非常快（例如鞘翅飞行）时，该矩阵会是 NaN。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.render(delta, context, matrix)
@@ -114,11 +116,11 @@ end
 
 ### <code>POST_RENDER(delta,context,matrix)</code> \{#POST_RENDER}
 
-The render event runs once a frame after the avatar is rendered, after the avatar's entity exists. Calling the player is safe here.
+该事件在形象渲染之后、每帧运行一次，并且要求形象对应的实体已经存在。在此调用 player API 是安全的。
 
-It has the same parameters as render
+它的参数与 render 相同。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.post_render(delta, context, matrix)
@@ -131,15 +133,15 @@ end
 
 ### <code>WORLD_RENDER(delta)</code> \{#WORLD_RENDER}
 
-The WORLD_RENDER event is run every frame before the world is rendered
+WORLD_RENDER 事件在世界渲染之前、每帧运行一次。
 
-Always runs when a world is visible, even when the avatar itself is not, so this runs even in first person
+只要世界可见就会运行，即使形象本身不可见，因此在第一人称下也会运行。
 
-Takes a parameter delta, which is a number from 0 to 1 indicating the proportion of the way the game is between ticks
+参数 delta 取值 0 到 1，表示游戏处于两个游戏刻之间的时间比例。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.world_render(delta)
@@ -152,15 +154,15 @@ end
 
 ### <code>POST_WORLD_RENDER(delta)</code> \{#POST_WORLD_RENDER}
 
-The POST_WORLD_RENDER event runs every frame after the world is rendered
+POST_WORLD_RENDER 事件在世界渲染之后、每帧运行一次。
 
-Always runs when a world is visible, even when the avatar itself is not, so this runs even in first person
+只要世界可见就会运行，即使形象本身不可见，因此在第一人称下也会运行。
 
-Takes a parameter delta, which is a number from 0 to 1 indicating the proportion of the way the game is between ticks
+参数 delta 取值 0 到 1，表示游戏处于两个游戏刻之间的时间比例。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.post_world_render(delta)
@@ -173,15 +175,15 @@ end
 
 ### <code>CHAT_SEND_MESSAGE(message)</code> \{#CHAT_SEND_MESSAGE}
 
-The CHAT_SEND_MESSAGE event is run every time you send a message in chat
+CHAT_SEND_MESSAGE 事件在你每次于聊天栏发送消息时运行。
 
-A string parameter is passed in, which contains the message that was sent
+事件会传入一个字符串参数，内容为已发送的消息。
 
-The return value is chained to the next events of the same type, whereas NIL cancels the message from being sent and any other value will modify the sent message (if allowed in the settings)
+返回值会传递给同类型的后续事件；返回 NIL 会取消发送该消息，返回其他值则会修改发送的消息（如果设置允许）。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.chat_send_message(msg)
@@ -207,21 +209,21 @@ end
 
 ### <code>CHAT_RECEIVE_MESSAGE(raw,text)</code> \{#CHAT_RECEIVE_MESSAGE}
 
-The CHAT_RECEIVE_MESSAGE event is run every time a message is received in chat
+CHAT_RECEIVE_MESSAGE 事件在每次于聊天栏收到消息时运行。
 
-The first argument is the raw string of the received text
+第一个参数是收到文本的原始字符串。
 
-The second argument is a JSON string representation of the received text
+第二个参数是收到文本的 JSON 字符串表示。
 
-If the first return value is not nil, the message will be replaced with that value
+如果第一个返回值不是 nil，消息会被替换为该值。
 
-If the first return value is false, it will suppress adding this message
+如果第一个返回值是 false，则会阻止添加该消息。
 
-The second return value is, optionally, an RGB vector which will be used as the background color for this message
+第二个返回值可选，是一个 RGB 向量，会用作该消息的背景色。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.chat_receive_message(raw, text)
@@ -242,19 +244,19 @@ end
 
 ### <code>DAMAGE(type,source,attacker,pos)</code> \{#DAMAGE}
 
-Takes four arguments:
+接收四个参数：
 
-(String) - The damage type
+（String）— 伤害类型。
 
-(Entity) - The entity that dealt the damage
+（Entity）— 造成伤害的实体。
 
-(Entity) - The attacking entity
+（Entity）— 发起攻击的实体。
 
-(Vec3) - The damage position
+（Vec3）— 伤害发生的位置。
 
-The last three arguments may return nil if there is no direct damage source
+如果没有直接的伤害来源，后三个参数可能为 nil。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.damage(type, source, attacker, pos)
@@ -269,25 +271,25 @@ end
 
 ### <code>SKULL_RENDER(delta,block,item,entity,mode)</code> \{#SKULL_RENDER}
 
-Called on every one of your skull blocks placed in the world
+在你的每个已放置到世界中的头颅方块上调用。
 
-It have 5 arguments, as listed below:
+它有 5 个参数，如下所示：
 
-(number) - the tick delta
+（number）— 游戏刻 delta。
 
-(blockstate) - the block, when rendered from a block
+（blockstate）— 方块，当从头颅方块渲染时。
 
-(itemstack) - the item, when rendered from an item
+（itemstack）— 物品，当从头颅物品渲染时。
 
-(entity) - the entity, when rendered from an entity
+（entity）— 实体，当从头颅实体渲染时。
 
-(mode) - the type of the rendering (LEFT_HAND, HEAD, BLOCK, etc)
+（mode）— 渲染类型（LEFT_HAND、HEAD、BLOCK 等）。
 
-If the return value is true, the skull will not render
+如果返回值为 true，该头颅将不会被渲染。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.skull_render(delta, block, item, entity, mode)
@@ -299,15 +301,15 @@ end
 
 ### <code>MOUSE_SCROLL(delta)</code> \{#MOUSE_SCROLL}
 
-The MOUSE_SCROLL event runs every time the mouse is scrolled
+MOUSE_SCROLL 事件在每次滚动鼠标滚轮时运行。
 
-Takes a parameter delta, which is the direction of the scroll
+参数 delta 表示滚动的方向。
 
-If the return value is true, the event cancels its vanilla function
+如果返回值为 true，该事件会取消对应的原版功能。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.mouse_scroll(delta)
@@ -319,17 +321,17 @@ end
 
 ### <code>MOUSE_MOVE(x,y)</code> \{#MOUSE_MOVE}
 
-The MOUSE_MOVE event runs every time the mouse is moved around
+MOUSE_MOVE 事件在每次移动鼠标时运行。
 
-Takes two parameters, x and y, which is the difference from the mouse position based on the latest saved position
+它接收两个参数 x 和 y，表示相对上次保存位置的鼠标位移差。
 
-If the return value is true, the event cancels its vanilla function
+如果返回值为 true，该事件会取消对应的原版功能。
 
-Note that canceling the vanilla function also cancels saving the last mouse position
+注意：取消原版功能同时也会取消保存最后的鼠标位置。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.mouse_move(x, y)
@@ -341,17 +343,17 @@ end
 
 ### <code>MOUSE_PRESS(button,action,modifier)</code> \{#MOUSE_PRESS}
 
-The MOUSE_PRESS event runs every time a mouse button is pressed
+MOUSE_PRESS 事件在每次按下鼠标按键时运行。
 
-Takes three number parameters, a "button", which is the number id of the button that was been pressed, the "action", which is the status of the press event (0 for release, 1 for press, 2 for hold), and the "modifier", which is a bitmask number detecting if you have any modifier keys being pressed (like shift or alt, for example)
+它接收三个数字参数：“button”，被按下按键的数字 id；“action”，按键事件的状态（0 为松开，1 为按下，2 为按住）；“modifier”，一个位掩码数字，用于检测是否按下了修饰键（例如 shift 或 alt）。
 
-If the return value is true, the event cancels its vanilla function
+如果返回值为 true，该事件会取消对应的原版功能。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-The hold action is non-functional in mouse_press. Check the [keybind API](../tutorials/Keybinds) for an alternative to mouse_press.
+按住（hold）动作在 mouse_press 中不可用。mouse_press 的替代方案见[按键绑定 API](../tutorials/Keybinds)。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.mouse_press(button, action, modifier)
@@ -363,17 +365,17 @@ end
 
 ### <code>KEY_PRESS(key,action,modifier)</code> \{#KEY_PRESS}
 
-The KEY_PRESS event runs every time a keyboard key is pressed
+KEY_PRESS 事件在每次按下键盘按键时运行。
 
-Takes three number parameters, a "key", which is the number id of the key that was been pressed, the "action", which is the status of the press event (0 for release, 1 for press, 2 for hold), and the "modifier", which is a bitmask number detecting if you have any modifier keys being pressed (like shift or alt, for example)
+它接收三个数字参数：“key”，被按下按键的数字 id；“action”，按键事件的状态（0 为松开，1 为按下，2 为按住）；“modifier”，一个位掩码数字，用于检测是否按下了修饰键（例如 shift 或 alt）。
 
-If the return value is true, the event cancels its vanilla function
+如果返回值为 true，该事件会取消对应的原版功能。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-Check the [keybind API](../tutorials/Keybinds) for an alternative to key_press.
+key_press 的替代方案见[按键绑定 API](../tutorials/Keybinds)。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.key_press(key, action, modifier)
@@ -385,13 +387,13 @@ end
 
 ### <code>CHAR_TYPED(character,modifier,codepoint)</code> \{#CHAR_TYPED}
 
-The CHAR_TYPED event runs every time a character is inputted
+CHAR_TYPED 事件在每次输入字符时运行。
 
-Takes three parameters, the resulting "string" after converting the code point, the "modifier", which is a bitmask number detecting if you have any modifier keys being pressed (like shift or alt, for example), and the "codepoint" of the inputted char
+它接收三个参数：由码点转换得到的“string”；“modifier”，一个位掩码数字，用于检测是否按下了修饰键（例如 shift 或 alt）；以及所输入字符的“codepoint”。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.char_typed(character, modifier, codepoint)
@@ -403,17 +405,17 @@ end
 
 ### <code>USE_ITEM(item,action,particles)</code> \{#USE_ITEM}
 
-The USE_ITEM event is run every time the entity uses an item
+USE_ITEM 事件在实体每次使用物品时运行。
 
-The item, action and amount of particles this item would produce is given as argument
+事件会传入物品、动作，以及该物品会产生多少粒子。
 
-If the return value is true, the event cancels its vanilla function
+如果返回值为 true，该事件会取消对应的原版功能。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-Note: This event is several ticks slower than its alternative function in the [player API](../globals/Player#isusingitem): <code>player:isUsingItem()</code>
+注意：相比 [player API](../globals/Player#isusingitem) 中的替代函数 <code>player:isUsingItem()</code>，此事件会慢若干游戏刻。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.use_item(item, action, particles)
@@ -425,17 +427,17 @@ end
 
 ### <code>ARROW_RENDER(delta,arrow)</code> \{#ARROW_RENDER}
 
-The ARROW_RENDER event is run for every arrow entity shot by the Avatar owner
+ARROW_RENDER 事件会为形象主人射出的每支箭实体运行。
 
-It takes two arguments, the tick delta, and the arrow entity
+它接收两个参数：游戏刻 delta 与箭实体。
 
-Returning "true" stops this arrow from rendering, including the Arrow parent parts
+返回 true 会阻止该箭渲染，包括 Arrow 的父部件。
 
-Requires the "Vanilla Model Change" permission
+需要“Vanilla Model Change”权限。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.arrow_render(delta, arrow)
@@ -449,7 +451,7 @@ end
 
 figura.docs.events.trident_render
 
-**Example:**
+**示例：**
 
 ```lua
 function events.trident_render(delta, trident)
@@ -461,17 +463,17 @@ end
 
 ### <code>ITEM_RENDER(item,mode,pos,rot,scale,left)</code> \{#ITEM_RENDER}
 
-Called on every one of your items that is being rendered
+在你的每个正在渲染的物品上调用。
 
-It takes six arguments: the item being rendered, the rendering mode, the position, rotation, and scale that would be applied to the item, and if it's being rendered in the left hand
+它接收六个参数：正在渲染的物品、渲染模式、会应用到该物品的位置、旋转和缩放，以及它是否正在左手中渲染。
 
-Returning a ModelPart parented to Item stops the rendering of this item and will render the returned part instead
+返回一个以 Item 为父对象的 ModelPart 会停止渲染该物品，并改为渲染返回的部件。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-See the [custom items page](../tutorials/Custom-Items) for a more in-depth explanation.
+更详细的说明见[自定义物品页面](../tutorials/Custom-Items)。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.item_render(item, mode, pos, rot, scale, left)
@@ -483,15 +485,15 @@ end
 
 ### <code>ON_PLAY_SOUND(id,pos,vol,pitch,loop,category,path)</code> \{#ON_PLAY_SOUND}
 
-Called every time a new sound is played
+在每次播放新音效时调用。
 
-Takes the following as arguments: the sound's ID, its world position, volume, pitch, if the sound should loop, the sound's category, and the sound's file path
+接收以下参数：音效的 ID、它的世界坐标、音量、音高、该音效是否循环、音效分类，以及音效的文件路径。
 
-Return true to prevent this sound from playing
+返回 true 可阻止该音效播放。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.on_play_sound(id, pos, vol, pitch, loop, category)
@@ -506,11 +508,11 @@ end
 
 ### <code>RESOURCE_RELOAD()</code> \{#RESOURCE_RELOAD}
 
-Called every time that the client resources are reloaded, allowing you to re-create or update resource texture references
+在每次客户端资源重载时调用，便于你重新创建或更新资源纹理引用。
 
-Calling the player without a <code>player:isLoaded()</code> check will error here.
+在此不做 <code>player:isLoaded()</code> 检查就调用 player API 会报错。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.resource_reload()
@@ -522,11 +524,11 @@ end
 
 ### <code>TOTEM()</code> \{#TOTEM}
 
-Called whenever the player uses a Totem of Undying to cheat death
+当玩家使用不死图腾免于死亡时调用。
 
-If the return value is true, the animation is cancelled
+如果返回值为 true，动画会被取消。
 
-**Example:**
+**示例：**
 
 ```lua
 function events.totem()

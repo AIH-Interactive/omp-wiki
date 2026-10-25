@@ -1,0 +1,9 @@
+{
+  "label": "OmniMorph",
+  "position": 32,
+  "link": {
+    "type": "generated-index",
+    "description": "OmniMorph 新增的全局对象与类型。",
+    "slug": "/category/omnimorph-api"
+  }
+}

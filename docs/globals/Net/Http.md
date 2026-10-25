@@ -1,32 +1,37 @@
-A global API that contains HTTP related features
+---
+title: Http（HTTP 请求）
+sidebar_label: Http（HTTP 请求）
+---
+
+包含 HTTP 相关功能的全局 API
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>request()</code> \{#request}
 
-Creates request builder for specified URI
+为指定 URI 创建请求构建器
 
 ```lua
 request(uri)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| uri  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| uri  | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                               | Description |
-| ------------------------------------------------------------------ | ----------- |
-| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | -           |
+| 类型                                                               | 说明 |
+| ------------------------------------------------------------------ | ---- |
+| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

@@ -1,64 +1,69 @@
+---
+title: RenderTask（渲染任务）
+sidebar_label: RenderTask（渲染任务）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Represents a rendering task for Figura to complete each frame
+表示 Figura 每帧需要完成的一项渲染任务。
 
-An abstract superclass of ItemTask, BlockTask, TextTask, and SpriteTask
+它是 ItemTask、BlockTask、TextTask 和 SpriteTask 的抽象父类。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
 ---
 
 ### <code>setLight()</code> \{#setLight}
 
-**Aliases:** `light()`
+**别名：** `light()`
 
-Sets the light override value of this task
+设置该任务的光照覆盖值。
 
-Values are given from 0 to 15, indicating the block light and sky light levels you want to use
+取值为 0 到 15，分别表示你想使用的方块光与天空光等级。
 
-Passing nil will reset the lighting override for this task
+传入 nil 会重置该任务的光照覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setLight(light)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | light | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setLight(blockLight, skyLight)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
-| ---------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | blockLight | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | skyLight   | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
@@ -67,148 +72,148 @@ setLight(blockLight, skyLight)
 
 ### <code>getLight()</code> \{#getLight}
 
-Returns the light override value of this task
+返回该任务的光照覆盖值。
 
 ```lua
 getLight()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
 ---
 
 ### <code>setMatrix()</code> \{#setMatrix}
 
-**Aliases:** `matrix()`
+**别名：** `matrix()`
 
-Sets the given matrix as the position matrix for this render task
+将给定矩阵设置为该渲染任务的位置矩阵。
 
-The normal matrix is automatically calculated as the inverse transpose of this matrix
+法线矩阵会自动按该矩阵的逆转置计算。
 
-Calling this DOES NOT CHANGE the values of position, rot, or scale in the render task
+调用此函数不会改变渲染任务中 position、rot 或 scale 的值。
 
-If you call setPos() or a similar function, the effects of setMatrix() will be overwritten
+如果之后调用 setPos() 或类似函数，setMatrix() 的效果会被覆盖。
 
 ```lua
 setMatrix(matrix)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
-| ------ | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | matrix | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 ---
 
 ### <code>getName()</code> \{#getName}
 
-Get this task's name
+获取该任务的名称。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 ---
 
 ### <code>getNormalMatrix()</code> \{#getNormalMatrix}
 
-Recalculates the normal matrix for this render task, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据该渲染任务当前的位置、旋转、缩放和轴心重新计算法线矩阵，然后返回该矩阵。
 
 ```lua
 getNormalMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
 ---
 
 ### <code>getNormalMatrixRaw()</code> \{#getNormalMatrixRaw}
 
-Returns the normal matrix for this render task
+返回该渲染任务的法线矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before returning it
+带 Raw 的版本不同之处在于：返回前不会重新计算矩阵。
 
 ```lua
 getNormalMatrixRaw()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
 ---
 
 ### <code>setOverlay()</code> \{#setOverlay}
 
-**Aliases:** `overlay()`
+**别名：** `overlay()`
 
-Sets the overlay override value of this task
+设置该任务的叠加层（overlay）覆盖值。
 
-Values you give are 0 to 15, indicating the white overlay and the damage overlay levels you want to use
+取值为 0 到 15，分别表示你想使用的白色叠加层与受伤叠加层等级。
 
-Passing nil will reset the overlay override for this task
+传入 nil 会重置该任务的叠加层覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOverlay(overlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                             | Description | Default |
-| ------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | overlay | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOverlay(whiteOverlay, hurtOverlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name         | Type                                             | Description | Default |
-| ------------ | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | whiteOverlay | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | hurtOverlay  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
@@ -217,67 +222,67 @@ setOverlay(whiteOverlay, hurtOverlay)
 
 ### <code>getOverlay()</code> \{#getOverlay}
 
-Returns the overlay override value of this task
+返回该任务的叠加层覆盖值。
 
 ```lua
 getOverlay()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
 ---
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the position of the task, relative to its attached part
+设置任务的位置，相对于其挂载的部件。
 
-Uses model coordinates
+使用模型坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
@@ -286,99 +291,99 @@ setPos(x, y, z)
 
 ### <code>getPos()</code> \{#getPos}
 
-Gets this task position
+获取该任务的位置。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
 ---
 
 ### <code>getPositionMatrix()</code> \{#getPositionMatrix}
 
-Recalculates the matrix for this render task, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据该渲染任务当前的位置、旋转、缩放和轴心重新计算矩阵，然后返回该矩阵。
 
 ```lua
 getPositionMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
 ---
 
 ### <code>getPositionMatrixRaw()</code> \{#getPositionMatrixRaw}
 
-Returns the position matrix for this render task
+返回该渲染任务的位置矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before getting it
+带 Raw 的版本不同之处在于：获取前不会重新计算矩阵。
 
 ```lua
 getPositionMatrixRaw()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
 ---
 
 ### <code>setRot()</code> \{#setRot}
 
-**Aliases:** `rot()`
+**别名：** `rot()`
 
-Sets the rotation of the task, relative to its attached part
+设置任务的旋转，相对于其挂载的部件。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setRot(rot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | rot  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setRot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
@@ -387,65 +392,65 @@ setRot(x, y, z)
 
 ### <code>getRot()</code> \{#getRot}
 
-Gets this task rotation
+获取该任务的旋转。
 
 ```lua
 getRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
 ---
 
 ### <code>setScale()</code> \{#setScale}
 
-**Aliases:** `scale()`
+**别名：** `scale()`
 
-Sets the scale of the task, relative to its attached part
+设置任务的缩放，相对于其挂载的部件。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setScale(scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
@@ -454,72 +459,72 @@ setScale(x, y, z)
 
 ### <code>getScale()</code> \{#getScale}
 
-Gets this task scale
+获取该任务的缩放。
 
 ```lua
 getScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
 ---
 
 ### <code>setVisible()</code> \{#setVisible}
 
-**Aliases:** `visible()`
+**别名：** `visible()`
 
-Sets whether or not this task should be rendered
+设置该任务是否应被渲染。
 
 ```lua
 setVisible(visible)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 ---
 
 ### <code>isVisible()</code> \{#isVisible}
 
-Checks if this task is visible
+检查该任务是否可见。
 
 ```lua
 isVisible()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
 ---
 
 ### <code>remove()</code> \{#remove}
 
-Removes this render task from the parent model part
+从父模型部件中移除该渲染任务。
 
 ```lua
 remove()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description               |
-| ----------------------------------------------------- | ------------------------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | 返回自身，以便链式调用 |
 
 ---

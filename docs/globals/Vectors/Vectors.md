@@ -1,21 +1,23 @@
 ---
 sidebar_position: 1
+title: Vectors（向量 API）
+sidebar_label: Vectors（向量 API）
 ---
 
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API which provides functions dedicated to creating and otherwise manipulating vectors
+一个全局 API，提供专门用于创建和操作向量的函数
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
-Accessed using the name `vectors`
+通过名称 `vectors` 访问
 
 :::info
 
-The functions in the Vector API never receive `self` as a parameter. Because of this they should be called with a `.` instead of `:`
+Vector API 中的函数不会把 `self` 作为参数。因此调用时应使用 `.`，而不是 `:`。
 
 ```lua
 -- error-next-line
@@ -29,83 +31,83 @@ vectors.worldToScreenSpace(vec(1, 2, 3))
 
 ---
 
-## Vector Creation
+## 向量创建
 
 ### <code>vec()</code> \{#vec}
 
-Creates and returns a vector of the appropriate size to hold the arguments passed in
+创建并返回一个尺寸合适的向量，用于保存传入的参数
 
-For example; if you call vec(3, 4, 0, 2), then the function will return a Vector4 containing those values
+例如：调用 vec(3, 4, 0, 2) 时，函数会返回包含这些值的 Vector4。
 
-There is a global alias "vec" for this function, meaning the "vectors." can be omitted
+此函数还有一个全局别名 “vec”，因此可以省略 “vectors.” 前缀。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 vec(x, y)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector2](/globals/Vectors/Vector2)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 vec(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 vec(x, y, z, w)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| w    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| w    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector4](/globals/Vectors/Vector4)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector4](/globals/Vectors/Vector4)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.vec(90, 90, 90)
@@ -115,28 +117,28 @@ vectors.vec(90, 90, 90)
 
 ### <code>vec2()</code> \{#vec2}
 
-Creates and returns a Vector2 with the given values
+创建并返回包含给定值的 Vector2
 
-Nil values become zero
+nil 值会变为 0
 
 ```lua
 vec2(x, y)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector2](/globals/Vectors/Vector2)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.vec2(90, 90)
@@ -146,29 +148,29 @@ vectors.vec2(90, 90)
 
 ### <code>vec3()</code> \{#vec3}
 
-Creates and returns a Vector3 with the given values
+创建并返回包含给定值的 Vector3
 
-Nil values become zero
+nil 值会变为 0
 
 ```lua
 vec3(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.vec3(90, 90, 90)
@@ -178,30 +180,30 @@ vectors.vec3(90, 90, 90)
 
 ### <code>vec4()</code> \{#vec4}
 
-Creates and returns a Vector4 with the given values
+创建并返回包含给定值的 Vector4
 
-Nil values become zero
+nil 值会变为 0
 
 ```lua
 vec4(x, y, z, w)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| w    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| w    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector4](/globals/Vectors/Vector4)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector4](/globals/Vectors/Vector4)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.vec4(90, 90, 90, 90)
@@ -209,33 +211,33 @@ vectors.vec4(90, 90, 90, 90)
 
 ---
 
-## Colors
+## 颜色
 
 ### <code>hexToRGB()</code> \{#hexToRGB}
 
-Parses a Hex string color into an RGB format vector
+把十六进制字符串表示的颜色解析为 RGB 格式的向量
 
-The hex "#" is optional, and it can have any length, however only the first 6 hex digits are evaluated, short hex (length 3) is also supported
+十六进制开头的 “#” 可写可不写，长度不限，但只有前 6 位十六进制数字会被解析；也支持长度为 3 的短十六进制。
 
-For example, "#42" is the same as "420000", and "F0B" is the same as "FF00BB"
+例如：“#42” 与 “420000” 相同，“F0B” 与 “FF00BB” 相同。
 
 ```lua
 hexToRGB(hex)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| hex  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| hex  | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.hexToRGB("#5bbcf4")
@@ -246,52 +248,52 @@ vectors.hexToRGB("SOFT_BLUE")
 
 ### <code>hsvToRGB()</code> \{#hsvToRGB}
 
-Converts the given color from HSV format to RGB format
+把给定颜色从 HSV 格式转换为 RGB 格式
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 hsvToRGB(hsv)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| hsv  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| hsv  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 hsvToRGB(h, s, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| h    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| s    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| v    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| h    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| s    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| v    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.hsvToRGB(181 / 360, 68 / 100, 66 / 100)
@@ -301,25 +303,25 @@ vectors.hsvToRGB(181 / 360, 68 / 100, 66 / 100)
 
 ### <code>intToRGB()</code> \{#intToRGB}
 
-Converts the given color from Integer format to RGB format
+把给定颜色从整数（integer）格式转换为 RGB 格式
 
 ```lua
 intToRGB(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| color | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| color | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.intToRGB(838860750)
@@ -329,52 +331,52 @@ vectors.intToRGB(838860750)
 
 ### <code>rgbToHSV()</code> \{#rgbToHSV}
 
-Converts the given color from RGB format to HSV format
+把给定颜色从 RGB 格式转换为 HSV 格式
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 rgbToHSV(rgb)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 rgbToHSV(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.rgbToHSV(81 / 255, 68 / 255, 66 / 255)
@@ -384,54 +386,54 @@ vectors.rgbToHSV(81 / 255, 68 / 255, 66 / 255)
 
 ### <code>rgbToHex()</code> \{#rgbToHex}
 
-Converts the given color from RGB format to Hex format
+把给定颜色从 RGB 格式转换为十六进制格式
 
-The "#" is not included on the return value
+返回值不包含 “#”。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 rgbToHex(rgb)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 rgbToHex(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.rgbToHex(81 / 255, 68 / 255, 66 / 255)
@@ -441,52 +443,52 @@ vectors.rgbToHex(81 / 255, 68 / 255, 66 / 255)
 
 ### <code>rgbToInt()</code> \{#rgbToInt}
 
-Converts the given color from RGB format to Integer format
+把给定颜色从 RGB 格式转换为整数（integer）格式
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 rgbToInt(rgb)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 rgbToInt(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.rgbToInt(50 / 255, 50 / 255, 50 / 255)
@@ -494,55 +496,55 @@ vectors.rgbToInt(50 / 255, 50 / 255, 50 / 255)
 
 ---
 
-## Misc
+## 其他
 
 ### <code>angleToDir()</code> \{#angleToDir}
 
-Converts a pitch/yaw angle (in degrees) into a direction vector
+把俯仰角与偏航角（单位为度）转换为方向向量
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 angleToDir(vec)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| vec  | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| vec  | <code>[Vector2](/globals/Vectors/Vector2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 angleToDir(pitch, yaw)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| pitch | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| yaw   | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称  | 类型                                            | 说明 | 默认值 |
+| ----- | ----------------------------------------------- | ---- | ------ |
+| pitch | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| yaw   | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.angleToDir(90, 70)
@@ -552,104 +554,104 @@ vectors.angleToDir(90, 70)
 
 ### <code>rotateAroundAxis()</code> \{#rotateAroundAxis}
 
-Rotates a vector relative to a rotation vector
+围绕给定的轴向向量旋转一个向量
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 rotateAroundAxis(angle, vec, axis)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| angle | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
-| vec   | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
-| axis  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| angle | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
+| vec   | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
+| axis  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 rotateAroundAxis(angle, x, y, z, axis)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| angle | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
-| x     | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
-| y     | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
-| z     | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
-| axis  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| angle | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
+| x     | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
+| y     | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
+| z     | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
+| axis  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 rotateAroundAxis(angle, vec, axisX, axisY, axisZ)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| angle | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
-| vec   | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
-| axisX | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
-| axisY | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
-| axisZ | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| angle | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
+| vec   | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
+| axisX | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
+| axisY | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
+| axisZ | <code>[Number](/tutorials/types/Numbers)</code>  | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 rotateAroundAxis(angle, x, y, z, axisX, axisY, axisZ)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| angle | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| x     | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y     | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z     | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| axisX | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| axisY | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| axisZ | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称  | 类型                                            | 说明 | 默认值 |
+| ----- | ----------------------------------------------- | ---- | ------ |
+| angle | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| x     | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y     | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z     | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| axisX | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| axisY | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| axisZ | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.rotateAroundAxis(180, vec(1, 2, 3), vec(0, 1, 0))
@@ -659,52 +661,52 @@ vectors.rotateAroundAxis(180, vec(1, 2, 3), vec(0, 1, 0))
 
 ### <code>toCameraSpace()</code> \{#toCameraSpace}
 
-Converts a position in the world into a position relative to the viewer's camera
+把世界中的位置转换为相对于观察者相机的位置
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 toCameraSpace(vec)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| vec  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| vec  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 toCameraSpace(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.toCameraSpace(vec(1, 2, 3))
@@ -714,52 +716,52 @@ vectors.toCameraSpace(vec(1, 2, 3))
 
 ### <code>worldToScreenSpace()</code> \{#worldToScreenSpace}
 
-Converts a position in the world into a position relative to the viewer's screen
+把世界中的位置转换为相对于观察者屏幕的位置
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 worldToScreenSpace(vec)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| vec  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| vec  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector4](/globals/Vectors/Vector4)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector4](/globals/Vectors/Vector4)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 worldToScreenSpace(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector4](/globals/Vectors/Vector4)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector4](/globals/Vectors/Vector4)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vectors.worldToScreenSpace(vec(1, 2, 3))

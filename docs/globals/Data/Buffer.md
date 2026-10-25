@@ -1,29 +1,34 @@
+---
+title: Buffer（字节缓冲区）
+sidebar_label: Buffer（字节缓冲区）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A byte buffer object
+字节缓冲区对象
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>getLength()</code> \{#getLength}
 
-Returns length of this buffer
+返回此缓冲区的长度
 
 ```lua
 getLength()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -33,19 +38,19 @@ getLength()
 
 ### <code>getMaxCapacity()</code> \{#getMaxCapacity}
 
-Returns max capacity this buffer can have
+返回此缓冲区可拥有的最大容量
 
 ```lua
 getMaxCapacity()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -55,25 +60,25 @@ getMaxCapacity()
 
 ### <code>setPosition()</code> \{#setPosition}
 
-Sets current position of this buffer
+设置此缓冲区的当前位置
 
 ```lua
 setPosition(position)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                             | Description | Default |
-| -------- | ------------------------------------------------ | ----------- | ------- |
-| position | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称     | 类型                                             | 说明 | 默认值 |
+| -------- | ------------------------------------------------ | ---- | ------ |
+| position | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -83,19 +88,19 @@ setPosition(position)
 
 ### <code>getPosition()</code> \{#getPosition}
 
-Returns current position of this buffer
+返回此缓冲区的当前位置
 
 ```lua
 getPosition()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -105,19 +110,19 @@ getPosition()
 
 ### <code>available()</code> \{#available}
 
-Returns amount of bytes available to read
+返回可读取的字节数
 
 ```lua
 available()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -133,13 +138,13 @@ figura.docs.clear
 clear()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -149,19 +154,19 @@ clear()
 
 ### <code>close()</code> \{#close}
 
-Closes this buffer, marking it's memory to be freed by garbage collector. After calling this function buffer cant be used anymore
+关闭此缓冲区，并把它的内存交由垃圾回收器释放。调用此函数后，该缓冲区不能再使用。
 
 ```lua
 close()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -171,19 +176,19 @@ close()
 
 ### <code>isClosed()</code> \{#isClosed}
 
-Checks, is this buffer closed or not
+检查此缓冲区是否已关闭
 
 ```lua
 isClosed()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -193,19 +198,19 @@ isClosed()
 
 ### <code>read()</code> \{#read}
 
-Reads one byte from this buffer
+从此缓冲区读取一个字节
 
 ```lua
 read()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -215,44 +220,44 @@ read()
 
 ### <code>readBase64()</code> \{#readBase64}
 
-Reads bytes from this buffer to a Base64 string. Length is amount of bytes to read, default length is 1024
+从此缓冲区读取字节并转换为 Base64 字符串。length 为要读取的字节数，默认值为 1024。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 readBase64()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 readBase64(length)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
-| ------ | ------------------------------------------------ | ----------- | ------- |
-| length | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称   | 类型                                             | 说明 | 默认值 |
+| ------ | ------------------------------------------------ | ---- | ------ |
+| length | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -262,44 +267,44 @@ readBase64(length)
 
 ### <code>readByteArray()</code> \{#readByteArray}
 
-Reads bytes from this buffer to a string byte array. Length is amount of bytes to read, default length is 1024
+从此缓冲区读取字节并转换为字符串字节数组。length 为要读取的字节数，默认值为 1024。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 readByteArray()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 readByteArray(length)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
-| ------ | ------------------------------------------------ | ----------- | ------- |
-| length | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称   | 类型                                             | 说明 | 默认值 |
+| ------ | ------------------------------------------------ | ---- | ------ |
+| length | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -309,19 +314,19 @@ readByteArray(length)
 
 ### <code>readDouble()</code> \{#readDouble}
 
-Reads double from this buffer
+从此缓冲区读取一个双精度浮点数（double）
 
 ```lua
 readDouble()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -331,19 +336,19 @@ readDouble()
 
 ### <code>readDoubleLE()</code> \{#readDoubleLE}
 
-Reads little endian double from this buffer
+从此缓冲区读取一个小端序双精度浮点数（little endian double）
 
 ```lua
 readDoubleLE()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -353,19 +358,19 @@ readDoubleLE()
 
 ### <code>readFloat()</code> \{#readFloat}
 
-Reads float from this buffer
+从此缓冲区读取一个单精度浮点数（float）
 
 ```lua
 readFloat()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -375,19 +380,19 @@ readFloat()
 
 ### <code>readFloatLE()</code> \{#readFloatLE}
 
-Reads little endian float from this buffer
+从此缓冲区读取一个小端序单精度浮点数（little endian float）
 
 ```lua
 readFloatLE()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -397,26 +402,26 @@ readFloatLE()
 
 ### <code>readFromStream()</code> \{#readFromStream}
 
-Reads data from provided input stream and writes it to buffer, returns amount of bytes wrote
+从给定的输入流读取数据并写入此缓冲区，返回写入的字节数
 
 ```lua
 readFromStream(stream, amount)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                                  | Description | Default |
-| ------ | ----------------------------------------------------- | ----------- | ------- |
-| stream | <code>[InputStream](/globals/Data/InputStream)</code> | -           | -       |
-| amount | <code>[Integer](/tutorials/types/Numbers)</code>      | -           | -       |
+| 名称   | 类型                                                  | 说明 | 默认值 |
+| ------ | ----------------------------------------------------- | ---- | ------ |
+| stream | <code>[InputStream](/globals/Data/InputStream)</code> | -    | -      |
+| amount | <code>[Integer](/tutorials/types/Numbers)</code>      | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -426,19 +431,19 @@ readFromStream(stream, amount)
 
 ### <code>readInt()</code> \{#readInt}
 
-Reads integer from this buffer
+从此缓冲区读取一个整数（integer）
 
 ```lua
 readInt()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -448,19 +453,19 @@ readInt()
 
 ### <code>readIntLE()</code> \{#readIntLE}
 
-Reads little endian integer from this buffer
+从此缓冲区读取一个小端序整数（little endian integer）
 
 ```lua
 readIntLE()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -470,19 +475,19 @@ readIntLE()
 
 ### <code>readLong()</code> \{#readLong}
 
-Reads long from this buffer
+从此缓冲区读取一个长整数（long）
 
 ```lua
 readLong()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -492,19 +497,19 @@ readLong()
 
 ### <code>readLongLE()</code> \{#readLongLE}
 
-Reads little endian long from this buffer
+从此缓冲区读取一个小端序长整数（little endian long）
 
 ```lua
 readLongLE()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -514,19 +519,19 @@ readLongLE()
 
 ### <code>readShort()</code> \{#readShort}
 
-Reads short from this buffer
+从此缓冲区读取一个短整数（short）
 
 ```lua
 readShort()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -536,19 +541,19 @@ readShort()
 
 ### <code>readShortLE()</code> \{#readShortLE}
 
-Reads little endian short from this buffer
+从此缓冲区读取一个小端序短整数（little endian short）
 
 ```lua
 readShortLE()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -558,64 +563,64 @@ readShortLE()
 
 ### <code>readString()</code> \{#readString}
 
-Reads a string from this buffer. Default encoding is UTF8. Length is amount of bytes to read
+从此缓冲区读取一个字符串。默认编码为 UTF8。length 为要读取的字节数
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 readString()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 readString(length)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
-| ------ | ------------------------------------------------ | ----------- | ------- |
-| length | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称   | 类型                                             | 说明 | 默认值 |
+| ------ | ------------------------------------------------ | ---- | ------ |
+| length | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 readString(length, encoding)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                             | Description | Default |
-| -------- | ------------------------------------------------ | ----------- | ------- |
-| length   | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
-| encoding | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
+| 名称     | 类型                                             | 说明 | 默认值 |
+| -------- | ------------------------------------------------ | ---- | ------ |
+| length   | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
+| encoding | <code>[String](/tutorials/types/Strings)</code>  | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -625,19 +630,19 @@ readString(length, encoding)
 
 ### <code>readUShort()</code> \{#readUShort}
 
-Reads unsigned short from this buffer
+从此缓冲区读取一个无符号短整数（unsigned short）
 
 ```lua
 readUShort()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -647,19 +652,19 @@ readUShort()
 
 ### <code>readUShortLE()</code> \{#readUShortLE}
 
-Reads little endian unsigned short from this buffer
+从此缓冲区读取一个小端序无符号短整数（little endian unsigned short）
 
 ```lua
 readUShortLE()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -669,25 +674,25 @@ readUShortLE()
 
 ### <code>write()</code> \{#write}
 
-Writes one byte to this buffer
+向此缓冲区写入一个字节
 
 ```lua
 write(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -697,25 +702,25 @@ write(val)
 
 ### <code>writeBase64()</code> \{#writeBase64}
 
-Writes bytes of Base64 string to this buffer and returns amount of bytes written.
+将 Base64 字符串的字节写入此缓冲区，并返回写入的字节数。
 
 ```lua
 writeBase64(base64)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description | Default |
-| ------ | ----------------------------------------------- | ----------- | ------- |
-| base64 | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称   | 类型                                            | 说明 | 默认值 |
+| ------ | ----------------------------------------------- | ---- | ------ |
+| base64 | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -725,25 +730,25 @@ writeBase64(base64)
 
 ### <code>writeByteArray()</code> \{#writeByteArray}
 
-Writes raw bytes of string to this buffer and returns amount of bytes written.
+将字符串的原始字节写入此缓冲区，并返回写入的字节数。
 
 ```lua
 writeByteArray(array)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| array | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称  | 类型                                            | 说明 | 默认值 |
+| ----- | ----------------------------------------------- | ---- | ------ |
+| array | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -753,25 +758,25 @@ writeByteArray(array)
 
 ### <code>writeDouble()</code> \{#writeDouble}
 
-Writes double to this buffer
+向此缓冲区写入一个双精度浮点数（double）
 
 ```lua
 writeDouble(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| val  | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| val  | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -781,25 +786,25 @@ writeDouble(val)
 
 ### <code>writeDoubleLE()</code> \{#writeDoubleLE}
 
-Writes little endian double to this buffer
+向此缓冲区写入一个小端序双精度浮点数（little endian double）
 
 ```lua
 writeDoubleLE(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| val  | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| val  | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -809,25 +814,25 @@ writeDoubleLE(val)
 
 ### <code>writeFloat()</code> \{#writeFloat}
 
-Writes float to this buffer
+向此缓冲区写入一个单精度浮点数（float）
 
 ```lua
 writeFloat(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| val  | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| val  | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -837,25 +842,25 @@ writeFloat(val)
 
 ### <code>writeFloatLE()</code> \{#writeFloatLE}
 
-Writes little endian float to this buffer
+向此缓冲区写入一个小端序单精度浮点数（little endian float）
 
 ```lua
 writeFloatLE(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| val  | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| val  | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -865,25 +870,25 @@ writeFloatLE(val)
 
 ### <code>writeInt()</code> \{#writeInt}
 
-Writes integer to this buffer
+向此缓冲区写入一个整数（integer）
 
 ```lua
 writeInt(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -893,25 +898,25 @@ writeInt(val)
 
 ### <code>writeIntLE()</code> \{#writeIntLE}
 
-Writes little endian integer to this buffer
+向此缓冲区写入一个小端序整数（little endian integer）
 
 ```lua
 writeIntLE(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -921,25 +926,25 @@ writeIntLE(val)
 
 ### <code>writeLong()</code> \{#writeLong}
 
-Writes long to this buffer
+向此缓冲区写入一个长整数（long）
 
 ```lua
 writeLong(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -949,25 +954,25 @@ writeLong(val)
 
 ### <code>writeLongLE()</code> \{#writeLongLE}
 
-Writes little endian long to this buffer
+向此缓冲区写入一个小端序长整数（little endian long）
 
 ```lua
 writeLongLE(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -977,25 +982,25 @@ writeLongLE(val)
 
 ### <code>writeShort()</code> \{#writeShort}
 
-Writes short to this buffer
+向此缓冲区写入一个短整数（short）
 
 ```lua
 writeShort(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -1005,25 +1010,25 @@ writeShort(val)
 
 ### <code>writeShortLE()</code> \{#writeShortLE}
 
-Writes little endian short to this buffer
+向此缓冲区写入一个小端序短整数（little endian short）
 
 ```lua
 writeShortLE(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -1033,51 +1038,51 @@ writeShortLE(val)
 
 ### <code>writeString()</code> \{#writeString}
 
-Writes a string to this buffer and returns amount of bytes written. Default encoding is UTF8.
+向此缓冲区写入一个字符串，并返回写入的字节数。默认编码为 UTF8。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 writeString(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| val  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| val  | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 writeString(val, encoding)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
-| -------- | ----------------------------------------------- | ----------- | ------- |
-| val      | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| encoding | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称     | 类型                                            | 说明 | 默认值 |
+| -------- | ----------------------------------------------- | ---- | ------ |
+| val      | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| encoding | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -1087,26 +1092,26 @@ writeString(val, encoding)
 
 ### <code>writeToStream()</code> \{#writeToStream}
 
-Writes data from this buffer to provided output stream
+将数据从此缓冲区写入给定的输出流
 
 ```lua
 writeToStream(stream, amount)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                                    | Description | Default |
-| ------ | ------------------------------------------------------- | ----------- | ------- |
-| stream | <code>[OutputStream](/globals/Data/OutputStream)</code> | -           | -       |
-| amount | <code>[Integer](/tutorials/types/Numbers)</code>        | -           | -       |
+| 名称   | 类型                                                    | 说明 | 默认值 |
+| ------ | ------------------------------------------------------- | ---- | ------ |
+| stream | <code>[OutputStream](/globals/Data/OutputStream)</code> | -    | -      |
+| amount | <code>[Integer](/tutorials/types/Numbers)</code>        | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -1116,25 +1121,25 @@ writeToStream(stream, amount)
 
 ### <code>writeUShort()</code> \{#writeUShort}
 
-Writes unsigned short to this buffer
+向此缓冲区写入一个无符号短整数（unsigned short）
 
 ```lua
 writeUShort(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -1144,25 +1149,25 @@ writeUShort(val)
 
 ### <code>writeUShortLE()</code> \{#writeUShortLE}
 
-Writes little endian unsigned short to this buffer
+向此缓冲区写入一个小端序无符号短整数（little endian unsigned short）
 
 ```lua
 writeUShortLE(val)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| val  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

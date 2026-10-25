@@ -1,42 +1,47 @@
-Tutorial for playing and troubleshooting Blockbench animations
+---
+title: 动画
+sidebar_label: 动画
+---
 
-Figura can play animations from Blockbench using the Animation API.
+播放与排查 Blockbench 动画的教程
 
-## Playing an Animation
+借助动画 API（Animation API），Figura 可以播放 Blockbench 中的动画。
 
-In order to play an animation you need to index the animation through the Blockbench model it is in and the <code>animations</code> global.
+## 播放动画
 
-Let's say we have a Blockbench model named <code>example</code>
+要播放动画，需要通过动画所在的 Blockbench 模型和 <code>animations</code> 全局对象来索引该动画。
 
-<img src={require("@site/static/img/animation/exampleBbmodel.png").default} width="200"></img>
+假设我们有一个名为 <code>example</code> 的 Blockbench 模型
 
-and an animation named <code>idle</code>
+<img src={require("@site/static/img/animation/exampleBbmodel.png").default} width="200" alt="Blockbench 中名为 example 的模型"></img>
 
-<img src={require("@site/static/img/animation/exampleIdle.png").default} width="400"></img>
+以及一个名为 <code>idle</code> 的动画
 
-If we want to play this animation we can use this code:
+<img src={require("@site/static/img/animation/exampleIdle.png").default} width="400" alt="Blockbench 中名为 idle 的动画"></img>
+
+要播放这个动画，可以使用下面的代码：
 
 ```lua
 animations.example.idle:play()
 ```
 
-<code>animations</code> stores all the animation data for every Blockbench model.<br/>
+<code>animations</code> 保存了所有 Blockbench 模型的全部动画数据。<br/>
 
-The next part of the index is always the Blockbench model name that contains the animation you want to play, in our case this is <code>example.bbmodel</code>. Note that the <code>.bbmodel</code> file extension is _not_ included. If your model is within one or multiple subfolders, those are also included in this section, e.g.: <code>animations["subfolder.example"].idle</code>.
+索引的下一部分始终是动画所在的 Blockbench 模型名称，在这个例子中是 <code>example.bbmodel</code>。注意，这里 _不_ 包含 <code>.bbmodel</code> 文件扩展名。如果模型位于一个或多个子文件夹中，这些子文件夹也会包含在这一部分里，例如：<code>animations["subfolder.example"].idle</code>。
 
-The final part of the index is the animation name, in this case <code>idle</code>.
+索引的最后一部分是动画名称，在这个例子中是 <code>idle</code>。
 
-## Alternatives to play()
+## play() 之外的播放方式
 
-There is another function that can play animations, <code>setPlaying(bool)</code>
+还有一个可以播放动画的函数：<code>setPlaying(bool)</code>。
 
-You can put a boolean value inside the parenthesis for the function and it will play the animation if the boolean is true, or stop it if the boolean is false
+在括号中传入布尔值：值为 true 时播放动画，值为 false 时停止动画。
 
-This is often used for toggles in the action wheel.
+这个函数常用于动作轮盘中的开关。
 
-### setPlaying Example
+### setPlaying 示例
 
-By nature, setPlaying needs to be in a function that will run multiple times. We will use a tick event, but it functions in any scenario.
+setPlaying 必须放在会反复执行的函数里，才能持续生效。这里使用 tick 事件，但它也适用于任何其他场景。
 
 ```lua
 function events.tick()
@@ -47,14 +52,14 @@ function events.tick()
 end
 ```
 
-And now our animation <code>idle</code> will play whenever we're crouching!
+现在，只要我们处于潜行状态，<code>idle</code> 动画就会播放！
 
-This methodology can be expanded infinitely but it gets more complex the more animations you add.
+这种做法可以无限扩展，但动画越多，逻辑就越复杂。
 
-## Simple Idle-Walk-Sprint-Crouch Setup
+## 简单的待机、行走、疾跑、潜行动画组合
 
-As an example we'll do code for a set of four animations: idle, walk, sprint, and crouch. Here's our animations in our Blockbench model.
-<img src={require("@site/static/img/animation/exampleAnims.png").default} width="400"></img>
+作为示例，我们为四组动画编写代码：idle、walk、sprint 和 crouch。下面是 Blockbench 模型中的动画。
+<img src={require("@site/static/img/animation/exampleAnims.png").default} width="400" alt="Blockbench 模型中的四个动画：idle、walk、sprint 和 crouch"></img>
 
 ```lua
 function events.tick()
@@ -76,57 +81,67 @@ function events.tick()
 end
 ```
 
-## Common Errors
+## 常见错误
 
-### Fixing the index error
+### 修复索引错误
 
-You might run into some script errors while doing this, here's some solutions to <code>attempt to index ? (a nil value)</code>
+在编写这些代码时，你可能会遇到一些脚本错误。下面是针对 <code>attempt to index ? (a nil value)</code> 的一些解决方法。
 
-The error will tell you about a key, the key is AFTER the part that's experiencing an incorrect.
+错误信息会给出一个键，这个键位于真正出错的部分之后。
 
-<img src={require("@site/static/img/animation/exampleErrorAnim.png").default} width="400"></img>
+<img src={require("@site/static/img/animation/exampleErrorAnim.png").default} width="400" alt="脚本错误提示，其中指出 setPlaying 键"></img>
 
-Like in this example, it says that <code>setPlaying</code> is the key, so we know that the problem is BEFORE it.
+就像这个例子，它指出 <code>setPlaying</code> 是键，因此问题出在它之前。
 
-You'll notice that the animation name is misspelled, once you fix that the error will go away or change.
+你会看到动画名称拼错了，改正之后错误就会消失或发生变化。
 
-<img src={require("@site/static/img/animation/exampleErrorBbmodel.png").default} width="400"></img>
+<img src={require("@site/static/img/animation/exampleErrorBbmodel.png").default} width="400" alt="脚本错误提示，其中指出 idle 键"></img>
 
-Here it is again, but this time the key is <code>idle</code>, meaning the problem is with the Blockbench model name.
+这里又出现了一次，但这次键是 <code>idle</code>，说明问题出在 Blockbench 模型名称上。
 
-You'll notice that it's misspelled in this version, fixing it will make the error go away or change.
+你会看到这个版本中模型名称拼错了，改正之后错误就会消失或发生变化。
 
-### Errors inside a keyframe
+### 关键帧内部的错误
 
-Errors inside keyframes are vary vastly, but you can identify them by the name of the animation in the error. Here's three examples:
-<img src={require("@site/static/img/animation/exampleErrorKeyframe.png").default} width="800"></img>
+关键帧内部的错误千差万别，但可以通过错误信息中的动画名称来识别。下面是三个例子：
+<img src={require("@site/static/img/animation/exampleErrorKeyframe.png").default} width="800" alt="关键帧内部错误的三个示例"></img>
 
-How you fix this will greatly depend on what the error is.
+如何修复取决于具体的错误。
 
-## Overriding Vanilla Animations
+## 覆盖原版动画
 
-You can override vanilla animations using the override setting in Blockbench, this is set per-animation and it overrides per-part and per-channel (rotation, position, scale).
-It only overrides while the animation is playing.
-<img src={require("@site/static/img/animation/exampleCheck.png").default} width="400"></img>
+可以在 Blockbench 中使用 override 设置覆盖原版动画。该设置按动画逐个指定，并按部位与通道（旋转、位置、缩放）分别覆盖。
+它只在动画播放期间生效。
+<img src={require("@site/static/img/animation/exampleCheck.png").default} width="400" alt="Blockbench 动画设置中的 override 复选框"></img>
 
-<img src={require("@site/static/img/animation/exampleOverride.png").default} width="400"></img>
+<img src={require("@site/static/img/animation/exampleOverride.png").default} width="400" alt="Blockbench 中按通道设置的 override 选项"></img>
 
-## Special Keyframe Types
+## 特殊关键帧类型
 
-Blockbench animations have a special category of keyframes called Effects keyframes. There are three of them, but Figura ignores Particle and Sound.
+Blockbench 动画有一类特殊的关键帧，称为效果（Effects）关键帧。共有三种，但 Figura 会忽略粒子（Particle）和声音（Sound）关键帧。
 
-### Instruction Keyframes
+### 指令（Instruction）关键帧
 
-The third special keyframe type is Instruction. Instruction keyframes run Lua code when the animation reaches that keyframe. This can be used to play sounds, spawn particles, literally anything. Remember that Lua code is what goes in this spot, not Molang. The Lua code to play in an instruction keyframe is placed in the Script box in the left sidebar.
+第三种特殊关键帧是指令（Instruction）关键帧。动画播放到该关键帧时，指令关键帧会执行 Lua 代码。可以用它播放声音、生成粒子，或做任何其他事情。记住，这里填写的是 Lua 代码，而不是 Molang。要执行的 Lua 代码写在左侧边栏的 Script 框中。
 
-Each instruction is its own 'scope' meaning that variables local to any of the scripts can't be accessed by the keyframes without specifically interfacing between them.
+每个指令都有各自的作用域，因此某个脚本中的局部变量无法被其他关键帧访问，除非专门在两者之间建立接口。
 
-## Community Resources
+## YSM 与 Molang
 
-### Jimmy's Animation Handler
+以上内容主要针对 Figura 的 `.bbmodel` 动画。YSM 模型使用另一套运行时：
 
-If you have a lot of animations that need detections, Jimmy's Animation Handler can play your animations for you. [Find it here on GitHub](https://github.com/JimmyHelp/JimmyAnims)
+- 动画由 YSM 动画控制器与 Molang 表达式驱动；
+- 动作可以进入动作轮盘；
+- Lua 可以通过 `ysm_model` / `ysm_actions` 读取和控制。
+
+详见 [Molang 表达式与控制器](/omnimorph/molang) 与 [YSM 动作轮盘](/omnimorph/action-wheel)。
+
+## 社区资源
+
+### Jimmy 的动画处理器
+
+如果你有很多动画需要检测状态，Jimmy 的动画处理器可以帮你播放它们。[在 GitHub 上查看](https://github.com/JimmyHelp/JimmyAnims)
 
 ### GSAnimBlend
 
-If you want to smooth the transition between animations so it doesn't jump between them you can use GSAnimBlend. [Find it here on GitHub](https://github.com/GrandpaScout/GSAnimBlend)
+如果想让动画之间的过渡更平滑、不再硬切换，可以使用 GSAnimBlend。[在 GitHub 上查看](https://github.com/GrandpaScout/GSAnimBlend)

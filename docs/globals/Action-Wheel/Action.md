@@ -1,11 +1,16 @@
+---
+title: Action（动作）
+sidebar_label: Action（动作）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-An action in the Figura Action Wheel
+Figura 动作轮盘中的一个动作。
 
-Actions are either interacted by clicking and scrolling, which also being able to be toggleable
+动作支持点击与滚动操作，也可以切换开关状态。
 
-For the entire page assume:
+本页示例统一假定：
 
 ```lua
 local myPage = action_wheel:newPage()
@@ -14,37 +19,37 @@ local myAction = myPage:newAction()
 
 ---
 
-## Action Events
+## 动作事件
 
 ### <code>setOnLeftClick()</code> \{#setOnLeftClick}
 
-**Aliases:** `onLeftClick()`
+**别名：** `onLeftClick()`
 
-Sets the function that is executed when the left mouse button is clicked
+设置左键点击时执行的函数。
 
-The function has one argument
+该函数接收一个参数。
 
-The first argument is this action itself
+第一个参数是此动作本身。
 
-See the [action wheel tutorial](/tutorials/ActionWheel#here-is-the-full-copy-paste-for-an-example-action-wheel) for a full example.
+完整示例见[动作轮盘教程](/tutorials/ActionWheel#here-is-the-full-copy-paste-for-an-example-action-wheel)。
 
 ```lua
 setOnLeftClick(leftFunction)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name         | Type                                                | Description                                                   | Default  |
+| 名称         | 类型                                                | 说明                                                   | 默认值  |
 | ------------ | --------------------------------------------------- | ------------------------------------------------------------- | -------- |
-| leftFunction | <code>[Function](/tutorials/types/Functions)</code> | The function that will be run when the action is left clicked | Required |
+| leftFunction | <code>[Function](/tutorials/types/Functions)</code> | 左键点击动作时执行的函数 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 function pings.lefty()
@@ -59,31 +64,31 @@ myAction:setOnLeftClick(pings.lefty)
 
 ### <code>setOnRightClick()</code> \{#setOnRightClick}
 
-**Aliases:** `onRightClick()`
+**别名：** `onRightClick()`
 
-Sets the function that is executed when the right mouse button is clicked
+设置右键点击时执行的函数。
 
-The function has one argument
+该函数接收一个参数。
 
-The first argument is this action itself
+第一个参数是此动作本身。
 
 ```lua
 setOnRightClick(rightFunction)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name          | Type                                                | Description                                                    | Default  |
+| 名称          | 类型                                                | 说明                                                    | 默认值  |
 | ------------- | --------------------------------------------------- | -------------------------------------------------------------- | -------- |
-| rightFunction | <code>[Function](/tutorials/types/Functions)</code> | The function that will be run when the action is right clicked | Required |
+| rightFunction | <code>[Function](/tutorials/types/Functions)</code> | 右键点击动作时执行的函数 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 function pings.righty()
@@ -98,35 +103,35 @@ myAction:setOnRightClick(pings.righty)
 
 ### <code>setOnToggle()</code> \{#setOnToggle}
 
-**Aliases:** `onToggle()`
+**别名：** `onToggle()`
 
-Sets the function that is executed when the Action is toggled
+设置动作切换开关状态时执行的函数。
 
-The function has two arguments
+该函数接收两个参数。
 
-The first argument is toggle state of this action
+第一个参数是此动作的开关状态。
 
-The second argument is this action itself
+第二个参数是此动作本身。
 
-See the [action wheel tutorial](/tutorials/ActionWheel#toggle-example) for a full example.
+完整示例见[动作轮盘教程](/tutorials/ActionWheel#toggle-example)。
 
 ```lua
 setOnToggle(toggleFunction)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name           | Type                                                | Description                                              | Default  |
+| 名称           | 类型                                                | 说明                                              | 默认值  |
 | -------------- | --------------------------------------------------- | -------------------------------------------------------- | -------- |
-| toggleFunction | <code>[Function](/tutorials/types/Functions)</code> | The function that will be run when the action is toggled | Required |
+| toggleFunction | <code>[Function](/tutorials/types/Functions)</code> | 动作切换开关状态时执行的函数 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 function pings.setVisible(state)
@@ -140,39 +145,39 @@ myAction:setOnToggle(pings.setVisible)
 
 ### <code>setOnUntoggle()</code> \{#setOnUntoggle}
 
-**Aliases:** `onUntoggle()`
+**别名：** `onUntoggle()`
 
 :::warning
 
-This method is a noob trap, anything it can do [`setOnToggle`](#setOnToggle) does better because `setOnToggle` also runs its function when untoggled
+此方法容易误用；[`setOnToggle`](#setOnToggle) 能更好地完成它的一切功能，因为 `setOnToggle` 在取消切换时也会执行其函数。
 
 :::
 
-Sets the function that is executed when the Action is untoggled
+设置动作取消切换时执行的函数。
 
-The function has two arguments
+该函数接收两个参数。
 
-The first argument is toggle state of this action
+第一个参数是此动作的开关状态。
 
-The second argument is this action itself
+第二个参数是此动作本身。
 
 ```lua
 setOnUntoggle(toggleFunction)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name           | Type                                                | Description                                                | Default  |
+| 名称           | 类型                                                | 说明                                                | 默认值  |
 | -------------- | --------------------------------------------------- | ---------------------------------------------------------- | -------- |
-| toggleFunction | <code>[Function](/tutorials/types/Functions)</code> | The function that will be run when the action is untoggled | Required |
+| toggleFunction | <code>[Function](/tutorials/types/Functions)</code> | 动作取消切换时执行的函数 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 function pings.toggley(bool)
@@ -194,33 +199,33 @@ local myAction = myPage:newAction()
 
 ### <code>setOnScroll()</code> \{#setOnScroll}
 
-**Aliases:** `onScroll()`
+**别名：** `onScroll()`
 
-Sets the function that is executed when the mouse is scrolled
+设置滚动鼠标滚轮时执行的函数。
 
-The function has two arguments
+该函数接收两个参数。
 
-The first argument is mouse wheel direction
+第一个参数是鼠标滚轮方向。
 
-The second argument is this action itself
+第二个参数是此动作本身。
 
 ```lua
 setOnScroll(scrollFunction)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name           | Type                                                | Description                                                    | Default  |
+| 名称           | 类型                                                | 说明                                                    | 默认值  |
 | -------------- | --------------------------------------------------- | -------------------------------------------------------------- | -------- |
-| scrollFunction | <code>[Function](/tutorials/types/Functions)</code> | The function that will be run when the action is scrolled over | Required |
+| scrollFunction | <code>[Function](/tutorials/types/Functions)</code> | 在动作上滚动鼠标滚轮时执行的函数 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 function pings.scrolling(dir)
@@ -239,58 +244,58 @@ myAction:setOnScroll(pings.scrolling)
 
 ---
 
-## Appearance
+## 外观
 
 ### <code>setColor()</code> \{#setColor}
 
-**Aliases:** `color()`
+**别名：** `color()`
 
-Sets the background color of the Action
+设置动作的背景颜色。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                                                      | Default      |
+| 名称  | 类型                                             | 说明                                                      | 默认值      |
 | ----- | ------------------------------------------------ | ---------------------------------------------------------------- | ------------ |
-| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | The RGB value of the background, with each value between 0 and 1 | `vec(0,0,0)` |
+| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | 背景的 RGB 值，每个分量取值为 0 到 1 | `vec(0,0,0)` |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                        | Default |
+| 名称 | 类型                                            | 说明                                        | 默认值 |
 | ---- | ----------------------------------------------- | -------------------------------------------------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | The red value of the background, between 0 and 1   | `0`     |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | The green value of the background, between 0 and 1 | `0`     |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | The blue value of the background, between 0 and 1  | `0`     |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | 背景的红色分量，取值为 0 到 1   | `0`     |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | 背景的绿色分量，取值为 0 到 1 | `0`     |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | 背景的蓝色分量，取值为 0 到 1  | `0`     |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 2):**
+**示例（重载 2）：**
 
 ```lua
 myAction:setColor(255 / 255, 192 / 155, 203 / 255)
@@ -300,19 +305,19 @@ myAction:setColor(255 / 255, 192 / 155, 203 / 255)
 
 ### <code>getColor()</code> \{#getColor}
 
-Gets this Action's background color
+获取此动作的背景颜色。
 
 ```lua
 getColor()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description                              |
+| 类型                                             | 说明                              |
 | ------------------------------------------------ | ---------------------------------------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | The RGB background color for this action |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | 此动作的 RGB 背景色 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:getColor()
@@ -322,54 +327,54 @@ myAction:getColor()
 
 ### <code>setHoverColor()</code> \{#setHoverColor}
 
-**Aliases:** `hoverColor()`
+**别名：** `hoverColor()`
 
-Sets the background color of the Action when it is being hovered
+设置鼠标悬停于此动作时的背景颜色。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setHoverColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                                                      | Default      |
+| 名称  | 类型                                             | 说明                                                      | 默认值      |
 | ----- | ------------------------------------------------ | ---------------------------------------------------------------- | ------------ |
-| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | The RGB value of the background, with each value between 0 and 1 | `vec(0,0,0)` |
+| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | 背景的 RGB 值，每个分量取值为 0 到 1 | `vec(0,0,0)` |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setHoverColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                        | Default |
+| 名称 | 类型                                            | 说明                                        | 默认值 |
 | ---- | ----------------------------------------------- | -------------------------------------------------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | The red value of the background, between 0 and 1   | `0`     |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | The green value of the background, between 0 and 1 | `0`     |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | The blue value of the background, between 0 and 1  | `0`     |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | 背景的红色分量，取值为 0 到 1   | `0`     |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | 背景的绿色分量，取值为 0 到 1 | `0`     |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | 背景的蓝色分量，取值为 0 到 1  | `0`     |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:setHoverColor(255 / 255, 192 / 155, 203 / 255)
@@ -379,19 +384,19 @@ myAction:setHoverColor(255 / 255, 192 / 155, 203 / 255)
 
 ### <code>getHoverColor()</code> \{#getHoverColor}
 
-Gets this Action's background hover color
+获取此动作的悬停背景颜色。
 
 ```lua
 getHoverColor()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description                                    |
+| 类型                                             | 说明                                    |
 | ------------------------------------------------ | ---------------------------------------------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | The RGB background hover color for this action |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | 此动作的 RGB 悬停背景色 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:getHoverColor()
@@ -401,52 +406,52 @@ myAction:getHoverColor()
 
 ### <code>setHoverItem()</code> \{#setHoverItem}
 
-**Aliases:** `hoverItem()`
+**别名：** `hoverItem()`
 
-Sets the item of the Action when it is being hovered
+设置鼠标悬停于此动作时显示的物品。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setHoverItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                               | Description                         | Default |
+| 名称 | 类型                                               | 说明                         | 默认值 |
 | ---- | -------------------------------------------------- | ----------------------------------- | ------- |
-| item | <code>[ItemStack](/globals/World/ItemStack)</code> | The item that's shown in the action | `nil`   |
+| item | <code>[ItemStack](/globals/World/ItemStack)</code> | 动作中显示的物品 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setHoverItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                        | Default           |
+| 名称 | 类型                                            | 说明                        | 默认值           |
 | ---- | ----------------------------------------------- | ---------------------------------- | ----------------- |
-| item | <code>[String](/tutorials/types/Strings)</code> | The item id for the item to be set | `"minecraft:air"` |
+| item | <code>[String](/tutorials/types/Strings)</code> | 要设置的物品 ID | `"minecraft:air"` |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 2):**
+**示例（重载 2）：**
 
 ```lua
 myAction:setHoverItem("diamond")
@@ -456,105 +461,105 @@ myAction:setHoverItem("diamond")
 
 ### <code>setHoverTexture()</code> \{#setHoverTexture}
 
-**Aliases:** `hoverTexture()`
+**别名：** `hoverTexture()`
 
-Sets a Custom Texture to render while this Action is being hovered
+设置鼠标悬停于此动作时渲染的自定义纹理。
 
-All values are measured in pixels
+所有数值均以像素为单位。
 
-Default UV is 0, 0, the default dimensions are the texture dimensions and the default scale of 1
+默认 UV 的 u、v 坐标均为 0，默认尺寸为纹理尺寸，默认缩放为 1。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setHoverTexture(texture)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default  |
+| 名称    | 类型                                              | 说明                            | 默认值  |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setHoverTexture(texture, u, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default  |
+| 名称    | 类型                                              | 说明                            | 默认值  |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`      |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`      |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填 |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`      |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setHoverTexture(texture, u, v, width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default        |
+| 名称    | 类型                                              | 说明                            | 默认值        |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required       |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`            |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`            |
-| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | The width of the uv                    | Texture width  |
-| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | The height of the uv                   | Texture height |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填       |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`            |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`            |
+| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 宽度                    | 纹理宽度  |
+| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 高度                   | 纹理高度 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 setHoverTexture(texture, u, v, width, height, scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default        |
+| 名称    | 类型                                              | 说明                            | 默认值        |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required       |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`            |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`            |
-| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | The width of the uv                    | Texture width  |
-| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | The height of the uv                   | Texture height |
-| scale   | <code>[Number](/tutorials/types/Numbers)</code>   | The scale of the texture               | `1`            |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填       |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`            |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`            |
+| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 宽度                    | 纹理宽度  |
+| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 高度                   | 纹理高度 |
+| scale   | <code>[Number](/tutorials/types/Numbers)</code>   | 纹理缩放               | `1`            |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- basic
@@ -568,52 +573,52 @@ myAction:setHoverTexture(textures["myTexture"], 16, 32, nil, nil, 2)
 
 ### <code>setItem()</code> \{#setItem}
 
-**Aliases:** `item()`
+**别名：** `item()`
 
-Sets the item of the Action
+设置动作中显示的物品。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                               | Description                         | Default |
+| 名称 | 类型                                               | 说明                         | 默认值 |
 | ---- | -------------------------------------------------- | ----------------------------------- | ------- |
-| item | <code>[ItemStack](/globals/World/ItemStack)</code> | The item that's shown in the action | `nil`   |
+| item | <code>[ItemStack](/globals/World/ItemStack)</code> | 动作中显示的物品 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                        | Default           |
+| 名称 | 类型                                            | 说明                        | 默认值           |
 | ---- | ----------------------------------------------- | ---------------------------------- | ----------------- |
-| item | <code>[String](/tutorials/types/Strings)</code> | The item id for the item to be set | `"minecraft:air"` |
+| item | <code>[String](/tutorials/types/Strings)</code> | 要设置的物品 ID | `"minecraft:air"` |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 2):**
+**示例（重载 2）：**
 
 ```lua
 myAction:setItem("minecraft:stone")
@@ -623,105 +628,105 @@ myAction:setItem("minecraft:stone")
 
 ### <code>setTexture()</code> \{#setTexture}
 
-**Aliases:** `texture()`
+**别名：** `texture()`
 
-Sets a Custom Texture to render in this Action
+设置在此动作中渲染的自定义纹理。
 
-All values are measured in pixels
+所有数值均以像素为单位。
 
-Default UV is 0, 0, the default dimensions are the texture dimensions and the default scale of 1
+默认 UV 的 u、v 坐标均为 0，默认尺寸为纹理尺寸，默认缩放为 1。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setTexture(texture)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default  |
+| 名称    | 类型                                              | 说明                            | 默认值  |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setTexture(texture, u, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default  |
+| 名称    | 类型                                              | 说明                            | 默认值  |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`      |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`      |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填 |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`      |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setTexture(texture, u, v, width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default        |
+| 名称    | 类型                                              | 说明                            | 默认值        |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required       |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`            |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`            |
-| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | The width of the uv                    | Texture width  |
-| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | The height of the uv                   | Texture height |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填       |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`            |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`            |
+| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 宽度                    | 纹理宽度  |
+| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 高度                   | 纹理高度 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 setTexture(texture, u, v, width, height, scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default        |
+| 名称    | 类型                                              | 说明                            | 默认值        |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required       |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`            |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`            |
-| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | The width of the uv                    | Texture width  |
-| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | The height of the uv                   | Texture height |
-| scale   | <code>[Number](/tutorials/types/Numbers)</code>   | The scale of the texture               | `1`            |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填       |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`            |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`            |
+| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 宽度                    | 纹理宽度  |
+| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 高度                   | 纹理高度 |
+| scale   | <code>[Number](/tutorials/types/Numbers)</code>   | 纹理缩放               | `1`            |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- basic
@@ -735,46 +740,46 @@ myAction:setTexture(textures["myTexture"], 16, 32, nil, nil, 2)
 
 ### <code>setTitle()</code> \{#setTitle}
 
-**Aliases:** `title()`
+**别名：** `title()`
 
-Sets the title of the Action
+设置动作的标题。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setTitle()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setTitle(title)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description                                                    | Default |
+| 名称  | 类型                                            | 说明                                                    | 默认值 |
 | ----- | ----------------------------------------------- | -------------------------------------------------------------- | ------- |
-| title | <code>[String](/tutorials/types/Strings)</code> | The title of the action, shown when the action is hovered over | `nil`   |
+| title | <code>[String](/tutorials/types/Strings)</code> | 动作标题，在鼠标悬停于动作上时显示 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 2):**
+**示例（重载 2）：**
 
 ```lua
 myAction:setTitle("Click me!")
@@ -784,19 +789,19 @@ myAction:setTitle("Click me!")
 
 ### <code>getTitle()</code> \{#getTitle}
 
-Gets this Action title
+获取此动作的标题。
 
 ```lua
 getTitle()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description                                                    |
+| 类型                                            | 说明                                                    |
 | ----------------------------------------------- | -------------------------------------------------------------- |
-| <code>[String](/tutorials/types/Strings)</code> | The title of the action, shown when the action is hovered over |
+| <code>[String](/tutorials/types/Strings)</code> | 动作标题，在鼠标悬停于动作上时显示 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:getTitle()
@@ -804,58 +809,58 @@ myAction:getTitle()
 
 ---
 
-## Toggle Specific
+## 开关相关
 
 ### <code>setToggleColor()</code> \{#setToggleColor}
 
-**Aliases:** `toggleColor()`
+**别名：** `toggleColor()`
 
-Sets the color of the Action when it is toggled
+设置动作处于开启状态时的颜色。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setToggleColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                                                             | Default     |
+| 名称  | 类型                                             | 说明                                                             | 默认值     |
 | ----- | ------------------------------------------------ | ----------------------------------------------------------------------- | ----------- |
-| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | The RGB value of the toggle background, with each value between 0 and 1 | `vec(0,0,0) |
+| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | 开关状态下背景的 RGB 值，每个分量取值为 0 到 1 | `vec(0,0,0) |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setToggleColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                               | Default |
+| 名称 | 类型                                            | 说明                                               | 默认值 |
 | ---- | ----------------------------------------------- | --------------------------------------------------------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | The red value of the toggle background, between 0 and 1   | `0`     |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | The green value of the toggle background, between 0 and 1 | `0`     |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | The blue value of the toggle background, between 0 and 1  | `0`     |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | 开关状态下背景的红色分量，取值为 0 到 1   | `0`     |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | 开关状态下背景的绿色分量，取值为 0 到 1 | `0`     |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | 开关状态下背景的蓝色分量，取值为 0 到 1  | `0`     |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:setToggleColor(0, 128 / 255, 128 / 255)
@@ -865,19 +870,19 @@ myAction:setToggleColor(0, 128 / 255, 128 / 255)
 
 ### <code>getToggleColor()</code> \{#getToggleColor}
 
-Gets this Action toggled color
+获取此动作处于开启状态时的颜色。
 
 ```lua
 getToggleColor()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description                                                             |
+| 类型                                             | 说明                                                             |
 | ------------------------------------------------ | ----------------------------------------------------------------------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | The RGB value of the toggle background, with each value between 0 and 1 |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | 开关状态下背景的 RGB 值，每个分量取值为 0 到 1 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:getToggleColor()
@@ -887,52 +892,52 @@ myAction:getToggleColor()
 
 ### <code>setToggleItem()</code> \{#setToggleItem}
 
-**Aliases:** `toggleItem()`
+**别名：** `toggleItem()`
 
-Sets the item of the Action when it is toggled
+设置动作处于开启状态时显示的物品。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setToggleItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                               | Description                     | Default |
+| 名称 | 类型                                               | 说明                     | 默认值 |
 | ---- | -------------------------------------------------- | ------------------------------- | ------- |
-| item | <code>[ItemStack](/globals/World/ItemStack)</code> | The item to be set when toggled | `nil`   |
+| item | <code>[ItemStack](/globals/World/ItemStack)</code> | 切换开关状态时要设置的物品 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setToggleItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                     | Default           |
+| 名称 | 类型                                            | 说明                                     | 默认值           |
 | ---- | ----------------------------------------------- | ----------------------------------------------- | ----------------- |
-| item | <code>[String](/tutorials/types/Strings)</code> | The item id for the item to be set when toggled | `"minecraft:air"` |
+| item | <code>[String](/tutorials/types/Strings)</code> | 切换开关状态时要设置的物品 ID | `"minecraft:air"` |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 2):**
+**示例（重载 2）：**
 
 ```lua
 myAction:setToggleItem("armor_stand")
@@ -942,105 +947,105 @@ myAction:setToggleItem("armor_stand")
 
 ### <code>setToggleTexture()</code> \{#setToggleTexture}
 
-**Aliases:** `toggleTexture()`
+**别名：** `toggleTexture()`
 
-Sets a Custom Texture to render in this Action when it is toggled
+设置动作处于开启状态时渲染的自定义纹理。
 
-All values are measured in pixels
+所有数值均以像素为单位。
 
-Default UV is 0, 0, the default dimensions are the texture dimensions and the default scale of 1
+默认 UV 的 u、v 坐标均为 0，默认尺寸为纹理尺寸，默认缩放为 1。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setToggleTexture(texture)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default  |
+| 名称    | 类型                                              | 说明                            | 默认值  |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setToggleTexture(texture, u, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default  |
+| 名称    | 类型                                              | 说明                            | 默认值  |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`      |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`      |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填 |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`      |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setToggleTexture(texture, u, v, width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default        |
+| 名称    | 类型                                              | 说明                            | 默认值        |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required       |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`            |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`            |
-| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | The width of the uv                    | Texture width  |
-| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | The height of the uv                   | Texture height |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填       |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`            |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`            |
+| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 宽度                    | 纹理宽度  |
+| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 高度                   | 纹理高度 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 setToggleTexture(texture, u, v, width, height, scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                            | Default        |
+| 名称    | 类型                                              | 说明                            | 默认值        |
 | ------- | ------------------------------------------------- | -------------------------------------- | -------------- |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | The texture that's shown in the action | Required       |
-| u       | <code>[Number](/tutorials/types/Numbers)</code>   | The u position of the uv               | `0`            |
-| v       | <code>[Number](/tutorials/types/Numbers)</code>   | The v position of the uv               | `0`            |
-| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | The width of the uv                    | Texture width  |
-| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | The height of the uv                   | Texture height |
-| scale   | <code>[Number](/tutorials/types/Numbers)</code>   | The scale of the texture               | `1`            |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | 动作中显示的纹理 | 必填       |
+| u       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 u 坐标               | `0`            |
+| v       | <code>[Number](/tutorials/types/Numbers)</code>   | UV 的 v 坐标               | `0`            |
+| width   | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 宽度                    | 纹理宽度  |
+| height  | <code>[Integer](/tutorials/types/Numbers)</code>  | UV 高度                   | 纹理高度 |
+| scale   | <code>[Number](/tutorials/types/Numbers)</code>   | 纹理缩放               | `1`            |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- basic
@@ -1054,27 +1059,27 @@ myAction:setToggleTexture(textures["myTexture"], 16, 32, nil, nil, 2)
 
 ### <code>setToggleTitle()</code> \{#setToggleTitle}
 
-**Aliases:** `toggleTitle()`
+**别名：** `toggleTitle()`
 
-Sets the title of the Action when it is toggled
+设置动作处于开启状态时的标题。
 
 ```lua
 setToggleTitle(title)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description                                                    | Default |
+| 名称  | 类型                                            | 说明                                                    | 默认值 |
 | ----- | ----------------------------------------------- | -------------------------------------------------------------- | ------- |
-| title | <code>[String](/tutorials/types/Strings)</code> | The title of the action, shown when the action is hovered over | `nil`   |
+| title | <code>[String](/tutorials/types/Strings)</code> | 动作标题，在鼠标悬停于动作上时显示 | `nil`   |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:setToggleTitle("Stand")
@@ -1084,19 +1089,19 @@ myAction:setToggleTitle("Stand")
 
 ### <code>getToggleTitle()</code> \{#getToggleTitle}
 
-Gets this Action toggled title
+获取此动作处于开启状态时的标题。
 
 ```lua
 getToggleTitle()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description                                                    |
+| 类型                                            | 说明                                                    |
 | ----------------------------------------------- | -------------------------------------------------------------- |
-| <code>[String](/tutorials/types/Strings)</code> | The title of the action, shown when the action is hovered over |
+| <code>[String](/tutorials/types/Strings)</code> | 动作标题，在鼠标悬停于动作上时显示 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:getToggleTitle()
@@ -1106,27 +1111,27 @@ myAction:getToggleTitle()
 
 ### <code>setToggled()</code> \{#setToggled}
 
-**Aliases:** `toggled()`
+**别名：** `toggled()`
 
-Sets the toggle state of the Action
+设置动作的开关状态。
 
 ```lua
 setToggled(bool)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                              | Description                                                | Default |
+| 名称 | 类型                                              | 说明                                                | 默认值 |
 | ---- | ------------------------------------------------- | ---------------------------------------------------------- | ------- |
-| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | If true the toggle will be on, and if false it will be off | `false` |
+| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | 为 true 时开启开关，为 false 时关闭开关 | `false` |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description               |
+| 类型                                                | 说明               |
 | --------------------------------------------------- | ------------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | Returns self for chaining |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:setToggled(true)
@@ -1136,19 +1141,19 @@ myAction:setToggled(true)
 
 ### <code>isToggled()</code> \{#isToggled}
 
-Checks if the Action is toggled or not
+检查动作当前是否处于开启状态。
 
 ```lua
 isToggled()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description                                      |
+| 类型                                              | 说明                                      |
 | ------------------------------------------------- | ------------------------------------------------ |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | If true the toggle is on, and if false it is off |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 为 true 时开关已开启，为 false 时开关已关闭 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAction:isToggled()
@@ -1156,17 +1161,17 @@ myAction:isToggled()
 
 ---
 
-## Fields
+## 字段
 
 ### <code>leftClick</code> \{#leftClick}
 
-Function that is executed when the left mouse button is clicked
+左键点击时执行的函数。
 
-The function has one argument
+该函数接收一个参数。
 
-The first argument is this action itself
+第一个参数是此动作本身。
 
-**Examples:**
+**示例：**
 
 ```lua
 -- pingless example
@@ -1188,13 +1193,13 @@ myAction.leftClick = pings.example
 
 ### <code>rightClick</code> \{#rightClick}
 
-Function that is executed when the right mouse button is clicked
+右键点击时执行的函数。
 
-The function has one argument
+该函数接收一个参数。
 
-The first argument is this action itself
+第一个参数是此动作本身。
 
-**Example:**
+**示例：**
 
 ```lua
 function myAction.rightClick()
@@ -1206,15 +1211,15 @@ end
 
 ### <code>toggle</code> \{#toggle}
 
-Function that is executed when the Action is toggled
+动作切换开关状态时执行的函数。
 
-The function has two arguments
+该函数接收两个参数。
 
-The first argument is toggle state of this action
+第一个参数是此动作的开关状态。
 
-The second argument is this action itself
+第二个参数是此动作本身。
 
-**Example:**
+**示例：**
 
 ```lua
 function myAction.toggle(bool)
@@ -1226,15 +1231,15 @@ end
 
 ### <code>untoggle</code> \{#untoggle}
 
-Function that is executed when the Action is untoggled
+动作取消切换时执行的函数。
 
-The function has two arguments
+该函数接收两个参数。
 
-The first argument is toggle state of this action
+第一个参数是此动作的开关状态。
 
-The second argument is this action itself
+第二个参数是此动作本身。
 
-**Example:**
+**示例：**
 
 ```lua
 function myAction.untoggle(bool)
@@ -1246,15 +1251,15 @@ end
 
 ### <code>scroll</code> \{#scroll}
 
-Function that is executed when the mouse is scrolled
+滚动鼠标滚轮时执行的函数。
 
-The function has two arguments
+该函数接收两个参数。
 
-The first argument is mouse wheel direction
+第一个参数是鼠标滚轮方向。
 
-The second argument is this action itself
+第二个参数是此动作本身。
 
-**Example:**
+**示例：**
 
 ```lua
 function myAction.scroll(dir)
@@ -1268,3 +1273,14 @@ end
 ```
 
 ---
+
+## OmniMorph 扩展
+
+OmniMorph 的 YSM 动作使用独立接口 [`ysm_actions`](/scripting/ysm-actions)：
+
+- 动作定义：`ysm_action`（标题、动画、页面、循环、模式、冷却、速度、物品）；
+- 轮盘页/槽：添加、重命名、删除、交换、整理、自动填充；
+- 触发/停止/查询；
+- 键位绑定。
+
+这类动作与原有的 Figura `Action` 不同，不能混用对象。完整说明见 [YSM 动作轮盘](/omnimorph/action-wheel)。

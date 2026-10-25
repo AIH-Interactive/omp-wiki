@@ -1,0 +1,9 @@
+{
+  "label": "附录",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "版本、兼容性与文档贡献说明。",
+    "slug": "/category/appendix"
+  }
+}

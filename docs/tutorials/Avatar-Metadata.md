@@ -2,17 +2,17 @@ import Emoji from '@site/src/components/Emoji';
 import FileTreeRoot from '@site/src/components/FileTree/Root';
 import FileTreeNode from '@site/src/components/FileTree/Node';
 
-# Avatar Metadata
+# 形象元数据
 
-avatar.json information
+avatar.json 信息
 
-<Emoji icon="file/json"/> <code>avatar.json</code> is the file that contains Avatar Metadata. It tells Figura specific information about the avatar.
+<Emoji icon="file/json"/> <code>avatar.json</code> 是存放形象元数据的文件，用于向 Figura 提供该形象的特定信息。
 
-## Json Basics
+## JSON 基础
 
-The format that metadata is stored in is JSON. More specifically, a JSON object. It behaves very similar to a Lua table, it just uses different syntax. However, JSON has a very strict syntax and any errors will cause the avatar to fail to load.
+元数据以 JSON 格式保存，更准确地说，是一个 JSON 对象。它的行为与 Lua 表非常相似，只是语法不同。但 JSON 的语法非常严格，任何错误都会导致形象加载失败。
 
-JSON objects operate on key value pairs. Keys are separated from their values using colons (<code>:</code>), and entries are separated with commas (<code>,</code>). Unlike Lua tables, keys must be strings.
+JSON 对象由键值对组成。键与值之间用冒号（<code>:</code>）分隔，条目之间用逗号（<code>,</code>）分隔。与 Lua 表不同，键必须是字符串。
 
 ```json
 {
@@ -25,14 +25,14 @@ JSON objects operate on key value pairs. Keys are separated from their values us
 }
 ```
 
-## Metadata Fields
+## 元数据字段
 
-Figura looks for specific keys in this JSON object and does things based on the value. Remember that all of these keys are optional. You only need to define the ones you care about.
+Figura 会在这个 JSON 对象中查找特定的键，并根据其值执行相应操作。请注意，所有这些键都是可选的，只需要定义你关心的键。
 
 ### <code>"name"</code> : String
 
-The value of this key determines the name of the avatar. This name is showed on the avatar information sidebar on the right of the Wardrobe, but also determines the name used to find the avatar on the left of the Wardrobe.<br/>
-If this key is not present, the name of the folder containing the <Emoji icon="file/json"/><code>avatar.json</code> file is used.
+该键的值决定形象的名字。这个名字会显示在衣柜右侧的形象信息栏中，同时也决定在衣柜左侧查找该形象时使用的名称。<br/>
+如果不存在此键，则使用存放 <Emoji icon="file/json"/><code>avatar.json</code> 文件的文件夹名称。
 
 ```json
 {
@@ -42,7 +42,7 @@ If this key is not present, the name of the folder containing the <Emoji icon="f
 
 ### <code>"description"</code> : String
 
-The value of this key will appear below the avatar's name in the wardrobe.
+该键的值会显示在衣柜中形象名字的下方。
 
 ```json
 {
@@ -53,7 +53,7 @@ The value of this key will appear below the avatar's name in the wardrobe.
 
 ### <code>"authors"</code> : String[]
 
-The value of this key is an array of strings. An array can contain many different values within itself, and Figura expects these values to be strings. The values are used in the Authors field in the avatar information sidebar.
+该键的值是一个字符串数组。数组中可以包含多个值，Figura 要求这些值都是字符串。这些值会用于形象信息栏中的 Authors 字段。
 
 ```json
 {
@@ -65,12 +65,12 @@ The value of this key is an array of strings. An array can contain many differen
 
 ### <code>"author"</code> : String
 
-A place for a single author, should you dislike <code>"authors"</code>. Does the exact same thing as <code>"authors"</code> with only 1 element.<br/>
-If the <code>"authors"</code> key is present, this key is ignored.
+如果你不想使用 <code>"authors"</code>，可以用这个键填写单个作者。它的效果与只包含 1 个元素的 <code>"authors"</code> 完全相同。<br/>
+如果存在 <code>"authors"</code> 键，则忽略此键。
 
 ### <code>"version"</code> : String
 
-A place to define a [Semantic Versioning](https://semver.org/) version. You can define the lowest possible Figura version that this avatar will run on. If another client uses a Figura version that is less than the version defined here, a <Emoji icon="badge/warning"/> warning badge will appear on your nameplate for them. If they hover over it, it will state that their Figura version is lower than what this avatar was designed to run on. If this key does not exist, Figura will use the version that was used to load the avatar.<br/>
+用于按[语义化版本（Semantic Versioning）](https://semver.org/)定义版本号。你可以在这里定义该形象能够运行的最低 Figura 版本。如果其他客户端使用的 Figura 版本低于此处定义的版本，对方的名牌上会显示一个 <Emoji icon="badge/warning"/> 警告徽标。将鼠标悬停其上时，会提示对方的 Figura 版本低于该形象设计所要求的版本。如果不存在此键，Figura 会使用加载该形象时的版本。<br/>
 
 ```json
 {
@@ -83,7 +83,7 @@ A place to define a [Semantic Versioning](https://semver.org/) version. You can 
 
 ### <code>"color"</code> : String
 
-This key defines the color of the <Emoji icon="badge/mark"/> Figura mark on your nameplate. It must be a string in the format of a 3 character hex code or a 6 character hex code. For example, both <code>"3ab"</code> and <code>"FF00FF"</code> are valid inputs. If this key does not exist, the color <code>"5AAAFF"</code> will be used.
+该键定义名牌上 <Emoji icon="badge/mark"/> Figura 标记的颜色。值必须是 3 位或 6 位十六进制颜色码字符串。例如 <code>"3ab"</code> 和 <code>"FF00FF"</code> 都是合法输入。如果不存在此键，则使用颜色 <code>"5AAAFF"</code>。
 
 ```json
 {
@@ -97,8 +97,8 @@ This key defines the color of the <Emoji icon="badge/mark"/> Figura mark on your
 
 ### <code>"autoScripts"</code> : String[]
 
-By default, every single <Emoji icon="file/lua"/> script file in the avatar will execute in an undefined order. The <code>require</code> function can be used to control when a script is first executed, but some may prefer to define the script order in the metadata. This key is an array of strings that define which scripts run and in which order. Scripts not defined here will not run by default on avatar init, but can still be ran via <code>require</code>. A script is specified via it's file name without the <code>.lua</code> extension. If a script is in a subfolder, that folder must also be defined, with the folder separator being a period (<code>.</code>).<br/>
-Consider the following avatar:<br/>
+默认情况下，形象中每个 <Emoji icon="file/lua"/> 脚本文件都会以未定义的顺序执行。<code>require</code> 函数可用于控制脚本首次执行的时间，但也有人更愿意在元数据中定义脚本顺序。该键是一个字符串数组，用于指定运行哪些脚本以及运行顺序。未在此处定义的脚本不会在形象初始化时默认运行，但仍可通过 <code>require</code> 运行。指定脚本时使用其文件名，不带 <code>.lua</code> 扩展名。如果脚本位于子文件夹中，必须一并写出该文件夹，文件夹之间用句点（<code>.</code>）分隔。<br/>
+以以下形象为例：<br/>
 
 <FileTreeRoot>
   <FileTreeNode label="KattExampleAvatar" icon="file/folder">
@@ -122,13 +122,13 @@ Consider the following avatar:<br/>
   </FileTreeNode>
 </FileTreeRoot>
 
-To make only <code>RainbowNameplate.lua</code> run on avatar init, the <code>autoScripts</code> would look like<br/>
+如果只希望在形象初始化时运行 <code>RainbowNameplate.lua</code>，<code>autoScripts</code> 应写成：<br/>
 
 ```json
 "autoScripts":["libs.RainbowNameplate"]
 ```
 
-For our example metadata file, we will state that only <Emoji icon="file/lua"/> <code>script.lua</code> will run by default, and the script itself will call <code>require</code> on the library scripts which will "import" them into itself. You may be thinking "whats the point of <code>"autoScripts"</code> if <code>require</code> is objectively better at controlling script load order?", To which my response would be "I don't know". But if you give an empty array, then no script will run which can be useful for debugging.
+在本页示例的元数据文件中，我们让只有 <Emoji icon="file/lua"/> <code>script.lua</code> 默认运行，再由该脚本自身对库脚本调用 <code>require</code>，把它们“导入”到自己之中。你可能会想：“既然 <code>require</code> 在控制脚本加载顺序上明显更好，那 <code>"autoScripts"</code> 还有什么用？”我的回答是：“我也不知道。”不过，如果把它设为空数组，则不会有任何脚本运行，这在调试时很有用。
 
 ```json
 {
@@ -143,8 +143,8 @@ For our example metadata file, we will state that only <Emoji icon="file/lua"/> 
 
 ### <code>"autoAnims"</code> : String[]
 
-This key defines which animations should start playing when the avatar first loads. The string to reference an animation follows the pattern <code>"modelPath.animName"</code>.
-Consider the following avatar:<br/>
+该键定义形象首次加载时应开始播放的动画。引用动画的字符串遵循 <code>"modelPath.animName"</code> 的模式。
+以以下形象为例：<br/>
 
 <FileTreeRoot>
   <FileTreeNode label="KattExampleAvatar" icon="file/folder">
@@ -168,11 +168,11 @@ Consider the following avatar:<br/>
   </FileTreeNode>
 </FileTreeRoot>
 
-If we want the animation <code>"idle"</code> in the bbmodel <Emoji icon="file/bbmodel"/> <code>player.bbmodel</code>, we would include the string <code>"player.idle"</code> in the <code>"autoAnims"</code> array.<br/>
-Folder separation is done with a period (<code>.</code>) instead of slash (<code>/</code>).<br/>
-If we want the animation <code>"spin"</code> in the model <Emoji icon="file/bbmodel"/> <code>halo.bbmodel</code>, we would include the string <code>"accessories.halo.spin"</code> in the <code>"autoAnims"</code> array.<br/>
-This is not table indexing like how you would index the `animations` table to get an Animation. It is just string concatenation.<br/>
-<code>autoAnims</code> has a very niche use case as 99% of the time you have animations that you only want playing sometimes or want to play on a trigger. The only real use case is for a constantly playing looping animation that you don't want to waste ~8 instructions on play at the beginning of a script, or perhaps you have an avatar that does not have any script files and you want to keep it that way.
+如果要使用 bbmodel <Emoji icon="file/bbmodel"/> <code>player.bbmodel</code> 中的动画 <code>"idle"</code>，需要在 <code>"autoAnims"</code> 数组中写入字符串 <code>"player.idle"</code>。<br/>
+文件夹之间用句点（<code>.</code>）分隔，而不是斜杠（<code>/</code>）。<br/>
+如果要使用模型 <Emoji icon="file/bbmodel"/> <code>halo.bbmodel</code> 中的动画 <code>"spin"</code>，需要在 <code>"autoAnims"</code> 数组中写入字符串 <code>"accessories.halo.spin"</code>。<br/>
+这里的写法不是表索引，不像通过索引 `animations` 表来获取 Animation 对象。它只是字符串拼接。<br/>
+<code>autoAnims</code> 的适用场景非常有限，因为 99% 的情况下，你希望动画只在特定时刻播放或由某个触发器启动。真正适用的场景只有两种：一是需要一直循环播放的动画，而你不希望在脚本开头为播放它浪费约 8 条指令；二是这个形象没有任何脚本文件，而你希望保持这种状态。
 
 ```json
 {
@@ -188,9 +188,9 @@ This is not table indexing like how you would index the `animations` table to ge
 
 ### <code>"ignoredTextures"</code> : String[]
 
-This key defines which textures should be ignored when loading the avatar. This is useful for when you have a cube that gets its texture set via code, but since all cubes must have a blockbench texture for Figura to even load the cube, you will either have to waste space with a dummy texture or use another texture in the model, which probably won't look good on the cube. This key allows you to have that dummy texture in blockbench without having to waste precious bytes on having that texture loaded with the avatar.<br/>
-Referencing a texture is exactly the same format as getting a Texture object with the <code>textures</code> global.<br/>
-Consider this avatar:<br/>
+该键定义加载形象时应忽略哪些纹理。适用场景：某个立方体的纹理由代码设置，但 Figura 要求所有立方体都必须带有一个 Blockbench 纹理才能加载，于是你不得不用一个占位纹理浪费空间，或者在模型中使用另一张纹理，而那张纹理显示在该立方体上很可能效果不佳。有了这个键，你可以在 Blockbench 中保留占位纹理，同时避免加载该纹理占用宝贵的体积。<br/>
+引用纹理的格式与通过 <code>textures</code> 全局对象获取 Texture 对象完全相同。<br/>
+以该形象为例：<br/>
 
 <FileTreeRoot>
   <FileTreeNode label="KattExampleAvatar" icon="file/folder">
@@ -214,7 +214,7 @@ Consider this avatar:<br/>
   </FileTreeNode>
 </FileTreeRoot>
 
-Hypothetically, the armor of this avatar is being handled by <Emoji icon="file/lua"/> <code>armorAidLib.lua</code>. It changes the texture of cubes to the vanilla armor textures. There is no need to have the <Emoji icon="file/texture"/> <code>diamond_layer_1</code> and <Emoji icon="file/texture"/> <code>diamond_layer_2</code> textures in the bbmodel, but setting the cubes to use <Emoji icon="file/texture"/> <code>skin.png</code> will make editing the model a pain. So we remove both unused textures.
+假设该形象的盔甲由 <Emoji icon="file/lua"/> <code>armorAidLib.lua</code> 处理，它会把立方体的纹理切换为原版盔甲纹理。bbmodel 中其实不需要 <Emoji icon="file/texture"/> <code>diamond_layer_1</code> 和 <Emoji icon="file/texture"/> <code>diamond_layer_2</code> 这两张纹理，但如果把立方体改用 <Emoji icon="file/texture"/> <code>skin.png</code>，编辑模型时会非常麻烦。因此我们移除这两张未使用的纹理。
 
 ```json
 {
@@ -231,10 +231,10 @@ Hypothetically, the armor of this avatar is being handled by <Emoji icon="file/l
 
 ### <code>"customizations"</code> : \{"ModelPart" : \{"Customization" : "String"}}
 
-Does that Type identifier make any sense? Not really, but thats what the <code>"customizations"</code> property is.<br/>
-<code>"customizations"</code> allows for modifications to ModelParts that cant be done in BlockBench. You can still do this stuff via script, but the intent is for an avatar that does not have a script to still have access to some functionality.<br/>
-<code>"customizations"</code> itself is a JSON object. The keys of that object are references to ModelParts, with the values being another JSON object. _That_ object contains key value pairs that operate on the referenced ModelPart.<br/>
-Consider the following avatar:<br/>
+那个类型标识符看着有点奇怪？确实如此，但 <code>"customizations"</code> 属性就是这样。<br/>
+<code>"customizations"</code> 允许对 ModelPart 进行 Blockbench 中无法完成的修改。这些操作同样可以通过脚本实现，但该字段的目的是让没有脚本的形象也能使用部分功能。<br/>
+<code>"customizations"</code> 本身是一个 JSON 对象。它的键是 ModelPart 的引用，值是另一个 JSON 对象。_那个_对象中包含作用于所引用 ModelPart 的键值对。<br/>
+以以下形象为例：<br/>
 
 <FileTreeRoot>
   <FileTreeNode label="KattExampleAvatar" icon="file/folder">
@@ -252,8 +252,8 @@ Consider the following avatar:<br/>
   </FileTreeNode>
 </FileTreeRoot>
 
-To target the <Emoji icon="blockbench/group"/> <code>Head</code>, the correct key to use would be <code>"player.Head"</code>.<br/>
-To target the <Emoji icon="file/bbmodel"/> <code>ribbon</code>, the correct key to use would be <code>"accessories.ribbon"</code>.<br/>
+要定位 <Emoji icon="blockbench/group"/> <code>Head</code>，应使用的键是 <code>"player.Head"</code>。<br/>
+要定位 <Emoji icon="file/bbmodel"/> <code>ribbon</code>，应使用的键是 <code>"accessories.ribbon"</code>。<br/>
 
 ```json
 {
@@ -264,11 +264,11 @@ To target the <Emoji icon="file/bbmodel"/> <code>ribbon</code>, the correct key 
 }
 ```
 
-Now for the keys that work inside these sub-objects.
+下面介绍这些子对象中可用的键。
 
 #### <code>"primaryRenderType"</code> : String
 
-Sets the RenderType to use for the Primary/Default texture. The default primaryRenderType is <code>"TRANSLUCENT"</code>.
+设置主纹理（Primary/Default）使用的 RenderType。primaryRenderType 的默认值为 <code>"TRANSLUCENT"</code>。
 
 ```json
 {
@@ -283,7 +283,7 @@ Sets the RenderType to use for the Primary/Default texture. The default primaryR
 
 #### <code>"secondaryRenderType"</code> : String
 
-Sets the RenderType to use for the Secondary/Emissive/<code>\_e</code> texture. The default secondaryRenderType is <code>"EMISSIVE"</code>.
+设置次级/自发光（Secondary/Emissive/<code>\_e</code>）纹理使用的 RenderType。secondaryRenderType 的默认值为 <code>"EMISSIVE"</code>。
 
 ```json
 {
@@ -300,7 +300,7 @@ Sets the RenderType to use for the Secondary/Emissive/<code>\_e</code> texture. 
 
 #### <code>"parentType"</code> : String
 
-Keywords in BlockBench set the ParentType of the ModelPart. This key overrides that, or sets one if there is no Keyword. The default ParentType is <code>"None"</code>
+Blockbench 中的关键字会设置 ModelPart 的 ParentType。该键会覆盖该设置；如果没有关键字，则用它来设置。ParentType 的默认值为 <code>"None"</code>
 
 ```json
 {
@@ -318,7 +318,7 @@ Keywords in BlockBench set the ParentType of the ModelPart. This key overrides t
 
 #### <code>"moveTo"</code> : String
 
-Forces the ModelPart reference given to be a child of this ModelPart. This is useful if you like to organize your avatar into separate bbmodels. You can use this to stitch them together.
+强制让指定的 ModelPart 引用成为此 ModelPart 的子级。如果你习惯把形象拆分成多个 bbmodel 来组织，这个键很有用，可以用它把各部分拼接在一起。
 
 ```json
 {
@@ -337,7 +337,7 @@ Forces the ModelPart reference given to be a child of this ModelPart. This is us
 
 #### <code>"visible"</code> : Boolean
 
-Overrides the visibility defined in BlockBench. Useful to be able to hide ModelParts in BlockBench to edit the model more easily, without it affecting the final result of the Avatar.
+覆盖 Blockbench 中定义的可见性。适合在 Blockbench 中临时隐藏 ModelPart，以便更轻松地编辑模型，同时又不会影响形象的最终效果。
 
 ```json
 {
@@ -357,7 +357,7 @@ Overrides the visibility defined in BlockBench. Useful to be able to hide ModelP
 
 #### <code>"remove"</code> : Boolean
 
-This customization will prevent the targeted ModelPart from loading at all.<br/>
+该自定义项会让目标 ModelPart 完全不被加载。<br/>
 
 ```json
 {
@@ -371,8 +371,8 @@ This customization will prevent the targeted ModelPart from loading at all.<br/>
 
 #### <code>"smooth"</code> : Boolean
 
-This customization must be applied directly to a mesh object.<br/>
-This will calculate the vertex normals so that the mesh appears smooth, reducing the visibility of individual triangles.
+该自定义项必须直接应用于网格（mesh）对象。<br/>
+它会计算顶点法线，使网格看起来平滑，减少单个三角形可见的棱角。
 
 ```json
 {
@@ -384,7 +384,7 @@ This will calculate the vertex normals so that the mesh appears smooth, reducing
 }
 ```
 
-## Final Example <code>avatar.json</code>
+## 完整示例 <code>avatar.json</code>
 
 ```json
 {

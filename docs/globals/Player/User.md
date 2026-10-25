@@ -1,3 +1,8 @@
-User is an alias of [Player](../Player).
+---
+title: User（用户）
+sidebar_label: User（用户）
+---
 
-It's used in the instance that the owner of the avatar is not a player (but... you could use `player` anyway.)
+User 是 [Player](../Player) 的别名。
+
+User 用于形象的所有者不是玩家的情况（不过，这种情况下依然可以使用 `player`。）

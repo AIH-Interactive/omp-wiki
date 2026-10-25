@@ -1,31 +1,36 @@
+---
+title: Textures（纹理 API）
+sidebar_label: Textures（纹理 API）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API which allows for creating textures at runtime
+用于在运行时创建纹理的全局 API
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>getTextures()</code> \{#getTextures}
 
-Returns a table with all textures used by this avatar's Blockbench models
+返回一个表，其中包含该形象的 Blockbench 模型所使用的全部纹理
 
-Does not include generated textures from this API
+不包含通过此 API 生成的纹理
 
 ```lua
 getTextures()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 logTable(textures:getTextures())
@@ -35,25 +40,25 @@ logTable(textures:getTextures())
 
 ### <code>get()</code> \{#get}
 
-Gets a registered texture based on its name, or nil if no texture was found with that name
+根据名称获取已注册的纹理；如果找不到该名称的纹理，则返回 nil
 
 ```lua
 get(name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| name | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Texture](/globals/Textures/Texture)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Texture](/globals/Textures/Texture)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 textures:get("Name")
@@ -63,28 +68,28 @@ textures:get("Name")
 
 ### <code>copy()</code> \{#copy}
 
-Creates a copy of the texture
+创建该纹理的副本
 
-The copy is registered with the given name
+副本会以给定的名称注册
 
 ```lua
 copy(name, texture)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
-| name    | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
-| texture | <code>[Texture](/globals/Textures/Texture)</code> | -           | -       |
+| 名称    | 类型                                              | 说明 | 默认值 |
+| ------- | ------------------------------------------------- | ---- | ------ |
+| name    | <code>[String](/tutorials/types/Strings)</code>   | -    | -      |
+| texture | <code>[Texture](/globals/Textures/Texture)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Texture](/globals/Textures/Texture)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Texture](/globals/Textures/Texture)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 textures:copy("Name", textures["myTexture"])
@@ -94,26 +99,26 @@ textures:copy("Name", textures["myTexture"])
 
 ### <code>fromVanilla()</code> \{#fromVanilla}
 
-Returns a copy of a resource texture as a texture object for modifying
+以纹理对象的形式返回原版资源纹理的副本，可用于修改
 
 ```lua
 fromVanilla(name, path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| name | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| path | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Texture](/globals/Textures/Texture)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Texture](/globals/Textures/Texture)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 textures:fromVanilla("Name", "textures/item/apple.png")
@@ -123,29 +128,29 @@ textures:fromVanilla("Name", "textures/item/apple.png")
 
 ### <code>newTexture()</code> \{#newTexture}
 
-Creates a new texture with the given name, width and height
+以给定的名称、宽度和高度创建新纹理
 
-The texture is filled with a solid color
+纹理会填充为纯色
 
 ```lua
 newTexture(name, width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
-| ------ | ------------------------------------------------ | ----------- | ------- |
-| name   | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
-| width  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
-| height | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称   | 类型                                             | 说明 | 默认值 |
+| ------ | ------------------------------------------------ | ---- | ------ |
+| name   | <code>[String](/tutorials/types/Strings)</code>  | -    | -      |
+| width  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
+| height | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Texture](/globals/Textures/Texture)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Texture](/globals/Textures/Texture)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 textures:newTexture("Name", 64, 64)
@@ -155,52 +160,52 @@ textures:newTexture("Name", 64, 64)
 
 ### <code>read()</code> \{#read}
 
-Reads a texture from a base64 string or a byte array
+从 base64 字符串或字节数组读取纹理
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 read(name, base64Text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
-| ---------- | ----------------------------------------------- | ----------- | ------- |
-| name       | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| base64Text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称       | 类型                                            | 说明 | 默认值 |
+| ---------- | ----------------------------------------------- | ---- | ------ |
+| name       | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| base64Text | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Texture](/globals/Textures/Texture)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Texture](/globals/Textures/Texture)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 read(name, byteArray)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                            | Description | Default |
-| --------- | ----------------------------------------------- | ----------- | ------- |
-| name      | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| byteArray | <code>[Table](/tutorials/types/Tables)</code>   | -           | -       |
+| 名称      | 类型                                            | 说明 | 默认值 |
+| --------- | ----------------------------------------------- | ---- | ------ |
+| name      | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| byteArray | <code>[Table](/tutorials/types/Tables)</code>   | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Texture](/globals/Textures/Texture)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Texture](/globals/Textures/Texture)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 <!-- prettier-ignore -->
 ```lua

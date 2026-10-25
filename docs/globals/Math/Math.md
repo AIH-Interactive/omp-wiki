@@ -1,39 +1,44 @@
+---
+title: Math（数学）
+sidebar_label: Math（数学）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Contains functions which Figura adds to the default Lua "math" library table
+包含 Figura 添加到 Lua 默认 math 库表中的函数
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
-## Methods
+## 方法
 
 ### <code>clamp()</code> \{#clamp}
 
-Clamps the given value between min and max
+将给定值限制在 min 与 max 之间
 
 ```lua
 clamp(value, min, max)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| value | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| min   | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| max   | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| value | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| min | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| max | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 math.clamp(58, 0, 50) -- returns 50
@@ -45,77 +50,77 @@ math.clamp(26, 0, 50) -- returns 26
 
 ### <code>lerp()</code> \{#lerp}
 
-Linearly interpolates from its first argument to its second argument, with the third argument as the parameter
+从第一个参数线性插值到第二个参数，第三个参数作为插值系数
 
-Works on both regular numbers, vectors of the same type, and matrices of the same type
+适用于普通数字、同类型的向量以及同类型的矩阵
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 lerp(a, b, t)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| a    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| t    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| a | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| b | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| t | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 lerp(a, b, t)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| a    | <code>[Vector](/category/vectors)</code>        | -           | -       |
-| b    | <code>[Vector](/category/vectors)</code>        | -           | -       |
-| t    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| a | <code>[Vector](/category/vectors)</code> | - | - |
+| b | <code>[Vector](/category/vectors)</code> | - | - |
+| t | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                     | Description |
-| ---------------------------------------- | ----------- |
-| <code>[Vector](/category/vectors)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Vector](/category/vectors)</code> | - |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 lerp(a, b, t)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| a    | <code>[Matrix](/category/matrices)</code>       | -           | -       |
-| b    | <code>[Matrix](/category/matrices)</code>       | -           | -       |
-| t    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| a | <code>[Matrix](/category/matrices)</code> | - | - |
+| b | <code>[Matrix](/category/matrices)</code> | - | - |
+| t | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                      | Description |
-| ----------------------------------------- | ----------- |
-| <code>[Matrix](/category/matrices)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Matrix](/category/matrices)</code> | - |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local rot = 0
@@ -136,31 +141,31 @@ end
 
 ### <code>lerpAngle()</code> \{#lerpAngle}
 
-Similar to the default lerp function, but numbers are limited to the range of 0-360
+与默认的 lerp 函数类似，但数字被限制在 0-360 的范围内
 
-Lerp is done towards the shortest angle
+插值沿最短角度方向进行
 
-For example, a lerp of 340 and 20, with a factor of 0.75, will return 10
+例如，对 340 与 20 以 0.75 为系数插值，结果为 10
 
 ```lua
 lerpAngle(a, b, t)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| a    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| t    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| a | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| b | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| t | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 math.lerpAngle(340, 20, 0.75) -- returns 10
@@ -170,31 +175,31 @@ math.lerpAngle(340, 20, 0.75) -- returns 10
 
 ### <code>map()</code> \{#map}
 
-Maps the given value from one range to another
+将给定值从一个区间映射到另一个区间
 
-For example, if you have a value of 20 in the range 0-200, and you want to map it to the range 100-200, the result will be 110
+例如，区间 0-200 中的值 20 映射到区间 100-200 后，结果为 110
 
 ```lua
 map(value, oldMin, oldMax, newMin, newMax)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description | Default |
-| ------ | ----------------------------------------------- | ----------- | ------- |
-| value  | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| oldMin | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| oldMax | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| newMin | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| newMax | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| value | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| oldMin | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| oldMax | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| newMin | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| newMax | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 math.map(20, 0, 200, 100, 200) -- returns 110
@@ -204,25 +209,25 @@ math.map(20, 0, 200, 100, 200) -- returns 110
 
 ### <code>round()</code> \{#round}
 
-Rounds the given number to the nearest whole integer
+将给定数字四舍五入到最接近的整数
 
 ```lua
 round(value)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| value | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| value | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 math.round(21.74) -- returns 22
@@ -232,28 +237,28 @@ math.round(21.74) -- returns 22
 
 ### <code>shortAngle()</code> \{#shortAngle}
 
-Returns the shortest angle between two angles
+返回两个角度之间的最短夹角
 
-For example, if you have an angle of 350 degrees and you want to get the shortest angle between it and 0 degrees, the result will be 10 degrees
+例如，角度 350 度与 0 度之间的最短夹角为 10 度
 
 ```lua
 shortAngle(from, to)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| from | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| to   | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| from | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
+| to | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 math.shortAngle(350, 0) -- returns 10
@@ -263,27 +268,27 @@ math.shortAngle(350, 0) -- returns 10
 
 ### <code>sign()</code> \{#sign}
 
-Returns the sign of the given number
+返回给定数字的符号
 
-Returns 1 if the number is positive, -1 if it's negative, and 0 if it's 0
+正数返回 1，负数返回 -1，0 返回 0
 
 ```lua
 sign(value)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| value | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| value | <code>[Number](/tutorials/types/Numbers)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Number](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 math.sign(124) -- returns 1
@@ -293,13 +298,13 @@ math.sign(0) -- returns 0
 
 ---
 
-## Fields
+## 字段
 
 ### <code>playerScale</code> \{#playerScale}
 
-The constant of the player scaling related to the world
+玩家相对于世界的缩放常数
 
-**Example:**
+**示例：**
 
 ```lua
 math.playerScale
@@ -309,9 +314,9 @@ math.playerScale
 
 ### <code>worldScale</code> \{#worldScale}
 
-The constant of the world scaling related with the player
+世界相对于玩家的缩放常数
 
-**Example:**
+**示例：**
 
 ```lua
 math.worldScale

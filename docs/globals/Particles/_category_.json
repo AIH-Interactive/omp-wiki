@@ -1,10 +1,11 @@
 {
-  "label": "Particles",
+  "label": "粒子",
   "link": {
     "type": "generated-index",
-    "description": "List of all classes in the Particles API."
+    "description": "粒子分类下的页面。",
+    "slug": "/category/particles"
   },
   "customProps": {
-    "description": "A global API which is used for dealing with Minecraft's particles"
+    "description": "粒子相关的全局对象说明。"
   }
 }

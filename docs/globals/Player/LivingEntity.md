@@ -1,13 +1,18 @@
+---
+title: LivingEntity（活体实体）
+sidebar_label: LivingEntity（活体实体）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Acts as a proxy for a living entity in the Minecraft world
+用于代理 Minecraft 世界中的活体实体。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
-For this page assume:
+本页示例假定：
 
 ```lua
 local thisEntity = thisEntity:getTargetedEntity()
@@ -15,52 +20,52 @@ local thisEntity = thisEntity:getTargetedEntity()
 
 ---
 
-## Living Entity Transformations
+## 活体实体变换
 
 ### <code>getPos()</code> \{#getPos}
 
-Gets the position of the entity in the world
+获取实体在世界中的位置。
 
-If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick
+如果传入 delta，则用它在上一 tick 与当前 tick 之间对实体位置做线性插值。
 
-The default value of delta is 1
+delta 的默认值为 1。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getPos(delta)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明 | 默认值 |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | delta | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getPos()
@@ -70,48 +75,48 @@ thisEntity:getPos()
 
 ### <code>getRot()</code> \{#getRot}
 
-Gets the rotation of the entity in degrees
+获取实体的旋转角度，单位为度。
 
-If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick
+如果传入 delta，则用它在上一 tick 与当前 tick 之间对实体旋转角度做线性插值。
 
-The default value of delta is 1
+delta 的默认值为 1。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getRot()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getRot(delta)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明 | 默认值 |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | delta | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getRot()
@@ -121,48 +126,48 @@ thisEntity:getRot()
 
 ### <code>getBodyYaw()</code> \{#getBodyYaw}
 
-Gets the yaw of this entity's body in degrees
+获取此实体身体的偏航角，单位为度。
 
-If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick
+如果传入 delta，则用它在上一 tick 与当前 tick 之间对身体旋转角度做线性插值。
 
-The default value of delta is 1
+delta 的默认值为 1。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getBodyYaw()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getBodyYaw(delta)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明 | 默认值 |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | delta | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getBodyYaw()
@@ -172,21 +177,21 @@ thisEntity:getBodyYaw()
 
 ### <code>getLookDir()</code> \{#getLookDir}
 
-Returns a unit vector pointing in the direction that this entity is looking
+返回指向实体视线方向的单位向量。
 
-See the blue line in the F3+B screen for an example
+示例可参考 F3+B 界面中的蓝线。
 
 ```lua
 getLookDir()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getLookDir()
@@ -196,19 +201,19 @@ thisEntity:getLookDir()
 
 ### <code>getVelocity()</code> \{#getVelocity}
 
-Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick
+获取实体当前在世界坐标中的速度，计算方式为当前 tick 的位置减去上一 tick 的位置。
 
 ```lua
 getVelocity()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getVelocity()
@@ -216,25 +221,25 @@ thisEntity:getVelocity()
 
 ---
 
-## Living Entity Actions
+## 活体实体动作
 
 ### <code>getPose()</code> \{#getPose}
 
-Returns the current pose of the player
+返回玩家当前的姿势。
 
-This can be one of: "STANDING", "FALL_FLYING", "SLEEPING", "SWIMMING", "SPIN_ATTACK", "CROUCHING", "LONG_JUMPING", or "DYING"
+可能的值包括："STANDING"、"FALL_FLYING"、"SLEEPING"、"SWIMMING"、"SPIN_ATTACK"、"CROUCHING"、"LONG_JUMPING" 或 "DYING"。
 
 ```lua
 getPose()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getPose() == "CROUCHING"
@@ -244,19 +249,19 @@ thisEntity:getPose() == "CROUCHING"
 
 ### <code>isBlocking()</code> \{#isBlocking}
 
-Return if this entity is blocking with a shield
+返回此实体是否正在用盾牌格挡。
 
 ```lua
 isBlocking()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isBlocking()
@@ -266,19 +271,19 @@ thisEntity:isBlocking()
 
 ### <code>isClimbing()</code> \{#isClimbing}
 
-Returns true if the entity is currently using a climbable block, like a ladder or vine
+如果实体当前正在攀爬梯子、藤蔓等可攀爬方块，返回 true。
 
 ```lua
 isClimbing()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isClimbing()
@@ -288,19 +293,19 @@ thisEntity:isClimbing()
 
 ### <code>isCrouching()</code> \{#isCrouching}
 
-Returns true if this entity is visually sneaking
+如果此实体在视觉上处于潜行状态，返回 true。
 
 ```lua
 isCrouching()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isCrouching()
@@ -310,19 +315,19 @@ thisEntity:isCrouching()
 
 ### <code>isFalling()</code> \{#isFalling}
 
-Returns true if this entity has negative Y-velocity and is not on the ground
+如果此实体的 Y 轴速度为负且不在地面上，返回 true。
 
 ```lua
 isFalling()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isFalling()
@@ -332,19 +337,19 @@ thisEntity:isFalling()
 
 ### <code>isGliding()</code> \{#isGliding}
 
-Returns if this entity is gliding with an elytra
+返回此实体是否正在使用鞘翅滑翔。
 
 ```lua
 isGliding()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isGliding()
@@ -354,26 +359,26 @@ thisEntity:isGliding()
 
 ### <code>isMoving()</code> \{#isMoving}
 
-Returns true if this entity has some velocity
+如果此实体具有速度，返回 true。
 
-Takes a boolean parameter, where if true, the y velocity is ignored
+接受一个布尔参数；该参数为 true 时忽略 Y 轴速度。
 
 ```lua
 isMoving()
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                                              | Default |
+| 名称    | 类型                                              | 说明                                              | 默认值 |
 | ------- | ------------------------------------------------- | -------------------------------------------------------- | ------- |
-| ignoreY | <code>[Boolean](/tutorials/Types/Booleans)</code> | Whether to ignore vertical velocity to qualify as moving | false   |
+| ignoreY | <code>[Boolean](/tutorials/Types/Booleans)</code> | 是否忽略垂直速度来判定为移动 | false   |
 
-**Returns:**
-| Type | Description |
+**返回值：**
+| 类型 | 说明 |
 |---------------------------------------------------|-------------|
 | <code>[Boolean](/tutorials/Types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isMoving()
@@ -383,19 +388,19 @@ thisEntity:isMoving()
 
 ### <code>isSneaking()</code> \{#isSneaking}
 
-Returns true if this entity is logically sneaking (can't fall from blocks edges, can't see nameplate behind walls, etc)
+如果此实体在逻辑上处于潜行状态，返回 true（不会从方块边缘掉落、无法透过墙看到名称牌等）。
 
 ```lua
 isSneaking()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isSneaking()
@@ -405,19 +410,19 @@ thisEntity:isSneaking()
 
 ### <code>isSprinting()</code> \{#isSprinting}
 
-Returns true if this entity is currently sprinting
+如果此实体当前正在疾跑，返回 true。
 
 ```lua
 isSprinting()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isSprinting()
@@ -427,19 +432,19 @@ thisEntity:isSprinting()
 
 ### <code>isVisuallySwimming()</code> \{#isVisuallySwimming}
 
-Returns if this entity has the swimming pose
+返回此实体是否处于游泳姿势。
 
 ```lua
 isVisuallySwimming()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isVisuallySwimming()
@@ -449,19 +454,19 @@ thisEntity:isVisuallySwimming()
 
 ### <code>riptideSpinning()</code> \{#riptideSpinning}
 
-Returns if this entity is riptide spinning
+返回此实体是否正在因激流附魔旋转。
 
 ```lua
 riptideSpinning()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:riptideSpinning()
@@ -469,23 +474,23 @@ thisEntity:riptideSpinning()
 
 ---
 
-## Living Entity Data
+## 活体实体数据
 
 ### <code>getAbsorptionAmount()</code> \{#getAbsorptionAmount}
 
-Returns the amount of this entity's absorption (yellow hearts)
+返回此实体的伤害吸收量（黄色心形）。
 
 ```lua
 getAbsorptionAmount()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getAbsorptionAmount()
@@ -495,19 +500,19 @@ thisEntity:getAbsorptionAmount()
 
 ### <code>getArmor()</code> \{#getArmor}
 
-Returns the amount of armor points this entity has
+返回此实体拥有的护甲值。
 
 ```lua
 getArmor()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getArmor()
@@ -517,19 +522,19 @@ thisEntity:getArmor()
 
 ### <code>getArrowCount()</code> \{#getArrowCount}
 
-Returns the number of arrows sticking out of this entity
+返回插在此实体身上的箭的数量。
 
 ```lua
 getArrowCount()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getArrowCount()
@@ -539,23 +544,23 @@ thisEntity:getArrowCount()
 
 ### <code>getBoundingBox()</code> \{#getBoundingBox}
 
-Returns the size of this entity's bounding box as a Vector3
+以 Vector3 形式返回此实体碰撞箱的尺寸。
 
-\{x, y, z} are the width, height, and width
+\{x, y, z} 分别表示宽度、高度和宽度。
 
-Minecraft entity hitboxes always have square bases
+Minecraft 实体的碰撞箱底面始终为正方形。
 
 ```lua
 getBoundingBox()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getBoundingBox()
@@ -565,19 +570,19 @@ thisEntity:getBoundingBox()
 
 ### <code>getControlledVehicle()</code> \{#getControlledVehicle}
 
-Return the vehicle that this entity is controlling
+返回此实体正在控制的载具。
 
 ```lua
 getControlledVehicle()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[EntityAPI](/globals/Player/Entity)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getControlledVehicle()
@@ -587,19 +592,19 @@ thisEntity:getControlledVehicle()
 
 ### <code>getControllingPassenger()</code> \{#getControllingPassenger}
 
-Returns the entity that is controlling this entity
+返回正在控制此实体的实体。
 
 ```lua
 getControllingPassenger()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[EntityAPI](/globals/Player/Entity)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getControllingPassenger()
@@ -609,19 +614,19 @@ thisEntity:getControllingPassenger()
 
 ### <code>getDeathTime()</code> \{#getDeathTime}
 
-Returns the number of ticks this entity has been dead for
+返回此实体已死亡的 tick 数。
 
 ```lua
 getDeathTime()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getDeathTime()
@@ -631,19 +636,19 @@ thisEntity:getDeathTime()
 
 ### <code>getDimensionName()</code> \{#getDimensionName}
 
-Gets the Minecraft identifier of the dimension this entity is in
+获取此实体所在维度的 Minecraft 标识符。
 
 ```lua
 getDimensionName()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getDimensionName()
@@ -653,21 +658,21 @@ thisEntity:getDimensionName()
 
 ### <code>getEntityCategory()</code> \{#getEntityCategory}
 
-Returns the category of this entity
+返回此实体的类别。
 
-The categories are: "ARTHROPOD", "UNDEAD", "WATER", "ILLAGER" and by default, "UNDEFINED"
+类别包括："ARTHROPOD"、"UNDEAD"、"WATER"、"ILLAGER"，默认为 "UNDEFINED"。
 
 ```lua
 getEntityCategory()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getEntityCategory() == "UNDEAD"
@@ -677,19 +682,19 @@ thisEntity:getEntityCategory() == "UNDEAD"
 
 ### <code>getEyeHeight()</code> \{#getEyeHeight}
 
-Returns the current eye height of this entity
+返回此实体当前的眼高。
 
 ```lua
 getEyeHeight()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getEyeHeight()
@@ -699,21 +704,21 @@ thisEntity:getEyeHeight()
 
 ### <code>getEyeY()</code> \{#getEyeY}
 
-Returns the Y level of this entity's eyes
+返回此实体眼睛所在的 Y 坐标。
 
-Not to be confused with getEyeHeight, this function also takes the entity itself's Y position into account
+不要与 getEyeHeight 混淆；此函数还会把实体自身的 Y 坐标计算在内。
 
 ```lua
 getEyeY()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getEyeY()
@@ -723,19 +728,19 @@ thisEntity:getEyeY()
 
 ### <code>getFrozenTicks()</code> \{#getFrozenTicks}
 
-Gets the number of ticks this entity has been freezing in powder snow for
+获取此实体在细雪中冻结的 tick 数。
 
 ```lua
 getFrozenTicks()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getFrozenTicks()
@@ -745,19 +750,19 @@ thisEntity:getFrozenTicks()
 
 ### <code>getHealth()</code> \{#getHealth}
 
-Returns the amount of health this entity has remaining
+返回此实体剩余的生命值。
 
 ```lua
 getHealth()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getHealth()
@@ -767,19 +772,19 @@ thisEntity:getHealth()
 
 ### <code>getMaxAir()</code> \{#getMaxAir}
 
-Gets the maximum amount of air this entity can have
+获取此实体可拥有的最大氧气值。
 
 ```lua
 getMaxAir()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getMaxAir()
@@ -789,19 +794,19 @@ thisEntity:getMaxAir()
 
 ### <code>getMaxHealth()</code> \{#getMaxHealth}
 
-Returns the maximum amount of health this entity can have
+返回此实体可拥有的最大生命值。
 
 ```lua
 getMaxHealth()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getMaxHealth()
@@ -811,21 +816,21 @@ thisEntity:getMaxHealth()
 
 ### <code>getName()</code> \{#getName}
 
-Gets the name of this entity, if it has a custom name
+获取此实体的名称（如果它有自定义名称）。
 
-If it doesn't, returns a translated form of getType()
+如果没有自定义名称，则返回 getType() 的翻译形式。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getName()
@@ -835,21 +840,21 @@ thisEntity:getName()
 
 ### <code>getNbt()</code> \{#getNbt}
 
-Gets a table containing the NBT of this entity
+获取包含此实体 NBT 的表。
 
-Please note that not all values in the entity's NBT may be synced, as some are handled only on the server side
+请注意，实体 NBT 中的部分值可能未同步，因为某些值仅在服务端处理。
 
 ```lua
 getNbt()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明 |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getNbt()
@@ -859,19 +864,19 @@ thisEntity:getNbt()
 
 ### <code>getPassengers()</code> \{#getPassengers}
 
-Returns a List of entities of all passengers this entity has
+以列表形式返回此实体的所有乘客实体。
 
 ```lua
 getPassengers()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明 |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getPassengers()
@@ -881,21 +886,21 @@ thisEntity:getPassengers()
 
 ### <code>getPermissionLevel()</code> \{#getPermissionLevel}
 
-Returns the permission level number of this entity
+返回此实体的权限等级数值。
 
-Server Operators, by default, have the permission level of 4
+服务器管理员默认拥有 4 级权限。
 
 ```lua
 getPermissionLevel()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getPermissionLevel()
@@ -905,19 +910,19 @@ thisEntity:getPermissionLevel()
 
 ### <code>getStingerCount()</code> \{#getStingerCount}
 
-Returns the number of bee stingers sticking out of this entity
+返回插在此实体身上的蜜蜂螫针数量。
 
 ```lua
 getStingerCount()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getStingerCount()
@@ -927,76 +932,76 @@ thisEntity:getStingerCount()
 
 ### <code>getTargetedBlock()</code> \{#getTargetedBlock}
 
-Returns a proxy for your currently targeted BlockState
+返回当前瞄准的 BlockState 代理。
 
-This BlockState appears on the F3 screen
+此 BlockState 会显示在 F3 界面中。
 
-The maximum (and default) distance is 20, minimum is -20
+最大距离（也是默认值）为 20，最小距离为 -20。
 
-Returns the block, the hit position, and the targeted block face as three separate values
+将方块、命中位置和目标方块的面作为三个独立值返回。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getTargetedBlock()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description         |
+| 类型                                                 | 说明         |
 | ---------------------------------------------------- | ------------------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | Targeted block      |
-| <code>[Vector3](/globals/Vectors/Vector3)</code>     | Hit position        |
-| <code>[String](/tutorials/types/Strings)</code>      | Targeted block face |
+| <code>[BlockState](/globals/World/BlockState)</code> | 目标方块      |
+| <code>[Vector3](/globals/Vectors/Vector3)</code>     | 命中位置        |
+| <code>[String](/tutorials/types/Strings)</code>      | 目标方块的面 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getTargetedBlock(ignoreLiquids)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name          | Type                                              | Description | Default |
+| 名称          | 类型                                              | 说明 | 默认值 |
 | ------------- | ------------------------------------------------- | ----------- | ------- |
 | ignoreLiquids | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description         |
+| 类型                                                 | 说明         |
 | ---------------------------------------------------- | ------------------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | Targeted block      |
-| <code>[Vector3](/globals/Vectors/Vector3)</code>     | Hit position        |
-| <code>[String](/tutorials/types/Strings)</code>      | Targeted block face |
+| <code>[BlockState](/globals/World/BlockState)</code> | 目标方块      |
+| <code>[Vector3](/globals/Vectors/Vector3)</code>     | 命中位置        |
+| <code>[String](/tutorials/types/Strings)</code>      | 目标方块的面 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 getTargetedBlock(ignoreLiquids, distance)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name          | Type                                              | Description | Default |
+| 名称          | 类型                                              | 说明 | 默认值 |
 | ------------- | ------------------------------------------------- | ----------- | ------- |
 | ignoreLiquids | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 | distance      | <code>[Number](/tutorials/types/Numbers)</code>   | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description         |
+| 类型                                                 | 说明         |
 | ---------------------------------------------------- | ------------------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | Targeted block      |
-| <code>[Vector3](/globals/Vectors/Vector3)</code>     | Hit position        |
-| <code>[String](/tutorials/types/Strings)</code>      | Targeted block face |
+| <code>[BlockState](/globals/World/BlockState)</code> | 目标方块      |
+| <code>[Vector3](/globals/Vectors/Vector3)</code>     | 命中位置        |
+| <code>[String](/tutorials/types/Strings)</code>      | 目标方块的面 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local block, hitPos, side = thisEntity:getTargetedBlock(true, 4.5)
@@ -1009,50 +1014,50 @@ end
 
 ### <code>getTargetedEntity()</code> \{#getTargetedEntity}
 
-Returns a proxy for your currently targeted Entity
+返回当前瞄准实体的代理。
 
-This Entity appears on the F3 screen
+此实体会显示在 F3 界面中。
 
-Maximum and Default distance is 20, Minimum is 0
+最大距离（也是默认值）为 20，最小距离为 0。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getTargetedEntity()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description     |
+| 类型                                             | 说明     |
 | ------------------------------------------------ | --------------- |
-| <code>[Entity](/globals/Player/Entity)</code>    | Targeted entity |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | Hit position    |
+| <code>[Entity](/globals/Player/Entity)</code>    | 目标实体 |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | 命中位置    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getTargetedEntity(distance)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
+| 名称     | 类型                                            | 说明 | 默认值 |
 | -------- | ----------------------------------------------- | ----------- | ------- |
 | distance | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description     |
+| 类型                                             | 说明     |
 | ------------------------------------------------ | --------------- |
-| <code>[Entity](/globals/Player/Entity)</code>    | Targeted entity |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | Hit position    |
+| <code>[Entity](/globals/Player/Entity)</code>    | 目标实体 |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | 命中位置    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local entity, hitPos = thisEntity:getTargetedEntity()
@@ -1062,56 +1067,56 @@ local entity, hitPos = thisEntity:getTargetedEntity()
 
 ### <code>getNearestEntity()</code> \{#getNearestEntity}
 
-Returns the closest entity to this entity
+返回距离此实体最近的实体。
 
-If `type` is an entity id, (e.g. `minecraft:bee`), only entities of that type will be considered
+如果 `type` 是实体 ID（例如 `minecraft:bee`），则只考虑该类型的实体。
 
-Radius defaults to 20, and controls the size of the area for checking entities as a box expanding in every direction from the player
+半径默认值为 20，决定检查实体区域的大小；该区域是以玩家为中心向各方向扩展的立方体。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getNearestEntity()
 ```
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getNearestEntity(type)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                               | Default |
+| 名称 | 类型                                            | 说明                                               | 默认值 |
 | ---- | ----------------------------------------------- | --------------------------------------------------------- | ------- |
-| type | <code>[String](/tutorials/types/Strings)</code> | Minecraft type ID for the entity, i.e. `minecraft:player` | -       |
+| type | <code>[String](/tutorials/types/Strings)</code> | 实体的 Minecraft 类型 ID，例如 `minecraft:player` | -       |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 getNearestEntity(type, radius)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description                                               | Default |
+| 名称   | 类型                                            | 说明                                               | 默认值 |
 | ------ | ----------------------------------------------- | --------------------------------------------------------- | ------- |
-| type   | <code>[String](/tutorials/types/Strings)</code> | Minecraft type ID for the entity, i.e. `minecraft:player` | -       |
-| radius | <code>[Number](/tutorials/types/Numbers)</code> | Radius of the player-centered cube to find entities in    | 20      |
+| type   | <code>[String](/tutorials/types/Strings)</code> | 实体的 Minecraft 类型 ID，例如 `minecraft:player` | -       |
+| radius | <code>[Number](/tutorials/types/Numbers)</code> | 以玩家为中心、用于搜索实体的立方体半径    | 20      |
 
 </TabItem>
 </Tabs>
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description    |
+| 类型                                          | 说明    |
 | --------------------------------------------- | -------------- |
-| <code>[Entity](/globals/Player/Entity)</code> | Closest entity |
+| <code>[Entity](/globals/Player/Entity)</code> | 最近的实体 |
 
-**Example:**
+**示例：**
 
 ```lua
 -- highlight-next-line
@@ -1125,21 +1130,21 @@ end
 
 ### <code>getType()</code> \{#getType}
 
-Gets the Minecraft identifier of this entity
+获取此实体的 Minecraft 标识符。
 
-For instance, "minecraft:pig"
+例如 "minecraft:pig"。
 
 ```lua
 getType()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getType()
@@ -1149,21 +1154,21 @@ thisEntity:getType()
 
 ### <code>getVehicle()</code> \{#getVehicle}
 
-Returns a proxy for the entity that this player is currently riding
+返回此玩家当前骑乘实体的代理。
 
-If the player isn't riding anything, returns nil
+如果玩家没有骑乘任何实体，则返回 nil。
 
 ```lua
 getVehicle()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[EntityAPI](/globals/Player/Entity)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 if thisEntity:getVehicle() and thisEntity:getVehicle():getType() == "minecraft:pig" then
@@ -1175,19 +1180,19 @@ end
 
 ### <code>hasContainer()</code> \{#hasContainer}
 
-Checks if the entity has a container (Chest Boats, Minecarts with Chests, …)
+检查实体是否带有容器（运输船、运输矿车等）。
 
 ```lua
 hasContainer()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:hasContainer()
@@ -1197,19 +1202,19 @@ thisEntity:hasContainer()
 
 ### <code>hasInventory()</code> \{#hasInventory}
 
-Checks if the entity has an inventory (Horses, Camels, LLamas, …)
+检查实体是否带有物品栏（马、骆驼、羊驼等）。
 
 ```lua
 hasInventory()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:hasInventory()
@@ -1219,19 +1224,19 @@ thisEntity:hasInventory()
 
 ### <code>isAlive()</code> \{#isAlive}
 
-Returns whether this entity is alive or not
+返回此实体是否存活。
 
 ```lua
 isAlive()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isAlive()
@@ -1241,19 +1246,19 @@ thisEntity:isAlive()
 
 ### <code>isGlowing()</code> \{#isGlowing}
 
-Returns true if this entity is currently glowing
+如果此实体当前正在发光，返回 true。
 
 ```lua
 isGlowing()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isGlowing()
@@ -1263,19 +1268,19 @@ thisEntity:isGlowing()
 
 ### <code>isInLava()</code> \{#isInLava}
 
-Returns true if this entity is currently in lava
+如果此实体当前处于熔岩中，返回 true。
 
 ```lua
 isInLava()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isInLava()
@@ -1285,19 +1290,19 @@ thisEntity:isInLava()
 
 ### <code>isInRain()</code> \{#isInRain}
 
-Returns true if this entity is currently standing in rain
+如果此实体当前站在雨中，返回 true。
 
 ```lua
 isInRain()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isInRain()
@@ -1307,19 +1312,19 @@ thisEntity:isInRain()
 
 ### <code>isInWater()</code> \{#isInWater}
 
-Returns true if this entity is currently in a water block, including waterlogging
+如果此实体当前位于水方块内（包括含水方块），返回 true。
 
 ```lua
 isInWater()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isInWater()
@@ -1329,19 +1334,19 @@ thisEntity:isInWater()
 
 ### <code>isInvisible()</code> \{#isInvisible}
 
-Returns true if this entity is invisible, for one reason or another
+如果此实体因某种原因处于隐形状态，返回 true。
 
 ```lua
 isInvisible()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isInvisible()
@@ -1351,19 +1356,19 @@ thisEntity:isInvisible()
 
 ### <code>isLiving()</code> \{#isLiving}
 
-Gets if this entity is a Living Entity
+获取此实体是否为活体实体。
 
 ```lua
 isLiving()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isLiving()
@@ -1373,21 +1378,21 @@ thisEntity:isLiving()
 
 ### <code>isLoaded()</code> \{#isLoaded}
 
-Checks if this entity object is still being updated and loaded
+检查此实体对象是否仍在更新并已加载。
 
-A non-loaded entity would be someone or something which is in another dimension or out of the render distance for example
+例如，位于其他维度或超出渲染距离的实体就是未加载实体。
 
 ```lua
 isLoaded()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isLoaded()
@@ -1397,19 +1402,19 @@ thisEntity:isLoaded()
 
 ### <code>isOnFire()</code> \{#isOnFire}
 
-Returns true if this entity is currently on fire
+如果此实体当前着火，返回 true。
 
 ```lua
 isOnFire()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isOnFire()
@@ -1421,9 +1426,9 @@ thisEntity:isOnFire()
 
 :::caution
 
-Due to a glitch in Minecraft's code this function is unreliable, and will misfire in multiple situations such as being underwater, standing on a boat, or standing on a slime block.
+由于 Minecraft 代码中的缺陷，此函数不可靠，并会在多种情况下误判，例如在水下、站在船上或站在黏液块上。
 
-**Work Around:**
+**替代方案：**
 
 ```lua
 -- check the blockstate of the block directly underneath the entity
@@ -1432,19 +1437,19 @@ world.getBlockState(thisEntity:getPos():add(0, -0.1, 0)):isSolidBlock()
 
 :::
 
-Returns whether or not this entity is currently on the ground
+返回此实体当前是否在地面上。
 
 ```lua
 isOnGround()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isOnGround()
@@ -1454,19 +1459,19 @@ thisEntity:isOnGround()
 
 ### <code>isPlayer()</code> \{#isPlayer}
 
-Gets if this entity is a Player Entity
+获取此实体是否为玩家实体。
 
 ```lua
 isPlayer()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isPlayer()
@@ -1476,19 +1481,19 @@ thisEntity:isPlayer()
 
 ### <code>isSensitiveToWater()</code> \{#isSensitiveToWater}
 
-Returns if this entity takes damage to water
+返回此实体是否对水敏感（会受到水的伤害）。
 
 ```lua
 isSensitiveToWater()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isSensitiveToWater()
@@ -1498,19 +1503,19 @@ thisEntity:isSensitiveToWater()
 
 ### <code>isSilent()</code> \{#isSilent}
 
-Returns true if this entity is silent
+如果此实体处于静音状态，返回 true。
 
 ```lua
 isSilent()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isSilent()
@@ -1520,19 +1525,19 @@ thisEntity:isSilent()
 
 ### <code>isUnderwater()</code> \{#isUnderwater}
 
-Returns true if this entity's eyes are touching water
+如果此实体的眼睛接触到水，返回 true。
 
 ```lua
 isUnderwater()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isUnderwater()
@@ -1542,21 +1547,21 @@ thisEntity:isUnderwater()
 
 ### <code>isWet()</code> \{#isWet}
 
-Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column
+满足以下任一条件时返回 true：实体在水中、实体在雨中，或实体在气泡柱中。
 
-Otherwise, returns false
+否则返回 false。
 
 ```lua
 isWet()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isWet()
@@ -1564,25 +1569,25 @@ thisEntity:isWet()
 
 ---
 
-## Item Functions
+## 物品函数
 
 ### <code>getActiveItem()</code> \{#getActiveItem}
 
-Returns an ItemStack representing the item the entity is currently using
+返回一个 ItemStack，表示实体当前正在使用的物品。
 
-If they're not using any item, returns air
+如果实体没有使用任何物品，则返回空气。
 
 ```lua
 getActiveItem()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                               | Description |
+| 类型                                               | 说明 |
 | -------------------------------------------------- | ----------- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getActiveItem()
@@ -1592,19 +1597,19 @@ thisEntity:getActiveItem()
 
 ### <code>getActiveItemTime()</code> \{#getActiveItemTime}
 
-Returns the ticks this entity's active item has been used for
+返回此实体使用当前物品的 tick 数。
 
 ```lua
 getActiveItemTime()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getActiveItemTime()
@@ -1614,48 +1619,48 @@ thisEntity:getActiveItemTime()
 
 ### <code>getHeldItem()</code> \{#getHeldItem}
 
-Returns an ItemStack representing the item in this entity's main hand
+返回一个 ItemStack，表示此实体主手中的物品。
 
-If true is passed in for "offhand", then it will instead look at the item in the entity's offhand
+如果为 "offhand" 传入 true，则改为查看实体副手中的物品。
 
-If the entity isn't holding an item in that hand, returns air
+如果实体在该手中没有物品，则返回空气。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getHeldItem()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                               | Description |
+| 类型                                               | 说明 |
 | -------------------------------------------------- | ----------- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getHeldItem(offhand)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
+| 名称    | 类型                                              | 说明 | 默认值 |
 | ------- | ------------------------------------------------- | ----------- | ------- |
 | offhand | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                               | Description |
+| 类型                                               | 说明 |
 | -------------------------------------------------- | ----------- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 if thisEntity:getHeldItem(false).id ~= "minecraft:air" then
@@ -1670,29 +1675,29 @@ end
 
 ### <code>getItem()</code> \{#getItem}
 
-Gets an ItemStack for the item in the given slot
+获取指定槽位中物品的 ItemStack。
 
-For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet
+对于玩家，槽位编号 1 为主手，2 为副手，3、4、5、6 为从靴子到头盔的 4 个护甲槽位。
 
-If an invalid slot number is given, this will return nil
+如果传入无效的槽位编号，则返回 nil。
 
 ```lua
 getItem(index)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称  | 类型                                             | 说明 | 默认值 |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | index | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                               | Description |
+| 类型                                               | 说明 |
 | -------------------------------------------------- | ----------- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 if thisEntity:getItem(5).id == "minecraft:elytra" then
@@ -1704,19 +1709,19 @@ end
 
 ### <code>isUsingItem()</code> \{#isUsingItem}
 
-Returns true if the entity is currently using an item
+如果实体当前正在使用物品，返回 true。
 
 ```lua
 isUsingItem()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isUsingItem()
@@ -1724,23 +1729,23 @@ thisEntity:isUsingItem()
 
 ---
 
-## Hand Functions
+## 手部函数
 
 ### <code>getActiveHand()</code> \{#getActiveHand}
 
-Returns "OFF_HAND" or "MAIN_HAND", depending on which hand this entity uses an item with
+返回 "OFF_HAND" 或 "MAIN_HAND"，取决于此实体用哪只手使用物品。
 
 ```lua
 getActiveHand()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getActiveHand() == "MAIN_HAND"
@@ -1750,19 +1755,19 @@ thisEntity:getActiveHand() == "MAIN_HAND"
 
 ### <code>getSwingArm()</code> \{#getSwingArm}
 
-Returns "OFF_HAND" or "MAIN_HAND", based on the arm this entity is currently swinging
+返回 "OFF_HAND" 或 "MAIN_HAND"，取决于此实体当前挥动的手臂。
 
 ```lua
 getSwingArm()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getSwingArm() == "OFF_HAND"
@@ -1772,19 +1777,19 @@ thisEntity:getSwingArm() == "OFF_HAND"
 
 ### <code>getSwingDuration()</code> \{#getSwingDuration}
 
-Returns the number of ticks this entity will have while swinging its arms
+返回此实体挥动手臂持续的 tick 数。
 
 ```lua
 getSwingDuration()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getSwingDuration()
@@ -1794,19 +1799,19 @@ thisEntity:getSwingDuration()
 
 ### <code>getSwingTime()</code> \{#getSwingTime}
 
-Returns the number of ticks this entity has the arm swinging
+返回此实体手臂已挥动的 tick 数。
 
 ```lua
 getSwingTime()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getSwingTime()
@@ -1816,19 +1821,19 @@ thisEntity:getSwingTime()
 
 ### <code>isLeftHanded()</code> \{#isLeftHanded}
 
-Returns true if the entity's main hand is its left
+如果实体的主手是左手，返回 true。
 
 ```lua
 isLeftHanded()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isLeftHanded()
@@ -1838,19 +1843,19 @@ thisEntity:isLeftHanded()
 
 ### <code>isSwingingArm()</code> \{#isSwingingArm}
 
-Returns true if the entity is currently swinging its arm
+如果实体当前正在挥动手臂，返回 true。
 
 ```lua
 isSwingingArm()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:isSwingingArm()
@@ -1858,23 +1863,23 @@ thisEntity:isSwingingArm()
 
 ---
 
-## Miscellaneous
+## 其他
 
 ### <code>getUUID()</code> \{#getUUID}
 
-Gets the UUID of the proxied entity
+获取被代理实体的 UUID。
 
 ```lua
 getUUID()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getUUID()
@@ -1884,44 +1889,44 @@ thisEntity:getUUID()
 
 ### <code>getVariable()</code> \{#getVariable}
 
-Gets the value of a variable this entity stored in themselves using the Avatar API's store() function
+获取此实体通过形象 API 的 store() 函数保存在自身的变量值。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getVariable()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                 | Description |
+| 类型                 | 说明 |
 | -------------------- | ----------- |
 | <code>AnyType</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getVariable(key)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | key  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                 | Description |
+| 类型                 | 说明 |
 | -------------------- | ----------- |
 | <code>AnyType</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:getVariable()
@@ -1931,19 +1936,19 @@ thisEntity:getVariable()
 
 ### <code>hasAvatar()</code> \{#hasAvatar}
 
-Returns true if Figura has an avatar loaded for this entity
+如果 Figura 已为此实体加载形象，返回 true。
 
 ```lua
 hasAvatar()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 thisEntity:hasAvatar()

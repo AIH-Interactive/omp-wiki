@@ -1,31 +1,36 @@
+---
+title: Avatar（形象）
+sidebar_label: Avatar（形象）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API containing functions to interact with your avatar's metadata, and also to get information about the current script environment
+全局 API，提供访问形象元数据的方法，也可用于获取当前脚本环境的信息。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
 ---
 
-## Metadata
+## 元数据
 
 ### <code>getName()</code> \{#getName}
 
-Gets the name string of this avatar
+获取该形象的名字字符串。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getName()
@@ -35,19 +40,19 @@ avatar:getName()
 
 ### <code>getAuthors()</code> \{#getAuthors}
 
-Gets the authors string of this avatar
+获取该形象的作者字符串。
 
 ```lua
 getAuthors()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getAuthors()
@@ -57,19 +62,19 @@ avatar:getAuthors()
 
 ### <code>getVersion()</code> \{#getVersion}
 
-Gets the version string of this avatar
+获取该形象的版本字符串。
 
 ```lua
 getVersion()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getVersion()
@@ -79,19 +84,19 @@ avatar:getVersion()
 
 ### <code>hasTexture()</code> \{#hasTexture}
 
-Gets whether or not this avatar has a texture
+获取该形象是否带有纹理。
 
 ```lua
 hasTexture()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:hasTexture()
@@ -101,98 +106,98 @@ avatar:hasTexture()
 
 ### <code>setColor()</code> \{#setColor}
 
-**Aliases:** `color()`
+**别名：** `color()`
 
-Sets the current color string of your avatar, used as your avatar theme, if the user has a special badge, they can pass in the badge's name to set the color for it.
+设置形象当前的颜色字符串，用作形象主题。如果用户拥有特殊徽章，也可以传入徽章名称，为该徽章单独设置颜色。
 
-The color is a value between 0 and 1. Standard RGB values can be divided by 255 to get a number the function can use.
+颜色取值为 0 到 1 之间的数值。标准 RGB 值除以 255，即可得到该函数可用的数值。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                        | Default      |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ------------------------------------------------ | ---------------------------------- | ------------ |
-| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | The r,g,b values as a single value | `vec(1,1,1)` |
+| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | 以单个值表示的 r、g、b 分量 | `vec(1,1,1)` |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description                         |
+| 类型 | 说明 |
 | ----------------------------------------- | ----------------------------------- |
-| <code>[AvatarAPI](/globals/Avatar)</code> | Returns the avatar API for chaining |
+| <code>[AvatarAPI](/globals/Avatar)</code> | 返回形象 API，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description       | Default      |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------------- | ------------ |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | Red color value   | 1            |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | Green color value | Value of `r` |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | Blue color value  | Value of `r` |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | 红色分量 | 1            |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | 绿色分量 | `r` 的值 |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | 蓝色分量 | `r` 的值 |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description                         |
+| 类型 | 说明 |
 | ----------------------------------------- | ----------------------------------- |
-| <code>[AvatarAPI](/globals/Avatar)</code> | Returns the avatar API for chaining |
+| <code>[AvatarAPI](/globals/Avatar)</code> | 返回形象 API，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setColor(color, badgeName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                             | Description                        | Default      |
+| 名称 | 类型 | 说明 | 默认值 |
 | --------- | ------------------------------------------------ | ---------------------------------- | ------------ |
-| color     | <code>[Vector3](/globals/Vectors/Vector3)</code> | The r,g,b values as a single value | `vec(1,1,1)` |
-| badgeName | <code>[String](/tutorials/types/Strings)</code>  | Badge name                         | `nil`        |
+| color     | <code>[Vector3](/globals/Vectors/Vector3)</code> | 以单个值表示的 r、g、b 分量 | `vec(1,1,1)` |
+| badgeName | <code>[String](/tutorials/types/Strings)</code>  | 徽章名称 | `nil`        |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description                         |
+| 类型 | 说明 |
 | ----------------------------------------- | ----------------------------------- |
-| <code>[AvatarAPI](/globals/Avatar)</code> | Returns the avatar API for chaining |
+| <code>[AvatarAPI](/globals/Avatar)</code> | 返回形象 API，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 setColor(r, g, b, badgeName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                            | Description       | Default      |
+| 名称 | 类型 | 说明 | 默认值 |
 | --------- | ----------------------------------------------- | ----------------- | ------------ |
-| r         | <code>[Number](/tutorials/types/Numbers)</code> | Red color value   | 1            |
-| g         | <code>[Number](/tutorials/types/Numbers)</code> | Green color value | Value of `r` |
-| b         | <code>[Number](/tutorials/types/Numbers)</code> | Blue color value  | Value of `r` |
-| badgeName | <code>[String](/tutorials/types/Strings)</code> | Bagde name        | `nil`        |
+| r         | <code>[Number](/tutorials/types/Numbers)</code> | 红色分量 | 1            |
+| g         | <code>[Number](/tutorials/types/Numbers)</code> | 绿色分量 | `r` 的值 |
+| b         | <code>[Number](/tutorials/types/Numbers)</code> | 蓝色分量 | `r` 的值 |
+| badgeName | <code>[String](/tutorials/types/Strings)</code> | 徽章名称 | `nil`        |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description                         |
+| 类型 | 说明 |
 | ----------------------------------------- | ----------------------------------- |
-| <code>[AvatarAPI](/globals/Avatar)</code> | Returns the avatar API for chaining |
+| <code>[AvatarAPI](/globals/Avatar)</code> | 返回形象 API，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:setColor(50 / 255, 0 / 255, 64 / 255)
@@ -202,19 +207,19 @@ avatar:setColor(50 / 255, 0 / 255, 64 / 255)
 
 ### <code>getColor()</code> \{#getColor}
 
-Gets the current color string of your avatar, used as your avatar theme
+获取形象当前的颜色字符串，用作形象主题。
 
 ```lua
 getColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getColor()
@@ -222,34 +227,34 @@ avatar:getColor()
 
 ---
 
-## Misc
+## 其他
 
 ### <code>store()</code> \{#store}
 
-Store the given key-value pair inside your current avatar's metadata
+把给定的键值对存入当前形象的元数据。
 
-Someone else can get this information from a different script with the avatarVars() function in World
+其他脚本可以通过 World 中的 avatarVars() 函数读取这些信息。
 
-The key must be a string
+键必须是字符串。
 
 ```lua
 store(key, value)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | key   | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 | value | <code>AnyType</code>                            | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description |
+| 类型 | 说明 |
 | ----------------------------------------- | ----------- |
 | <code>[AvatarAPI](/globals/Avatar)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:store("storing", true)
@@ -259,19 +264,19 @@ avatar:store("storing", true)
 
 ### <code>getSize()</code> \{#getSize}
 
-Gets the file size of this avatar in bytes
+获取该形象的文件大小，单位为字节。
 
 ```lua
 getSize()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getSize()
@@ -281,19 +286,19 @@ avatar:getSize()
 
 ### <code>getEntityName()</code> \{#getEntityName}
 
-Attempts to get the entity name of this avatar, defaulting to the avatar name
+尝试获取该形象对应的实体名，取不到时使用形象名。
 
 ```lua
 getEntityName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getEntityName()
@@ -303,19 +308,19 @@ avatar:getEntityName()
 
 ### <code>getUUID()</code> \{#getUUID}
 
-Returns the UUID of the owner of this avatar
+返回该形象所有者的 UUID。
 
 ```lua
 getUUID()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getUUID()
@@ -325,19 +330,19 @@ avatar:getUUID()
 
 ### <code>getNBT()</code> \{#getNBT}
 
-Gets the NBT data this avatar is stored as
+获取该形象保存的 NBT 数据。
 
 ```lua
 getNBT()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
+| 类型 | 说明 |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getNBT()
@@ -347,21 +352,21 @@ avatar:getNBT()
 
 ### <code>getBadges()</code> \{#getBadges}
 
-**Aliases:** `badges()`
+**别名：** `badges()`
 
-Gets the user's badges in a string.
+以字符串形式获取用户的徽章。
 
 ```lua
 getBadges()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getBadges()
@@ -371,19 +376,19 @@ avatar:getBadges()
 
 ### <code>hasScriptError()</code> \{#hasScriptError}
 
-Gets whether this script currently has stopped due to an error (kinda useless lol)
+获取该脚本当前是否因错误而停止（实际作用不大）。
 
 ```lua
 hasScriptError()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:hasScriptError()
@@ -391,23 +396,23 @@ avatar:hasScriptError()
 
 ---
 
-## Permissions
+## 权限
 
 ### <code>getPermissionLevel()</code> \{#getPermissionLevel}
 
-Returns this avatar's current permission level
+返回该形象的当前权限等级。
 
 ```lua
 getPermissionLevel()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getPermissionLevel()
@@ -417,19 +422,19 @@ avatar:getPermissionLevel()
 
 ### <code>getComplexity()</code> \{#getComplexity}
 
-Gets the current complexity of this avatar
+获取该形象当前的复杂度。
 
 ```lua
 getComplexity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getComplexity()
@@ -445,13 +450,13 @@ figura.docs.avatar.get_volume
 getVolume()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getVolume()
@@ -461,21 +466,21 @@ avatar:getVolume()
 
 ### <code>getCurrentInstructions()</code> \{#getCurrentInstructions}
 
-Gets the current number of instructions that have been executed by your avatar
+获取形象当前已执行的指令数。
 
-Resets to 0 at the beginning of certain events
+在某些事件开始时，该计数会重置为 0。
 
 ```lua
 getCurrentInstructions()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getCurrentInstructions()
@@ -485,19 +490,19 @@ avatar:getCurrentInstructions()
 
 ### <code>getInitCount()</code> \{#getInitCount}
 
-Gets the number of initialization instructions of this avatar
+获取该形象的初始化指令数。
 
 ```lua
 getInitCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getInitCount()
@@ -507,19 +512,19 @@ avatar:getInitCount()
 
 ### <code>getEntityInitCount()</code> \{#getEntityInitCount}
 
-Gets the number of events.ENTITY_INIT instructions of this avatar
+获取该形象 events.ENTITY_INIT 的指令数。
 
 ```lua
 getEntityInitCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getEntityInitCount()
@@ -529,19 +534,19 @@ avatar:getEntityInitCount()
 
 ### <code>getMaxInitCount()</code> \{#getMaxInitCount}
 
-Gets the maximum allowed instructions during initialization as permitted by the viewer
+获取观看者（viewer）允许的初始化阶段最大指令数。
 
 ```lua
 getMaxInitCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxInitCount()
@@ -551,19 +556,19 @@ avatar:getMaxInitCount()
 
 ### <code>getTickCount()</code> \{#getTickCount}
 
-Gets the number of events.TICK instructions of this avatar last tick
+获取该形象上一刻 events.TICK 的指令数。
 
 ```lua
 getTickCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getTickCount()
@@ -573,19 +578,19 @@ avatar:getTickCount()
 
 ### <code>getMaxTickCount()</code> \{#getMaxTickCount}
 
-Gets the maximum allowed instructions in events.TICK as permitted by the viewer
+获取观看者允许的 events.TICK 最大指令数。
 
 ```lua
 getMaxTickCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxTickCount()
@@ -595,19 +600,19 @@ avatar:getMaxTickCount()
 
 ### <code>getRenderCount()</code> \{#getRenderCount}
 
-Gets the number of instructions of this avatar's last frame from all render events (all events with render in their name) and the setXRender() functions from the models api
+获取该形象上一帧中，所有渲染事件（名称含 render 的事件）以及 models API 中 setXRender() 函数产生的指令数。
 
 ```lua
 getRenderCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getRenderCount()
@@ -617,19 +622,19 @@ avatar:getRenderCount()
 
 ### <code>getMaxRenderCount()</code> \{#getMaxRenderCount}
 
-Gets the maximum allowed instructions as permitted by the viewer from all render events (all events with render in their name) and the setXRender() functions from the models api
+获取观看者允许的、来自所有渲染事件（名称含 render 的事件）以及 models API 中 setXRender() 函数的最大指令数。
 
 ```lua
 getMaxRenderCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxRenderCount()
@@ -639,19 +644,19 @@ avatar:getMaxRenderCount()
 
 ### <code>getWorldTickCount()</code> \{#getWorldTickCount}
 
-Gets the number of events.WORLD_TICK instructions of this avatar's last tick
+获取该形象上一刻 events.WORLD_TICK 的指令数。
 
 ```lua
 getWorldTickCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getWorldTickCount()
@@ -661,19 +666,19 @@ avatar:getWorldTickCount()
 
 ### <code>getMaxWorldTickCount()</code> \{#getMaxWorldTickCount}
 
-Gets the maximum allowed instructions in events.WORLD_TICK as permitted by the viewer
+获取观看者允许的 events.WORLD_TICK 最大指令数。
 
 ```lua
 getMaxWorldTickCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxWorldTickCount()
@@ -683,19 +688,19 @@ avatar:getMaxWorldTickCount()
 
 ### <code>getWorldRenderCount()</code> \{#getWorldRenderCount}
 
-Gets the number of events.WORLD_RENDER and events.POST_WORLD_RENDER instructions of this avatar's last frame
+获取该形象上一帧 events.WORLD_RENDER 与 events.POST_WORLD_RENDER 的指令数。
 
 ```lua
 getWorldRenderCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getWorldRenderCount()
@@ -705,19 +710,19 @@ avatar:getWorldRenderCount()
 
 ### <code>getMaxWorldRenderCount()</code> \{#getMaxWorldRenderCount}
 
-Gets the maximum allowed instructions in events.WORLD_RENDER and events.POST_WORLD_RENDER as permitted by the viewer
+获取观看者允许的 events.WORLD_RENDER 与 events.POST_WORLD_RENDER 最大指令数。
 
 ```lua
 getMaxWorldRenderCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxWorldRenderCount()
@@ -727,19 +732,19 @@ avatar:getMaxWorldRenderCount()
 
 ### <code>getMaxComplexity()</code> \{#getMaxComplexity}
 
-Gets the maximum allowed model complexity (number of faces) as permitted by the viewer
+获取观看者允许的模型最大复杂度（面数）。
 
 ```lua
 getMaxComplexity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxComplexity()
@@ -749,19 +754,19 @@ avatar:getMaxComplexity()
 
 ### <code>getRemainingParticles()</code> \{#getRemainingParticles}
 
-Gets the remaining amount of particles this avatar can summon
+获取该形象还能召唤的粒子数量。
 
 ```lua
 getRemainingParticles()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getRemainingParticles()
@@ -771,19 +776,19 @@ avatar:getRemainingParticles()
 
 ### <code>getMaxParticles()</code> \{#getMaxParticles}
 
-Gets the maximum allowed number of particles as permitted by the viewer
+获取观看者允许的最大粒子数量。
 
 ```lua
 getMaxParticles()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxParticles()
@@ -793,19 +798,19 @@ avatar:getMaxParticles()
 
 ### <code>getRemainingSounds()</code> \{#getRemainingSounds}
 
-Gets the remaining amount of sound this avatar can play
+获取该形象还能播放的音效数量。
 
 ```lua
 getRemainingSounds()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getRemainingSounds()
@@ -815,19 +820,19 @@ avatar:getRemainingSounds()
 
 ### <code>getMaxSounds()</code> \{#getMaxSounds}
 
-Gets the maximum allowed number of sounds as permitted by the viewer
+获取观看者允许的最大音效数量。
 
 ```lua
 getMaxSounds()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxSounds()
@@ -837,19 +842,19 @@ avatar:getMaxSounds()
 
 ### <code>getAnimationComplexity()</code> \{#getAnimationComplexity}
 
-Gets the current animation complexity of this avatar
+获取该形象当前的动画复杂度。
 
 ```lua
 getAnimationComplexity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getAnimationComplexity()
@@ -859,19 +864,19 @@ avatar:getAnimationComplexity()
 
 ### <code>getMaxAnimationComplexity()</code> \{#getMaxAnimationComplexity}
 
-Gets the maximum allowed animation complexity (number of playing channels) as permitted by the viewer
+获取观看者允许的最大动画复杂度（正在播放的通道数）。
 
 ```lua
 getMaxAnimationComplexity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxAnimationComplexity()
@@ -881,19 +886,19 @@ avatar:getMaxAnimationComplexity()
 
 ### <code>getAnimationCount()</code> \{#getAnimationCount}
 
-Gets the number of Lua instructions used within animations
+获取动画中使用的 Lua 指令数。
 
 ```lua
 getAnimationCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getAnimationCount()
@@ -903,19 +908,19 @@ avatar:getAnimationCount()
 
 ### <code>getMaxAnimationCount()</code> \{#getMaxAnimationCount}
 
-Gets the maximum allowed Lua instructions in animations as permitted by the viewer
+获取观看者允许的动画中最大 Lua 指令数。
 
 ```lua
 getMaxAnimationCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxAnimationCount()
@@ -925,19 +930,19 @@ avatar:getMaxAnimationCount()
 
 ### <code>getBuffersCount()</code> \{#getBuffersCount}
 
-Returns count of buffers open by this avatar
+返回该形象打开的缓冲区数量。
 
 ```lua
 getBuffersCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getBuffersCount()
@@ -947,19 +952,19 @@ avatar:getBuffersCount()
 
 ### <code>getMaxBuffersCount()</code> \{#getMaxBuffersCount}
 
-Returns maximum allowed count of buffers can be open by this avatar
+返回该形象允许打开的最大缓冲区数量。
 
 ```lua
 getMaxBuffersCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxBuffersCount()
@@ -969,19 +974,19 @@ avatar:getMaxBuffersCount()
 
 ### <code>getMaxTextureSize()</code> \{#getMaxTextureSize}
 
-Gets the max dimensions of custom textures that this avatar can create
+获取该形象可创建的自定义纹理的最大尺寸。
 
 ```lua
 getMaxTextureSize()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxTextureSize()
@@ -991,19 +996,19 @@ avatar:getMaxTextureSize()
 
 ### <code>getMaxBufferSize()</code> \{#getMaxBufferSize}
 
-Gets the max byte buffer size that this avatar can have
+获取该形象可用的最大字节缓冲区大小。
 
 ```lua
 getMaxBufferSize()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
+| 类型 | 说明 |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:getMaxBufferSize()
@@ -1013,19 +1018,19 @@ avatar:getMaxBufferSize()
 
 ### <code>canEditVanillaModel()</code> \{#canEditVanillaModel}
 
-Gets whether or not the viewer allows your avatar to edit the vanilla models
+获取观看者是否允许你的形象修改原版模型。
 
 ```lua
 canEditVanillaModel()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:canEditVanillaModel()
@@ -1035,19 +1040,19 @@ avatar:canEditVanillaModel()
 
 ### <code>canEditNameplate()</code> \{#canEditNameplate}
 
-Gets whether or not the viewer allows your avatar to edit your nameplate
+获取观看者是否允许你的形象修改名牌。
 
 ```lua
 canEditNameplate()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:canEditNameplate()
@@ -1057,19 +1062,19 @@ avatar:canEditNameplate()
 
 ### <code>canRenderOffscreen()</code> \{#canRenderOffscreen}
 
-Gets whether or not the viewer allows you to render the avatar off-screen
+获取观看者是否允许你把形象渲染到屏幕外。
 
 ```lua
 canRenderOffscreen()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:canRenderOffscreen()
@@ -1079,19 +1084,19 @@ avatar:canRenderOffscreen()
 
 ### <code>canUseCustomSounds()</code> \{#canUseCustomSounds}
 
-Gets whether or not the viewer allows your avatar to play custom sounds
+获取观看者是否允许你的形象播放自定义音效。
 
 ```lua
 canUseCustomSounds()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:canUseCustomSounds()
@@ -1101,19 +1106,19 @@ avatar:canUseCustomSounds()
 
 ### <code>canHaveCustomSkull()</code> \{#canHaveCustomSkull}
 
-Gets whether or not your avatar is allowed to have custom player skull
+获取你的形象是否被允许使用自定义玩家头颅。
 
 ```lua
 canHaveCustomSkull()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
+| 类型 | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 avatar:canHaveCustomSkull()

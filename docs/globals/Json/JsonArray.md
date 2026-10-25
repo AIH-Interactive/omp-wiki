@@ -1,33 +1,38 @@
-JSON Array, basically a table but more restricted to match JSON arrays
+---
+title: JsonArray（JSON 数组）
+sidebar_label: JsonArray（JSON 数组）
+---
+
+JSON 数组（JSON Array），本质上是一个表，但比普通表受到更多限制，以符合 JSON 数组的规则
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>set()</code> \{#set}
 
-Sets provided value to specified index in this array
+将给定的值设置到该数组的指定索引
 
 ```lua
 set(index, elem)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| index | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
-| elem  | <code>AnyType</code>                             | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| index | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
+| elem  | <code>AnyType</code>                             | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -37,25 +42,25 @@ set(index, elem)
 
 ### <code>get()</code> \{#get}
 
-Returns value by specified index
+返回指定索引处的值
 
 ```lua
 get(index)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| index | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| index | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                 | Description |
-| -------------------- | ----------- |
-| <code>AnyType</code> | -           |
+| 类型                 | 说明 |
+| -------------------- | ---- |
+| <code>AnyType</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -65,25 +70,25 @@ get(index)
 
 ### <code>add()</code> \{#add}
 
-Adds specified value to this array
+将指定的值添加到该数组
 
 ```lua
 add(elem)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                 | Description | Default |
-| ---- | -------------------- | ----------- | ------- |
-| elem | <code>AnyType</code> | -           | -       |
+| 名称 | 类型                 | 说明 | 默认值 |
+| ---- | -------------------- | ---- | ------ |
+| elem | <code>AnyType</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -93,19 +98,19 @@ add(elem)
 
 ### <code>clear()</code> \{#clear}
 
-Clears this array
+清空该数组
 
 ```lua
 clear()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -115,25 +120,25 @@ clear()
 
 ### <code>contains()</code> \{#contains}
 
-Checks if this array contains specified value
+检查该数组是否包含指定的值
 
 ```lua
 contains(elem)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                 | Description | Default |
-| ---- | -------------------- | ----------- | ------- |
-| elem | <code>AnyType</code> | -           | -       |
+| 名称 | 类型                 | 说明 | 默认值 |
+| ---- | -------------------- | ---- | ------ |
+| elem | <code>AnyType</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -143,25 +148,25 @@ contains(elem)
 
 ### <code>indexOf()</code> \{#indexOf}
 
-Returns first index of provided value in this array
+返回指定值在该数组中首次出现的索引
 
 ```lua
 indexOf(elem)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                 | Description | Default |
-| ---- | -------------------- | ----------- | ------- |
-| elem | <code>AnyType</code> | -           | -       |
+| 名称 | 类型                 | 说明 | 默认值 |
+| ---- | -------------------- | ---- | ------ |
+| elem | <code>AnyType</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -171,26 +176,26 @@ indexOf(elem)
 
 ### <code>insert()</code> \{#insert}
 
-Inserts provided value in this array at specified index
+将指定的值插入到该数组的指定索引处
 
 ```lua
 insert(index, elem)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| index | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
-| elem  | <code>AnyType</code>                             | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| index | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
+| elem  | <code>AnyType</code>                             | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -200,25 +205,25 @@ insert(index, elem)
 
 ### <code>lastIndexOf()</code> \{#lastIndexOf}
 
-Returns last index of provided value in this array
+返回指定值在该数组中最后出现的索引
 
 ```lua
 lastIndexOf(elem)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                 | Description | Default |
-| ---- | -------------------- | ----------- | ------- |
-| elem | <code>AnyType</code> | -           | -       |
+| 名称 | 类型                 | 说明 | 默认值 |
+| ---- | -------------------- | ---- | ------ |
+| elem | <code>AnyType</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -228,25 +233,25 @@ lastIndexOf(elem)
 
 ### <code>remove()</code> \{#remove}
 
-Removes specified value from this array
+从该数组中移除指定的值
 
 ```lua
 remove(elem)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                 | Description | Default |
-| ---- | -------------------- | ----------- | ------- |
-| elem | <code>AnyType</code> | -           | -       |
+| 名称 | 类型                 | 说明 | 默认值 |
+| ---- | -------------------- | ---- | ------ |
+| elem | <code>AnyType</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -256,25 +261,25 @@ remove(elem)
 
 ### <code>removeAt()</code> \{#removeAt}
 
-Removes value at specified index in this array
+移除该数组中指定索引处的值
 
 ```lua
 removeAt(index)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| index | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| index | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                 | Description |
-| -------------------- | ----------- |
-| <code>AnyType</code> | -           |
+| 类型                 | 说明 |
+| -------------------- | ---- |
+| <code>AnyType</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -284,19 +289,19 @@ removeAt(index)
 
 ### <code>size()</code> \{#size}
 
-Returns size of this array
+返回该数组的大小
 
 ```lua
 size()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

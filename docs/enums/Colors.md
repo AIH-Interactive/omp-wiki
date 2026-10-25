@@ -1,8 +1,13 @@
-List of custom colors
+---
+title: 颜色（Colors）
+sidebar_label: 颜色
+---
 
-Used anywhere you can input a hex color
+自定义颜色列表
 
-| Color          | Hex                                                                       |
+可用于任何允许输入十六进制颜色的位置
+
+| 颜色           | 十六进制                                                                  |
 | -------------- | ------------------------------------------------------------------------- |
 | `AWESOME_BLUE` | <code style={{color: 'black', backgroundColor: '#5EA5FF'}}>#5EA5FF</code> |
 | `PURPLE`       | <code style={{color: 'black', backgroundColor: '#A672EF'}}>#A672EF</code> |

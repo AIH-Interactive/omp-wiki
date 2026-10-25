@@ -1,39 +1,44 @@
+---
+title: Config（配置）
+sidebar_label: Config（配置）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API used to save and load avatar data between game sessions
+用于在多次游戏会话之间保存和加载形象数据的全局 API
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
 ---
 
 ### <code>setName()</code> \{#setName}
 
-**Aliases:** `name()`
+**别名：** `name()`
 
-Sets the name of the destination file, data will be saved and loaded from that file
+设置目标文件的名称，数据会保存到该文件，也会从该文件加载
 
-Defaults to the avatar name
+默认使用形象名称
 
 ```lua
 setName(name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
+| name | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
-| ----------------------------------------- | ------------------------- |
-| <code>[ConfigAPI](/globals/Config)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[ConfigAPI](/globals/Config)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 config:setName("Something")
@@ -43,19 +48,19 @@ config:setName("Something")
 
 ### <code>getName()</code> \{#getName}
 
-Returns the name of the destination file
+返回目标文件的名称
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[String](/tutorials/types/Strings)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 config:getName()
@@ -65,46 +70,46 @@ config:getName()
 
 ### <code>load()</code> \{#load}
 
-Loads a saved variable under the specific key
+加载指定键下保存的变量
 
-If no key is given, it will return a table with all saved variables
+如果未提供键，则返回包含所有已保存变量的表
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 load()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Table](/tutorials/types/Tables)</code> | - |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 load(key)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| key  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
+| key | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回：**
 
-| Type                 | Description |
-| -------------------- | ----------- |
-| <code>AnyType</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>AnyType</code> | - |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 config:load("apple")
@@ -114,28 +119,28 @@ config:load("apple")
 
 ### <code>save()</code> \{#save}
 
-Save to disk a variable under the specific key
+将变量保存到磁盘上的指定键
 
-If the value is nil, the variable is removed from the file
+如果值为 nil，则从文件中移除该变量
 
 ```lua
 save(key, value)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| key   | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| value | <code>AnyType</code>                            | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
+| key | <code>[String](/tutorials/types/Strings)</code> | - | - |
+| value | <code>AnyType</code> | - | - |
 
-**Returns:**
+**返回：**
 
-| Type                                      | Description               |
-| ----------------------------------------- | ------------------------- |
-| <code>[ConfigAPI](/globals/Config)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[ConfigAPI](/globals/Config)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 config:save("apple", false)

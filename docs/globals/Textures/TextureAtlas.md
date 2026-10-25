@@ -1,10 +1,15 @@
-A texture atlas object, with helper functions related to a texture atlas
+---
+title: TextureAtlas（纹理图集）
+sidebar_label: TextureAtlas（纹理图集）
+---
+
+纹理图集（Texture Atlas）对象，提供与纹理图集相关的辅助函数
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
-For this entire page assume:
+本页全部示例均假设：
 
 ```lua
 local myAtlas = client.getAtlas(client.listAtlases()[1])
@@ -14,19 +19,19 @@ local myAtlas = client.getAtlas(client.listAtlases()[1])
 
 ### <code>getHeight()</code> \{#getHeight}
 
-Returns the height of this atlas
+返回此图集的高度
 
 ```lua
 getHeight()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myAtlas:getHeight()
@@ -36,27 +41,27 @@ myAtlas:getHeight()
 
 ### <code>getSpriteUV()</code> \{#getSpriteUV}
 
-Returns a vec4 containing the UV of the given sprite
+返回一个 vec4，其中包含指定精灵（sprite）的 UV
 
-The UV is ordered as U0, V0, U1, V1
+UV 的排列顺序为 U0、V0、U1、V1
 
 ```lua
 getSpriteUV(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector4](/globals/Vectors/Vector4)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector4](/globals/Vectors/Vector4)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myAtlas:getSpriteUV(myAtlas:listSprites()[1])
@@ -66,19 +71,19 @@ myAtlas:getSpriteUV(myAtlas:listSprites()[1])
 
 ### <code>getWidth()</code> \{#getWidth}
 
-Returns the width of this atlas
+返回此图集的宽度
 
 ```lua
 getWidth()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myAtlas:getWidth()
@@ -88,19 +93,19 @@ myAtlas:getWidth()
 
 ### <code>listSprites()</code> \{#listSprites}
 
-Returns a table with all sprite paths under this atlas
+返回一个表，其中包含此图集下的全部精灵路径
 
 ```lua
 listSprites()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myAtlas:listSprites()

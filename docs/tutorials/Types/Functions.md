@@ -1,10 +1,15 @@
-A function contains code that can be executed by calling the function. This is useful if you want to use the same code multiple times and can make your code more structured.
+---
+title: 函数
+sidebar_label: 函数
+---
 
-To define a function you use the function keyword, then the name of the function and ().
+函数（function）里包含的代码，可以通过调用这个函数来执行。如果需要在多处复用同一段代码，或者想让代码结构更清晰，函数就很有用。
 
-Any code after it will be considered inside this function, until you tell lua that the function is done here by using the end keyword. For better readability we indent the code inside the function using spaces or tabs.
+定义函数时，先写 function 关键字，再写函数名和 ()。
 
-The print statement will not execute until the function is called.
+紧随其后的代码都会被视为函数体的一部分，直到用 end 关键字告诉 Lua 函数到此结束。为了更易读，我们通常用空格或制表符缩进函数内的代码。
+
+在函数被调用之前，其中的 print 语句不会执行。
 
 ```lua
 function hello()
@@ -12,7 +17,7 @@ function hello()
 end
 ```
 
-Whenever you call a function by putting () after the function name, all the code inside the function will run line by line first, before continuing with the rest of your code.
+调用函数时，在函数名后加上 ()，函数内的所有代码会先逐行执行完毕，然后才继续执行后面的代码。
 
 ```lua
 print("Outside.")
@@ -20,7 +25,7 @@ hello()
 print("Below hello.")
 ```
 
-This will output the following:
+这段代码会输出：
 
 ```lua
 "Outside."
@@ -28,8 +33,8 @@ This will output the following:
 "Below hello."
 ```
 
-You can also give the function some values to work with by putting variable names inside the (). These variables are called parameters. The function can also return a new value itself that is accessible from where the function is called. If no return is specified, the function returns nil (see "Types" section below).
-Here is an example of a function that calculates the sum of two numbers.
+也可以给函数传一些值供它使用：把变量名写在 () 内即可，这些变量称为参数（parameter）。函数还能返回一个新值，调用处可以取得这个返回值。如果没有写 return，函数会返回 nil（见下文“类型”一节）。
+下面是一个计算两数之和的函数示例。
 
 <!-- prettier-ignore -->
 ```lua
@@ -44,7 +49,7 @@ local var3 = sum(var1, var2) -- call the function and pass two variables. note t
 print(var3) --> 10, as you might have noticed, `print` is also a function that takes a parameter
 ```
 
-Some functions are called by Figura, you're probably familiar with events.
+有些函数由 Figura 调用，你可能对事件（event）已经很熟悉。
 
 ```lua
 function events.render(delta, context)
@@ -52,9 +57,9 @@ function events.render(delta, context)
 end
 ```
 
-In this case the function is run once a frame (per context) and the parameters are supplied by Figura.
+这种情况下，函数每帧（针对每个上下文）运行一次，参数由 Figura 提供。
 
-Sometimes functions are used as parameters for methods, like setOnLeftClick for actions, and setOnPress for keybinds. Since those methods call the given function (and thus don't need a name to call them) they can be given anonymous functions. Anonymous functions are simply functions without names.
+有时函数会作为方法的参数传入，例如动作的 setOnLeftClick、按键绑定的 setOnPress。这些方法会调用传入的函数（因此不需要用名字来调用），所以可以给它们传入匿名函数（anonymous function）。匿名函数就是没有名字的函数。
 
 ```lua
 myKey:setOnPress(function()

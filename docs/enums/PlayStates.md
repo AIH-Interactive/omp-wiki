@@ -1,6 +1,11 @@
-The play state of a Blockbench animation, detected with <code>getPlayState()</code>.
+---
+title: 播放状态（PlayStates）
+sidebar_label: 播放状态
+---
 
-**Example**:
+Blockbench 动画的播放状态，可通过 <code>getPlayState()</code> 检测。
+
+**示例**：
 
 ```lua
 function events.tick()
@@ -12,11 +17,11 @@ end
 
 ---
 
-## All Play States
+## 全部播放状态
 
-| PlayState | Description                                   |
-| --------- | --------------------------------------------- |
-| `STOPPED` | The animation isn't playing                   |
-| `PAUSED`  | The animation is paused on at a specific time |
-| `PLAYING` | The animation is playing                      |
-| `HOLDING` | The animation is holding on its last frame    |
+| 播放状态  | 说明                     |
+| --------- | ------------------------ |
+| `STOPPED` | 动画未在播放             |
+| `PAUSED`  | 动画暂停在某个特定时间点 |
+| `PLAYING` | 动画正在播放             |
+| `HOLDING` | 动画停留在最后一帧       |

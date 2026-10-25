@@ -1,67 +1,72 @@
-Information on pings
+---
+title: Pings（网络消息）
+sidebar_label: Pings
+---
 
-## Unsynced Behavior
+关于 ping 的说明
 
-With many mods, there is communication between the Minecraft Server and its clients which allows everything to stay in sync. Your client will send certain information to the server, then the server will send that information out to the other connected clients.<br/>
-Figura's scripts and models, however, are entirely client-side and not connected to the server.
+## 不同步的行为
 
-What does this mean for you, the user? It means that certain information that your client doesn't share with others won't be synchronized for other players.
-Some examples:
+许多模组中，Minecraft 服务器与其客户端之间会通信，从而让一切保持同步。你的客户端会把某些信息发送给服务器，服务器再把这些信息转发给其他已连接的客户端。<br/>
+但 Figura 的脚本和模型完全运行在客户端，不与服务器通信。
 
--   Keybinds
-    -   If other clients received all of your keystrokes, it would be a major security issue. The exact keystrokes are never sent, only the result of those keystrokes.
--   Action Wheel
-    -   The Action Wheel is a feature added by Figura. Remember how Figura never communicates with the Minecraft Server? It should be obvious why the Action Wheel isn't synced.
+这对作为用户的你意味着什么？意味着你的客户端没有分享给其他人的某些信息，不会同步给其他玩家。
+一些示例：
+
+-   按键绑定
+    -   如果其他客户端能收到你的全部击键，那将是非常严重的安全问题。实际发送的从来不是具体的击键，而只是击键产生的结果。
+-   动作轮盘
+    -   动作轮盘是 Figura 新增的功能。还记得 Figura 从不与 Minecraft 服务器通信吗？动作轮盘为什么不同步也就很明显了。
 -   HostAPI
-    -   The HostAPI exclusively contains variables that only you—the owner of the avatar and the owner of the machine running Minecraft—have access to. All functions contained within are vanilla variables that are not synced with the Minecraft Server. They are wrapped in a nice, explicit package stating that they are never synced. This is unlike the PlayerAPI, which you can assume is always synced (except certain cases of things in <code>player:getNbt()</code>)
+    -   HostAPI 中的变量仅有你自己——形象的所有者、运行 Minecraft 的机器的所有者——才能访问。其中的所有函数都是不与 Minecraft 服务器同步的原版变量。它们被封装在一个清晰而明确的包中，表明它们永不同步。这一点与 PlayerAPI 不同，后者可以认为始终同步（<code>player:getNbt()</code> 中的某些情况除外）
 
-So how can we sync information with other players if we cannot do it through the Minecraft Server? The answer is Pings.
+那么，如果不能通过 Minecraft 服务器同步信息，我们该如何与其他玩家同步呢？答案是 Pings。
 
-## General Pings
+## 一般 Ping
 
-Pings utilize Figura's Backend to sync information with other clients.
-Pings are functions that when called, triggers all other clients to call the same function for their instance of your avatar.
+Ping 利用 Figura 的后端（Backend）与其他客户端同步信息。
+Ping 是函数：调用时，它会触发所有其他客户端针对各自持有的你的形象调用同一个函数。
 
-### Ping Rate Limiting
+### Ping 频率限制
 
-The backend restricts you on how much data you can send over a period of time.
-The developer given limits are:
+后端会限制你在一定时间内可以发送的数据量。
+面向开发者的限额如下：
 
--   1024 bytes per second
--   32 pings per second
+-   每秒 1024 字节
+-   每秒 32 次 ping
 
-If either of these are reached, the backend will ignore any communication from you for some amount of time.
+只要达到其中任意一项上限，后端就会在一段时间内忽略你发出的所有通信。
 
-### Pingable Values
+### 可作为 Ping 参数的值
 
-Pings can send most primitive types and some userdata types. If you pass in a userdata type that is not listed below, such as [ModelPart](../globals/Models/Models.md), it will turn into <code>nil</code>.
-All pingable types use a single byte to represent the type of data that is being sent. This byte is not included in the listed byte totals.
+Ping 可以发送大多数原始类型和部分 userdata 类型。如果传入下面没有列出的 userdata 类型（例如 [ModelPart](../globals/Models/Models.md)），它会被转换为 <code>nil</code>。
+所有可作为 ping 参数的类型都会用一个字节表示所发送数据的类型。这个字节不计入下面列出的字节总数。
 
--   <code>nil</code> - 0 Bytes
-    -   if a type that is not supported is used as a parameter, it will be replaced with <code>nil</code>.
--   <code>boolean</code> - 0 Bytes
--   <code>integer</code> - 1-4 Bytes
-    -   <code>integers</code> only take up as many bytes as it needs.
-    -   <code>integers</code> are signed. For example, to only use a single byte the value must be between -128 and 127.
--   <code>double</code> - 8 Bytes
-    -   If the number has a decimal at all, or is outside the range of a 4 byte <code>integer</code>, it will be sent as a <code>double</code>.
--   <code>string</code> - 2+n Bytes
-    -   <code>strings</code> will always use 2 bytes to store the length.
-    -   Ascii characters will be a single byte each.
-    -   UTF-8 characters will be multiple bytes per character.
-    -   The absolute maximum size of string you can send is <code>65535</code> characters. If a larger string is sent, it will be truncated.
--   <code>table</code> - Too Many Bytes
-    -   Every key and value is send as data, resulting in high byte costs.
-    -   It is recommended to never send a table over pings.
--   <code>VectorN</code> - 1+8\*N Bytes
-    -   Vectors have a single byte that stores the size of the Vector.
-    -   Vectors are always assumed to store <code>doubles</code>. If you have a Vector of integers, I recommend sending them as 3 separate arguments instead.
--   <code>MatrixN</code> - 2+8\*W\*H Bytes
-    -   Matrices store both the width and height of the matrix, then every value as a <code>double</code>.
+-   <code>nil</code> - 0 字节
+    -   如果使用不支持的类型作为参数，它会被替换为 <code>nil</code>。
+-   <code>boolean</code> - 0 字节
+-   <code>integer</code> - 1-4 字节
+    -   <code>integers</code> 只占用它实际需要的字节数。
+    -   <code>integers</code> 是有符号的。例如，要只占一个字节，取值必须介于 -128 与 127 之间。
+-   <code>double</code> - 8 字节
+    -   只要数值带有小数，或者超出 4 字节 <code>integer</code> 的范围，它就会以 <code>double</code> 发送。
+-   <code>string</code> - 2+n 字节
+    -   <code>strings</code> 始终用 2 个字节保存长度。
+    -   ASCII 字符每个占一个字节。
+    -   UTF-8 字符每个占多个字节。
+    -   可以发送的字符串绝对最大长度为 <code>65535</code> 个字符。如果发送更长的字符串，它会被截断。
+-   <code>table</code> - 字节数非常多
+    -   每个键和值都会作为数据发送，因此字节开销很高。
+    -   建议永远不要通过 ping 发送 table。
+-   <code>VectorN</code> - 1+8\*N 字节
+    -   向量用一个字节保存该向量的大小。
+    -   向量始终被视为保存 <code>doubles</code>。如果你有一个整数向量，建议改为用 3 个独立参数发送。
+-   <code>MatrixN</code> - 2+8\*W\*H 字节
+    -   矩阵会保存矩阵的宽度和高度，然后把每个值保存为 <code>double</code>。
 
 ### Ping
 
-Below is an example ping.
+下面是一个 ping 示例。
 
 ```lua
 function pings.pingName(
@@ -75,41 +80,41 @@ thing -- `thing` means that this function accepts a value, which it will refer t
 end
 ```
 
-It accepts a single variable, which it will print to the chat as an example.
+它接受一个变量，并把它打印到聊天栏作为示例。
 
-To call it, just call it like any other lua [function](Types/Functions.md).
+要调用它，像调用其他任意 Lua [函数](Types/Functions.md) 一样调用即可。
 
 ```lua
 pings.pingName("This is a string wooooooooooooooooo")
 ```
 
-When you as the host call the ping, the function will execute for all other clients with whatever data was passed in, regardless of their current state.<br/>
-This means that if you pass in a host-only value to a ping, other clients will also execute that ping given that host-only information.
+当你作为主机调用该 ping 时，函数会带着传入的数据在所有其他客户端上执行，无论它们当前处于什么状态。<br/>
+这意味着如果你向 ping 传入只有主机才有的值，其他客户端也会带着这个仅主机可见的信息执行该 ping。
 
-Do note that if a non-host client reaches a line where a ping gets called, it is completely ignored. No data is sent to the backend, and the contents of the ping will not be executed.
+需要注意的是，如果非主机客户端执行到调用 ping 的那一行，该调用会被完全忽略。不会向后端发送任何数据，ping 的内容也不会执行。
 
-Ping functions can be passed into functions that expect a function as a parameter, such as Action <code>onToggle</code>.
+Ping 函数可以传给需要函数作为参数的函数，例如 Action 的 <code>onToggle</code>。
 
 ```lua
 actionVariable:onToggle(pings.pingName)
 ```
 
-Remember that we are passing the function itself as a variable. The below would be passing the _return result_ of the ping function, which is nigh guaranteed to be <code>nil</code> as Pings _should never_ return a value.
+记住，我们传递的是函数本身这个变量。下面的写法传递的是 ping 函数的 _返回值_，而它几乎肯定是 <code>nil</code>，因为 Ping _本就不应_ 返回值。
 
 ```lua
 --do not do
 actionVariable:onToggle(pings.pingName())
 ```
 
-## Advanced Pings
+## 进阶 Ping
 
-Situational techniques that may be handy, depending on the use case.
+视使用场景而定，下面这些技巧可能很有用。
 
-### Ping on Init
+### 在初始化时 Ping
 
-Calling a ping function when the script is first loaded is a horrible idea. The ping will only ever execute for other clients when you, the host, load the avatar. It may never be executed on other clients if they haven't loaded your avatar by that time, and it's also unnecessary; if you're doing something when your avatar first starts, there's no unsynced behavior around that, so you can use a normal function.
+在脚本首次加载时调用 ping 函数是个糟糕的主意。只有当作为主机的你加载形象时，这个 ping 才会在其他客户端上执行。如果那时其他客户端还没有加载你的形象，它可能永远不会执行；而且这也完全没有必要——如果你只是想在形象首次启动时做点什么，其中并不涉及不同步的行为，用普通函数即可。
 
-How do we get around this? Well, when you assign a function to an index in the <code>pings</code> table, the Lua Function gets replaced with a Java Function. Functions cannot be modified, so if we store the function before assigning it to the <code>pings</code> table, we can use it like a regular function, and use the same code as a ping function.
+如何绕过这个问题？当你把一个函数赋值给 <code>pings</code> 表中的一个索引时，该 Lua 函数会被替换成 Java 函数。函数本身不能被修改，所以如果在赋值给 <code>pings</code> 表之前先保存这个函数，我们就可以像普通函数一样使用它，同时把同一份代码当作 ping 函数使用。
 
 ```lua
 local function doThing(state)
@@ -131,16 +136,16 @@ function keyA.press()
 end
 ```
 
-The alternative is to reiterate the <code>models.modelA:setVisible(state) models.modelB:setVisible(not state)</code> part of the ping.<br/>
-For larger pings it will be cumbersome to rewrite code that is already defined, which is why this technique is useful.
+另一种做法是在 ping 中把 <code>models.modelA:setVisible(state) models.modelB:setVisible(not state)</code> 这部分再写一遍。<br/>
+对于较大的 ping，重写已经定义过的代码会很麻烦，这正是该技巧的用处。
 
-### Byte Array
+### 字节数组
 
-There are some situations where you will want to send a large amount of raw bytes, and you need to do it efficiently. The most efficient way is to send a string.
+某些情况下你需要发送大量原始字节，并且要求足够高效。最高效的方式是发送字符串。
 
-Aside from the 2 constant bytes for the length, a string will always be 1 byte per ascii character (UTF-8 characters are multiple ascii characters, interpreted as a single character). This makes it very consistent in terms of bytes, making it easy to predict and avoid being rate limited.
+除了表示长度的固定 2 个字节外，字符串中每个 ASCII 字符始终占 1 个字节（UTF-8 字符由多个 ASCII 字符组成，会被解释为单个字符）。因此它的字节数非常稳定，容易预测，也就更容易避免触发频率限制。
 
-Below is a basic conversion of a byte array to a string, ready to be pinged and converted back into a byte array on the client's end.
+下面是字节数组与字符串之间的基本转换，可以随时通过 ping 发送，并在客户端还原成字节数组。
 
 ```lua
 function pings.receiveData(str)

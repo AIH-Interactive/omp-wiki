@@ -1,12 +1,17 @@
-Represents a key binding for your script
+---
+title: Keybind（按键绑定）
+sidebar_label: Keybind（按键绑定）
+---
+
+表示脚本中的一个按键绑定
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
-Instances are obtained using the KeybindAPI's newKeybind() function
+实例通过 KeybindAPI 的 newKeybind() 函数获取
 
-For this entire page assuming:
+本页示例统一假定：
 
 ```lua
 local myKey = keybinds:newKeybind("Name", "key.keyboard.h", false)
@@ -14,39 +19,39 @@ local myKey = keybinds:newKeybind("Name", "key.keyboard.h", false)
 
 ---
 
-## Press/Release
+## 按下与松开
 
 ### <code>setOnPress()</code> \{#setOnPress}
 
-**Aliases:** `onPress()`
+**别名：** `onPress()`
 
-Sets the function that is executed when this key is pressed
+设置按下此按键时执行的函数
 
-The function has two arguments
+该函数接收两个参数
 
-The first argument is a number containing a bitmask of the currently held modifier keys
+第一个参数是一个数字，包含当前按住的修饰键位掩码
 
-Shift = 1, Ctrl = 2, Alt = 4
+Shift = 1，Ctrl = 2，Alt = 4
 
-The second argument is this keybind itself
+第二个参数是此按键绑定本身
 
 ```lua
 setOnPress(function)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                                | Description | Default |
-| -------- | --------------------------------------------------- | ----------- | ------- |
-| function | <code>[Function](/tutorials/types/Functions)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| function | <code>[Function](/tutorials/types/Functions)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:setOnPress(function()
@@ -58,35 +63,35 @@ end)
 
 ### <code>setOnRelease()</code> \{#setOnRelease}
 
-**Aliases:** `onRelease()`
+**别名：** `onRelease()`
 
-Sets the function that is executed when this key is released
+设置松开此按键时执行的函数
 
-The function has two arguments
+该函数接收两个参数
 
-The first argument is a number containing a bitmask of the currently held modifier keys
+第一个参数是一个数字，包含当前按住的修饰键位掩码
 
-Shift = 1, Ctrl = 2, Alt = 4
+Shift = 1，Ctrl = 2，Alt = 4
 
-The second argument is this keybind itself
+第二个参数是此按键绑定本身
 
 ```lua
 setOnRelease(function)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                                | Description | Default |
-| -------- | --------------------------------------------------- | ----------- | ------- |
-| function | <code>[Function](/tutorials/types/Functions)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| function | <code>[Function](/tutorials/types/Functions)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:setOnRelease(function()
@@ -98,19 +103,19 @@ end)
 
 ### <code>isPressed()</code> \{#isPressed}
 
-Gets whether this keybind is currently pressed down
+获取此按键绑定当前是否处于按下状态
 
 ```lua
 isPressed()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:isPressed()
@@ -118,31 +123,31 @@ myKey:isPressed()
 
 ---
 
-## Key Properties
+## 按键属性
 
 ### <code>setEnabled()</code> \{#setEnabled}
 
-**Aliases:** `enabled()`
+**别名：** `enabled()`
 
-Toggles if this keybind should be processed or not
+切换此按键绑定是否参与处理
 
 ```lua
 setEnabled(bool)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                              | Description | Default |
-| ---- | ------------------------------------------------- | ----------- | ------- |
-| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:setEnabled(true)
@@ -152,27 +157,27 @@ myKey:setEnabled(true)
 
 ### <code>setGUI()</code> \{#setGUI}
 
-**Aliases:** `gui()`
+**别名：** `gui()`
 
-Set whenever or not this keybind should run when a GUI screen is open
+设置 GUI 界面打开时此按键绑定是否仍然触发
 
 ```lua
 setGUI(bool)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                              | Description | Default |
-| ---- | ------------------------------------------------- | ----------- | ------- |
-| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:setGUI(true)
@@ -182,19 +187,19 @@ myKey:setGUI(true)
 
 ### <code>getID()</code> \{#getID}
 
-Returns the numeric ID of this keybind
+返回此按键绑定的数字 ID
 
 ```lua
 getID()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:getID()
@@ -204,27 +209,27 @@ myKey:getID()
 
 ### <code>setKey()</code> \{#setKey}
 
-**Aliases:** `key()`
+**别名：** `key()`
 
-Sets the key for this keybind
+设置此按键绑定对应的按键
 
 ```lua
 setKey(key)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| key  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| key | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:setKey("key.keyboard.l")
@@ -234,19 +239,19 @@ myKey:setKey("key.keyboard.l")
 
 ### <code>getKey()</code> \{#getKey}
 
-Gets the current key for this keybind
+获取此按键绑定当前的按键
 
 ```lua
 getKey()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[String](/tutorials/types/Strings)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:getKey()
@@ -256,19 +261,19 @@ myKey:getKey()
 
 ### <code>getKeyName()</code> \{#getKeyName}
 
-Gets the name of the current key for this keybind
+获取此按键绑定当前按键的名称
 
 ```lua
 getKeyName()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[String](/tutorials/types/Strings)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:getKeyName()
@@ -278,19 +283,19 @@ myKey:getKeyName()
 
 ### <code>getName()</code> \{#getName}
 
-Gets the name of the keybind, which you set when you created the keybind
+获取按键绑定的名称，即创建按键绑定时设置的名称
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[String](/tutorials/types/Strings)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:getName()
@@ -300,19 +305,19 @@ myKey:getName()
 
 ### <code>isDefault()</code> \{#isDefault}
 
-Checks whether this key is currently set to its default state (not been changed using the keybind menu)
+检查此按键当前是否为默认状态（未在按键绑定菜单中修改过）
 
 ```lua
 isDefault()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:isDefault()
@@ -322,19 +327,19 @@ myKey:isDefault()
 
 ### <code>isEnabled()</code> \{#isEnabled}
 
-Returns if this keybind is enabled or not
+返回此按键绑定是否已启用
 
 ```lua
 isEnabled()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:isEnabled()
@@ -344,19 +349,19 @@ myKey:isEnabled()
 
 ### <code>isGuiEnabled()</code> \{#isGuiEnabled}
 
-Returns if this keybind should work when a GUI screen (Chat, Inventory, etc) is open or not
+返回 GUI 界面（聊天、物品栏等）打开时此按键绑定是否仍然生效
 
 ```lua
 isGuiEnabled()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 myKey:isGuiEnabled()
@@ -364,40 +369,40 @@ myKey:isGuiEnabled()
 
 ---
 
-## Fields
+## 字段
 
 ### <code>press</code> \{#press}
 
-A function that runs when the key is pressed down
+按下按键时运行的函数
 
-The function has two arguments
+该函数接收两个参数
 
-The first argument is a number containing a bitmask of the currently held modifier keys
+第一个参数是一个数字，包含当前按住的修饰键位掩码
 
-Shift = 1, Ctrl = 2, Alt = 4
+Shift = 1，Ctrl = 2，Alt = 4
 
-The second argument is this keybind itself
+第二个参数是此按键绑定本身
 
-If the return value is true then all vanilla keybinds using same key will be ignored
+如果返回值为 true，则所有使用同一按键的原版按键绑定都会被忽略
 
-See [`setOnPress`](#setOnPress) for an example of how to set this field
+设置此字段的示例见 [`setOnPress`](#setOnPress)
 
 ---
 
 ### <code>release</code> \{#release}
 
-A function that runs when the key is released
+松开按键时运行的函数
 
-The function has two arguments
+该函数接收两个参数
 
-The first argument is a number containing a bitmask of the currently held modifier keys
+第一个参数是一个数字，包含当前按住的修饰键位掩码
 
-Shift = 1, Ctrl = 2, Alt = 4
+Shift = 1，Ctrl = 2，Alt = 4
 
-The second argument is this keybind itself
+第二个参数是此按键绑定本身
 
-If the return value is true then all vanilla keybinds using same key will be ignored
+如果返回值为 true，则所有使用同一按键的原版按键绑定都会被忽略
 
-See [`setOnRelease`](#setOnRelease) for an example of how to set this field
+设置此字段的示例见 [`setOnRelease`](#setOnRelease)
 
 ---

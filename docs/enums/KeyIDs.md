@@ -1,6 +1,11 @@
-List of valid KeyIDs. Used within the KeybindAPI.
+---
+title: 按键 ID（Key IDs）
+sidebar_label: 按键 ID
+---
 
-**Example**:
+有效按键 ID 列表，可在 KeybindAPI 中使用。
+
+**示例**：
 
 ```lua
 local myKeybind = keybinds:fromVanilla("key.jump")
@@ -8,48 +13,48 @@ local myKeybind = keybinds:fromVanilla("key.jump")
 
 ---
 
-## All Key IDs
+## 全部按键 ID
 
-For convenience these have been ordered identically to vanilla's keybind menu.
+为方便查找，这里的顺序与原版按键设置菜单完全一致。
 
-| Description            | Key ID                              |
-| ---------------------- | ----------------------------------- |
-| Jump                   | `key.jump`                          |
-| Sneak                  | `key.sneak`                         |
-| Sprint                 | `key.sprint`                        |
-| Left                   | `key.left`                          |
-| Right                  | `key.right`                         |
-| Back                   | `key.back`                          |
-| Forward                | `key.forward`                       |
-| Attack                 | `key.attack`                        |
-| Pick Item              | `key.pickItem`                      |
-| Use                    | `key.use`                           |
-| Drop                   | `key.drop`                          |
-| Hotbar 1               | `key.hotbar.1`                      |
-| Hotbar 2               | `key.hotbar.2`                      |
-| Hotbar 3               | `key.hotbar.3`                      |
-| Hotbar 4               | `key.hotbar.4`                      |
-| Hotbar 5               | `key.hotbar.5`                      |
-| Hotbar 6               | `key.hotbar.6`                      |
-| Hotbar 7               | `key.hotbar.7`                      |
-| Hotbar 8               | `key.hotbar.8`                      |
-| Hotbar 9               | `key.hotbar.9`                      |
-| Inventory              | `key.inventory`                     |
-| Swap Offhand           | `key.swapOffhand`                   |
-| Load Toolbar Activator | `key.loadToolbarActivator`          |
-| Save Toolbar Activator | `key.saveToolbarActivator`          |
-| Playerlist             | `key.playerlist`                    |
-| Chat                   | `key.chat`                          |
-| Command                | `key.command`                       |
-| Social Interactions    | `key.socialInteractions`            |
-| Advancements           | `key.advancements`                  |
-| Spectator Outlines     | `key.spectatorOutlines`             |
-| Screenshot             | `key.screenshot`                    |
-| Cinematic Camera       | `key.smoothCamera`                  |
-| Fullscreen             | `key.fullscreen`                    |
-| Toggle Perspective     | `key.togglePerspective`             |
-| ActionWheel Button     | `figura.config.action_wheel_button` |
-| Panic Button           | `figura.config.panic_button`        |
-| Popup Button           | `figura.config.popup_button`        |
-| Reload Button          | `figura.config.reload_button`       |
-| Wardrobe Button        | `figura.config.wardrobe_button`     |
+| 说明             | 按键 ID                             |
+| ---------------- | ----------------------------------- |
+| 跳跃             | `key.jump`                          |
+| 潜行             | `key.sneak`                         |
+| 疾跑             | `key.sprint`                        |
+| 向左移动         | `key.left`                          |
+| 向右移动         | `key.right`                         |
+| 向后移动         | `key.back`                          |
+| 向前移动         | `key.forward`                       |
+| 攻击             | `key.attack`                        |
+| 选取方块         | `key.pickItem`                      |
+| 使用             | `key.use`                           |
+| 丢弃物品         | `key.drop`                          |
+| 快捷栏 1         | `key.hotbar.1`                      |
+| 快捷栏 2         | `key.hotbar.2`                      |
+| 快捷栏 3         | `key.hotbar.3`                      |
+| 快捷栏 4         | `key.hotbar.4`                      |
+| 快捷栏 5         | `key.hotbar.5`                      |
+| 快捷栏 6         | `key.hotbar.6`                      |
+| 快捷栏 7         | `key.hotbar.7`                      |
+| 快捷栏 8         | `key.hotbar.8`                      |
+| 快捷栏 9         | `key.hotbar.9`                      |
+| 打开物品栏       | `key.inventory`                     |
+| 交换副手         | `key.swapOffhand`                   |
+| 加载快捷栏激活器 | `key.loadToolbarActivator`          |
+| 保存快捷栏激活器 | `key.saveToolbarActivator`          |
+| 玩家列表         | `key.playerlist`                    |
+| 聊天             | `key.chat`                          |
+| 命令             | `key.command`                       |
+| 社交互动         | `key.socialInteractions`            |
+| 进度             | `key.advancements`                  |
+| 旁观者轮廓       | `key.spectatorOutlines`             |
+| 截图             | `key.screenshot`                    |
+| 电影视角         | `key.smoothCamera`                  |
+| 全屏             | `key.fullscreen`                    |
+| 切换视角         | `key.togglePerspective`             |
+| 动作轮盘按钮     | `figura.config.action_wheel_button` |
+| 紧急按钮         | `figura.config.panic_button`        |
+| 弹窗按钮         | `figura.config.popup_button`        |
+| 重新加载按钮     | `figura.config.reload_button`       |
+| 衣柜按钮         | `figura.config.wardrobe_button`     |

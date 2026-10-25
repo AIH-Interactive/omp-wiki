@@ -1,66 +1,71 @@
+---
+title: VanillaModelPart（原版模型部件）
+sidebar_label: VanillaModelPart（原版模型部件）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Represents a model part in a vanilla model
+表示原版模型中的一个模型部件。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
-Can be queried for vanilla transform values
+可用于查询原版的变换值。
 
 ---
 
 ### <code>setOffsetRot()</code> \{#setOffsetRot}
 
-**Aliases:** `offsetRot()`
+**别名：** `offsetRot()`
 
-Offsets this part's rotation, adding on top of the vanilla values
+偏移该部件的旋转，在原版数值之上叠加。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOffsetRot(offsetRot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                             | Description | Default |
-| --------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | offsetRot | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOffsetRot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:setOffsetRot(0, 90, 0)
@@ -70,19 +75,19 @@ vanilla_model.HEAD:setOffsetRot(0, 90, 0)
 
 ### <code>getOffsetRot()</code> \{#getOffsetRot}
 
-Gets this part's rotation offset
+获取该部件的旋转偏移。
 
 ```lua
 getOffsetRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getOffsetRot()
@@ -92,54 +97,54 @@ vanilla_model.HEAD:getOffsetRot()
 
 ### <code>setOffsetScale()</code> \{#setOffsetScale}
 
-**Aliases:** `offsetScale()`
+**别名：** `offsetScale()`
 
-Offsets this part's scale, multiplying with the vanilla values
+偏移该部件的缩放，与原版数值相乘。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOffsetScale(offsetScale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name        | Type                                             | Description | Default |
-| ----------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | offsetScale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOffsetScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:setOffsetScale(2, 2, 2)
@@ -149,19 +154,19 @@ vanilla_model.HEAD:setOffsetScale(2, 2, 2)
 
 ### <code>getOffsetScale()</code> \{#getOffsetScale}
 
-Gets this part's scale offset
+获取该部件的缩放偏移。
 
 ```lua
 getOffsetScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getOffsetScale()
@@ -171,19 +176,19 @@ vanilla_model.HEAD:getOffsetScale()
 
 ### <code>getOriginPos()</code> \{#getOriginPos}
 
-Gets the position offset to this vanilla model part currently applied by Minecraft
+获取 Minecraft 当前应用于该原版模型部件的位置偏移。
 
 ```lua
 getOriginPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getOriginPos()
@@ -193,19 +198,19 @@ vanilla_model.HEAD:getOriginPos()
 
 ### <code>getOriginRot()</code> \{#getOriginRot}
 
-Gets the rotation to this vanilla model part currently applied by Minecraft
+获取 Minecraft 当前应用于该原版模型部件的旋转。
 
 ```lua
 getOriginRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getOriginRot()
@@ -215,19 +220,19 @@ vanilla_model.HEAD:getOriginRot()
 
 ### <code>getOriginScale()</code> \{#getOriginScale}
 
-Gets the scale to this vanilla model part currently applied by Minecraft
+获取 Minecraft 当前应用于该原版模型部件的缩放。
 
 ```lua
 getOriginScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getOriginScale()
@@ -237,19 +242,19 @@ vanilla_model.HEAD:getOriginScale()
 
 ### <code>getOriginVisible()</code> \{#getOriginVisible}
 
-Gets if this vanilla model part is visible or not, without interference from your script
+获取该原版模型部件是否可见，不受你的脚本影响。
 
 ```lua
 getOriginVisible()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getOriginVisible()
@@ -259,54 +264,54 @@ vanilla_model.HEAD:getOriginVisible()
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Set this part's position, preserving the previous values
+设置该部件的位置，同时保留之前的数值。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:setPos(0, 10, 0)
@@ -316,21 +321,21 @@ vanilla_model.HEAD:setPos(0, 10, 0)
 
 ### <code>getPos()</code> \{#getPos}
 
-Get this part's set position
+获取该部件设置的位置。
 
-Returns the value set by the "set" function
+返回由“set”函数设置的值。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getPos()
@@ -340,54 +345,54 @@ vanilla_model.HEAD:getPos()
 
 ### <code>setRot()</code> \{#setRot}
 
-**Aliases:** `rot()`
+**别名：** `rot()`
 
-Set this part's rotation
+设置该部件的旋转。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setRot(rot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | rot  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setRot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:setRot(0, 90, 0)
@@ -397,21 +402,21 @@ vanilla_model.HEAD:setRot(0, 90, 0)
 
 ### <code>getRot()</code> \{#getRot}
 
-Get this part's set rotation
+获取该部件设置的旋转。
 
-Returns the value set by the "set" function
+返回由“set”函数设置的值。
 
 ```lua
 getRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getRot()
@@ -421,54 +426,54 @@ vanilla_model.HEAD:getRot()
 
 ### <code>setScale()</code> \{#setScale}
 
-**Aliases:** `scale()`
+**别名：** `scale()`
 
-Set this part's scale
+设置该部件的缩放。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setScale(scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:setScale(2, 2, 2)
@@ -478,21 +483,21 @@ vanilla_model.HEAD:setScale(2, 2, 2)
 
 ### <code>getScale()</code> \{#getScale}
 
-Get this part's set scale
+获取该部件设置的缩放。
 
-Returns the value set by the "set" function
+返回由“set”函数设置的值。
 
 ```lua
 getScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getScale()
@@ -502,27 +507,27 @@ vanilla_model.HEAD:getScale()
 
 ### <code>setVisible()</code> \{#setVisible}
 
-**Aliases:** `visible()`
+**别名：** `visible()`
 
-Sets this part to be visible or invisible
+将该部件设置为可见或不可见。
 
 ```lua
 setVisible(visible)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                           | Description |
-| -------------------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[VanillaPart](/globals/Vanilla-Model/VanillaPart)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:setVisible(false)
@@ -532,19 +537,19 @@ vanilla_model.HEAD:setVisible(false)
 
 ### <code>getVisible()</code> \{#getVisible}
 
-Gets whether you have set this part to be visible or invisible
+获取你将该部件设置为可见还是不可见。
 
 ```lua
 getVisible()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:getVisible()

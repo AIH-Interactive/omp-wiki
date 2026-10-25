@@ -1,10 +1,11 @@
 {
-  "label": "Matrices",
+  "label": "矩阵",
   "link": {
     "type": "generated-index",
-    "description": "List of all classes in the Matrices API."
+    "description": "矩阵分类下的页面。",
+    "slug": "/category/matrices"
   },
   "customProps": {
-    "description": "A global API which provides functions dedicated to creating and otherwise manipulating matrices"
+    "description": "矩阵相关的全局对象说明。"
   }
 }

@@ -1,21 +1,23 @@
 ---
 sidebar_position: 1
+title: World（世界）
+sidebar_label: World（世界）
 ---
 
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API dedicated to reading information from the Minecraft world.
+用于从 Minecraft 世界读取信息的全局 API。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。Figura 文档中的全部信息已收录，我们正在补充更详细的说明。
 :::
 
-The world API is accessed through the <code>world</code> global. Like so: <code>world.getTime()</code>.
+世界 API 通过全局对象 <code>world</code> 访问，例如 <code>world.getTime()</code>。
 
 :::info
 
-The functions in the World API never receive `self` as a parameter. Because of this they should be called with a `.` instead of `:`
+世界 API 中的函数不会接收 `self` 参数，因此调用时要使用 `.`，而不是 `:`。
 
 ```lua
 -- error-next-line
@@ -29,25 +31,25 @@ world.getBlockState(player:getPos())
 
 ---
 
-## Environment
+## 环境
 
 ### <code>exists()</code> \{#exists}
 
-Checks whether or not a world currently exists
+检查当前是否存在世界。
 
-This will almost always be true, but might be false on some occasions such as while traveling between dimensions
+几乎总是返回 true，但在跨维度传送等情况下可能返回 false。
 
 ```lua
 exists()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 world.exists()
@@ -57,52 +59,52 @@ world.exists()
 
 ### <code>getBiome()</code> \{#getBiome}
 
-Gets the Biome located at the given position
+获取指定位置所在的生物群系。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getBiome(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description                                   | Default  |
+| 名称 | 类型                                             | 说明                                          | 默认值   |
 | ---- | ------------------------------------------------ | --------------------------------------------- | -------- |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | The position in the world to get the biome of | Required |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | 要获取生物群系的世界坐标                      | 必需     |
 
-**Returns:**
+**返回值：**
 
-| Type                                       | Description                 |
+| 类型                                       | 说明                        |
 | ------------------------------------------ | --------------------------- |
-| <code>[Biome](/globals/World/Biome)</code> | Biome of the given position |
+| <code>[Biome](/globals/World/Biome)</code> | 指定位置的生物群系          |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getBiome(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                           | Default  |
+| 名称 | 类型                                            | 说明                                                  | 默认值   |
 | ---- | ----------------------------------------------- | ----------------------------------------------------- | -------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | The x world position in the world to get the biome of | Required |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | The y world position in the world to get the biome of | Required |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | The z world position in the world to get the biome of | Required |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取生物群系的世界 x 坐标                           | 必需     |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取生物群系的世界 y 坐标                           | 必需     |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取生物群系的世界 z 坐标                           | 必需     |
 
-**Returns:**
+**返回值：**
 
-| Type                                       | Description                 |
+| 类型                                       | 说明                        |
 | ------------------------------------------ | --------------------------- |
-| <code>[Biome](/globals/World/Biome)</code> | Biome of the given position |
+| <code>[Biome](/globals/World/Biome)</code> | 指定位置的生物群系          |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getBiome(player:getPos())
@@ -112,20 +114,20 @@ world.getBiome(player:getPos())
 
 ### <code>getBuildHeight()</code> \{#getBuildHeight}
 
-Returns the minimum and maximum build height of the world, as multiple results
+返回该世界的最低与最高建筑高度，以多个返回值的形式给出。
 
 ```lua
 getBuildHeight()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description          |
+| 类型                                             | 说明                 |
 | ------------------------------------------------ | -------------------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | Minimum build height |
-| <code>[Integer](/tutorials/types/Numbers)</code> | Maximum build height |
+| <code>[Integer](/tutorials/types/Numbers)</code> | 最低建筑高度         |
+| <code>[Integer](/tutorials/types/Numbers)</code> | 最高建筑高度         |
 
-**Example:**
+**示例：**
 
 ```lua
 local min, max = world.getBuildHeight()
@@ -135,19 +137,19 @@ local min, max = world.getBuildHeight()
 
 ### <code>getDimension()</code> \{#getDimension}
 
-Gets the dimension name of this world
+获取该世界的维度名称。
 
 ```lua
 getDimension()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 world.getDimension()
@@ -157,55 +159,55 @@ world.getDimension()
 
 ### <code>getHeight()</code> \{#getHeight}
 
-Returns the highest point at the given position according to the provided heightmap
+按给定的高度图返回指定位置处的最高点。
 
-Defaults to MOTION_BLOCKING if no heightmap is provided
+未提供高度图时，默认使用 MOTION_BLOCKING。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getHeight(pos, heightmap)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                             | Description | Default |
+| 名称      | 类型                                             | 说明        | 默认值  |
 | --------- | ------------------------------------------------ | ----------- | ------- |
 | pos       | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 | heightmap | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getHeight(x, z, heightmap)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                            | Description | Default |
+| 名称      | 类型                                            | 说明        | 默认值  |
 | --------- | ----------------------------------------------- | ----------- | ------- |
 | x         | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z         | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | heightmap | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getHeight(player:getPos().xz)
@@ -215,19 +217,19 @@ world.getHeight(player:getPos().xz)
 
 ### <code>getSpawnPoint()</code> \{#getSpawnPoint}
 
-Returns a vector with the coordinates of the world spawn
+返回一个包含世界出生点坐标的向量。
 
 ```lua
 getSpawnPoint()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 world.getSpawnPoint()
@@ -237,54 +239,54 @@ world.getSpawnPoint()
 
 ### <code>isChunkLoaded()</code> \{#isChunkLoaded}
 
-Checks if the position has a chunk loaded
+检查指定位置是否已加载区块。
 
-If you need to access the block, it's usually more efficient to use `getBlockState()`
+如果需要访问方块，通常使用 `getBlockState()` 更高效。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 isChunkLoaded(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 isChunkLoaded(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.isChunkLoaded(player:getPos())
@@ -294,52 +296,52 @@ world.isChunkLoaded(player:getPos())
 
 ### <code>isOpenSky()</code> \{#isOpenSky}
 
-Gets whether or not the sky is open at the given position
+获取指定位置的天空是否无遮挡。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 isOpenSky(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 isOpenSky(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.isOpenSky(player:getPos())
@@ -347,58 +349,58 @@ world.isOpenSky(player:getPos())
 
 ---
 
-## Blocks and Items
+## 方块与物品
 
 ### <code>getBlockState()</code> \{#getBlockState}
 
-Gets the BlockState of the block at the given position
+获取指定位置的 BlockState。
 
-If it is not loaded, returns void_air
+如果该位置尚未加载，返回 void_air。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getBlockState(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description                                                     | Default  |
+| 名称 | 类型                                             | 说明                                                            | 默认值   |
 | ---- | ------------------------------------------------ | --------------------------------------------------------------- | -------- |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | The position of a block in the world to get the `BlockState` of | Required |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | 要获取 `BlockState` 的方块世界坐标                              | 必需     |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description                        |
+| 类型                                                 | 说明                               |
 | ---------------------------------------------------- | ---------------------------------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | `BlockState` of the given position |
+| <code>[BlockState](/globals/World/BlockState)</code> | 指定位置的 `BlockState`            |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getBlockState(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                                       | Default  |
+| 名称 | 类型                                            | 说明                                                              | 默认值   |
 | ---- | ----------------------------------------------- | ----------------------------------------------------------------- | -------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | The x position of a block in the world to get the `BlockState` of | Required |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | The y position of a block in the world to get the `BlockState` of | Required |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | The z position of a block in the world to get the `BlockState` of | Required |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取 `BlockState` 的方块世界 x 坐标                             | 必需     |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取 `BlockState` 的方块世界 y 坐标                             | 必需     |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取 `BlockState` 的方块世界 z 坐标                             | 必需     |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description                        |
+| 类型                                                 | 说明                               |
 | ---------------------------------------------------- | ---------------------------------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | `BlockState` of the given position |
+| <code>[BlockState](/globals/World/BlockState)</code> | 指定位置的 `BlockState`            |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getBlockState(player:getPos())
@@ -408,84 +410,84 @@ world.getBlockState(player:getPos())
 
 ### <code>getBlocks()</code> \{#getBlocks}
 
-Gets a list of all BlockStates in the specified area
+获取指定区域内所有 BlockState 的列表。
 
-The maximum area size is 8 x 8 x 8
+最大区域尺寸为 8 x 8 x 8。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getBlocks(min, max)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | min  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 | max  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明        |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getBlocks(minX, minY, minZ, max)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | minX | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
 | minY | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
 | minZ | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
 | max  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明        |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 getBlocks(min, maxX, maxY, maxZ)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | min  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 | maxX | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
 | maxY | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
 | maxZ | <code>[Number](/tutorials/types/Numbers)</code>  | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明        |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 getBlocks(minX, minY, minZ, maxX, maxY, maxZ)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | minX | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | minY | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
@@ -494,16 +496,16 @@ getBlocks(minX, minY, minZ, maxX, maxY, maxZ)
 | maxY | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | maxZ | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明        |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local pos = player:getPos()
@@ -517,75 +519,75 @@ local blocks = world.getBlocks(min, max)
 
 ### <code>newBlock()</code> \{#newBlock}
 
-Parses and creates a new BlockState from the given string
+解析给定字符串并创建一个新的 BlockState。
 
-A world position can be optionally given for the blockstate functions that rely on its position
+对于依赖所在位置的 BlockState 函数，可以额外传入一个世界坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 newBlock(block)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明        | 默认值  |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | block | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description |
+| 类型                                                 | 说明        |
 | ---------------------------------------------------- | ----------- |
 | <code>[BlockState](/globals/World/BlockState)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 newBlock(block, pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称  | 类型                                             | 说明        | 默认值  |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | block | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
 | pos   | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description |
+| 类型                                                 | 说明        |
 | ---------------------------------------------------- | ----------- |
 | <code>[BlockState](/globals/World/BlockState)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 newBlock(block, x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明        | 默认值  |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | block | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 | x     | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y     | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z     | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description |
+| 类型                                                 | 说明        |
 | ---------------------------------------------------- | ----------- |
 | <code>[BlockState](/globals/World/BlockState)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.newBlock("minecraft:dirt")
@@ -595,74 +597,74 @@ world.newBlock("minecraft:dirt")
 
 ### <code>newItem()</code> \{#newItem}
 
-Parses and creates a new ItemStack from the given string
+解析给定字符串并创建一个新的 ItemStack。
 
-A count and damage can be given, to be applied on this itemstack
+可以指定数量与损伤值，应用到该 ItemStack 上。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 newItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | item | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                               | Description |
+| 类型                                               | 说明        |
 | -------------------------------------------------- | ----------- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 newItem(item, count)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称  | 类型                                             | 说明        | 默认值  |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | item  | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
 | count | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                               | Description |
+| 类型                                               | 说明        |
 | -------------------------------------------------- | ----------- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 newItem(item, count, damage)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
+| 名称   | 类型                                             | 说明        | 默认值  |
 | ------ | ------------------------------------------------ | ----------- | ------- |
 | item   | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
 | count  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | damage | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                               | Description |
+| 类型                                               | 说明        |
 | -------------------------------------------------- | ----------- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.newItem("grass_block", 64, 5)
@@ -672,27 +674,27 @@ world.newItem("grass_block", 64, 5)
 
 ### <code>getMapData()</code> \{#getMapData}
 
-Takes a string, e.g., `map_3`, and returns a table of data if the map exists. This is obtainable from a map [ItemStack](/globals/World/ItemStack)'s NBT
+接收一个字符串（例如 `map_3`），如果该地图存在则返回数据表。该字符串可从地图 [ItemStack](/globals/World/ItemStack) 的 NBT 中获取。
 
-Map data may be unsynced, and will only update when holding the map
+地图数据可能尚未同步，只有在手持该地图时才会更新。
 
 ```lua
 getMapData(id)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                     | Default |
+| 名称 | 类型                                            | 说明                                            | 默认值  |
 | ---- | ----------------------------------------------- | ----------------------------------------------- | ------- |
-| id   | <code>[String](/tutorials/types/Strings)</code> | String ID of map, with or without `map_` prefix | -       |
+| id   | <code>[String](/tutorials/types/Strings)</code> | 地图的字符串 ID，可带或不带 `map_` 前缀         | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description                    |
+| 类型                                          | 说明                           |
 | --------------------------------------------- | ------------------------------ |
-| <code>[Table](/tutorials/Types/Tables)</code> | Various data regarding the map |
+| <code>[Table](/tutorials/Types/Tables)</code> | 与该地图相关的各种数据         |
 
-**Example:**
+**示例：**
 
 ```lua
 local mapData = world.getMapData("map_2")
@@ -700,25 +702,25 @@ local mapData = world.getMapData("map_2")
 
 ---
 
-## Entities
+## 实体
 
 ### <code>avatarVars()</code> \{#avatarVars}
 
-Returns a table containing variables stored from all loaded Avatars "avatar:store()" function
+返回一个表，包含所有已加载形象通过 "avatar:store()" 函数存储的变量。
 
-The table will be indexed by the avatar's owner UUID
+该表以形象所属玩家的 UUID 为索引。
 
 ```lua
 avatarVars()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明        |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 world.avatarVars()
@@ -728,25 +730,25 @@ world.avatarVars()
 
 ### <code>getEntity()</code> \{#getEntity}
 
-Returns an EntityAPI object from this UUID's entity, or nil if no entity was found
+返回该 UUID 对应实体的 EntityAPI 对象；如果未找到实体则返回 nil。
 
 ```lua
 getEntity(UUID)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | UUID | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[EntityAPI](/globals/Player/Entity)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 world.getEntity("5003b2ce-7a8d-4c56-8b91-ec705985fe08")
@@ -756,32 +758,32 @@ world.getEntity("5003b2ce-7a8d-4c56-8b91-ec705985fe08")
 
 ### <code>getEntities()</code> \{#getEntities}
 
-Returns a list of entities within the bounding box formed by the two given positions
+返回由两个给定位置构成的包围盒内的实体列表。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getEntities(min, max)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | min  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 | max  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getEntities(minX, minY, minZ, maxX, maxY, maxZ)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | minX | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | minY | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
@@ -793,13 +795,13 @@ getEntities(minX, minY, minZ, maxX, maxY, maxZ)
 </TabItem>
 </Tabs>
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description                          |
+| 类型                                          | 说明                                 |
 | --------------------------------------------- | ------------------------------------ |
-| <code>[Table](/tutorials/types/Tables)</code> | The entities within the bounding box |
+| <code>[Table](/tutorials/types/Tables)</code> | 包围盒内的实体                       |
 
-**Example:**
+**示例：**
 
 ```lua
 local pos = player:getPos()
@@ -813,21 +815,21 @@ local entities = world.getEntities(min, max)
 
 ### <code>getPlayers()</code> \{#getPlayers}
 
-Returns a table containing instances of Player for all players in the world
+返回一个表，包含世界中所有玩家对应的 Player 实例。
 
-The players are indexed by their names
+玩家以名称为索引。
 
 ```lua
 getPlayers()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明        |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 for _, value in pairs(world.getPlayers()) do
@@ -837,52 +839,52 @@ end
 
 ---
 
-## Time
+## 时间
 
 ### <code>getDay()</code> \{#getDay}
 
-Gets the current day
+获取当前天数。
 
-If delta is passed in, then it adds delta to the time
+如果传入 delta，则会在时间上加上 delta。
 
-The default value of delta is zero
+delta 的默认值为 0。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getDay()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getDay(delta)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明        | 默认值  |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | delta | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getDay()
@@ -892,48 +894,48 @@ world.getDay()
 
 ### <code>getDayTime()</code> \{#getDayTime}
 
-Gets the time of the current day between 0 and 24000
+获取当前这一天内的时间，范围为 0 到 24000。
 
-If delta is passed in, then it adds delta to the time
+如果传入 delta，则会在时间上加上 delta。
 
-The default value of delta is zero
+delta 的默认值为 0。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getDayTime()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getDayTime(delta)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明        | 默认值  |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | delta | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getDayTime()
@@ -943,19 +945,19 @@ world.getDayTime()
 
 ### <code>getMoonPhase()</code> \{#getMoonPhase}
 
-Gets the current moon phase of the world, stored as an integer
+获取世界当前的月相，以整数存储。
 
 ```lua
 getMoonPhase()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 world.getMoonPhase()
@@ -965,48 +967,48 @@ world.getMoonPhase()
 
 ### <code>getTime()</code> \{#getTime}
 
-Gets the current game time of the world
+获取世界当前的游戏时间。
 
-If delta is passed in, then it adds delta to the time
+如果传入 delta，则会在时间上加上 delta。
 
-The default value of delta is zero
+delta 的默认值为 0。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getTime()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getTime(delta)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明        | 默认值  |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | delta | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getTime()
@@ -1016,48 +1018,48 @@ world.getTime()
 
 ### <code>getTimeOfDay()</code> \{#getTimeOfDay}
 
-Gets the current day time of the world
+获取世界当前的白昼时间。
 
-If delta is passed in, then it adds delta to the time
+如果传入 delta，则会在时间上加上 delta。
 
-The default value of delta is zero
+delta 的默认值为 0。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getTimeOfDay()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getTimeOfDay(delta)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明        | 默认值  |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | delta | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getTimeOfDay()
@@ -1065,57 +1067,57 @@ world.getTimeOfDay()
 
 ---
 
-## Light
+## 光照
 
 ### <code>getBlockLightLevel()</code> \{#getBlockLightLevel}
 
-Gets the block light level of the block at the given position.
-Read more about block light on the [Minecraft Wiki](https://minecraft.wiki/w/Light#Block_light).
+获取指定位置的方块光照等级。
+方块光照的更多说明见 [Minecraft Wiki](https://minecraft.wiki/w/Light#Block_light)。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getBlockLightLevel(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description                                               | Default  |
+| 名称 | 类型                                             | 说明                                                      | 默认值   |
 | ---- | ------------------------------------------------ | --------------------------------------------------------- | -------- |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | The position in the world to get the block light level of | Required |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | 要获取方块光照等级的世界坐标                              | 必需     |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description            |
+| 类型                                             | 说明                   |
 | ------------------------------------------------ | ---------------------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | The light level (0-15) |
+| <code>[Integer](/tutorials/types/Numbers)</code> | 光照等级（0-15）       |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getBlockLightLevel(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                                 | Default  |
+| 名称 | 类型                                            | 说明                                                        | 默认值   |
 | ---- | ----------------------------------------------- | ----------------------------------------------------------- | -------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | The x position in the world to get the block light level of | Required |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | The y position in the world to get the block light level of | Required |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | The z position in the world to get the block light level of | Required |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取方块光照等级的世界 x 坐标                             | 必需     |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取方块光照等级的世界 y 坐标                             | 必需     |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | 要获取方块光照等级的世界 z 坐标                             | 必需     |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description            |
+| 类型                                             | 说明                   |
 | ------------------------------------------------ | ---------------------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | The light level (0-15) |
+| <code>[Integer](/tutorials/types/Numbers)</code> | 光照等级（0-15）       |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getBlockLightLevel(player:getPos())
@@ -1125,52 +1127,52 @@ world.getBlockLightLevel(player:getPos())
 
 ### <code>getLightLevel()</code> \{#getLightLevel}
 
-Gets the overall light level of the block at the given position
+获取指定位置的综合光照等级。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getLightLevel(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getLightLevel(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getLightLevel(player:getPos())
@@ -1180,52 +1182,52 @@ world.getLightLevel(player:getPos())
 
 ### <code>getSkyLightLevel()</code> \{#getSkyLightLevel}
 
-Gets the skylight level of the block at the given position
+获取指定位置的天光等级。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getSkyLightLevel(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getSkyLightLevel(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getSkyLightLevel(player:getPos())
@@ -1233,50 +1235,50 @@ world.getSkyLightLevel(player:getPos())
 
 ---
 
-## Weather
+## 天气
 
 ### <code>getRainGradient()</code> \{#getRainGradient}
 
-Gets the current rain gradient in the world, interpolated from the previous tick to the current one
+获取世界中当前的降雨强度，由上一刻到当前刻插值得到。
 
-The default value of delta is 1, which is the current tick
+delta 的默认值为 1，即当前刻。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getRainGradient()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getRainGradient(delta)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
+| 名称  | 类型                                            | 说明        | 默认值  |
 | ----- | ----------------------------------------------- | ----------- | ------- |
 | delta | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getRainGradient()
@@ -1286,19 +1288,19 @@ world.getRainGradient()
 
 ### <code>isThundering()</code> \{#isThundering}
 
-Gets whether or not there is currently thunder/lightning happening in the world
+获取世界中当前是否正在打雷或闪电。
 
 ```lua
 isThundering()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 world.isThundering()
@@ -1306,56 +1308,56 @@ world.isThundering()
 
 ---
 
-## Redstone
+## 红石
 
 ### <code>getRedstonePower()</code> \{#getRedstonePower}
 
-Gets the redstone power level of the block at the given position
+获取指定位置的红石能量等级。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getRedstonePower(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getRedstonePower(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getRedstonePower(player:getPos())
@@ -1365,52 +1367,52 @@ world.getRedstonePower(player:getPos())
 
 ### <code>getStrongRedstonePower()</code> \{#getStrongRedstonePower}
 
-Gets the direct redstone power level of the block at the given position
+获取指定位置的直接红石能量等级。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getStrongRedstonePower(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getStrongRedstonePower(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 world.getStrongRedstonePower(player:getPos())

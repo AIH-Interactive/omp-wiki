@@ -1,26 +1,31 @@
-A global API that contains features to work with files
+---
+title: File（文件）
+sidebar_label: File（文件）
+---
+
+一个全局 API，提供文件操作相关功能。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>allowed()</code> \{#allowed}
 
-Checks if FileAPI can be used for this avatar
+检查此形象能否使用 FileAPI
 
 ```lua
 allowed()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -30,25 +35,25 @@ allowed()
 
 ### <code>delete()</code> \{#delete}
 
-Deletes file/directory at specified path. Returns true if successful
+删除指定路径下的文件或目录。删除成功时返回 true
 
 ```lua
 delete(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -58,25 +63,25 @@ delete(path)
 
 ### <code>exists()</code> \{#exists}
 
-Checks if file/directory at specified path exists
+检查指定路径下的文件或目录是否存在
 
 ```lua
 exists(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -86,25 +91,25 @@ exists(path)
 
 ### <code>isDirectory()</code> \{#isDirectory}
 
-Checks if specified path is directory
+检查指定路径是否为目录
 
 ```lua
 isDirectory(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -114,25 +119,25 @@ isDirectory(path)
 
 ### <code>isFile()</code> \{#isFile}
 
-Checks if specified path is file
+检查指定路径是否为文件
 
 ```lua
 isFile(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -142,25 +147,25 @@ isFile(path)
 
 ### <code>isPathAllowed()</code> \{#isPathAllowed}
 
-Checks if this path is allowed for usage
+检查此路径是否允许使用
 
 ```lua
 isPathAllowed(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -170,25 +175,25 @@ isPathAllowed(path)
 
 ### <code>list()</code> \{#list}
 
-Lists all files and directories at specified path, or returns null if directory does not exist or path is not a directory
+列出指定路径下的所有文件和目录。如果目录不存在，或该路径不是目录，则返回 null
 
 ```lua
 list(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Table](/tutorials/types/Tables)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -198,25 +203,25 @@ list(path)
 
 ### <code>mkdir()</code> \{#mkdir}
 
-Creates a directory at specified path. Returns true if folder was successfully created
+在指定路径创建目录。创建成功时返回 true
 
 ```lua
 mkdir(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -226,25 +231,25 @@ mkdir(path)
 
 ### <code>mkdirs()</code> \{#mkdirs}
 
-Creates a directory at specified path including all parent directories. Returns true if folder was successfully created
+在指定路径创建目录，并一并创建所有父目录。创建成功时返回 true
 
 ```lua
 mkdirs(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -254,25 +259,25 @@ mkdirs(path)
 
 ### <code>openReadStream()</code> \{#openReadStream}
 
-Opens an input stream for file at specified path
+为指定路径的文件打开输入流
 
 ```lua
 openReadStream(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[InputStream](/globals/Data/InputStream)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[InputStream](/globals/Data/InputStream)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -282,25 +287,25 @@ openReadStream(path)
 
 ### <code>openWriteStream()</code> \{#openWriteStream}
 
-Opens an output stream for file at specified path
+为指定路径的文件打开输出流
 
 ```lua
 openWriteStream(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                                    | Description |
-| ------------------------------------------------------- | ----------- |
-| <code>[OutputStream](/globals/Data/OutputStream)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[OutputStream](/globals/Data/OutputStream)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -310,26 +315,26 @@ openWriteStream(path)
 
 ### <code>readString()</code> \{#readString}
 
-Reads whole file as string
+将整个文件读取为字符串
 
 ```lua
 readString(path, encoding)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
-| -------- | ----------------------------------------------- | ----------- | ------- |
-| path     | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| encoding | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
+| encoding | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[String](/tutorials/types/Strings)</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -339,27 +344,27 @@ readString(path, encoding)
 
 ### <code>writeString()</code> \{#writeString}
 
-Writes a string to a file
+将字符串写入文件
 
 ```lua
 writeString(path, data, encoding)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
-| -------- | ----------------------------------------------- | ----------- | ------- |
-| path     | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| data     | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| encoding | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | - | - |
+| data | <code>[String](/tutorials/types/Strings)</code> | - | - |
+| encoding | <code>[String](/tutorials/types/Strings)</code> | - | - |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型 | 说明 |
+| --- | --- |
+| <code>nil</code> | - |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

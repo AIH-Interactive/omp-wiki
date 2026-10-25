@@ -1,26 +1,31 @@
-An input data stream
+---
+title: InputStream（输入流）
+sidebar_label: InputStream（输入流）
+---
+
+输入数据流
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>available()</code> \{#available}
 
-Returns amount of bytes available
+返回可读取的字节数
 
 ```lua
 available()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -30,19 +35,19 @@ available()
 
 ### <code>close()</code> \{#close}
 
-Closes this input stream
+关闭此输入流
 
 ```lua
 close()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -52,19 +57,19 @@ close()
 
 ### <code>isAsyncOnly()</code> \{#isAsyncOnly}
 
-Is this stream async-only or not
+此流是否仅支持异步操作
 
 ```lua
 isAsyncOnly()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -74,25 +79,25 @@ isAsyncOnly()
 
 ### <code>mark()</code> \{#mark}
 
-Marks current position in input stream
+标记输入流的当前位置
 
 ```lua
 mark(readLimit)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                             | Description | Default |
-| --------- | ------------------------------------------------ | ----------- | ------- |
-| readLimit | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称      | 类型                                             | 说明 | 默认值 |
+| --------- | ------------------------------------------------ | ---- | ------ |
+| readLimit | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -102,19 +107,19 @@ mark(readLimit)
 
 ### <code>markSupported()</code> \{#markSupported}
 
-Does this input stream supports marking or not
+此输入流是否支持标记
 
 ```lua
 markSupported()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -124,19 +129,19 @@ markSupported()
 
 ### <code>read()</code> \{#read}
 
-Reads one byte from this stream. Might throw an error if stream is async-only
+从此流读取一个字节。如果流仅支持异步操作，可能抛出错误
 
 ```lua
 read()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -146,19 +151,19 @@ read()
 
 ### <code>readAsync()</code> \{#readAsync}
 
-Starts reading specified amount of bytes from this stream and returns future that will contain byte array of stream bytes once done
+开始从此流读取指定数量的字节，并返回一个 Future 对象，读取完成后其中包含由流字节组成的字节数组
 
 ```lua
 readAsync()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                        | Description |
-| ------------------------------------------- | ----------- |
-| <code>[Future](/globals/Data/Future)</code> | -           |
+| 类型                                        | 说明 |
+| ------------------------------------------- | ---- |
+| <code>[Future](/globals/Data/Future)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -168,19 +173,19 @@ readAsync()
 
 ### <code>reset()</code> \{#reset}
 
-Resets input stream position to mark
+把输入流的位置重置到标记处
 
 ```lua
 reset()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -190,25 +195,25 @@ reset()
 
 ### <code>skip()</code> \{#skip}
 
-Skips specified amount of bytes in stream. Returns the actual amount of bytes skipped
+在流中跳过指定数量的字节。返回实际跳过的字节数
 
 ```lua
 skip(n)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| n    | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| n    | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -218,25 +223,25 @@ skip(n)
 
 ### <code>transferTo()</code> \{#transferTo}
 
-Transfers left data in this input stream to provided output stream
+把此输入流中剩余的数据传输到指定的输出流
 
 ```lua
 transferTo(out)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                                    | Description | Default |
-| ---- | ------------------------------------------------------- | ----------- | ------- |
-| out  | <code>[OutputStream](/globals/Data/OutputStream)</code> | -           | -       |
+| 名称 | 类型                                                    | 说明 | 默认值 |
+| ---- | ------------------------------------------------------- | ---- | ------ |
+| out  | <code>[OutputStream](/globals/Data/OutputStream)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

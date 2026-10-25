@@ -1,10 +1,15 @@
-A proxy for an item stack from Minecraft
+---
+title: ItemStack（物品堆叠）
+sidebar_label: ItemStack（物品堆叠）
+---
+
+Minecraft 物品堆叠的代理对象。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
-For all exmaples on this page assume:
+本页所有示例均假定：
 
 ```lua
 local item = player:getHeldItem()
@@ -12,23 +17,23 @@ local item = player:getHeldItem()
 
 ---
 
-## General
+## 通用
 
 ### <code>getCount()</code> \{#getCount}
 
-Gets the number of items in this stack
+获取该堆叠中的物品数量。
 
 ```lua
 getCount()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getCount()
@@ -38,19 +43,19 @@ item:getCount()
 
 ### <code>getID()</code> \{#getID}
 
-Gets the ID of this stack
+获取该堆叠的 id。
 
 ```lua
 getID()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getID()
@@ -60,19 +65,19 @@ item:getID()
 
 ### <code>getMaxCount()</code> \{#getMaxCount}
 
-Gets the maximum stack size of this item
+获取该物品的最大堆叠数量。
 
 ```lua
 getMaxCount()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getMaxCount()
@@ -82,19 +87,19 @@ item:getMaxCount()
 
 ### <code>getName()</code> \{#getName}
 
-Gets the name of the item
+获取物品的名称。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getName()
@@ -104,19 +109,19 @@ item:getName()
 
 ### <code>getPopTime()</code> \{#getPopTime}
 
-Gets the item's animation bobbing time, in ticks. This value is used to move an item to the player when it is picked up
+获取该物品的浮动动画时间，单位为刻。该值用于物品被拾起时移动到玩家身上的动画。
 
 ```lua
 getPopTime()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getPopTime()
@@ -126,21 +131,21 @@ item:getPopTime()
 
 ### <code>getRarity()</code> \{#getRarity}
 
-Gets the rarity of this item stack
+获取该物品堆叠的稀有度。
 
-COMMON = white, UNCOMMON = yellow, RARE = aqua, EPIC = light purple
+COMMON = 白色，UNCOMMON = 黄色，RARE = 青色，EPIC = 淡紫色。
 
 ```lua
 getRarity()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getRarity()
@@ -150,19 +155,19 @@ item:getRarity()
 
 ### <code>getTag()</code> \{#getTag}
 
-Gets a table of the NBT tags of this stack
+以表的形式获取该堆叠的 NBT 标签。
 
 ```lua
 getTag()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getTag()
@@ -172,19 +177,19 @@ item:getTag()
 
 ### <code>getTags()</code> \{#getTags}
 
-Gets all the tags of this item as strings in a table
+以字符串表的形式获取该物品的全部标签。
 
 ```lua
 getTags()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getTags()
@@ -194,19 +199,19 @@ item:getTags()
 
 ### <code>getUseAction()</code> \{#getUseAction}
 
-Returns the name of the animation that plays when using this item
+返回使用该物品时播放的动画名称。
 
 ```lua
 getUseAction()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getUseAction()
@@ -216,23 +221,23 @@ item:getUseAction()
 
 ### <code>getUseDuration()</code> \{#getUseDuration}
 
-Gets the number of ticks needed to "use" this item
+获取“使用”该物品所需的刻数。
 
-Currently only has a use for food items
+目前仅对食物类物品有效。
 
-Always 32 for food items except kelp, which is 16
+食物类物品固定为 32，海带除外，海带为 16。
 
 ```lua
 getUseDuration()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getUseDuration()
@@ -242,19 +247,19 @@ item:getUseDuration()
 
 ### <code>copy()</code> \{#copy}
 
-Returns a copy of this item stack
+返回该物品堆叠的副本。
 
 ```lua
 copy()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                               | Description               |
+| 类型                                               | 说明               |
 | -------------------------------------------------- | ------------------------- |
-| <code>[ItemStack](/globals/World/ItemStack)</code> | Returns self for chaining |
+| <code>[ItemStack](/globals/World/ItemStack)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 item:copy()
@@ -264,19 +269,19 @@ item:copy()
 
 ### <code>hasGlint()</code> \{#hasGlint}
 
-Returns true if this item glows with enchantment glint
+如果该物品带有附魔光效，返回 true。
 
 ```lua
 hasGlint()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:hasGlint()
@@ -286,19 +291,19 @@ item:hasGlint()
 
 ### <code>isFood()</code> \{#isFood}
 
-Returns true if this item is edible
+如果该物品可食用，返回 true。
 
 ```lua
 isFood()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:isFood()
@@ -308,19 +313,19 @@ item:isFood()
 
 ### <code>isStackable()</code> \{#isStackable}
 
-Returns true if the item is stackable
+如果该物品可堆叠，返回 true。
 
 ```lua
 isStackable()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:isStackable()
@@ -330,19 +335,19 @@ item:isStackable()
 
 ### <code>toStackString()</code> \{#toStackString}
 
-Converts this ItemStack to a string, as you'd see in a command
+将该 ItemStack 转换为字符串，形式与命令中的写法相同。
 
 ```lua
 toStackString()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:toStackString()
@@ -350,25 +355,25 @@ item:toStackString()
 
 ---
 
-## Equipment/Tools
+## 装备与工具
 
 ### <code>getDamage()</code> \{#getDamage}
 
-Gets the damage value of the item in this stack
+获取该堆叠中物品的损伤值。
 
-Works on things like tools, or other things with a durability bar
+适用于工具等带有耐久条的物品。
 
 ```lua
 getDamage()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getDamage()
@@ -378,19 +383,19 @@ item:getDamage()
 
 ### <code>getEquipmentSlot()</code> \{#getEquipmentSlot}
 
-Returns the slot name of where this item is used
+返回该物品使用时所处槽位的名称。
 
 ```lua
 getEquipmentSlot()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getEquipmentSlot()
@@ -400,19 +405,19 @@ item:getEquipmentSlot()
 
 ### <code>getMaxDamage()</code> \{#getMaxDamage}
 
-Gets the maximum durability of this item stack
+获取该物品堆叠的最大耐久度。
 
 ```lua
 getMaxDamage()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getMaxDamage()
@@ -422,19 +427,19 @@ item:getMaxDamage()
 
 ### <code>getRepairCost()</code> \{#getRepairCost}
 
-Gets the repair cost modifier, in an anvil, for this item stack
+获取该物品堆叠在铁砧中的修复花费修正值。
 
 ```lua
 getRepairCost()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getRepairCost()
@@ -444,19 +449,19 @@ item:getRepairCost()
 
 ### <code>isArmor()</code> \{#isArmor}
 
-Checks if this item is Armor
+检查该物品是否为盔甲。
 
 ```lua
 isArmor()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:isArmor()
@@ -466,19 +471,19 @@ item:isArmor()
 
 ### <code>isDamageable()</code> \{#isDamageable}
 
-Returns true if this item stack has durability
+如果该物品堆叠具有耐久度，返回 true。
 
 ```lua
 isDamageable()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:isDamageable()
@@ -488,19 +493,19 @@ item:isDamageable()
 
 ### <code>isEnchantable()</code> \{#isEnchantable}
 
-Returns true if this item stack can be put in an enchanting table
+如果该物品堆叠可以放入附魔台，返回 true。
 
 ```lua
 isEnchantable()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:isEnchantable()
@@ -510,19 +515,19 @@ item:isEnchantable()
 
 ### <code>isTool()</code> \{#isTool}
 
-Check if this item is a Tool (Axe, Shovel, Pickaxe, …)
+检查该物品是否为工具（斧、锹、镐等）。
 
 ```lua
 isTool()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:isTool()
@@ -530,25 +535,25 @@ item:isTool()
 
 ---
 
-## Block Items
+## 方块物品
 
 ### <code>getBlockstate()</code> \{#getBlockstate}
 
-Returns the blockstate representation of this item stack
+返回该物品堆叠对应的方块状态。
 
-If this item has no block representation, returns nil
+如果该物品没有对应的方块表示，返回 nil。
 
 ```lua
 getBlockstate()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                 | Description |
-| ---------------------------------------------------- | ----------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | -           |
+| 类型                                                 | 说明 |
+| ---------------------------------------------------- | ---- |
+| <code>[BlockState](/globals/World/BlockState)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:getBlockstate()
@@ -558,19 +563,19 @@ item:getBlockstate()
 
 ### <code>isBlockItem()</code> \{#isBlockItem}
 
-Returns true if this item represents a block
+如果该物品代表一个方块，返回 true。
 
 ```lua
 isBlockItem()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 item:isBlockItem()
@@ -578,13 +583,13 @@ item:isBlockItem()
 
 ---
 
-## Fields
+## 字段
 
 ### <code>id</code> \{#id}
 
-Contains the id of the item this ItemStack refers to
+包含该 ItemStack 所指物品的 id。
 
-**Example:**
+**示例：**
 
 ```lua
 item.id
@@ -594,11 +599,11 @@ item.id
 
 ### <code>tag</code> \{#tag}
 
-A table containing the NBT tag of this ItemStack
+包含该 ItemStack NBT 标签的表。
 
-If this ItemStack has nothing in its tag, it is nil
+如果该 ItemStack 的标签为空，则为 nil。
 
-**Example:**
+**示例：**
 
 ```lua
 item.tag

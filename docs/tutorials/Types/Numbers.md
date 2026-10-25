@@ -1,19 +1,24 @@
-A number is a Lua value that represents a real number.
+---
+title: 数字
+sidebar_label: 数字
+---
 
-Although Lua doesn't have an integer type, some methods may ask for integers, meaning they want a whole number.
+数字（number）是 Lua 中表示实数的一种值。
+
+Lua 没有单独的整数类型，但有些方法会要求传入整数，也就是要求传入一个整数值。
 
 ```lua
 local myNumber = 5
 local anotherNumber = 72.3
 ```
 
-Lua supports math operators and follows a standard order of operations, meaning the following code will output -13.
+Lua 支持数学运算符，并遵循标准的运算顺序。因此下面的代码会输出 -13。
 
 ```lua
 local result = 8 - 8 * 3 + 3
 ```
 
-One common operator that you may not be familiar with is <code>%</code>, which is the modulo operator. This operator can essentially be thought of as a remainder function. A typical approach to run something every few ticks uses this operator:
+有一个常见运算符你可能还不熟悉，那就是 <code>%</code>，也就是取模（modulo）运算符。可以把它理解成求余函数。要让某段逻辑每隔若干刻执行一次，常用写法就用到了这个运算符：
 
 ```lua
 function events.tick()
@@ -23,5 +28,5 @@ function events.tick()
 end
 ```
 
-Lua also comes with a <code>math</code> library which contains many helpful functions for manipulating numbers (plus a few added by figura).
-It's important to note that all trigonometric functions intake and output radians, whereas many Figura functions work in degrees.
+Lua 还自带 <code>math</code> 库，其中包含许多用于处理数字的实用函数（Figura 另外补充了少数几个）。
+需要注意：所有三角函数接收和返回的都是弧度，而许多 Figura 函数使用的是角度。

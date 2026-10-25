@@ -1,92 +1,97 @@
+---
+title: Keybinds（按键绑定）
+sidebar_label: Keybinds（按键绑定）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API containing a function to create new Keybind instances
+用于创建 Keybind 实例的全局 API
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>newKeybind()</code> \{#newKeybind}
 
-**Aliases:** `of()`
+**别名：** `of()`
 
-Creates and returns a new Keybind
+创建并返回一个新的 Keybind
 
-The name is used in the keybind menu
+name 用作按键绑定菜单中显示的名称
 
-The key parameter is an identifier for a key, such as "key.keyboard.r"
+key 参数是按键的标识符，例如 "key.keyboard.r"
 
-The boolean gui indicates whether the keybind should always work, or if it should only work when you don't have a screen open
+布尔参数 gui 决定此按键绑定始终生效，还是只在没有打开任何界面时生效
 
-Check the docs enum command for all key names
+所有按键名称请用 docs enum 命令查看
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 newKeybind(name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| name | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 newKeybind(name, key)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| key  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| name | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| key  | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3" default>
+<TabItem value="overload-3" label="重载 3" default>
 
 ```lua
 newKeybind(name, key, gui)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                              | Description | Default |
-| ---- | ------------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
-| key  | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
-| gui  | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称 | 类型                                              | 说明 | 默认值 |
+| ---- | ------------------------------------------------- | ---- | ------ |
+| name | <code>[String](/tutorials/types/Strings)</code>   | -    | -      |
+| key  | <code>[String](/tutorials/types/Strings)</code>   | -    | -      |
+| gui  | <code>[Boolean](/tutorials/types/Booleans)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local myKey = keybinds:newKeybind("Name", "key.keyboard.h", false)
@@ -96,27 +101,27 @@ local myKey = keybinds:newKeybind("Name", "key.keyboard.h", false)
 
 ### <code>getVanillaKey()</code> \{#getVanillaKey}
 
-Gets the id of the key bound to the given action, as a string
+以字符串形式返回绑定到给定动作的按键 id
 
-Check the docs enum command for all key names and vanilla actions
+所有按键名称与原版动作请用 docs enum 命令查看
 
 ```lua
 getVanillaKey(id)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| id   | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| id   | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 local myKey = keybinds:newKeybind("Name", keybinds:getVanillaKey("key.attack"), false)
@@ -126,25 +131,25 @@ local myKey = keybinds:newKeybind("Name", keybinds:getVanillaKey("key.attack"), 
 
 ### <code>fromVanilla()</code> \{#fromVanilla}
 
-Creates a new Keybind based from a vanilla key
+基于原版按键创建新的 Keybind
 
 ```lua
 fromVanilla(id)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| id   | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| id   | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Keybind](/globals/Keybinds/Keybind)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Keybind](/globals/Keybinds/Keybind)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 local myKey = keybinds:fromVanilla("key.attack")
@@ -154,19 +159,19 @@ local myKey = keybinds:fromVanilla("key.attack")
 
 ### <code>getKeybinds()</code> \{#getKeybinds}
 
-Returns a table with all registered keybinds
+返回包含所有已注册按键绑定的表
 
 ```lua
 getKeybinds()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 keybinds:getKeybinds()

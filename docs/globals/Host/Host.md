@@ -1,33 +1,38 @@
+---
+title: Host（主机）
+sidebar_label: Host（主机）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API dedicated to specifically the host of the avatar
+专用于形象主机（Host）的全局 API。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
-For other viewers, these do nothing
+对其他观察者而言，这些函数不会产生任何效果。
 
-Functions in the host API aren't synced, meaning to be useful in multiplayer their information will need to be synced via [pings](../tutorials/Pings)
+Host API 中的函数不会同步。要在多人游戏中发挥作用，需要通过 [pings](../tutorials/Pings) 同步相关信息。
 
 ---
 
 ### <code>isHost()</code> \{#isHost}
 
-Returns true if this instance of the script is running on host
+如果当前脚本实例运行在主机端，则返回 true。
 
 ```lua
 isHost()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:isHost()
@@ -35,23 +40,23 @@ host:isHost()
 
 ---
 
-## Player Data
+## 玩家数据
 
 ### <code>isContainerOpen()</code> \{#isContainerOpen}
 
-Checks if the host has a container screen opened
+检查主机是否打开了容器界面。
 
 ```lua
 isContainerOpen()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:isContainerOpen()
@@ -61,19 +66,19 @@ host:isContainerOpen()
 
 ### <code>isFlying()</code> \{#isFlying}
 
-Checks if the player is currently flying
+检查玩家当前是否正在飞行。
 
 ```lua
 isFlying()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:isFlying()
@@ -83,21 +88,21 @@ host:isFlying()
 
 ### <code>isJumping()</code> \{#isJumping}
 
-Checks if the player is jumping
+检查玩家是否正在跳跃。
 
-Note this is only true during the first tick the player started jumping
+注意：只有玩家开始跳跃的第一个 tick 内该值才为 true。
 
 ```lua
 isJumping()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:isJumping()
@@ -107,19 +112,19 @@ host:isJumping()
 
 ### <code>getAir()</code> \{#getAir}
 
-Gets the remaining amount of air of the player
+获取玩家剩余的氧气值。
 
 ```lua
 getAir()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getAir()
@@ -129,96 +134,96 @@ host:getAir()
 
 ### <code>setSlot()</code> \{#setSlot}
 
-Sets a slot with an ItemStack
+用 ItemStack 设置指定槽位。
 
-The slot is either their numerical id (0 indexed) or the slot string, as used in the /item command
+槽位可以是数字编号（从 0 开始计数），也可以是 /item 命令中使用的槽位字符串。
 
-Slot -1 uses the first available slot
+槽位 -1 表示使用第一个可用槽位。
 
-Only runs for creative mode
+仅在创造模式下生效。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setSlot(slot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | slot | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setSlot(slot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | slot | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setSlot(slot, item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | slot | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 | item | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 setSlot(slot, item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                               | Description | Default |
-| ---- | -------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | slot | <code>[Integer](/tutorials/types/Numbers)</code>   | -           | -       |
 | item | <code>[ItemStack](/globals/World/ItemStack)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 host:setSlot(0, "apple")
@@ -229,52 +234,52 @@ host:setSlot(0, "apple")
 
 ### <code>getSlot()</code> \{#getSlot}
 
-Gets an ItemStack for the item in the given slot
+获取指定槽位中物品的 ItemStack。
 
-The slot is either their numerical id (0 indexed) or the slot string, as used in the /item command
+槽位可以是数字编号（从 0 开始计数），也可以是 /item 命令中使用的槽位字符串。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getSlot(slot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | slot | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                               | Description |
-| -------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getSlot(slot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | slot | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                               | Description |
-| -------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 host:getSlot(0)
@@ -284,54 +289,54 @@ host:getSlot(0)
 
 ### <code>getScreenSlot()</code> \{#getScreenSlot}
 
-Gets the item in a screen slot
+获取界面槽位中的物品。
 
-The slot is either their numerical id (0 indexed) or the slot string, as used in the /item command
+槽位可以是数字编号（从 0 开始计数），也可以是 /item 命令中使用的槽位字符串。
 
-If the player is not currently in a screen, the screen has no slots, or the slot index is greater than the maximum, returns nil
+如果玩家当前不在任何界面中、界面没有槽位，或槽位索引超过最大值，则返回 nil。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getScreenSlot(slot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | slot | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                               | Description |
-| -------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getScreenSlot(slot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | slot | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                               | Description |
-| -------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 host:getScreenSlot(0)
@@ -341,21 +346,21 @@ host:getScreenSlot(0)
 
 ### <code>getScreenSlotCount()</code> \{#getScreenSlotCount}
 
-Gets the number of slots in the screen the player is currently in
+获取玩家当前所在界面的槽位数量。
 
-If the player is not currently in a screen or the screen has no slots, returns nil
+如果玩家当前不在任何界面中，或界面没有槽位，则返回 nil。
 
 ```lua
 getScreenSlotCount()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getScreenSlotCount()
@@ -365,21 +370,21 @@ host:getScreenSlotCount()
 
 ### <code>getScreen()</code> \{#getScreen}
 
-Gets the class name of the screen the player is currently on
+获取玩家当前所在界面的类名。
 
-If the player is not currently in a screen, returns nil
+如果玩家当前不在任何界面中，则返回 nil。
 
 ```lua
 getScreen()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getScreen()
@@ -389,21 +394,21 @@ host:getScreen()
 
 ### <code>getStatusEffects()</code> \{#getStatusEffects}
 
-Returns a table of all of the player's status effects
+返回包含玩家全部状态效果的 table。
 
-The table contains sub-tables, each of which contains the name, amplifier, duration, and particle visibility of each status effect
+该 table 中的每一项都是子 table，包含每种状态效果的名称、等级、持续时间和粒子可见性。
 
 ```lua
 getStatusEffects()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 for _, effect in pairs(host:getStatusEffects()) do
@@ -416,21 +421,21 @@ end
 
 ### <code>getAttackCharge()</code> \{#getAttackCharge}
 
-Returns a fraction (0 to 1) of the charge of the player attack
+返回玩家攻击蓄力的比例（0 到 1）。
 
-If less than 1, every attack will result in a weak attack
+如果小于 1，每次攻击都会判定为弱攻击。
 
 ```lua
 getAttackCharge()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getAttackCharge()
@@ -440,19 +445,19 @@ host:getAttackCharge()
 
 ### <code>getReachDistance()</code> \{#getReachDistance}
 
-Returns the current reach distance of the player
+返回玩家当前的触及距离。
 
 ```lua
 getReachDistance()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getReachDistance()
@@ -462,23 +467,23 @@ host:getReachDistance()
 
 ### <code>getPickBlock()</code> \{#getPickBlock}
 
-Returns the current targeted block set by the client
+返回客户端当前选中的目标方块。
 
-Returns the block, the hit position, and the targeted block face as three separate values
+分别返回方块、命中位置和目标方块朝向，共三个值。
 
 ```lua
 getPickBlock()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description         |
-| ---------------------------------------------------- | ------------------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | Targeted block      |
-| <code>[Vector3](/globals/Vectors/Vector3)</code>     | Hit position        |
-| <code>[String](/tutorials/types/Strings)</code>      | Targeted block face |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[BlockState](/globals/World/BlockState)</code> | 目标方块 |
+| <code>[Vector3](/globals/Vectors/Vector3)</code>     | 命中位置 |
+| <code>[String](/tutorials/types/Strings)</code>      | 目标方块朝向 |
 
-**Example:**
+**示例：**
 
 ```lua
 local block, hitPos, side = host:getPickBlock()
@@ -488,19 +493,19 @@ local block, hitPos, side = host:getPickBlock()
 
 ### <code>getPickEntity()</code> \{#getPickEntity}
 
-Returns the currently targeted entity set by the client
+返回客户端当前选中的目标实体。
 
 ```lua
 getPickEntity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[EntityAPI](/globals/Player/Entity)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getPickEntity()
@@ -508,23 +513,23 @@ host:getPickEntity()
 
 ---
 
-## Chat
+## 聊天
 
 ### <code>isChatOpen()</code> \{#isChatOpen}
 
-Checks if the host has the chat screen opened
+检查主机是否打开了聊天界面。
 
 ```lua
 isChatOpen()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:isChatOpen()
@@ -540,13 +545,13 @@ figura.docs.host.is_chat_verified
 isChatVerified()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:isChatVerified()
@@ -558,29 +563,29 @@ host:isChatVerified()
 
 :::caution
 
-In order to use this function you must turn the `Chat Messages` setting on in Figura's settings
+要使用此函数，必须在 Figura 设置中开启 `Chat Messages` 选项。
 
 :::
 
-Sends the given command in the chat
+在聊天栏中发送指定命令。
 
 ```lua
 sendChatCommand(command)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description | Default |
-| ------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | command | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:sendChatCommand("kill @a")
@@ -592,29 +597,29 @@ host:sendChatCommand("kill @a")
 
 :::caution
 
-In order to you this function you must turn the `Chat Messages` setting on in Figura's settings
+要使用此函数，必须在 Figura 设置中开启 `Chat Messages` 选项。
 
 :::
 
-Sends the given message in the chat
+在聊天栏中发送指定消息。
 
 ```lua
 sendChatMessage(message)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description | Default |
-| ------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | message | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:sendChatMessage("Hello World")
@@ -624,54 +629,54 @@ host:sendChatMessage("Hello World")
 
 ### <code>setChatColor()</code> \{#setChatColor}
 
-**Aliases:** `chatColor()`
+**别名：** `chatColor()`
 
-Sets the color of the text that is currently being typed into the chat window
+设置当前正在聊天窗口中输入的文字颜色。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setChatColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | color | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setChatColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 host:setChatColor(0, 0, 1)
@@ -681,19 +686,19 @@ host:setChatColor(0, 0, 1)
 
 ### <code>getChatColor()</code> \{#getChatColor}
 
-Gets the chat window text color
+获取聊天窗口的文字颜色。
 
 ```lua
 getChatColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getChatColor()
@@ -703,76 +708,76 @@ host:getChatColor()
 
 ### <code>setChatMessage()</code> \{#setChatMessage}
 
-Modifies a chat message with the given text
+用给定文本修改一条聊天消息。
 
-Takes an index, were 1 means the last message on chat
+接收一个索引，1 表示聊天中的最后一条消息。
 
-Setting the message to nil will effectively remove it from the chat
+将消息设为 nil 会把它从聊天中移除。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setChatMessage(index)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | index | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setChatMessage(index, newMessage)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
-| ---------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | index      | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | newMessage | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setChatMessage(index, newMessage, backgroundColor)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name            | Type                                             | Description | Default |
-| --------------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | index           | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | newMessage      | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
 | backgroundColor | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 host:setChatMessage(1, "Hi?", vec(1, 0, 0))
@@ -782,27 +787,27 @@ host:setChatMessage(1, "Hi?", vec(1, 0, 0))
 
 ### <code>getChatMessage()</code> \{#getChatMessage}
 
-Returns a table with information about a chat message
+返回包含某条聊天消息信息的 table。
 
-Takes an index, where 1 means the last message on chat
+接收一个索引，1 表示聊天中的最后一条消息。
 
 ```lua
 getChatMessage(index)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | index | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getChatMessage(1)
@@ -812,33 +817,33 @@ host:getChatMessage(1)
 
 ### <code>setChatText()</code> \{#setChatText}
 
-**Aliases:** `chatText()`
+**别名：** `chatText()`
 
 :::caution
 
-In order to use this function you must turn the `Chat Messages` setting on in Figura's settings
+要使用此函数，必须在 Figura 设置中开启 `Chat Messages` 选项。
 
 :::
 
-Sets the text currently being typed in the chat window to the given string
+把聊天窗口中当前输入的文字设置为指定字符串。
 
 ```lua
 setChatText(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:setChatText("Hello World")
@@ -848,19 +853,19 @@ host:setChatText("Hello World")
 
 ### <code>getChatText()</code> \{#getChatText}
 
-Gets the text that is currently being typed into the chat window
+获取当前正在聊天窗口中输入的文字。
 
 ```lua
 getChatText()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getChatText() == "Hello World"
@@ -870,25 +875,25 @@ host:getChatText() == "Hello World"
 
 ### <code>appendChatHistory()</code> \{#appendChatHistory}
 
-Appends the message on the recent chat history
+把消息追加到最近的聊天记录中。
 
 ```lua
 appendChatHistory(message)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description | Default |
-| ------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | message | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:appendChatHistory("Hello World")
@@ -896,59 +901,59 @@ host:appendChatHistory("Hello World")
 
 ---
 
-## Other
+## 其他
 
 ### <code>setActionbar()</code> \{#setActionbar}
 
-**Aliases:** `actionbar()`
+**别名：** `actionbar()`
 
-Sets the action bar message to the given text
+把动作栏消息设置为给定文本。
 
-The boolean parameter defaults to false
+布尔参数默认为 false。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setActionbar(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setActionbar(text, animated)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                              | Description | Default |
-| -------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text     | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
 | animated | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 host:setActionbar("Hello World")
@@ -958,27 +963,27 @@ host:setActionbar("Hello World")
 
 ### <code>setClipboard()</code> \{#setClipboard}
 
-**Aliases:** `clipboard()`
+**别名：** `clipboard()`
 
-Sets the clipboard text
+设置剪贴板文本。
 
 ```lua
 setClipboard(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:setClipboard("Hello World")
@@ -988,19 +993,19 @@ host:setClipboard("Hello World")
 
 ### <code>getClipboard()</code> \{#getClipboard}
 
-Gets the text from the clipboard
+获取剪贴板中的文本。
 
 ```lua
 getClipboard()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:getClipboard()
@@ -1010,29 +1015,29 @@ host:getClipboard()
 
 ### <code>setSubtitle()</code> \{#setSubtitle}
 
-**Aliases:** `subtitle()`
+**别名：** `subtitle()`
 
-Sets the current subtitle to the given text
+把当前副标题设置为给定文本。
 
-The text is given as a JSON string
+文本以 JSON 字符串形式传入。
 
 ```lua
 setSubtitle(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:setSubtitle("Hello World")
@@ -1042,29 +1047,29 @@ host:setSubtitle("Hello World")
 
 ### <code>setTitle()</code> \{#setTitle}
 
-**Aliases:** `title()`
+**别名：** `title()`
 
-Sets the current title to the given text
+把当前标题设置为给定文本。
 
-The text is given as json
+文本以 JSON 形式传入。
 
 ```lua
 setTitle(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:setTitle("Hello World")
@@ -1074,54 +1079,54 @@ host:setTitle("Hello World")
 
 ### <code>setTitleTimes()</code> \{#setTitleTimes}
 
-**Aliases:** `titleTimes()`
+**别名：** `titleTimes()`
 
-Sets the duration of the title on the screen, also its fade-in and fade-out durations
+设置标题在屏幕上的停留时间，以及淡入和淡出时间。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setTitleTimes(timesData)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                             | Description | Default |
-| --------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | timesData | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setTitleTimes(fadeInTime, stayTime, fadeOutTime)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name        | Type                                             | Description | Default |
-| ----------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | fadeInTime  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | stayTime    | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | fadeOutTime | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 host:setTitleTimes(5, 5, 5)
@@ -1131,25 +1136,25 @@ host:setTitleTimes(5, 5, 5)
 
 ### <code>setUnlockCursor()</code> \{#setUnlockCursor}
 
-Toggles locking of your cursor, letting you move it freely on the screen instead of it controlling your player's rotation
+切换鼠标指针的锁定状态：解锁后指针可以在屏幕上自由移动，而不再控制玩家的视角旋转。
 
 ```lua
 setUnlockCursor(boolean)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | boolean | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:setUnlockCursor(true)
@@ -1159,19 +1164,19 @@ host:setUnlockCursor(true)
 
 ### <code>clearTitle()</code> \{#clearTitle}
 
-Clears the current title from the GUI
+清除界面中的当前标题。
 
 ```lua
 clearTitle()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 host:clearTitle()
@@ -1181,19 +1186,19 @@ host:clearTitle()
 
 ### <code>isAvatarUploaded()</code> \{#isAvatarUploaded}
 
-Checks if this avatar is currently uploaded
+检查当前形象是否已上传。
 
 ```lua
 isAvatarUploaded()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:isAvatarUploaded()
@@ -1203,21 +1208,21 @@ host:isAvatarUploaded()
 
 ### <code>isCursorUnlocked()</code> \{#isCursorUnlocked}
 
-Checks if the cursor is currently unlocked
+检查鼠标指针当前是否已解锁。
 
-Only responds to your own changes in your script, not anything done by Minecraft itself
+只对你在脚本中做出的更改作出反应，不包含 Minecraft 自身造成的变化。
 
 ```lua
 isCursorUnlocked()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:isCursorUnlocked()
@@ -1227,25 +1232,25 @@ host:isCursorUnlocked()
 
 ### <code>screenshot()</code> \{#screenshot}
 
-Takes a screenshot from the current screen and returns a Texture of it
+截取当前画面，并返回该截图的纹理（Texture）。
 
 ```lua
 screenshot(name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Texture](/globals/Textures/Texture)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:screenshot()
@@ -1255,46 +1260,46 @@ host:screenshot()
 
 ### <code>swingArm()</code> \{#swingArm}
 
-Animates swinging the player's arm
+播放玩家挥动手臂的动画。
 
-If the boolean is true, then the offhand is the one that swings
+如果布尔值为 true，则改由副手挥动。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 swingArm()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 swingArm(offhand)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | offhand | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                  | Description               |
-| ------------------------------------- | ------------------------- |
-| <code>[HostAPI](/globals/Host)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[HostAPI](/globals/Host)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 host:swingArm()
@@ -1304,27 +1309,27 @@ host:swingArm()
 
 ### <code>writeToLog()</code> \{#writeToLog}
 
-Write directly to the Minecraft log, allowing for logging debug data without filling chat
+直接写入 Minecraft 日志，便于记录调试数据，又不会塞满聊天栏。
 
-This will appear in the log with the prefix <code>[Render thread/INFO]: [FIGURA/LUA] -- </code>
+日志中的前缀为 <code>[Render thread/INFO]: [FIGURA/LUA] -- </code>。
 
 ```lua
 writeToLog(message)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description | Default |
-| ------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | message | <code>[String](/tutorials/Types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type             | Description |
-| ---------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>nil</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:writeToLog("I'm in the Minecraft log!")
@@ -1334,27 +1339,27 @@ host:writeToLog("I'm in the Minecraft log!")
 
 ### <code>warnToLog()</code> \{#warnToLog}
 
-Write a warning directly to the minecraft log, allowing for logging debug data without filling chat
+直接向 Minecraft 日志写入一条警告，便于记录调试数据，又不会塞满聊天栏。
 
-This will appear in the log with the prefix <code>[Render thread/WARN]: [FIGURA/LUA] -- </code>
+日志中的前缀为 <code>[Render thread/WARN]: [FIGURA/LUA] -- </code>。
 
 ```lua
 warnToLog(message)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description | Default |
-| ------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | message | <code>[String](/tutorials/Types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type             | Description |
-| ---------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>nil</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 host:warnToLog("Uh oh!")
@@ -1362,12 +1367,12 @@ host:warnToLog("Uh oh!")
 
 ---
 
-## Fields
+## 字段
 
 ### <code>unlockCursor</code> \{#unlockCursor}
 
-Setting this value to true will unlock your cursor, letting you move it freely on the screen instead of it controlling your player's rotation
+把该值设为 true 会解锁鼠标指针，使其可以在屏幕上自由移动，而不再控制玩家的视角旋转。
 
-See [`setUnlockCursor`](#setUnlockCursor) for an example of how to set it.
+设置示例见 [`setUnlockCursor`](#setUnlockCursor)。
 
 ---

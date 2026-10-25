@@ -1,58 +1,60 @@
 ---
+title: Data（数据）
+sidebar_label: Data（数据）
 sidebar_position: 1
 ---
 
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API that provides functions to work with data related features
+提供数据处理相关功能的全局 API
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>createBuffer()</code> \{#createBuffer}
 
-Creates an empty buffer
+创建一个空缓冲区
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 createBuffer()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                        | Description |
-| ------------------------------------------- | ----------- |
-| <code>[Buffer](/globals/Data/Buffer)</code> | -           |
+| 类型                                        | 说明 |
+| ------------------------------------------- | ---- |
+| <code>[Buffer](/globals/Data/Buffer)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 createBuffer(capacity)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                             | Description | Default |
-| -------- | ------------------------------------------------ | ----------- | ------- |
-| capacity | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称     | 类型                                             | 说明 | 默认值 |
+| -------- | ------------------------------------------------ | ---- | ------ |
+| capacity | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                        | Description |
-| ------------------------------------------- | ----------- |
-| <code>[Buffer](/globals/Data/Buffer)</code> | -           |
+| 类型                                        | 说明 |
+| ------------------------------------------- | ---- |
+| <code>[Buffer](/globals/Data/Buffer)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

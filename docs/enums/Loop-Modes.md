@@ -1,8 +1,8 @@
-# LoopModes
+# 循环模式（LoopModes）
 
-These are the loop modes a blockbench animation can be set to. They can be initialized in blockbench itself or changed in the code via <code>setLoop(String)</code>.
+这些是 Blockbench 动画可以设置的循环模式。可以在 Blockbench 中初始化，也可以在代码中通过 <code>setLoop(String)</code> 修改。
 
-**Example**:
+**示例**：
 
 ```lua
 animations.myModel.myAnimation:setLoop("ONCE")
@@ -10,8 +10,8 @@ animations.myModel.myAnimation:setLoop("ONCE")
 
 ---
 
-| Mode   | Description                                         |
-| ------ | --------------------------------------------------- |
-| `LOOP` | Plays again once it reaches the end of the timeline |
-| `ONCE` | No looping                                          |
-| `HOLD` | Stays on the last keyframe of an animation          |
+| 模式   | 说明                       |
+| ------ | -------------------------- |
+| `LOOP` | 播放到时间轴末尾后重新开始 |
+| `ONCE` | 不循环                     |
+| `HOLD` | 停留在动画的最后一个关键帧 |

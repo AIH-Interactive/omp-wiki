@@ -1,16 +1,21 @@
-List of valid HeightmapTypes
+---
+title: 高度图类型
+sidebar_label: 高度图类型
+---
+
+有效的 HeightmapTypes 列表。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。目前已包含 Figura 文档中的全部信息，我们正在补充更多有用的说明。
 :::
 
-Used in world.getHeight to select the type of heightmap
+在 world.getHeight 中使用，选择高度图的类型。
 
-| Mode                        | Description |
-| --------------------------- | ----------- |
-| `WORLD_SURFACE_WG`          | -           |
-| `WORLD_SURFACE`             | -           |
-| `OCEAN_FLOOR_WG`            | -           |
-| `OCEAN_FLOOR`               | -           |
-| `MOTION_BLOCKING`           | -           |
-| `MOTION_BLOCKING_NO_LEAVES` | -           |
+| 模式                        | 说明 |
+| --------------------------- | ---- |
+| `WORLD_SURFACE_WG`          | -    |
+| `WORLD_SURFACE`             | -    |
+| `OCEAN_FLOOR_WG`            | -    |
+| `OCEAN_FLOOR`               | -    |
+| `MOTION_BLOCKING`           | -    |
+| `MOTION_BLOCKING_NO_LEAVES` | -    |

@@ -1,78 +1,83 @@
-Playing sounds tutorial
+---
+title: 声音
+sidebar_label: 声音
+---
 
-Using Figura you can play custom sounds and sounds from Minecraft itself.
+播放声音教程
 
-This article assumes you know to avoid calling the player in init.
+借助 Figura，你可以播放自定义声音，也可以播放 Minecraft 自带的声音。
 
-## Playing A Sound
+本文假设你已经知道要避免在 init 中调用 player。
 
-The most common way to play a sound is through the <code>playSound</code> function in the sound API.
+## 播放声音
+
+播放声音最常见的方式是使用声音 API 中的 <code>playSound</code> 函数。
 
 ```lua
 sounds:playSound(soundID, position, volume, pitch, loop)
 ```
 
-As you can see this function takes five arguments, the sound ID, the position it will be played, the volume (this dictates how close players need to be to hear the sound, default is 1), its pitch (default is 1), and whether or not it will start playing immediately after it ends (default is false).
+可以看到，这个函数接受五个参数：声音 ID、播放位置、音量（决定玩家需要离得多近才能听到该声音，默认值为 1）、音调（默认值为 1），以及声音结束后是否立即重新开始播放（默认值为 false）。
 
-For Minecraft sounds the sound ID is the internal name of the sound, you can find these on the [Minecraft Wiki](https://minecraft.wiki/w/Sounds.json/Java_Edition_values) under the Sound Event column. It will play one of the sounds associated with that ID at random.
+对于 Minecraft 声音，声音 ID 是声音的内部名称，可以在 [Minecraft Wiki](https://minecraft.wiki/w/Sounds.json/Java_Edition_values) 的 Sound Event 列中找到。播放时会从该 ID 关联的多个声音中随机选择一个。
 
-Example, note that the id is a string because it's in quotes:
+示例，注意 id 是字符串，因为它带有引号：
 
 ```lua
 sounds:playSound("entity.bat.ambient", player:getPos())
 ```
 
-For this example I'm supplying the player position as the location or else it will play at (0,0,0) in the world itself. Because I left out the volume, pitch, and loop, the default values of 1, 1, and false were filled in by Figura. Meaning, it will play with default pitch, default volume, and it won't loop.
+这个示例中我把玩家位置作为播放位置传入，否则声音会在世界坐标 (0,0,0) 处播放。由于省略了音量、音调与循环参数，Figura 会自动填入默认值 1、1 和 false。也就是说，它会以默认音调、默认音量播放，并且不会循环。
 
-Example with the other arguments filled:
+补全其他参数的示例：
 
 ```lua
 sounds:playSound("entity.bat.ambient", player:getPos(), 1, 1, false)
 ```
 
-## Custom Sounds
+## 自定义声音
 
-Playing a custom sound is exactly the same as playing a Minecraft sound, except the sound ID is now the name of the sound file.
+播放自定义声音与播放 Minecraft 声音完全相同，只是声音 ID 变成了声音文件的名称。
 
-Ex: If your file is <code>horn.ogg</code> then your playSound line would look like this:
+例如：如果你的文件名是 <code>horn.ogg</code>，那么 playSound 这一行应写成这样：
 
 ```lua
 sounds:playSound("horn", player:getPos())
 ```
 
-Minecraft will only play specific sound files, namely sounds that are .ogg files. Here's an [online OGG converter](https://audio.online-convert.com/convert-to-ogg). You will want to change the audio channels setting to <code>mono</code> and the audio codec to <code>Vorbis</code>.
+Minecraft 只能播放特定格式的声音文件，即 .ogg 文件。这里有一个[在线 OGG 转换器](https://audio.online-convert.com/convert-to-ogg)。你需要把音频声道设置改为 <code>mono</code>，把音频编解码器改为 <code>Vorbis</code>。
 
-If your custom sound is stored in a subfolder in the avatar, the subfolder name gets added onto the sound name like this:
+如果你的自定义声音存放在形象内的子文件夹中，子文件夹名会以如下方式加到声音名称前面：
 
 ```lua
 sounds:playSound("subfolder.horn", player:getPos())
 ```
 
-### Mono vs Stereo Sounds
+### 单声道与立体声声音
 
-The audio channel type determines if the right and left ear will have two separate channels (meaning that the left and right ears can be different) or if they'll have the same channel for both ears.
+声道类型决定左右耳是否拥有两个独立声道（即左右耳听到的内容可以不同），还是两耳共用同一个声道。
 
-Mono sounds are half the size of stereo when it comes to file size. Mono also acts like your average vanilla sound meaning only people near you will be able to hear the sound.
+在文件大小上，单声道声音只有立体声的一半。单声道的行为也与常见的原版声音相同，即只有靠近你的人才能听到。
 
-Stereo sounds are much bigger (and sounds are already quite big when it comes to file size) and will play for _everyone in the server_ similarly to activating an end portal. There's no way to get around that other than to swap the audio channels to mono.
+立体声声音要大得多（而声音文件的体积本来就不小），而且会像激活末地传送门那样向 _服务器上的所有人_ 播放。除了把声道改为单声道，没有别的办法绕过这一点。
 
-## Alternative Ways To Play Sounds
+## 其他播放声音的方式
 
-If you want to make a long or looping sound follow your movement you're going to need to use a different method for playing sounds.
+如果你想让一个较长的或循环播放的声音跟随你的移动，就需要换一种播放方式。
 
-You have to store a reference to the sound in a variable so you can use it later
+你需要把声音的引用保存到一个变量中，以便后续使用
 
 ```lua
 local wDeath = sounds["entity.wither.death"]
 ```
 
-Now you have the wither death sound available for your use wherever within that local scope.
+现在你可以在该局部作用域内的任何位置使用凋灵死亡音效。
 
 ```lua
 wDeath:play():loop(true)
 ```
 
-Will play the sound and make it loop, but without a position it will be at (0,0,0) in the world.
+这会播放声音并让它循环，但由于没有指定位置，它会在世界坐标 (0,0,0) 处播放。
 
 ```lua
 function events.tick()
@@ -80,7 +85,7 @@ function events.tick()
 end
 ```
 
-Full example:
+完整示例：
 
 ```lua
 local wDeath = sounds["entity.wither.death"]
@@ -90,4 +95,4 @@ function events.tick()
 end
 ```
 
-You can alter the volume, pitch, and loop with this method as well.
+用这种方式同样可以调整音量、音调与循环。

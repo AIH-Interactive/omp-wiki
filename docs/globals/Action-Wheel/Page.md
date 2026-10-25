@@ -1,9 +1,14 @@
+---
+title: Page（动作轮盘页面）
+sidebar_label: Page（页面）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-An Action Wheel container which is used to store up to 8 actions
+动作轮盘容器，用于存放最多 8 个动作
 
-For the entire page assume:
+本页示例统一假定：
 
 ```lua
 local myPage = action_wheel:newPage()
@@ -11,50 +16,50 @@ local myPage = action_wheel:newPage()
 
 ---
 
-## Action
+## 动作
 
 ### <code>newAction()</code> \{#newAction}
 
-Adds a new Action on the selected Page's index
+在选中页面的指定索引新增一个动作
 
-If no index is given it is added in the first available index
+如果不指定索引，则添加到第一个可用槽位
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 newAction()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description            |
-| --------------------------------------------------- | ---------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | An action wheel action |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 一个动作轮盘动作 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 newAction(index)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                   | Default |
-| ----- | ------------------------------------------------ | ----------------------------- | ------- |
-| index | <code>[Integer](/tutorials/types/Numbers)</code> | The slot to set the action to | `nil`   |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| index | <code>[Integer](/tutorials/types/Numbers)</code> | 要放置动作的槽位 | `nil` |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description            |
-| --------------------------------------------------- | ---------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | An action wheel action |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 一个动作轮盘动作 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local myAction = myPage:newAction()
@@ -64,25 +69,25 @@ local myAction = myPage:newAction()
 
 ### <code>getAction()</code> \{#getAction}
 
-Gets an Action from the Page's given index
+从页面的指定索引获取一个动作
 
 ```lua
 getAction(index)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                     | Default  |
-| ----- | ------------------------------------------------ | ------------------------------- | -------- |
-| index | <code>[Integer](/tutorials/types/Numbers)</code> | The slot to get the action from | Required |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| index | <code>[Integer](/tutorials/types/Numbers)</code> | 要获取动作的槽位 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                                | Description            |
-| --------------------------------------------------- | ---------------------- |
-| <code>[Action](/globals/Action-Wheel/Action)</code> | An action wheel action |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Action](/globals/Action-Wheel/Action)</code> | 一个动作轮盘动作 |
 
-**Example:**
+**示例：**
 
 ```lua
 myPage:getAction(1)
@@ -92,48 +97,48 @@ myPage:getAction(1)
 
 ### <code>getActions()</code> \{#getActions}
 
-Gets a table of the Actions shifted by the given number
+获取按给定偏移量平移后的动作表
 
-If no shift is specified, it returns all Actions from this page
+如果未指定偏移，则返回此页面中的全部动作
 
-Note that the table is indexed as its slot number as key, so blank slots will result in nil values
+注意：表以槽位号为键，因此空槽位对应的值为 nil
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getActions()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description                                   |
-| --------------------------------------------- | --------------------------------------------- |
-| <code>[Table](/tutorials/types/Tables)</code> | A table that contains all actions in the page |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Table](/tutorials/types/Tables)</code> | 包含此页面中全部动作的表 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getActions(shift)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                        | Default |
-| ----- | ------------------------------------------------ | ---------------------------------- | ------- |
-| shift | <code>[Integer](/tutorials/types/Numbers)</code> | The page shift to get actions from | `nil`   |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| shift | <code>[Integer](/tutorials/types/Numbers)</code> | 要获取动作的页面偏移 | `nil` |
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description                                                      |
-| --------------------------------------------- | ---------------------------------------------------------------- |
-| <code>[Table](/tutorials/types/Tables)</code> | A table that contains all actions in the page's given slot shift |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Table](/tutorials/types/Tables)</code> | 包含此页面指定槽位偏移下全部动作的表 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 1):**
+**示例（重载 1）：**
 
 ```lua
 myPage:getActions()
@@ -143,30 +148,30 @@ myPage:getActions()
 
 ### <code>setAction()</code> \{#setAction}
 
-**Aliases:** `action()`
+**别名：** `action()`
 
-Sets an Action in the Page's given index
+在页面的指定索引设置一个动作
 
-If index is -1, the action will be set in the latest empty index
+如果索引为 -1，则动作会放入最后一个空槽位
 
 ```lua
 setAction(index, action)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                                | Description                               | Default  |
-| ------ | --------------------------------------------------- | ----------------------------------------- | -------- |
-| index  | <code>[Integer](/tutorials/types/Numbers)</code>    | The slot on the page to set the action to | Required |
-| action | <code>[Action](/globals/Action-Wheel/Action)</code> | An action wheel action                    | Required |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| index | <code>[Integer](/tutorials/types/Numbers)</code> | 页面上要放置动作的槽位 | 必填 |
+| action | <code>[Action](/globals/Action-Wheel/Action)</code> | 一个动作轮盘动作 | 必填 |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description               |
-| ----------------------------------------------- | ------------------------- |
-| <code>[Page](/globals/Action-Wheel/Page)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Page](/globals/Action-Wheel/Page)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 local myAction = action_wheel:newAction()
@@ -175,29 +180,29 @@ myPage:setAction(-1, myAction)
 
 ---
 
-## Slot
+## 槽位
 
 ### <code>setKeepSlots()</code> \{#setKeepSlots}
 
-Sets if this page's current slots should be reset when adding this page on the Action Wheel
+设置将此页面添加到动作轮盘时，页面当前的槽位是否应被重置
 
 ```lua
 setKeepSlots(bool)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                              | Description                                          | Default |
-| ---- | ------------------------------------------------- | ---------------------------------------------------- | ------- |
-| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | If true the slots won't be reset, if false they will | `false` |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | 为 true 时槽位不会被重置，为 false 时会被重置 | `false` |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description               |
-| ----------------------------------------------- | ------------------------- |
-| <code>[Page](/globals/Action-Wheel/Page)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Page](/globals/Action-Wheel/Page)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myPage:setKeepSlots(true)
@@ -207,19 +212,19 @@ myPage:setKeepSlots(true)
 
 ### <code>shouldKeepSlots()</code> \{#shouldKeepSlots}
 
-Gets if this page's current slots should be reset when adding this page on the Action Wheel
+获取将此页面添加到动作轮盘时，页面当前的槽位是否会被重置
 
 ```lua
 shouldKeepSlots()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description                                          |
-| ------------------------------------------------- | ---------------------------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | If true the slots won't be reset, if false they will |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 为 true 时槽位不会被重置，为 false 时会被重置 |
 
-**Example:**
+**示例：**
 
 ```lua
 myPage:shouldKeepSlots(true)
@@ -229,29 +234,29 @@ myPage:shouldKeepSlots(true)
 
 ### <code>setSlotsShift()</code> \{#setSlotsShift}
 
-**Aliases:** `slotsShift()`
+**别名：** `slotsShift()`
 
-Sets this page's current slots shift
+设置此页面当前的槽位偏移
 
-Slots 1-8 are shift 1, slots 9-16 are 2, etc
+槽位 1-8 对应偏移 1，槽位 9-16 对应偏移 2，依此类推
 
 ```lua
 setSlotsShift(shift)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description                         | Default |
-| ----- | ------------------------------------------------ | ----------------------------------- | ------- |
-| shift | <code>[Integer](/tutorials/types/Numbers)</code> | The page shift that will be visible | `1`     |
+| 名称 | 类型 | 说明 | 默认值 |
+| ---- | ---- | ---- | ------ |
+| shift | <code>[Integer](/tutorials/types/Numbers)</code> | 将要显示的页面偏移 | `1` |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description               |
-| ----------------------------------------------- | ------------------------- |
-| <code>[Page](/globals/Action-Wheel/Page)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Page](/globals/Action-Wheel/Page)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myPage:setSlotsShift(1)
@@ -261,21 +266,21 @@ myPage:setSlotsShift(1)
 
 ### <code>getSlotsShift()</code> \{#getSlotsShift}
 
-Gets this page's current slots shift
+获取此页面当前的槽位偏移
 
-Slots 1-8 are shift 1, slots 9-16 are 2, etc
+槽位 1-8 对应偏移 1，槽位 9-16 对应偏移 2，依此类推
 
 ```lua
 getSlotsShift()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description                    |
-| ------------------------------------------------ | ------------------------------ |
-| <code>[Integer](/tutorials/types/Numbers)</code> | The page shift that is visible |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | 当前显示的页面偏移 |
 
-**Example:**
+**示例：**
 
 ```lua
 myPage:getSlotsShift()
@@ -283,23 +288,23 @@ myPage:getSlotsShift()
 
 ---
 
-## Misc
+## 其他
 
 ### <code>getTitle()</code> \{#getTitle}
 
-Returns the title of this Page
+返回此页面的标题
 
 ```lua
 getTitle()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description                                   |
-| ----------------------------------------------- | --------------------------------------------- |
-| <code>[String](/tutorials/types/Strings)</code> | The name for the page that is used internally |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[String](/tutorials/types/Strings)</code> | 页面内部使用的名称 |
 
-**Example:**
+**示例：**
 
 ```lua
 myPage:getTitle()
@@ -307,15 +312,15 @@ myPage:getTitle()
 
 ---
 
-## Fields
+## 字段
 
 ### <code>keepSlots</code> \{#keepSlots}
 
-Whether or not this page's current slots should be reset when adding this page on the Action Wheel
+将此页面添加到动作轮盘时，页面当前的槽位是否应被重置
 
-See [`setKeepSlots`](#setKeepSlots) for an example of how to set it
+设置此字段的示例见 [`setKeepSlots`](#setKeepSlots)
 
-**Example:**
+**示例：**
 
 ```lua
 myPage.keepSlots = true

@@ -1,10 +1,15 @@
-A boolean is a Lua value that is either <code>true</code> or <code>false</code>.
+---
+title: 布尔值
+sidebar_label: 布尔值
+---
 
-Additionally, Lua treats all values as if they're 'truthy' or 'falsey'.
+布尔值（boolean）是 Lua 中取值为 <code>true</code> 或 <code>false</code> 的一种值。
 
-If a value is truthy and it's in an if statement or a function that wants a boolean value, the value is treated as true.
+此外，Lua 还会把任意值视为“真值（truthy）”或“假值（falsey）”。
 
-Example:
+如果一个值是真值，并且出现在 if 语句或需要布尔值的函数中，该值就会被当作 true。
+
+示例：
 
 ```lua
 if 0 then
@@ -14,9 +19,9 @@ else
 end
 ```
 
-If a value is falsey and it's in an if statement or a function that wants a boolean value, the value is treated as false.
+如果一个值是假值，并且出现在 if 语句或需要布尔值的函数中，该值就会被当作 false。
 
-Example:
+示例：
 
 ```lua
 if nil then
@@ -26,11 +31,11 @@ else
 end
 ```
 
-The only values that are falsey are false and nil, every other value (numbers, tables, modelparts, etc) is truthy. (nil as a value means there's no information. It's literally nothing)
+假值只有 false 和 nil 两个，其他所有值（数字、表、模型部件等）都是真值。（nil 作为值表示“没有信息”，它字面上就是空无一物。）
 
-The <code>not</code> operator flips the truthiness of the value into true or false.
+<code>not</code> 运算符会把值的真假性翻转为 true 或 false。
 
-Examples (all of these are true statements):
+示例（以下语句都成立）：
 
 ```lua
 not true == false
@@ -39,4 +44,4 @@ not nil == true -- a non-boolean value is turned into a boolean
 not models == false -- models is a modelpart and truthy, so flipping it turns it into false
 ```
 
-When used in methods <code>true</code> usually activates something, and <code>false</code> deactivates it. However in some places returning true may turn something off; always read the description of a method, field, or event to discover what boolean does what.
+用在方法中时，<code>true</code> 通常表示启用某项功能，<code>false</code> 表示停用。但在有些地方，返回 true 反而会关闭某项功能；请始终阅读方法、字段或事件的说明，确认布尔值具体起什么作用。

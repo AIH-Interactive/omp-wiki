@@ -1,10 +1,11 @@
 {
-  "label": "Sound",
+  "label": "声音",
   "link": {
     "type": "generated-index",
-    "description": "List of all classes in the Sound API."
+    "description": "声音分类下的页面。",
+    "slug": "/category/sounds"
   },
   "customProps": {
-    "description": "A global API which is used to play Minecraft sounds"
+    "description": "声音相关的全局对象说明。"
   }
 }

@@ -1,13 +1,18 @@
+---
+title: Matrix2（2×2 矩阵）
+sidebar_label: Matrix2（2×2 矩阵）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A matrix with 2 rows and 2 columns
+2 行 2 列的矩阵。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
-For this entire page assume:
+本页示例均假定：
 
 ```lua
 local myMat = matrices.mat2()
@@ -15,31 +20,31 @@ local myMat = matrices.mat2()
 
 ---
 
-## Math
+## 数学运算
 
 ### <code>add()</code> \{#add}
 
-Adds the other matrix to this one
+把另一个矩阵加到当前矩阵上。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 add(other)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                              | Description | Default |
-| ----- | ------------------------------------------------- | ----------- | ------- |
-| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -           | -       |
+| 名称  | 类型                                              | 说明 | 默认值 |
+| ----- | ------------------------------------------------- | ---- | ------ |
+| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:add(matrices.mat2():scale(2))
@@ -49,27 +54,27 @@ myMat:add(matrices.mat2():scale(2))
 
 ### <code>sub()</code> \{#sub}
 
-Subtracts the other matrix from this one
+从当前矩阵中减去另一个矩阵。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 sub(other)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                              | Description | Default |
-| ----- | ------------------------------------------------- | ----------- | ------- |
-| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -           | -       |
+| 名称  | 类型                                              | 说明 | 默认值 |
+| ----- | ------------------------------------------------- | ---- | ------ |
+| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:sub(matrices.mat2():scale(2))
@@ -79,19 +84,19 @@ myMat:sub(matrices.mat2():scale(2))
 
 ### <code>det()</code> \{#det}
 
-Calculates and returns the determinant of this matrix
+计算并返回当前矩阵的行列式。
 
 ```lua
 det()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:det()
@@ -101,21 +106,21 @@ myMat:det()
 
 ### <code>invert()</code> \{#invert}
 
-Inverts this matrix, changing the values inside
+对当前矩阵求逆，会直接修改矩阵内部的值。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 invert()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:invert()
@@ -125,19 +130,19 @@ myMat:invert()
 
 ### <code>inverted()</code> \{#inverted}
 
-Returns a copy of this matrix, but inverted
+返回当前矩阵的逆矩阵副本。
 
 ```lua
 inverted()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:inverted()
@@ -147,27 +152,27 @@ myMat:inverted()
 
 ### <code>multiply()</code> \{#multiply}
 
-Multiplies this matrix by the other matrix, with the other matrix on the left
+将当前矩阵乘以另一个矩阵，另一个矩阵放在左侧。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 multiply(other)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                              | Description | Default |
-| ----- | ------------------------------------------------- | ----------- | ------- |
-| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -           | -       |
+| 名称  | 类型                                              | 说明 | 默认值 |
+| ----- | ------------------------------------------------- | ---- | ------ |
+| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:multiply(matrices.mat2():scale(2))
@@ -177,27 +182,27 @@ myMat:multiply(matrices.mat2():scale(2))
 
 ### <code>rightMultiply()</code> \{#rightMultiply}
 
-Multiplies this matrix by the other matrix, with the other matrix on the right
+将当前矩阵乘以另一个矩阵，另一个矩阵放在右侧。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 rightMultiply(other)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                              | Description | Default |
-| ----- | ------------------------------------------------- | ----------- | ------- |
-| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -           | -       |
+| 名称  | 类型                                              | 说明 | 默认值 |
+| ----- | ------------------------------------------------- | ---- | ------ |
+| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:rightMultiply(matrices.mat2():scale(2))
@@ -205,31 +210,31 @@ myMat:rightMultiply(matrices.mat2():scale(2))
 
 ---
 
-## Accessors
+## 访问器
 
 ### <code>getColumn()</code> \{#getColumn}
 
-Gets the given column of this matrix, as a vector
+以向量形式获取当前矩阵的指定列。
 
-Indexing starts at 1, as usual
+索引与通常一样从 1 开始。
 
 ```lua
 getColumn(col)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| col  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| col  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector2](/globals/Vectors/Vector2)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:getColumn(1)
@@ -239,27 +244,27 @@ myMat:getColumn(1)
 
 ### <code>getRow()</code> \{#getRow}
 
-Gets the given row of this matrix, as a vector
+以向量形式获取当前矩阵的指定行。
 
-Indexing starts at 1, as usual
+索引与通常一样从 1 开始。
 
 ```lua
 getRow(row)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| row  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| row  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector2](/globals/Vectors/Vector2)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:getRow(1)
@@ -267,29 +272,29 @@ myMat:getRow(1)
 
 ---
 
-## Transformation
+## 变换
 
 ### <code>apply()</code> \{#apply}
 
-Treats the given values as a vector, augments this vector with a 1, multiplies it against the matrix, and returns a deaugmented vector of the first values
+把给定的值视为一个向量，在该向量末尾补 1 做增广，再与矩阵相乘，最后去掉增广项，返回由前几个分量组成的向量。
 
 ```lua
 apply(x)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:apply()
@@ -299,25 +304,25 @@ myMat:apply()
 
 ### <code>applyDir()</code> \{#applyDir}
 
-Treats the given values as a vector, augments this vector with a 0, multiplies it against the matrix, and returns a deaugmented vector of the first values
+把给定的值视为一个向量，在该向量末尾补 0 做增广，再与矩阵相乘，最后去掉增广项，返回由前几个分量组成的向量。
 
 ```lua
 applyDir(x)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:applyDir()
@@ -327,29 +332,29 @@ myMat:applyDir()
 
 ### <code>rotate()</code> \{#rotate}
 
-Rotates this matrix by the specified amount, changing the values inside
+按指定角度旋转当前矩阵，会直接修改矩阵内部的值。
 
-Angles are given in degrees
+角度以度为单位。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 rotate(degrees)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description | Default |
-| ------- | ----------------------------------------------- | ----------- | ------- |
-| degrees | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称    | 类型                                            | 说明 | 默认值 |
+| ------- | ----------------------------------------------- | ---- | ------ |
+| degrees | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:rotate(90)
@@ -359,53 +364,53 @@ myMat:rotate(90)
 
 ### <code>scale()</code> \{#scale}
 
-Scales this matrix by the specified amount, changing the values inside
+按指定比例缩放当前矩阵，会直接修改矩阵内部的值。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 scale(vec)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| vec  | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| vec  | <code>[Vector2](/globals/Vectors/Vector2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 scale(x, y)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:scale(2, 2)
@@ -415,23 +420,23 @@ myMat:scale(2, 2)
 
 ### <code>transpose()</code> \{#transpose}
 
-Transposes this matrix, changing the values inside
+转置当前矩阵，会直接修改矩阵内部的值。
 
-Transposing means to swap the rows and the columns
+转置即交换矩阵的行与列。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 transpose()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:transpose()
@@ -441,21 +446,21 @@ myMat:transpose()
 
 ### <code>transposed()</code> \{#transposed}
 
-Returns a copy of this matrix, but transposed
+返回当前矩阵的转置副本。
 
-Transposing means to swap the rows and the columns
+转置即交换矩阵的行与列。
 
 ```lua
 transposed()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:transposed()
@@ -463,31 +468,31 @@ myMat:transposed()
 
 ---
 
-## Utility
+## 工具
 
 ### <code>set()</code> \{#set}
 
-Sets this matrix to have the same values as the matrix passed in
+把当前矩阵的数值设为传入矩阵的数值。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 set(other)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                              | Description | Default |
-| ----- | ------------------------------------------------- | ----------- | ------- |
-| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -           | -       |
+| 名称  | 类型                                              | 说明 | 默认值 |
+| ----- | ------------------------------------------------- | ---- | ------ |
+| other | <code>[Matrix2](/globals/Matrices/Matrix2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:set()
@@ -497,21 +502,21 @@ myMat:set()
 
 ### <code>augmented()</code> \{#augmented}
 
-Augments this matrix, adding an additional row and column
+对当前矩阵做增广，新增一行和一列。
 
-Puts a 1 along the diagonal in the new spot, and the rest are zero
+新增位置的对角线上填 1，其余位置填 0。
 
 ```lua
 augmented()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:augmented()
@@ -521,19 +526,19 @@ myMat:augmented()
 
 ### <code>copy()</code> \{#copy}
 
-Creates and returns a new copy of this matrix
+创建并返回当前矩阵的新副本。
 
 ```lua
 copy()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:copy()
@@ -543,21 +548,21 @@ myMat:copy()
 
 ### <code>reset()</code> \{#reset}
 
-Resets this matrix back to the identity matrix
+把当前矩阵重置为单位矩阵。
 
-Returns self for chaining
+返回自身，便于链式调用。
 
 ```lua
 reset()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Matrix2](/globals/Matrices/Matrix2)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myMat:reset()

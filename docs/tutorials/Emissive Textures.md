@@ -1,56 +1,61 @@
+---
+title: 自发光纹理（Emissive Textures）
+sidebar_label: 自发光纹理
+---
+
 import Emoji from '@site/src/components/Emoji';
 
-This page describes everything to know about Emissive Textures.
+本页介绍自发光纹理（Emissive Texture）的相关知识。
 
-## Defining a Texture as Emissive
+## 将纹理设为自发光
 
-Every ModelPart in BlockBench has a reference to a single texture. When Figura loads the avatar, Figura looks for a texture with the same name as the texture used by the ModelPart but with <code>\_e</code> added to the end of it. For example, the emissive texture used by ModelParts that use <Emoji icon="file/texture"/> <code>texture.png</code> will use <Emoji icon="file/texture"/> <code>texture_e.png</code> as their emissive texture.<br/>
-<code>\_e</code> is one of the [texture suffixes](../start_here/BlockBench#texture-suffix) that Figura looks for when loading an avatar.
+Blockbench 中的每个模型部件（ModelPart）都引用一张纹理。Figura 加载形象时，会查找与该模型部件使用的纹理同名、但末尾加上 <code>\_e</code> 的纹理。例如，使用 <Emoji icon="file/texture"/> <code>texture.png</code> 的模型部件，其自发光纹理会是 <Emoji icon="file/texture"/> <code>texture_e.png</code>。<br/>
+<code>\_e</code> 是 Figura 加载形象时会查找的[纹理后缀](../start_here/BlockBench#texture-suffix)之一。
 
 <img src={require("@site/static/img/emissive-example/names.png").default} width="400"></img>
 
-## Emissive Texture Behavior
+## 自发光纹理的表现
 
 <img src={require("@site/static/img/emissive-example/emissive.png").default} align="right"/>
 
-The pixels on a Texture using the <code>"EMISSIVE"</code> [RenderType](../enums/RenderTypes) are not interpreted the same was as a regular texture.<br/>
+使用 <code>"EMISSIVE"</code> [渲染类型](../enums/RenderTypes) 的纹理，其像素的解释方式与普通纹理不同。<br/>
 
-First of all, the alpha values of pixels are ignored. This means that the emissive texture itself cannot be halfway visible. Its either the pixel is completely opaque, or completely gone. No in between.<br/>
-On the texture below, both pixels will render the exact same. Even though they appear to be 2 distinct colors, the right color has an alpha value of <code>139</code> and is blending with the gray GitHub background. They have the exact same RGB values and will be rendered exactly the same under the <code>"EMISSIVE"</code> RenderType.<br/>
+首先，像素的 Alpha 值会被忽略。也就是说，自发光纹理本身无法呈现半透明：像素要么完全不透明，要么完全消失，没有中间状态。<br/>
+在下图中，两个像素的渲染结果完全相同。虽然它们看起来是两种不同的颜色，但右侧颜色的 Alpha 值为 <code>139</code>，正在与 GitHub 的灰色背景混合。两者的 RGB 值完全相同，在 <code>"EMISSIVE"</code> 渲染类型下的渲染结果也完全一致。<br/>
 <img src={require("@site/static/img/emissive-example/alpha.png").default} width="40"/>
 
-Second, the "brightness" of a pixel is what determines the intensity of the emissive glow. If you know HSV, its the Value that controls this property. Emissive Intensity controls how bright the pixel will render, but also how much of the pixel behind it will show through.<br/>
-On the texture below, both pixels will render with the same color. The pixel on the left will render with max brightness, not allowing the pixels on the base texture to blend through. The pixel on the right won't glow as much, but allows the pixels on the base texture to blend through.<br/>
+其次，像素的“亮度”决定自发光的强度。如果你了解 HSV，控制这项属性的就是 Value。自发光强度既决定像素渲染得多亮，也决定它背后有多少像素能透出来。<br/>
+在下图中，两个像素会渲染成相同的颜色。左侧像素以最大亮度渲染，不允许基础纹理的像素透出；右侧像素发光较弱，但允许基础纹理的像素透出。<br/>
 <img src={require("@site/static/img/emissive-example/brightness.png").default} width="40"/>
 
-## Iris Emissives
+## Iris 自发光
 
-If you use Iris, regardless of the fact of if you are currently using custom shaders, the <code>"EMISSIVE"</code> RenderType is modified to use the alpha value when rendering the emissive texture. How exactly is not known. Experimentation is required.
+如果使用 Iris，那么无论当前是否启用自定义光影（shader），<code>"EMISSIVE"</code> 渲染类型都会被修改为在渲染自发光纹理时使用 Alpha 值。具体如何修改尚不清楚，需要自行实验。
 
-## Emissive Render Types
+## 自发光渲染类型
 
-There are three emissive render types: EMISSIVE, EMISSIVE_SOLID, and EYES. All of these **require** the original \_e texture and will make the same pixels glow that are in the \_e texture.
+共有三种自发光渲染类型：EMISSIVE、EMISSIVE_SOLID 和 EYES。它们都**需要**原始的 \_e 纹理，并会让 \_e 纹理中对应的像素发光。
 
 ### EMISSIVE
 
-This is the default render type of the \_e texture.
+这是 \_e 纹理的默认渲染类型。
 
 ### EMISSIVE_SOLID
 
-Like EMISSIVE, but it doesn't allow transparency, transparent pixels will render as black.
+与 EMISSIVE 类似，但不允许透明，透明像素会渲染成黑色。
 
 ### EYES
 
-The render type as Enderman and Spider eyes. This will not make the glowing pixels visible while you are under the invisibility effect.
+与末影人、蜘蛛眼睛相同的渲染类型。处于隐身效果下时，它不会让发光的像素显示出来。
 
-### Setting Render Type Example
+### 设置渲染类型示例
 
-To be clear: To use these you still need to have the \_e texture, this can simply change the rendering of it
+说明：使用这些渲染类型时仍然需要 \_e 纹理，它们只是改变该纹理的渲染方式。
 
-You can set the render type to "Eyes" like this
+可以这样把渲染类型设为 “Eyes”：
 
 ```lua
 models:setSecondaryRenderType("Eyes")
 ```
 
-Note: The glow on the paperdoll and the skull may look slightly different.
+注意：纸娃娃和头颅上的发光效果可能略有不同。

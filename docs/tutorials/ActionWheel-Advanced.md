@@ -1,19 +1,19 @@
 ---
-title: Action Wheel Advanced
+title: 动作轮盘进阶
 unlisted: true
 ---
 
-Advanced action wheel tutorial
+动作轮盘进阶教程
 
-If you haven't read and understood the beginner action wheel tutorial, start [there](../tutorials/ActionWheel.md).
+如果你还没有读过并理解入门版动作轮盘教程，请先看[这里](../tutorials/ActionWheel.md)。
 
-## Multi Page Setup
+## 多页面结构
 
-Creating a network of Pages can be overwhelming. Lets try to rectify that.
+把多个页面连成网络容易让人无从下手。下面给出一种更清晰的写法。
 
-This method for creating a Page Network divides the Pages into separate, isolated files. These files return an Action that can be added to a different page. This Action will set the current page to the page in the file, but it first stores a reference to the Page it came from. That way when you want to go back to the previous page, its as simple as setting the current page to the stored Page.
+这种构建页面网络的做法把每个页面拆到独立、互不干扰的文件中。这些文件返回一个动作，可以添加到其他页面上。这个动作会把当前页面切换为该文件中的页面，但在切换之前先保存来源页面的引用。这样想回到上一个页面时，只要把当前页面设为保存的那个页面即可。
 
-This allows Pages to be modular and easily reorganized if needed. More importantly, it can help make multiple pages less overwhelming.
+这样页面就实现了模块化，需要时也能轻松重新组织。更重要的是，它能让多个页面不再那么难以驾驭。
 
 ```lua
 --ActionWheel.lua
@@ -84,11 +84,11 @@ return action_wheel:newAction()
     end)
 ```
 
-## Setting Default State of Toggle Action
+## 设置开关型动作的默认状态
 
-This primarily utilizes calling a ping function without the network code, which is explained [here](./Pings#ping-on-init)
+这里主要用到的技巧是不经过网络代码直接调用 ping 函数，相关说明见[这里](./Pings#ping-on-init)。
 
-This example will correctly set the default visibility of a theoretical jetpack model
+下面的示例会为一个假想的喷气背包模型正确设置默认可见性。
 
 <!-- prettier-ignore -->
 ```lua

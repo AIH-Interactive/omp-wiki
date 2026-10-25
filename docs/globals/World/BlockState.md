@@ -1,17 +1,22 @@
+---
+title: BlockState（方块状态）
+sidebar_label: BlockState（方块状态）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A proxy for a block state from Minecraft
+Minecraft 方块状态的代理对象。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
-Instances are obtained through the WorldAPI
+实例通过 WorldAPI 获取。
 
-This proxy also contains a saved position for the BlockState
+该代理对象还会为 BlockState 保存一个位置。
 
-For all exmaples on this page assume:
+本页所有示例都假设：
 
 ```lua
 local block = world.getBlockState(player:getPos():sub(0, 0.5, 0))
@@ -19,23 +24,23 @@ local block = world.getBlockState(player:getPos():sub(0, 0.5, 0))
 
 ---
 
-## Redstone Properties
+## 红石属性
 
 ### <code>getComparatorOutput()</code> \{#getComparatorOutput}
 
-Gets the amount of signal strength a comparator would get from this BlockState
+获取比较器会从此 BlockState 读取到的信号强度。
 
 ```lua
 getComparatorOutput()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getComparatorOutput()
@@ -45,19 +50,19 @@ block:getComparatorOutput()
 
 ### <code>emitsRedstonePower()</code> \{#emitsRedstonePower}
 
-Gets whether or not this BlockState emits redstone power
+获取此 BlockState 是否发出红石能量。
 
 ```lua
 emitsRedstonePower()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:emitsRedstonePower()
@@ -65,25 +70,25 @@ block:emitsRedstonePower()
 
 ---
 
-## Player Effects
+## 玩家影响
 
 ### <code>getJumpVelocityMultiplier()</code> \{#getJumpVelocityMultiplier}
 
-Gets the jump velocity multiplier of this BlockState
+获取此 BlockState 的跳跃速度倍率。
 
-(Literally just honey blocks in vanilla)
+（在原版中实际上只有蜂蜜块如此）。
 
 ```lua
 getJumpVelocityMultiplier()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getJumpVelocityMultiplier()
@@ -93,21 +98,21 @@ block:getJumpVelocityMultiplier()
 
 ### <code>getVelocityMultiplier()</code> \{#getVelocityMultiplier}
 
-Gets the velocity multiplier of this BlockState
+获取此 BlockState 的速度倍率。
 
-(Only Soul sand, honey blocks in vanilla)
+（在原版中只有灵魂沙和蜂蜜块如此）。
 
 ```lua
 getVelocityMultiplier()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getVelocityMultiplier()
@@ -115,25 +120,25 @@ block:getVelocityMultiplier()
 
 ---
 
-## Shape
+## 形状
 
 ### <code>getCollisionShape()</code> \{#getCollisionShape}
 
-Returns a table representing the bounding boxes of the collision shape
+返回表示碰撞形状包围盒的表。
 
-The table a list of every shape, containing two Vector3, where the first vector is one corner of the box and the other vector is the other corner
+该表列出每个形状，每个形状包含两个 Vector3：第一个向量是包围盒的一个角，另一个向量是相对的角。
 
 ```lua
 getCollisionShape()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getCollisionShape()
@@ -143,21 +148,21 @@ block:getCollisionShape()
 
 ### <code>getOutlineShape()</code> \{#getOutlineShape}
 
-Returns a table representing the bounding boxes of the outline shape
+返回表示轮廓形状包围盒的表。
 
-The table a list of every shape, containing two Vector3, where the first vector is one corner of the box and the other vector is the other corner
+该表列出每个形状，每个形状包含两个 Vector3：第一个向量是包围盒的一个角，另一个向量是相对的角。
 
 ```lua
 getOutlineShape()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getOutlineShape()
@@ -165,23 +170,23 @@ block:getOutlineShape()
 
 ---
 
-## Visual Properties
+## 视觉属性
 
 ### <code>getLuminance()</code> \{#getLuminance}
 
-Gets the emission light level of this BlockState
+获取此 BlockState 的发光等级。
 
 ```lua
 getLuminance()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getLuminance()
@@ -191,19 +196,19 @@ block:getLuminance()
 
 ### <code>getMapColor()</code> \{#getMapColor}
 
-Gets the map color of this BlockState, as a Vector3 with R,G,B ranging 0 to 1
+获取此 BlockState 的地图颜色，以 Vector3 表示，R、G、B 的取值范围为 0 到 1。
 
 ```lua
 getMapColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getMapColor()
@@ -213,19 +218,19 @@ block:getMapColor()
 
 ### <code>getOpacity()</code> \{#getOpacity}
 
-Gets the opacity of the BlockState, in terms of how much it affects light levels
+获取此 BlockState 的不透明度，即它对光照等级的影响程度。
 
 ```lua
 getOpacity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getOpacity()
@@ -235,23 +240,23 @@ block:getOpacity()
 
 ### <code>getTextures()</code> \{#getTextures}
 
-Returns a List of this BlockState's textures
+返回此 BlockState 的纹理列表。
 
-The keys represents the Culling Direction, while the values is another table with all texture paths (string)
+键表示剔除方向（Culling Direction），值是另一个表，包含全部纹理路径（字符串）。
 
-Note this only works for normal blocks, special blocks (water, beds, …) will return an empty table
+注意：此函数仅对普通方块有效；特殊方块（水、床等）会返回空表。
 
 ```lua
 getTextures()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getTextures()
@@ -261,19 +266,19 @@ block:getTextures()
 
 ### <code>hasEmissiveLighting()</code> \{#hasEmissiveLighting}
 
-Gets whether or not the BlockState uses emissive lighting
+获取此 BlockState 是否使用自发光光照。
 
 ```lua
 hasEmissiveLighting()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:hasEmissiveLighting()
@@ -281,23 +286,23 @@ block:hasEmissiveLighting()
 
 ---
 
-## Physical Properties
+## 物理属性
 
 ### <code>getBlastResistance()</code> \{#getBlastResistance}
 
-Gets the blast resistance of this BlockState
+获取此 BlockState 的爆炸抗性。
 
 ```lua
 getBlastResistance()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getBlastResistance()
@@ -307,21 +312,21 @@ block:getBlastResistance()
 
 ### <code>getFriction()</code> \{#getFriction}
 
-Gets the friction of this BlockState
+获取此 BlockState 的摩擦力。
 
-(Slime blocks and ice in vanilla)
+（在原版中为粘液块和冰）。
 
 ```lua
 getFriction()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getFriction()
@@ -331,19 +336,19 @@ block:getFriction()
 
 ### <code>getHardness()</code> \{#getHardness}
 
-Gets the hardness of the BlockState
+获取此 BlockState 的硬度。
 
 ```lua
 getHardness()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getHardness()
@@ -353,19 +358,19 @@ block:getHardness()
 
 ### <code>hasCollision()</code> \{#hasCollision}
 
-Returns true if this block has collision
+如果此方块具有碰撞则返回 true。
 
 ```lua
 hasCollision()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:hasCollision()
@@ -375,19 +380,19 @@ block:hasCollision()
 
 ### <code>isAir()</code> \{#isAir}
 
-Checks if this block is air
+检查此方块是否为空气。
 
 ```lua
 isAir()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:isAir()
@@ -397,19 +402,19 @@ block:isAir()
 
 ### <code>isFullCube()</code> \{#isFullCube}
 
-Gets whether or not the BlockState has a full cube as its collision hitbox
+获取此 BlockState 的碰撞箱是否为完整立方体。
 
 ```lua
 isFullCube()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:isFullCube()
@@ -419,19 +424,19 @@ block:isFullCube()
 
 ### <code>isOpaque()</code> \{#isOpaque}
 
-Gets whether or not this BlockState is opaque
+获取此 BlockState 是否为不透明。
 
 ```lua
 isOpaque()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:isOpaque()
@@ -441,19 +446,19 @@ block:isOpaque()
 
 ### <code>isSolidBlock()</code> \{#isSolidBlock}
 
-Gets whether or not the BlockState is considered a "solid" block by Minecraft
+获取此 BlockState 是否被 Minecraft 视为“固体”方块。
 
 ```lua
 isSolidBlock()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:isSolidBlock()
@@ -463,19 +468,19 @@ block:isSolidBlock()
 
 ### <code>isTranslucent()</code> \{#isTranslucent}
 
-Gets whether or not the BlockState would propagate sky light downwards
+获取此 BlockState 是否会让天空光向下透射。
 
 ```lua
 isTranslucent()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:isTranslucent()
@@ -483,25 +488,25 @@ block:isTranslucent()
 
 ---
 
-## Misc
+## 杂项
 
 ### <code>getEntityData()</code> \{#getEntityData}
 
-Returns the nbt of the Block Entity associated with this BlockState, at its position, as a table
+以表的形式返回此 BlockState 在其位置上关联的方块实体的 NBT。
 
-Since the mod is only on client side, this NBT might not actually contain the real nbt, which is stored server-side
+由于此模组仅运行在客户端，该 NBT 可能并不包含真正的 NBT（真正的 NBT 保存在服务端）。
 
 ```lua
 getEntityData()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getEntityData()
@@ -511,19 +516,19 @@ block:getEntityData()
 
 ### <code>getFluidTags()</code> \{#getFluidTags}
 
-Returns a table containing all the fluid tags of this block, as strings
+返回一个表，包含此方块的全部流体标签，标签以字符串表示。
 
 ```lua
 getFluidTags()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getFluidTags()
@@ -533,19 +538,19 @@ block:getFluidTags()
 
 ### <code>getID()</code> \{#getID}
 
-Returns this BlockState identifier
+返回此 BlockState 的标识符。
 
 ```lua
 getID()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getID()
@@ -555,56 +560,56 @@ block:getID()
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the saved position for this BlockState proxy
+设置此 BlockState 代理对象保存的位置。
 
-The saved position is used in BlockState functions that require a position
+保存的位置会用于需要位置的 BlockState 函数。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description               |
-| ---------------------------------------------------- | ------------------------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[BlockState](/globals/World/BlockState)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description               |
-| ---------------------------------------------------- | ------------------------- |
-| <code>[BlockState](/globals/World/BlockState)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[BlockState](/globals/World/BlockState)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 block:setPos(player:getPos())
@@ -614,21 +619,21 @@ block:setPos(player:getPos())
 
 ### <code>getPos()</code> \{#getPos}
 
-Returns the saved position for this BlockState proxy
+返回此 BlockState 代理对象保存的位置。
 
-The saved position is used in BlockState functions that require a position
+保存的位置会用于需要位置的 BlockState 函数。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getPos()
@@ -638,19 +643,19 @@ block:getPos()
 
 ### <code>getProperties()</code> \{#getProperties}
 
-Returns a table with the properties of this BlockState
+返回一个表，包含此 BlockState 的属性。
 
 ```lua
 getProperties()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getProperties()
@@ -660,21 +665,21 @@ block:getProperties()
 
 ### <code>getSounds()</code> \{#getSounds}
 
-Gets the names of all the sounds which can play from this BlockState, as well as their pitch and volume
+获取此 BlockState 可播放的全部音效名称，以及它们的音高和音量。
 
-Stored in a table
+结果保存在一个表中。
 
 ```lua
 getSounds()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getSounds()
@@ -684,19 +689,19 @@ block:getSounds()
 
 ### <code>getTags()</code> \{#getTags}
 
-Returns a table containing all the tags of this block, as strings
+返回一个表，包含此方块的全部标签，标签以字符串表示。
 
 ```lua
 getTags()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:getTags()
@@ -706,21 +711,21 @@ block:getTags()
 
 ### <code>asItem()</code> \{#asItem}
 
-Returns an ItemStack representing this block in item form, whatever Minecraft deems that to be
+返回以物品形式表示此方块的 ItemStack，具体取哪个物品由 Minecraft 决定。
 
-If it cannot find an item for this block, it will return nil
+如果找不到对应此方块的物品，则返回 nil。
 
 ```lua
 asItem()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                               | Description |
-| -------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[ItemStack](/globals/World/ItemStack)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:asItem()
@@ -730,19 +735,19 @@ block:asItem()
 
 ### <code>hasBlockEntity()</code> \{#hasBlockEntity}
 
-Gets whether or not this BlockState has an associated block entity
+获取此 BlockState 是否有关联的方块实体。
 
 ```lua
 hasBlockEntity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:hasBlockEntity()
@@ -752,19 +757,19 @@ block:hasBlockEntity()
 
 ### <code>toStateString()</code> \{#toStateString}
 
-Converts this BlockState into a string, like you'd see in a Minecraft command
+将此 BlockState 转换为字符串，格式与 Minecraft 命令中看到的一致。
 
 ```lua
 toStateString()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 block:toStateString()
@@ -772,13 +777,13 @@ block:toStateString()
 
 ---
 
-## Fields
+## 字段
 
 ### <code>id</code> \{#id}
 
-The identifier of the block this BlockState comes from
+此 BlockState 所属方块的标识符。
 
-**Example:**
+**示例：**
 
 ```lua
 block.id
@@ -788,11 +793,11 @@ block.id
 
 ### <code>properties</code> \{#properties}
 
-A table containing the properties of this BlockState
+一个包含此 BlockState 属性的表。
 
-If this BlockState has no properties, it is nil
+如果此 BlockState 没有属性，则为 nil。
 
-**Example:**
+**示例：**
 
 ```lua
 block.properties

@@ -2,25 +2,25 @@ import Emoji from '@site/src/components/Emoji';
 import FileTreeRoot from '@site/src/components/FileTree/Root';
 import FileTreeNode from '@site/src/components/FileTree/Node';
 
-# Custom Items
+# 自定义物品
 
-Custom items tutorial
+自定义物品教程
 
-Using Figura you can make custom items that are visible in first and third person.
+使用 Figura 可以制作在第一人称和第三人称下都可见的自定义物品。
 
-You'll need to use the Item [keyword](../enums/ModelPartParentTypes) and the item_render event combined.
+需要把 Item [关键字](../enums/ModelPartParentTypes) 与 item_render 事件结合使用。
 
-## Item Keyword
+## Item 关键字
 
-If you give a Blockbench group the Item keyword (by starting the group name with <code>Item</code>) it will be primed and ready to be used as an item. Without the event the Item group will vanish- and so will every item you hold. It has to be Item with a capital I.
+如果把 Blockbench 的某个组设为 Item 关键字（组名以 <code>Item</code> 开头），这个组就会准备就绪，可直接作为物品使用。没有对应事件时，Item 组会消失，同时你手持的每个物品也会消失。关键字必须写成首字母大写的 Item。
 
 <img src={require("@site/static/img/items/good-keyword.png").default} width="400"></img>
 
-## Item Render Event
+## item_render 事件
 
-The item_render event runs once a frame for every item you're rendering and they do their own things in their own version of the event.
+item_render 事件会为每个正在渲染的物品每帧运行一次，每个物品都在各自的事件副本中独立处理。
 
-In order to make the Item show up you must return it in the item_render event. This example assumes the bbmodel is named <code>model</code> and that the keyworded group is named Item. If you wish to test this change <code>model</code> to your bbmodel name and the Item group to your version.
+要让 Item 显示出来，必须在 item_render 事件中返回它。下面的示例假设 bbmodel 名为 <code>model</code>，带关键字的组名为 Item。如果想测试，请把 <code>model</code> 换成你的 bbmodel 名字，并把 Item 组换成你自己的组名。
 
 ```lua
 function events.item_render()
@@ -28,11 +28,11 @@ function events.item_render()
 end
 ```
 
-This will replace every single item you're holding with your custom item
+这样会把你手持的每一个物品都替换成你的自定义物品。
 
-## Replacing Specific Items
+## 替换特定物品
 
-Here's an example for replacing a single item by id:
+下面的示例按 id 替换单个物品：
 
 ```lua
 function events.item_render(item)
@@ -42,7 +42,7 @@ function events.item_render(item)
 end
 ```
 
-Here's an example for replacing a single item by name:
+下面的示例按名称替换单个物品：
 
 ```lua
 function events.item_render(item)
@@ -52,14 +52,14 @@ function events.item_render(item)
 end
 ```
 
-You can use the event's arguments to get different information from the item you're holding, and they are: the itemstack, rendering mode, position, rotation, scale, and if its in the left hand. [Possible item rendering modes.](../enums/ItemDisplayModes)
+可以用事件参数获取手持物品的不同信息，包括：物品堆（itemstack）、渲染模式、位置、旋转、缩放，以及物品是否在左手上。[可用的物品渲染模式。](../enums/ItemDisplayModes)
 
 ```lua
 function events.item_render(item, mode, pos, rot, scale, left)
 end
 ```
 
-This is storing all the values you can get, but in most cases you only need item and sometimes mode. Let's replace bows, shields, and all swords. These are all for a blockbench model that looks like this:
+这里列出了所有可取到的值，但多数情况下只需要 item，有时还会用到 mode。下面我们来替换弓、盾牌和所有剑。它们对应一个结构如下的 Blockbench 模型：
 
 <FileTreeRoot>
   <FileTreeNode label="model.bbmodel" icon="file/bbmodel">
@@ -81,11 +81,11 @@ function events.item_render(item)
 end
 ```
 
-The find function is searching the id for the word 'sword' so you don't need to type in every single sword id. This also makes it compatible with modded swords.
+find 函数会在 id 中查找 “sword” 这个词，因此不必把每个剑的 id 都写一遍。这样也能兼容模组添加的剑。
 
-## Things To Note
+## 注意事项
 
-1. Do _not_ put the Item group inside any other group. The Blockbench outliner should look like this:
+1. _不要_ 把 Item 组放进其他任何组里。Blockbench 的大纲视图应当如下：
 
 <FileTreeRoot>
   <FileTreeNode label="model.bbmodel" icon="file/bbmodel">
@@ -93,7 +93,7 @@ The find function is searching the id for the word 'sword' so you don't need to 
   </FileTreeNode>
 </FileTreeRoot>
 
-or
+或
 
 <FileTreeRoot>
   <FileTreeNode label="model.bbmodel" icon="file/bbmodel">
@@ -102,10 +102,10 @@ or
   </FileTreeNode>
 </FileTreeRoot>
 
-because you can have more than one of these keywords. Do **not** nest Item keywords inside another. And, do **not** have more than one custom item per instance of the Item keyword.
+因为这类关键字可以有多个。**不要**把一个 Item 关键字嵌套在另一个里面。另外，**不要**在一个 Item 关键字的实例中放多个自定义物品。
 
 <img src={require("@site/static/img/items/bad-location.png").default} width="400"></img>
 
-You **could** put your Item group in another group but be careful, doing so makes it easier to cause unwanted behavior. For example, if you put it into RightArm or LeftArm it will be force unrendered, defeating the point of it.
+你**可以**把 Item 组放进其他组，但要小心，这样做更容易产生非预期行为。例如把它放进 RightArm 或 LeftArm，它会被强制不渲染，也就失去了意义。
 
-2. 0,0,0 in Blockbench is where the player will be holding the item in the world
+2. Blockbench 中的 0,0,0 就是世界中玩家手持物品的位置。

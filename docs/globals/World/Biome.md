@@ -1,17 +1,22 @@
+---
+title: Biome（生物群系）
+sidebar_label: Biome（生物群系）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A proxy for a Minecraft biome
+Minecraft 生物群系的代理对象。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已收录 Figura 文档中的全部信息，我们正在补充更有帮助的说明。
 :::
 
-Instances are obtained through the WorldAPI
+实例通过 WorldAPI 获取。
 
-This proxy also contains a saved position for the Biome
+该代理还保存了生物群系的位置。
 
-For this page assume:
+本页示例假设：
 
 ```lua
 local biome = world.getBiome(player:getPos())
@@ -19,23 +24,23 @@ local biome = world.getBiome(player:getPos())
 
 ---
 
-## Weather
+## 天气
 
 ### <code>getDownfall()</code> \{#getDownfall}
 
-Gets this biome's humidity
+获取该生物群系的湿度。
 
 ```lua
 getDownfall()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getDownfall()
@@ -45,21 +50,21 @@ biome:getDownfall()
 
 ### <code>getPrecipitation()</code> \{#getPrecipitation}
 
-Gets the rain type of this biome
+获取该生物群系的降水类型。
 
-The type can be "NONE", "RAIN" or "SNOW"
+类型可以是 "NONE"、"RAIN" 或 "SNOW"。
 
 ```lua
 getPrecipitation()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getPrecipitation()
@@ -69,19 +74,19 @@ biome:getPrecipitation()
 
 ### <code>getTemperature()</code> \{#getTemperature}
 
-Gets the temperature of this biome
+获取该生物群系的温度。
 
 ```lua
 getTemperature()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getTemperature()
@@ -91,19 +96,19 @@ biome:getTemperature()
 
 ### <code>isCold()</code> \{#isCold}
 
-Checks if this biome is cold
+判断该生物群系是否寒冷。
 
 ```lua
 isCold()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:isCold()
@@ -113,19 +118,19 @@ biome:isCold()
 
 ### <code>isHot()</code> \{#isHot}
 
-Checks if this biome is hot
+判断该生物群系是否炎热。
 
 ```lua
 isHot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:isHot()
@@ -133,23 +138,23 @@ biome:isHot()
 
 ---
 
-## Biome Colors
+## 生物群系颜色
 
 ### <code>getFogColor()</code> \{#getFogColor}
 
-Gets this biome's fog color as an RGB vector
+获取该生物群系的雾颜色，以 RGB 向量表示。
 
 ```lua
 getFogColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getFogColor()
@@ -159,19 +164,19 @@ biome:getFogColor()
 
 ### <code>getFoliageColor()</code> \{#getFoliageColor}
 
-Gets this biome's foliage color as an RGB vector
+获取该生物群系的植被颜色，以 RGB 向量表示。
 
 ```lua
 getFoliageColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getFoliageColor()
@@ -181,19 +186,19 @@ biome:getFoliageColor()
 
 ### <code>getGrassColor()</code> \{#getGrassColor}
 
-Gets this biome's grass color as an RGB vector
+获取该生物群系的草色，以 RGB 向量表示。
 
 ```lua
 getGrassColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getGrassColor()
@@ -203,19 +208,19 @@ biome:getGrassColor()
 
 ### <code>getSkyColor()</code> \{#getSkyColor}
 
-Gets this biome's sky color as an RGB vector
+获取该生物群系的天空颜色，以 RGB 向量表示。
 
 ```lua
 getSkyColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getSkyColor()
@@ -225,19 +230,19 @@ biome:getSkyColor()
 
 ### <code>getWaterColor()</code> \{#getWaterColor}
 
-Gets this biome's water color as an RGB vector
+获取该生物群系的水体颜色，以 RGB 向量表示。
 
 ```lua
 getWaterColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getWaterColor()
@@ -247,19 +252,19 @@ biome:getWaterColor()
 
 ### <code>getWaterFogColor()</code> \{#getWaterFogColor}
 
-Gets this biome's water fog color as an RGB vector
+获取该生物群系的水雾颜色，以 RGB 向量表示。
 
 ```lua
 getWaterFogColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getWaterFogColor()
@@ -267,60 +272,60 @@ biome:getWaterFogColor()
 
 ---
 
-## Biome Data
+## 生物群系数据
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the saved position for this Biome's proxy
+设置该生物群系代理保存的位置。
 
-The saved position is used in Biome functions that require a position
+需要位置参数的 Biome 函数会使用这个保存的位置。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                       | Description               |
-| ------------------------------------------ | ------------------------- |
-| <code>[Biome](/globals/World/Biome)</code> | Returns self for chaining |
+| 类型                                       | 说明                 |
+| ------------------------------------------ | -------------------- |
+| <code>[Biome](/globals/World/Biome)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                       | Description               |
-| ------------------------------------------ | ------------------------- |
-| <code>[Biome](/globals/World/Biome)</code> | Returns self for chaining |
+| 类型                                       | 说明                 |
+| ------------------------------------------ | -------------------- |
+| <code>[Biome](/globals/World/Biome)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 biome:setPos(player:getPos())
@@ -330,21 +335,21 @@ biome:setPos(player:getPos())
 
 ### <code>getPos()</code> \{#getPos}
 
-Returns the saved position for this Biome's proxy
+返回该生物群系代理保存的位置。
 
-The saved position is used in Biome functions that require a position
+需要位置参数的 Biome 函数会使用这个保存的位置。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getPos()
@@ -354,19 +359,19 @@ biome:getPos()
 
 ### <code>getTags()</code> \{#getTags}
 
-Gets the worldgen related tags from this Biome
+获取该生物群系中与世界生成相关的标签。
 
 ```lua
 getTags()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 biome:getTags()
@@ -376,9 +381,9 @@ biome:getTags()
 
 ### <code>id</code> \{#id}
 
-The id of this biome
+该生物群系的 id。
 
-**Example:**
+**示例：**
 
 ```lua
 biome.id

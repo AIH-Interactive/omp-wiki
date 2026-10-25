@@ -4,90 +4,90 @@ import Emoji from '@site/src/components/Emoji';
 import FileTreeRoot from '@site/src/components/FileTree/Root';
 import FileTreeNode from '@site/src/components/FileTree/Node';
 
-# Misc Globals
+# 杂项全局对象与函数
 
-Documentation for the various things Figura adds to the global lua state
+本页介绍 Figura 向全局 Lua 状态添加的各种内容。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
 ---
 
 ### <code>figuraMetatables</code> \{#figuraMetatables}
 
-A table containing all the metatables for Figura's object types
+一个表，包含 Figura 各对象类型的全部元表。
 
-The metatables are editable
+这些元表可以修改。
 
 ---
 
 ### <code>listFiles()</code> \{#listFiles}
 
-A function that returns a table with all script file names from the specified path
+一个函数，返回一个表，表中包含指定路径下的全部脚本文件名。
 
-If no path is specified, it will fetch from the root folder
+如果未指定路径，则从根文件夹读取。
 
-A second argument, boolean, can be given to also list files inside subfolders
+还可以传入第二个布尔参数，用于同时列出子文件夹内的文件。
 
-Folders can be accessed relative to the executing script using `./` and `../`
+可以使用 `./` 和 `../` 相对于当前执行的脚本访问文件夹。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 listFiles()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 listFiles(folder)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description | Default |
-| ------ | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | folder | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 listFiles(folder, subFolders)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                              | Description | Default |
-| ---------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | folder     | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
 | subFolders | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- Using autoscripts in avatar.json,
@@ -102,27 +102,27 @@ end
 
 ### <code>parseJson()</code> \{#parseJson}
 
-Takes a JSON string as an argument, and converts it into a lua value.
+接收一个 JSON 字符串作为参数，并将其转换为 Lua 值。
 
-Objects and arrays are converted to tables appropriately.
+对象和数组会相应地转换为表。
 
 ```lua
 parseJson(jsonString)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
-| ---------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | jsonString | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                 | Description |
-| -------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>AnyType</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 function events.CHAT_RECEIVE_MESSAGE(msg, jsonStr)
@@ -137,33 +137,33 @@ end
 
 ### <code>print()</code> \{#print}
 
-**Aliases:** `log()`
+**别名：** `log()`
 
-A function that writes its arguments to chat
+一个把参数写入聊天栏的函数。
 
-Even though the syntax says only one argument, you can put as many as you want
+虽然语法上只写了一个参数，但你可以传入任意多个。
 
-All of them will print, and they'll be separated by a tab space
+它们都会被打印，并以制表符空格分隔。
 
-Returns the string representation of all values
+返回所有值的字符串表示。
 
 ```lua
 print(arg)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                 | Description | Default |
-| ---- | -------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | arg  | <code>Varargs</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 print("hello, world!")
@@ -175,33 +175,33 @@ print("Avatar:", avatar:getName())
 
 ### <code>printJson()</code> \{#printJson}
 
-**Aliases:** `logJson()`
+**别名：** `logJson()`
 
-Takes a Minecraft JSON string as an argument, and prints it to the chat formatted, without the lua print header
+接收一个 Minecraft JSON 字符串作为参数，并将格式化后的结果打印到聊天栏，不带 Lua print 前缀。
 
-Even though the syntax says only one argument, you can put as many as you want
+虽然语法上只写了一个参数，但你可以传入任意多个。
 
-All of them will print, and they'll be appended in the end of the previous argument
+它们都会被打印，并依次追加到前一个参数的末尾。
 
-Returns the formatted string
+返回格式化后的字符串。
 
 ```lua
 printJson(json)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | json | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 <!-- prettier-ignore -->
 ```lua
@@ -228,144 +228,144 @@ printJson(toJson(wikiAd))
 
 ### <code>printTable()</code> \{#printTable}
 
-**Aliases:** `logTable()`
+**别名：** `logTable()`
 
-The first argument is either a Table, or it's a Userdata, which refers to any of the added Figura types
+第一个参数要么是表，要么是 Userdata，后者指任一新增的 Figura 类型。
 
-Prints the table out to chat, specially formatted
+将表以特殊格式打印到聊天栏。
 
-If userdata is passed in, it is automatically converted to a table or string, and displayed
+如果传入的是 userdata，会自动转换为表或字符串并显示。
 
-In the case of tables inside of tables, the "maxDepth" parameter will be used to determine how far to go
+对于表中嵌套表的情况，“maxDepth”参数决定展开到多深。
 
-Default value for maxDepth is 1
+maxDepth 的默认值为 1。
 
-Third argument, "silent", will skip the chat print and will only return the string
+第三个参数“silent”会跳过聊天栏打印，只返回字符串。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 printTable(table)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                          | Description | Default |
-| ----- | --------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | table | <code>[Table](/tutorials/types/Tables)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 printTable(javaObject)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                  | Description | Default |
-| ---------- | --------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | javaObject | <code>Userdata</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 printTable(table, maxDepth)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                             | Description | Default |
-| -------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | table    | <code>[Table](/tutorials/types/Tables)</code>    | -           | -       |
 | maxDepth | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 printTable(javaObject, maxDepth)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
-| ---------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | javaObject | <code>Userdata</code>                            | -           | -       |
 | maxDepth   | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-5" label="Overload 5">
+<TabItem value="overload-5" label="重载 5">
 
 ```lua
 printTable(table, maxDepth, silent)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                              | Description | Default |
-| -------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | table    | <code>[Table](/tutorials/types/Tables)</code>     | -           | -       |
 | maxDepth | <code>[Integer](/tutorials/types/Numbers)</code>  | -           | -       |
 | silent   | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-6" label="Overload 6">
+<TabItem value="overload-6" label="重载 6">
 
 ```lua
 printTable(javaObject, maxDepth, silent)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                              | Description | Default |
-| ---------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | javaObject | <code>Userdata</code>                             | -           | -       |
 | maxDepth   | <code>[Integer](/tutorials/types/Numbers)</code>  | -           | -       |
 | silent     | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 printTable(textures:getTextures())
@@ -375,37 +375,37 @@ printTable(textures:getTextures())
 
 ### <code>require()</code> \{#require}
 
-The require() function takes the name of one of your scripts, without the .lua extension
+require() 函数接收你的某个脚本的名称，名称不含 .lua 扩展名。
 
-If this script has not been already run before, it will run that script and return the value that script returns
+如果该脚本此前没有运行过，会运行它并返回该脚本的返回值。
 
-If it has been run before, then it will not run the file again, but it will return the same thing as the first time
+如果此前已经运行过，则不会再次运行该文件，而是返回与第一次相同的内容。
 
-If a required script has no returns, then require() will return true
+如果被 require 的脚本没有返回值，require() 会返回 true。
 
-If the name you give isn't any of your scripts, it will error
+如果给出的名称不属于你的任何脚本，则会报错。
 
-Scripts can be accessed relative to the executing script using `./` and `../`
+可以使用 `./` 和 `../` 相对于当前执行的脚本访问脚本。
 
 ```lua
 require(scriptName)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
-| ---------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | scriptName | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                 | Description |
-| -------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>AnyType</code> | -           |
 
-**Examples:**
+**示例：**
 
-#### Script in root folder
+#### 根文件夹中的脚本
 
 <FileTreeRoot>
   <FileTreeNode label="MyCoolAvatar" icon="file/folder">
@@ -419,7 +419,7 @@ require(scriptName)
 require("JimmyAnims")
 ```
 
-#### Script in another folder
+#### 其他文件夹中的脚本
 
 <FileTreeRoot>
   <FileTreeNode label="MyCoolAvatar" icon="file/folder">
@@ -439,29 +439,29 @@ require("MyFolder.GSAnimBlend")
 
 ### <code>toJson()</code> \{#toJson}
 
-**Aliases:** `toJson()`
+**别名：** `toJson()`
 
-Takes any lua value, and converts it into a json string.
+接收任意 Lua 值，并将其转换为 JSON 字符串。
 
-Does not accept functions, they will be treated as null.
+不接受函数，函数会被视为 null。
 
 ```lua
 toJson(value)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                 | Description | Default |
-| ----- | -------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | value | <code>AnyType</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.ALL:setText(
@@ -477,13 +477,13 @@ nameplate.ALL:setText(
 
 ### <code>type</code> \{#type}
 
-Figura overrides lua's type() function
+Figura 覆盖了 Lua 的 type() 函数。
 
-When used on Figura types, returns the type's name as seen in the docs and in the figuraMetatables global
+用于 Figura 类型时，返回该类型在文档和 figuraMetatables 全局对象中显示的类型名。
 
-When called on a table that has a metatable with a \_\_type key, returns the corresponding value
+对一个元表带有 \_\_type 键的表调用时，返回对应的值。
 
-**Example:**
+**示例：**
 
 ```lua
 type(2) -- number

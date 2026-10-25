@@ -1,13 +1,18 @@
+---
+title: ItemTask（物品任务）
+sidebar_label: ItemTask（物品任务）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A task for rendering an Item from [newItem](./#newItem)
+用于通过 [newItem](./#newItem) 渲染物品的任务。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
-For this entire page assume:
+本页所有示例都假设：
 
 ```lua
 local myItem = models:newItem("myCoolItemName")
@@ -15,56 +20,56 @@ local myItem = models:newItem("myCoolItemName")
 
 ---
 
-## Item Task
+## 物品任务
 
 ### <code>setItem()</code> \{#setItem}
 
-**Aliases:** `item()`
+**别名：** `item()`
 
-Sets the Item for this task render
+设置此任务要渲染的物品。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| item | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| item | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[ItemTask](/globals/Models/ItemTask)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[ItemTask](/globals/Models/ItemTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setItem(item)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                               | Description | Default |
-| ---- | -------------------------------------------------- | ----------- | ------- |
-| item | <code>[ItemStack](/globals/World/ItemStack)</code> | -           | -       |
+| 名称 | 类型                                               | 说明 | 默认值 |
+| ---- | -------------------------------------------------- | ---- | ------ |
+| item | <code>[ItemStack](/globals/World/ItemStack)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[ItemTask](/globals/Models/ItemTask)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[ItemTask](/globals/Models/ItemTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:setItem("slime_ball")
@@ -74,27 +79,27 @@ myItem:setItem("slime_ball")
 
 ### <code>setDisplayMode()</code> \{#setDisplayMode}
 
-**Aliases:** `displayMode()`
+**别名：** `displayMode()`
 
-Sets the item display mode for this task
+设置此任务的物品显示模式。
 
 ```lua
 setDisplayMode(displayMode)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name        | Type                                            | Description | Default |
-| ----------- | ----------------------------------------------- | ----------- | ------- |
-| displayMode | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称        | 类型                                            | 说明 | 默认值 |
+| ----------- | ----------------------------------------------- | ---- | ------ |
+| displayMode | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[ItemTask](/globals/Models/ItemTask)</code> | Returns self for chaining |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[ItemTask](/globals/Models/ItemTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:setDisplayMode("GROUND")
@@ -104,19 +109,19 @@ myItem:setDisplayMode("GROUND")
 
 ### <code>getDisplayMode()</code> \{#getDisplayMode}
 
-Gets this task item display mode
+获取此任务的物品显示模式。
 
 ```lua
 getDisplayMode()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getDisplayMode()
@@ -124,61 +129,61 @@ myItem:getDisplayMode()
 
 ---
 
-## Render Task
+## 渲染任务
 
 ### <code>setLight()</code> \{#setLight}
 
-**Aliases:** `light()`
+**别名：** `light()`
 
-Sets the light override value of this task
+设置此任务的光照覆盖值。
 
-Values are given from 0 to 15, indicating the block light and sky light levels you want to use
+取值范围为 0 到 15，分别表示要使用的方块光照与天空光照等级。
 
-Passing nil will reset the lighting override for this task
+传入 nil 会重置此任务的光照覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setLight(light)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| light | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| light | <code>[Vector2](/globals/Vectors/Vector2)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setLight(blockLight, skyLight)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
-| ---------- | ------------------------------------------------ | ----------- | ------- |
-| blockLight | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
-| skyLight   | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称       | 类型                                             | 说明 | 默认值 |
+| ---------- | ------------------------------------------------ | ---- | ------ |
+| blockLight | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
+| skyLight   | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local blockLight = world.getLightLevel(player:getPos())
@@ -190,19 +195,19 @@ myItem:setLight(blockLight, skyLight)
 
 ### <code>getLight()</code> \{#getLight}
 
-Returns the light override value of this task
+返回此任务的光照覆盖值。
 
 ```lua
 getLight()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector2](/globals/Vectors/Vector2)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getLight()
@@ -212,33 +217,33 @@ myItem:getLight()
 
 ### <code>setMatrix()</code> \{#setMatrix}
 
-**Aliases:** `matrix()`
+**别名：** `matrix()`
 
-Sets the given matrix as the position matrix for this render task
+把给定矩阵设置为该渲染任务的位置矩阵。
 
-The normal matrix is automatically calculated as the inverse transpose of this matrix
+法线矩阵会自动按该矩阵的逆转置计算。
 
-Calling this DOES NOT CHANGE the values of position, rot, or scale in the render task
+调用本方法不会改变渲染任务中 position、rot、scale 的值。
 
-If you call setPos() or a similar function, the effects of setMatrix() will be overwritten
+如果之后调用了 setPos() 或类似函数，setMatrix() 的效果会被覆盖。
 
 ```lua
 setMatrix(matrix)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
-| ------ | ------------------------------------------------- | ----------- | ------- |
-| matrix | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           | -       |
+| 名称   | 类型                                              | 说明 | 默认值 |
+| ------ | ------------------------------------------------- | ---- | ------ |
+| matrix | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:setMatrix(matrices.mat4())
@@ -248,19 +253,19 @@ myItem:setMatrix(matrices.mat4())
 
 ### <code>getName()</code> \{#getName}
 
-Get this task's name
+获取此任务的名称。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getName()
@@ -270,19 +275,19 @@ myItem:getName()
 
 ### <code>getNormalMatrix()</code> \{#getNormalMatrix}
 
-Recalculates the normal matrix for this render task, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据该渲染任务当前的位置、旋转、缩放和轴心重新计算法线矩阵，并返回该矩阵。
 
 ```lua
 getNormalMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getNormalMatrix()
@@ -292,21 +297,21 @@ myItem:getNormalMatrix()
 
 ### <code>getNormalMatrixRaw()</code> \{#getNormalMatrixRaw}
 
-Returns the normal matrix for this render task
+返回该渲染任务的法线矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before returning it
+Raw 版本的区别在于：返回前不会重新计算矩阵。
 
 ```lua
 getNormalMatrixRaw()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getNormalMatrixRaw()
@@ -316,57 +321,57 @@ myItem:getNormalMatrixRaw()
 
 ### <code>setOverlay()</code> \{#setOverlay}
 
-**Aliases:** `overlay()`
+**别名：** `overlay()`
 
-Sets the overlay override value of this task
+设置此任务的叠加层覆盖值。
 
-Values you give are 0 to 15, indicating the white overlay and the damage overlay levels you want to use
+取值范围为 0 到 15，分别表示要使用的白色叠加层与受伤叠加层等级。
 
-Passing nil will reset the overlay override for this task
+传入 nil 会重置此任务的叠加层覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOverlay(overlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                             | Description | Default |
-| ------- | ------------------------------------------------ | ----------- | ------- |
-| overlay | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
+| 名称    | 类型                                             | 说明 | 默认值 |
+| ------- | ------------------------------------------------ | ---- | ------ |
+| overlay | <code>[Vector2](/globals/Vectors/Vector2)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOverlay(whiteOverlay, hurtOverlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name         | Type                                             | Description | Default |
-| ------------ | ------------------------------------------------ | ----------- | ------- |
-| whiteOverlay | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
-| hurtOverlay  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称         | 类型                                             | 说明 | 默认值 |
+| ------------ | ------------------------------------------------ | ---- | ------ |
+| whiteOverlay | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
+| hurtOverlay  | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local hurt = player:getNbt.HurtTime > 0
@@ -377,19 +382,19 @@ myItem:setOverlay(hurt and 0 or nil, 1)
 
 ### <code>getOverlay()</code> \{#getOverlay}
 
-Returns the overlay override value of this task
+返回此任务的叠加层覆盖值。
 
 ```lua
 getOverlay()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector2](/globals/Vectors/Vector2)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getOverlay()
@@ -399,56 +404,56 @@ myItem:getOverlay()
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the position of the task, relative to its attached part
+设置任务的位置，坐标相对于其挂载的部件。
 
-Uses model coordinates
+使用模型坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:setPos(0, 16, 0)
@@ -458,19 +463,19 @@ myItem:setPos(0, 16, 0)
 
 ### <code>getPos()</code> \{#getPos}
 
-Gets this task position
+获取此任务的位置。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getPos()
@@ -480,19 +485,19 @@ myItem:getPos()
 
 ### <code>getPositionMatrix()</code> \{#getPositionMatrix}
 
-Recalculates the matrix for this render task, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据该渲染任务当前的位置、旋转、缩放和轴心重新计算矩阵，并返回该矩阵。
 
 ```lua
 getPositionMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getPositionMatrix()
@@ -502,21 +507,21 @@ myItem:getPositionMatrix()
 
 ### <code>getPositionMatrixRaw()</code> \{#getPositionMatrixRaw}
 
-Returns the position matrix for this render task
+返回该渲染任务的位置矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before getting it
+Raw 版本的区别在于：获取前不会重新计算矩阵。
 
 ```lua
 getPositionMatrixRaw()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getPositionMatrixRaw()
@@ -526,54 +531,54 @@ myItem:getPositionMatrixRaw()
 
 ### <code>setRot()</code> \{#setRot}
 
-**Aliases:** `rot()`
+**别名：** `rot()`
 
-Sets the rotation of the task, relative to its attached part
+设置任务的旋转角度，相对于其挂载的部件。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setRot(rot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| rot  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| rot  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setRot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:setRot(0, 45, 22.5)
@@ -583,19 +588,19 @@ myItem:setRot(0, 45, 22.5)
 
 ### <code>getRot()</code> \{#getRot}
 
-Gets this task rotation
+获取此任务的旋转角度。
 
 ```lua
 getRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getRot()
@@ -605,54 +610,54 @@ myItem:getRot()
 
 ### <code>setScale()</code> \{#setScale}
 
-**Aliases:** `scale()`
+**别名：** `scale()`
 
-Sets the scale of the task, relative to its attached part
+设置任务的缩放，相对于其挂载的部件。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setScale(scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:setScale(0.4, 0.4, 0.4) -- myItem:setScale(0.4) also works
@@ -662,19 +667,19 @@ myItem:setScale(0.4, 0.4, 0.4) -- myItem:setScale(0.4) also works
 
 ### <code>getScale()</code> \{#getScale}
 
-Gets this task scale
+获取此任务的缩放。
 
 ```lua
 getScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:getScale()
@@ -684,27 +689,27 @@ myItem:getScale()
 
 ### <code>setVisible()</code> \{#setVisible}
 
-**Aliases:** `visible()`
+**别名：** `visible()`
 
-Sets whether or not this task should be rendered
+设置此任务是否渲染。
 
 ```lua
 setVisible(visible)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
-| visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称    | 类型                                              | 说明 | 默认值 |
+| ------- | ------------------------------------------------- | ---- | ------ |
+| visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 local myPage = action_wheel.newPage()
@@ -717,19 +722,19 @@ end)
 
 ### <code>isVisible()</code> \{#isVisible}
 
-Checks if this task is visible
+检查此任务是否可见。
 
 ```lua
 isVisible()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 if myItem:isVisible() then
@@ -741,19 +746,19 @@ end
 
 ### <code>remove()</code> \{#remove}
 
-Removes this render task from the parent model part
+从父模型部件中移除此渲染任务。
 
 ```lua
 remove()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[RenderTask](/globals/Models/RenderTask)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 myItem:remove()

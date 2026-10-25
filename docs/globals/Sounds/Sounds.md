@@ -1,120 +1,125 @@
+---
+title: Sounds（声音）
+sidebar_label: Sounds（声音）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A global API which is used to play Minecraft sounds
+用于播放 Minecraft 声音的全局 API。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
-Accessed using the name "sounds"
+通过名称 “sounds” 访问。
 
 ---
 
 ### <code>playSound()</code> \{#playSound}
 
-Plays the specified sound at the specified position with the given volume and pitch multipliers
+在指定位置播放指定声音，可指定音量和音调倍数。
 
-The sound id is either an identifier or the custom sound name
+声音 id 可以是标识符，也可以是自定义声音的名称。
 
-Volume in Minecraft refers to how far away people can hear the sound from, not the actual loudness of it
+Minecraft 中的音量指别人能听到该声音的距离，而不是声音实际的响度。
 
-If you don't give values for volume and pitch, the default values are 1
+如果不传入音量和音调，默认值均为 1。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 playSound(sound, pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| sound | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
-| pos   | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| sound | <code>[String](/tutorials/types/Strings)</code>  | -    | -      |
+| pos   | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description |
-| ------------------------------------- | ----------- |
-| <code>[Sound](/globals/Sounds)</code> | -           |
+| 类型                                  | 说明 |
+| ------------------------------------- | ---- |
+| <code>[Sound](/globals/Sounds)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 playSound(sound, posX, posY, posZ)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| sound | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| posX  | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| posY  | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| posZ  | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称  | 类型                                            | 说明 | 默认值 |
+| ----- | ----------------------------------------------- | ---- | ------ |
+| sound | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| posX  | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| posY  | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| posZ  | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description |
-| ------------------------------------- | ----------- |
-| <code>[Sound](/globals/Sounds)</code> | -           |
+| 类型                                  | 说明 |
+| ------------------------------------- | ---- |
+| <code>[Sound](/globals/Sounds)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 playSound(sound, pos, volume, pitch, loop)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
-| ------ | ------------------------------------------------- | ----------- | ------- |
-| sound  | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
-| pos    | <code>[Vector3](/globals/Vectors/Vector3)</code>  | -           | -       |
-| volume | <code>[Number](/tutorials/types/Numbers)</code>   | -           | -       |
-| pitch  | <code>[Number](/tutorials/types/Numbers)</code>   | -           | -       |
-| loop   | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称   | 类型                                              | 说明 | 默认值 |
+| ------ | ------------------------------------------------- | ---- | ------ |
+| sound  | <code>[String](/tutorials/types/Strings)</code>   | -    | -      |
+| pos    | <code>[Vector3](/globals/Vectors/Vector3)</code>  | -    | -      |
+| volume | <code>[Number](/tutorials/types/Numbers)</code>   | -    | -      |
+| pitch  | <code>[Number](/tutorials/types/Numbers)</code>   | -    | -      |
+| loop   | <code>[Boolean](/tutorials/types/Booleans)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description |
-| ------------------------------------- | ----------- |
-| <code>[Sound](/globals/Sounds)</code> | -           |
+| 类型                                  | 说明 |
+| ------------------------------------- | ---- |
+| <code>[Sound](/globals/Sounds)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 playSound(sound, posX, posY, posZ, volume, pitch, loop)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
-| ------ | ------------------------------------------------- | ----------- | ------- |
-| sound  | <code>[String](/tutorials/types/Strings)</code>   | -           | -       |
-| posX   | <code>[Number](/tutorials/types/Numbers)</code>   | -           | -       |
-| posY   | <code>[Number](/tutorials/types/Numbers)</code>   | -           | -       |
-| posZ   | <code>[Number](/tutorials/types/Numbers)</code>   | -           | -       |
-| volume | <code>[Number](/tutorials/types/Numbers)</code>   | -           | -       |
-| pitch  | <code>[Number](/tutorials/types/Numbers)</code>   | -           | -       |
-| loop   | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称   | 类型                                              | 说明 | 默认值 |
+| ------ | ------------------------------------------------- | ---- | ------ |
+| sound  | <code>[String](/tutorials/types/Strings)</code>   | -    | -      |
+| posX   | <code>[Number](/tutorials/types/Numbers)</code>   | -    | -      |
+| posY   | <code>[Number](/tutorials/types/Numbers)</code>   | -    | -      |
+| posZ   | <code>[Number](/tutorials/types/Numbers)</code>   | -    | -      |
+| volume | <code>[Number](/tutorials/types/Numbers)</code>   | -    | -      |
+| pitch  | <code>[Number](/tutorials/types/Numbers)</code>   | -    | -      |
+| loop   | <code>[Boolean](/tutorials/types/Booleans)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description |
-| ------------------------------------- | ----------- |
-| <code>[Sound](/globals/Sounds)</code> | -           |
+| 类型                                  | 说明 |
+| ------------------------------------- | ---- |
+| <code>[Sound](/globals/Sounds)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 sounds:playSound("entity.bat.ambient", player:getPos(), 1, 1, false)
@@ -124,46 +129,46 @@ sounds:playSound("entity.bat.ambient", player:getPos(), 1, 1, false)
 
 ### <code>stopSound()</code> \{#stopSound}
 
-Stops the playing sounds from this avatar
+停止该形象正在播放的声音。
 
-If an id is specified, it only stops the sounds from that id
+如果指定了 id，则只停止该 id 对应的声音。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 stopSound()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                           | Description               |
-| ---------------------------------------------- | ------------------------- |
-| <code>[SoundAPI](/globals/Sounds/Sound)</code> | Returns self for chaining |
+| 类型                                           | 说明                   |
+| ---------------------------------------------- | ---------------------- |
+| <code>[SoundAPI](/globals/Sounds/Sound)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 stopSound(id)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| id   | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| id   | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                           | Description               |
-| ---------------------------------------------- | ------------------------- |
-| <code>[SoundAPI](/globals/Sounds/Sound)</code> | Returns self for chaining |
+| 类型                                           | 说明                   |
+| ---------------------------------------------- | ---------------------- |
+| <code>[SoundAPI](/globals/Sounds/Sound)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 sounds:stopSound()
@@ -173,54 +178,54 @@ sounds:stopSound()
 
 ### <code>newSound()</code> \{#newSound}
 
-Registers a new custom sound for this avatar
+为该形象注册新的自定义声音。
 
-The first argument is the sound id while the second argument is either a byte array of the sound data or a base64 string representation of the same
+第一个参数是声音 id，第二个参数可以是声音数据的字节数组，也可以是同一数据的 base64 字符串。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 newSound(name, byteArray)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                            | Description | Default |
-| --------- | ----------------------------------------------- | ----------- | ------- |
-| name      | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| byteArray | <code>[Table](/tutorials/types/Tables)</code>   | -           | -       |
+| 名称      | 类型                                            | 说明 | 默认值 |
+| --------- | ----------------------------------------------- | ---- | ------ |
+| name      | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| byteArray | <code>[Table](/tutorials/types/Tables)</code>   | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                           | Description               |
-| ---------------------------------------------- | ------------------------- |
-| <code>[SoundAPI](/globals/Sounds/Sound)</code> | Returns self for chaining |
+| 类型                                           | 说明                   |
+| ---------------------------------------------- | ---------------------- |
+| <code>[SoundAPI](/globals/Sounds/Sound)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 newSound(name, base64Text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
-| ---------- | ----------------------------------------------- | ----------- | ------- |
-| name       | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| base64Text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称       | 类型                                            | 说明 | 默认值 |
+| ---------- | ----------------------------------------------- | ---- | ------ |
+| name       | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| base64Text | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                           | Description               |
-| ---------------------------------------------- | ------------------------- |
-| <code>[SoundAPI](/globals/Sounds/Sound)</code> | Returns self for chaining |
+| 类型                                           | 说明                   |
+| ---------------------------------------------- | ---------------------- |
+| <code>[SoundAPI](/globals/Sounds/Sound)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local base64 =
@@ -234,19 +239,19 @@ sounds.yes:play()
 
 ### <code>getCustomSounds()</code> \{#getCustomSounds}
 
-Returns a table with all registered custom sounds ids
+返回一个表，包含所有已注册的自定义声音 id。
 
 ```lua
 getCustomSounds()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 sounds:getCustomSounds()
@@ -256,25 +261,25 @@ sounds:getCustomSounds()
 
 ### <code>isPresent()</code> \{#isPresent}
 
-Checks if this sound id is registered either by custom avatar sounds or a vanilla sound
+检查该声音 id 是否已注册，来源可以是形象的自定义声音或原版声音。
 
 ```lua
 isPresent(id)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| id   | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| id   | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 sounds:isPresent("entity.bat.ambient")

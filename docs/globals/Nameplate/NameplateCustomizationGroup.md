@@ -1,28 +1,33 @@
-A customization that holds other nameplate customizations
+---
+title: NameplateCustomizationGroup（名称牌自定义组）
+sidebar_label: NameplateCustomizationGroup（名称牌自定义组）
+---
+
+用于容纳其他名称牌自定义项的自定义项
 
 ---
 
 ### <code>setText()</code> \{#setText}
 
-Sets the text for all its children customizations
+为其下的所有子自定义项设置文本
 
 ```lua
 setText(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                       | Default |
-| ---- | ----------------------------------------------- | --------------------------------- | ------- |
-| text | <code>[String](/tutorials/types/Strings)</code> | The text to set your nameplate to | `nil`   |
+| 名称 | 类型                                            | 说明               | 默认值 |
+| ---- | ----------------------------------------------- | ------------------ | ------ |
+| text | <code>[String](/tutorials/types/Strings)</code> | 要应用的名称牌文本 | `nil`  |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                       | Description               |
-| ------------------------------------------------------------------------------------------ | ------------------------- |
-| <code>[NameplateCustomizationGroup](/globals/Nameplate/NameplateCustomizationGroup)</code> | Returns self for chaining |
+| 类型                                                                                       | 说明                   |
+| ------------------------------------------------------------------------------------------ | ---------------------- |
+| <code>[NameplateCustomizationGroup](/globals/Nameplate/NameplateCustomizationGroup)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 <!-- prettier-ignore -->
 ```lua

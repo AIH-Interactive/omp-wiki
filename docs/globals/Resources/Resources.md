@@ -1,32 +1,37 @@
-The global instance of ResourcesAPI
+---
+title: Resources（资源 API）
+sidebar_label: Resources（资源 API）
+---
+
+ResourcesAPI 的全局实例
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>get()</code> \{#get}
 
-Returns input stream with data for resource at specified path
+返回包含指定路径资源数据的输入流
 
 ```lua
 get(path)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| path | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| path | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[InputStream](/globals/Data/InputStream)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[InputStream](/globals/Data/InputStream)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -36,19 +41,19 @@ get(path)
 
 ### <code>getPaths()</code> \{#getPaths}
 
-Returns table with paths to all resources stored in avatar
+返回一个表，其中包含形象中存储的所有资源路径
 
 ```lua
 getPaths()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

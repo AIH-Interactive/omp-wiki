@@ -1,19 +1,24 @@
-Item Display Modes can be used to detect the display mode of an item through the `item_render` event, or it can be used to apply transformations to item tasks.
+---
+title: 物品显示模式（Item Display Modes）
+sidebar_label: 物品显示模式
+---
+
+物品显示模式（Item Display Mode）可用于在 `item_render` 事件中判断物品当前的显示模式，也可用于为物品任务应用对应的变换。
 
 ---
 
-## Item Task Exclusive
+## 物品任务专用
 
-When an item task's display mode is set, transformations will be applied to make the item appear as if it's rendering in that circumstance.
+设置物品任务的显示模式后，物品会被应用对应的变换，看起来就像在该场景下渲染一样。
 
-| Item Display Mode | Description                                                                                             |
-| ----------------- | ------------------------------------------------------------------------------------------------------- |
-| `GUI`             | The transformations used by the item when being displayed in a GUI (the player's inventory for example) |
-| `GROUND`          | The transformations used by the item when it is dropped on the ground.                                  |
-| `FIXED`           | The transformations used by the item while it is in an item frame.                                      |
-| `NONE`            | Don't apply any transformations.                                                                        |
+| 物品显示模式 | 说明                                              |
+| ------------ | ------------------------------------------------- |
+| `GUI`        | 物品在 GUI 中显示时使用的变换（例如玩家的物品栏） |
+| `GROUND`     | 物品掉落到地面时使用的变换。                      |
+| `FIXED`      | 物品放在物品展示框中时使用的变换。                |
+| `NONE`       | 不应用任何变换。                                  |
 
-**Example**:
+**示例**：
 
 <!-- prettier-ignore -->
 ```lua
@@ -25,17 +30,17 @@ models:newItem('CarrotTask')
 
 ---
 
-## Universal
+## 通用模式
 
-| Item Display Mode         | Description                                                                               |
-| ------------------------- | ----------------------------------------------------------------------------------------- |
-| `FIRST_PERSON_RIGHT_HAND` | While in the first person right hand.                                                     |
-| `FIRST_PERSON_LEFT_HAND`  | While in the first person left hand.                                                      |
-| `THIRD_PERSON_RIGHT_HAND` | While in the third person right hand.                                                     |
-| `THIRD_PERSON_LEFT_HAND`  | While in the third person left hand.                                                      |
-| `HEAD`                    | While any item that isn't a head (player, mob, or dragon) or helmet is in your head slot. |
+| 物品显示模式              | 说明                                                         |
+| ------------------------- | ------------------------------------------------------------ |
+| `FIRST_PERSON_RIGHT_HAND` | 处于第一人称右手时。                                         |
+| `FIRST_PERSON_LEFT_HAND`  | 处于第一人称左手时。                                         |
+| `THIRD_PERSON_RIGHT_HAND` | 处于第三人称右手时。                                         |
+| `THIRD_PERSON_LEFT_HAND`  | 处于第三人称左手时。                                         |
+| `HEAD`                    | 头部槽位中的物品既不是头部（玩家、生物或龙），也不是头盔时。 |
 
-**Example**:
+**示例**：
 
 ```lua
 function events.item_render(item, mode, pos, rot, scale, lefty)

@@ -1,33 +1,38 @@
+---
+title: Sound（声音）
+sidebar_label: Sound（声音）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Represents a sound that can be played
+表示一个可播放的声音。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
-Obtained by indexing the SoundAPI
+通过索引 SoundAPI 获取。
 
-Exists as an object-oriented alternative to sounds:playSound()
+它是 sounds:playSound() 的面向对象替代方案。
 
-## Playing
+## 播放
 
 ### <code>play()</code> \{#play}
 
-Plays this sound, or resume a paused sound
+播放该声音，或继续播放已暂停的声音。
 
 ```lua
 play()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:play()
@@ -37,19 +42,19 @@ mySound:play()
 
 ### <code>stop()</code> \{#stop}
 
-Stops the playback of this sound
+停止播放该声音。
 
 ```lua
 stop()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:stop()
@@ -59,19 +64,19 @@ mySound:stop()
 
 ### <code>pause()</code> \{#pause}
 
-Pauses the current playback of this sound
+暂停该声音当前的播放。
 
 ```lua
 pause()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:pause()
@@ -83,23 +88,23 @@ mySound:pause()
 
 :::caution
 
-This function is unreliable and may not work as intended. A usable workaround is to stop the sound before you play it (even if it isn't playing) so you can reset the playing state.
+该函数不可靠，可能无法按预期工作。可行的替代做法是：在播放前先停止该声音（即使它并未在播放），以此重置播放状态。
 
 :::
 
-Checks if this sound is being played
+检查该声音是否正在播放。
 
 ```lua
 isPlaying()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:isPlaying()
@@ -109,19 +114,19 @@ mySound:isPlaying()
 
 ### <code>isLooping()</code> \{#isLooping}
 
-Checks if this sound is looping
+检查该声音是否正在循环播放。
 
 ```lua
 isLooping()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:isLooping()
@@ -129,62 +134,62 @@ mySound:isLooping()
 
 ---
 
-## Sound Properties
+## 声音属性
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the position of this sound
+设置该声音的位置。
 
-Position is given in world coordinates
+位置使用世界坐标。
 
-Default 0
+默认值为 0。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:setPos(player:getPos())
@@ -194,19 +199,19 @@ mySound:setPos(player:getPos())
 
 ### <code>getPos()</code> \{#getPos}
 
-Get this sound position
+获取该声音的位置。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:getPos()
@@ -216,29 +221,29 @@ mySound:getPos()
 
 ### <code>setAttenuation()</code> \{#setAttenuation}
 
-**Aliases:** `attenuation()`
+**别名：** `attenuation()`
 
-Sets the attenuation of this sound
+设置该声音的衰减。
 
-Default 1
+默认值为 1。
 
 ```lua
 setAttenuation(attenuation)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name        | Type                                            | Description | Default |
-| ----------- | ----------------------------------------------- | ----------- | ------- |
-| attenuation | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称        | 类型                                            | 说明 | 默认值 |
+| ----------- | ----------------------------------------------- | ---- | ------ |
+| attenuation | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:setAttenuation(5)
@@ -248,19 +253,19 @@ mySound:setAttenuation(5)
 
 ### <code>getAttenuation()</code> \{#getAttenuation}
 
-Gets this sound attenuation
+获取该声音的衰减值。
 
 ```lua
 getAttenuation()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:getAttenuation()
@@ -270,29 +275,29 @@ mySound:getAttenuation()
 
 ### <code>setLoop()</code> \{#setLoop}
 
-**Aliases:** `loop()`
+**别名：** `loop()`
 
-Toggles if this sound should loop
+切换该声音是否循环播放。
 
-Default false
+默认值为 false。
 
 ```lua
 setLoop(loop)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                              | Description | Default |
-| ---- | ------------------------------------------------- | ----------- | ------- |
-| loop | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称 | 类型                                              | 说明 | 默认值 |
+| ---- | ------------------------------------------------- | ---- | ------- |
+| loop | <code>[Boolean](/tutorials/types/Booleans)</code> | -    | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:setLoop(true)
@@ -302,29 +307,29 @@ mySound:setLoop(true)
 
 ### <code>setPitch()</code> \{#setPitch}
 
-**Aliases:** `pitch()`
+**别名：** `pitch()`
 
-Sets the pitch of this sound
+设置该声音的音调。
 
-Default 1
+默认值为 1。
 
 ```lua
 setPitch(pitch)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| pitch | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称  | 类型                                            | 说明 | 默认值 |
+| ----- | ----------------------------------------------- | ---- | ------- |
+| pitch | <code>[Number](/tutorials/types/Numbers)</code> | -    | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:setPitch(5)
@@ -334,19 +339,19 @@ mySound:setPitch(5)
 
 ### <code>getPitch()</code> \{#getPitch}
 
-Gets this sound pitch
+获取该声音的音调值。
 
 ```lua
 getPitch()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:getPitch()
@@ -356,27 +361,27 @@ mySound:getPitch()
 
 ### <code>setSubtitle()</code> \{#setSubtitle}
 
-**Aliases:** `subtitle()`
+**别名：** `subtitle()`
 
-Sets the subtitle text of this sound
+设置该声音的字幕文本。
 
 ```lua
 setSubtitle(subtitle)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                            | Description | Default |
-| -------- | ----------------------------------------------- | ----------- | ------- |
-| subtitle | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称     | 类型                                            | 说明 | 默认值 |
+| -------- | ----------------------------------------------- | ---- | ------- |
+| subtitle | <code>[String](/tutorials/types/Strings)</code> | -    | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:setSubtitle("Bat ecolocates")
@@ -386,19 +391,19 @@ mySound:setSubtitle("Bat ecolocates")
 
 ### <code>getSubtitle()</code> \{#getSubtitle}
 
-Gets the subtitle text from this sound
+获取该声音的字幕文本。
 
 ```lua
 getSubtitle()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:getSubtitle()
@@ -408,29 +413,29 @@ mySound:getSubtitle()
 
 ### <code>setVolume()</code> \{#setVolume}
 
-**Aliases:** `volume()`
+**别名：** `volume()`
 
-Sets the volume of this sound
+设置该声音的音量。
 
-Default 1
+默认值为 1。
 
 ```lua
 setVolume(volume)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description | Default |
-| ------ | ----------------------------------------------- | ----------- | ------- |
-| volume | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称   | 类型                                            | 说明 | 默认值 |
+| ------ | ----------------------------------------------- | ---- | ------- |
+| volume | <code>[Number](/tutorials/types/Numbers)</code> | -    | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                  | Description               |
+| 类型                                  | 说明               |
 | ------------------------------------- | ------------------------- |
-| <code>[Sound](/globals/Sounds)</code> | Returns self for chaining |
+| <code>[Sound](/globals/Sounds)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:setVolume(5)
@@ -440,19 +445,19 @@ mySound:setVolume(5)
 
 ### <code>getVolume()</code> \{#getVolume}
 
-Gets this sound volume
+获取该声音的音量值。
 
 ```lua
 getVolume()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[Number](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 mySound:getVolume()

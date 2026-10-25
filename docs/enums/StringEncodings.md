@@ -1,12 +1,17 @@
-List of valid string encodings
+---
+title: 字符串编码
+sidebar_label: 字符串编码
+---
+
+有效的字符串编码列表。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。目前已包含 Figura 文档中的全部信息，我们正在补充更多有用的说明。
 :::
 
-Used within Buffers
+在 Buffers 中使用。
 
-| Encodings    |
+| 编码         |
 | ------------ |
 | `utf8`       |
 | `utf_8`      |

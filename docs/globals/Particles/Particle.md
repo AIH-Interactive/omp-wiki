@@ -1,13 +1,18 @@
+---
+title: Particle（粒子）
+sidebar_label: Particle（粒子）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Represents a particle that can be spawned and modified
+表示一个可以生成并修改的粒子。
 
-Obtained by indexing the ParticleAPI
+通过索引 ParticleAPI 获取。
 
-Exists as an object-oriented alternative to particles:addParticle()
+它是 particles:addParticle() 的面向对象替代方案。
 
-For the examples on this page assume:
+本页示例假设：
 
 ```lua
 myParticle = particles["explosion"]
@@ -17,19 +22,19 @@ myParticle = particles["explosion"]
 
 ### <code>spawn()</code> \{#spawn}
 
-Spawns this particle with the current properties
+使用当前属性生成该粒子。
 
 ```lua
 spawn()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                      |
-| ---------------------------------------------------- | -------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Spawns the particle in the world |
+| 类型                                                 | 说明               |
+| ---------------------------------------------------- | ------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 在世界中生成该粒子 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:spawn()
@@ -39,56 +44,56 @@ myParticle:spawn()
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets this particle position
+设置该粒子的位置。
 
-The position is given in world coordinates
+位置使用世界坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description                                    | Default      |
-| ---- | ------------------------------------------------ | ---------------------------------------------- | ------------ |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | Sets the position of the particle in the world | `vec(0,0,0)` |
+| 名称 | 类型                                             | 说明                   | 默认值       |
+| ---- | ------------------------------------------------ | ---------------------- | ------------ |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | 设置粒子在世界中的位置 | `vec(0,0,0)` |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                       | Default |
-| ---- | ----------------------------------------------- | ------------------------------------------------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | Sets the x position of the particle in the world  | `0`     |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | TSets the y position of the particle in the world | `0`     |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | Sets the x position of the particle in the world  | `0`     |
+| 名称 | 类型                                            | 说明                      | 默认值 |
+| ---- | ----------------------------------------------- | ------------------------- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | 设置粒子在世界中的 x 坐标 | `0`    |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | 设置粒子在世界中的 y 坐标 | `0`    |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | 设置粒子在世界中的 z 坐标 | `0`    |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- player position example
@@ -101,19 +106,19 @@ myParticle:setPos(modelpart:partToWorldMatrix():apply())
 
 ### <code>getPos()</code> \{#getPos}
 
-Gets this particle position
+获取该粒子的位置。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description                          |
-| ------------------------------------------------ | ------------------------------------ |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | Gets the position the particle is at |
+| 类型                                             | 说明                   |
+| ------------------------------------------------ | ---------------------- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | 获取粒子当前所在的位置 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:getPos()
@@ -123,78 +128,78 @@ myParticle:getPos()
 
 ### <code>setColor()</code> \{#setColor}
 
-**Aliases:** `color()`
+**别名：** `color()`
 
-Sets this particle's color, values must be between 0 and 1
+设置该粒子的颜色，取值范围为 0 到 1。
 
-Accepts an alpha value, but most particles do not support it
+可以传入 alpha 值，但大多数粒子不支持。
 
-Default RGBA of 1
+RGBA 默认值均为 1。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setColor(rgb)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description                           | Default      |
-| ---- | ------------------------------------------------ | ------------------------------------- | ------------ |
-| rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | The RGB color applied to the particle | `vec(1,1,1)` |
+| 名称 | 类型                                             | 说明                  | 默认值       |
+| ---- | ------------------------------------------------ | --------------------- | ------------ |
+| rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | 应用到粒子的 RGB 颜色 | `vec(1,1,1)` |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setColor(rgba)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description                            | Default        |
-| ---- | ------------------------------------------------ | -------------------------------------- | -------------- |
-| rgba | <code>[Vector4](/globals/Vectors/Vector4)</code> | The RGBA color applied to the particle | `vec(1,1,1,1)` |
+| 名称 | 类型                                             | 说明                   | 默认值         |
+| ---- | ------------------------------------------------ | ---------------------- | -------------- |
+| rgba | <code>[Vector4](/globals/Vectors/Vector4)</code> | 应用到粒子的 RGBA 颜色 | `vec(1,1,1,1)` |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setColor(r, g, b, a)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                        | Default |
-| ---- | ----------------------------------------------- | ---------------------------------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | The R tint applied to the particle | `1`     |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | The G tint applied to the particle | `1`     |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | The B tint applied to the particle | `1`     |
-| a    | <code>[Number](/tutorials/types/Numbers)</code> | The A tint applied to the particle | `1`     |
+| 名称 | 类型                                            | 说明                    | 默认值 |
+| ---- | ----------------------------------------------- | ----------------------- | ------ |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | 应用到粒子的 R 通道着色 | `1`    |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | 应用到粒子的 G 通道着色 | `1`    |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | 应用到粒子的 B 通道着色 | `1`    |
+| a    | <code>[Number](/tutorials/types/Numbers)</code> | 应用到粒子的 A 通道着色 | `1`    |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:setColor(1, 0, 1)
@@ -204,19 +209,19 @@ myParticle:setColor(1, 0, 1)
 
 ### <code>getColor()</code> \{#getColor}
 
-Gets this particle color
+获取该粒子的颜色。
 
 ```lua
 getColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description                                                                    |
-| ------------------------------------------------ | ------------------------------------------------------------------------------ |
-| <code>[Vector4](/globals/Vectors/Vector4)</code> | Gets the RGBA color applied to the particle by [setColor](./Particle#setColor) |
+| 类型                                             | 说明                                                            |
+| ------------------------------------------------ | --------------------------------------------------------------- |
+| <code>[Vector4](/globals/Vectors/Vector4)</code> | 获取通过 [setColor](./Particle#setColor) 应用到粒子的 RGBA 颜色 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:getColor()
@@ -226,27 +231,27 @@ myParticle:getColor()
 
 ### <code>setScale()</code> \{#setScale}
 
-**Aliases:** `scale()`, `setSize()`, `size()`
+**别名：** `scale()`, `setSize()`, `size()`
 
-Sets this particle scale
+设置该粒子的缩放。
 
 ```lua
 setScale(scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description                                 | Default |
-| ----- | ----------------------------------------------- | ------------------------------------------- | ------- |
-| scale | <code>[Number](/tutorials/types/Numbers)</code> | Sets the scale of both axes of the particle | 1       |
+| 名称  | 类型                                            | 说明                 | 默认值 |
+| ----- | ----------------------------------------------- | -------------------- | ------ |
+| scale | <code>[Number](/tutorials/types/Numbers)</code> | 设置粒子两个轴的缩放 | 1      |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:setScale(2)
@@ -256,21 +261,21 @@ myParticle:setScale(2)
 
 ### <code>getScale()</code> \{#getScale}
 
-**Aliases:** `getSize()`
+**别名：** `getSize()`
 
-Gets this particle scale
+获取该粒子的缩放。
 
 ```lua
 getScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                    |
-| ----------------------------------------------- | ------------------------------ |
-| <code>[Number](/tutorials/types/Numbers)</code> | Gets the scale of the particle |
+| 类型                                            | 说明           |
+| ----------------------------------------------- | -------------- |
+| <code>[Number](/tutorials/types/Numbers)</code> | 获取粒子的缩放 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:getScale()
@@ -280,56 +285,56 @@ myParticle:getScale()
 
 ### <code>setVelocity()</code> \{#setVelocity}
 
-**Aliases:** `velocity()`
+**别名：** `velocity()`
 
-Sets the velocity of this particle
+设置该粒子的速度。
 
-The velocity is given in world coordinates
+速度使用世界坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setVelocity(velocity)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                             | Description | Default                              |
-| -------- | ------------------------------------------------ | ----------- | ------------------------------------ |
-| velocity | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | The default velocity of the particle |
+| 名称     | 类型                                             | 说明 | 默认值         |
+| -------- | ------------------------------------------------ | ---- | -------------- |
+| velocity | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | 粒子的默认速度 |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setVelocity(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default                                |
-| ---- | ----------------------------------------------- | ----------- | -------------------------------------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | The default x velocity of the particle |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | The default y velocity of the particle |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | The default z velocity of the particle |
+| 名称 | 类型                                            | 说明 | 默认值                |
+| ---- | ----------------------------------------------- | ---- | --------------------- |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | 粒子的默认 x 方向速度 |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | 粒子的默认 y 方向速度 |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | 粒子的默认 z 方向速度 |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:setVelocity(0, 5, 0)
@@ -339,19 +344,19 @@ myParticle:setVelocity(0, 5, 0)
 
 ### <code>getVelocity()</code> \{#getVelocity}
 
-Gets the velocity of this particle
+获取该粒子的速度。
 
 ```lua
 getVelocity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description                       |
-| ------------------------------------------------ | --------------------------------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | Gets the velocity of the particle |
+| 类型                                             | 说明           |
+| ------------------------------------------------ | -------------- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | 获取粒子的速度 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:getVelocity()
@@ -361,27 +366,27 @@ myParticle:getVelocity()
 
 ### <code>setLifetime()</code> \{#setLifetime}
 
-**Aliases:** `lifetime()`
+**别名：** `lifetime()`
 
-Sets this particle lifetime, which is how many ticks this particle should stay in the world
+设置该粒子的存活时间，即该粒子在世界中停留的 tick 数。
 
 ```lua
 setLifetime(lifetime)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                             | Description                                           | Default                              |
-| -------- | ------------------------------------------------ | ----------------------------------------------------- | ------------------------------------ |
-| lifetime | <code>[Integer](/tutorials/types/Numbers)</code> | How long the particle will stay in the world in ticks | The default lifetime of the particle |
+| 名称     | 类型                                             | 说明                                 | 默认值             |
+| -------- | ------------------------------------------------ | ------------------------------------ | ------------------ |
+| lifetime | <code>[Integer](/tutorials/types/Numbers)</code> | 粒子在世界中停留的时间（单位：tick） | 粒子的默认存活时间 |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:setLifetime(100)
@@ -391,19 +396,19 @@ myParticle:setLifetime(100)
 
 ### <code>getLifetime()</code> \{#getLifetime}
 
-Gets this particle current lifetime
+获取该粒子当前的存活时间。
 
 ```lua
 getLifetime()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description                                                |
-| ------------------------------------------------ | ---------------------------------------------------------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | Gets how long the particle will stay in the world in ticks |
+| 类型                                             | 说明                                     |
+| ------------------------------------------------ | ---------------------------------------- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | 获取粒子在世界中停留的时间（单位：tick） |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:getLifetime()
@@ -413,27 +418,27 @@ myParticle:getLifetime()
 
 ### <code>setPower()</code> \{#setPower}
 
-**Aliases:** `power()`
+**别名：** `power()`
 
-Multiplies the particle's velocity every time it's run
+每次运行时都会将粒子的速度乘以该值。
 
 ```lua
 setPower(power)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description | Default |
-| ----- | ----------------------------------------------- | ----------- | ------- |
-| power | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称  | 类型                                            | 说明 | 默认值 |
+| ----- | ----------------------------------------------- | ---- | ------ |
+| power | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:setPower(2)
@@ -443,11 +448,11 @@ myParticle:setPower(2)
 
 ### <code>getPower()</code> \{#getPower}
 
-Gets the last number passed into setPower, but not the total power of the particle
+获取最后一次传给 setPower 的数值，而不是粒子的总 power。
 
 :::caution
 
-getPower doesn't get the particle's actual power, but the number last passed into setPower
+getPower 获取的不是粒子实际的 power，而是最后一次传给 setPower 的数值。
 
 :::
 
@@ -455,13 +460,13 @@ getPower doesn't get the particle's actual power, but the number last passed int
 getPower()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                    |
-| ----------------------------------------------- | ------------------------------ |
-| <code>[Number](/tutorials/types/Numbers)</code> | Gets the power of the particle |
+| 类型                                            | 说明                |
+| ----------------------------------------------- | ------------------- |
+| <code>[Number](/tutorials/types/Numbers)</code> | 获取粒子的 power 值 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:getPower()
@@ -471,27 +476,27 @@ myParticle:getPower()
 
 ### <code>setGravity()</code> \{#setGravity}
 
-**Aliases:** `gravity()`
+**别名：** `gravity()`
 
-Sets the strength of the particle's gravity
+设置粒子重力的强度。
 
 ```lua
 setGravity(gravity)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description                                 | Default |
-| ------- | ----------------------------------------------- | ------------------------------------------- | ------- |
-| gravity | <code>[Number](/tutorials/types/Numbers)</code> | Sets the strength of the particle's gravity | `1`     |
+| 名称    | 类型                                            | 说明               | 默认值 |
+| ------- | ----------------------------------------------- | ------------------ | ------ |
+| gravity | <code>[Number](/tutorials/types/Numbers)</code> | 设置粒子重力的强度 | `1`    |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:setGravity(5)
@@ -501,19 +506,19 @@ myParticle:setGravity(5)
 
 ### <code>getGravity()</code> \{#getGravity}
 
-Gets this particle gravity
+获取该粒子的重力。
 
 ```lua
 getGravity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                                 |
-| ----------------------------------------------- | ------------------------------------------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | Gets the strength of the particle's gravity |
+| 类型                                            | 说明               |
+| ----------------------------------------------- | ------------------ |
+| <code>[Number](/tutorials/types/Numbers)</code> | 获取粒子重力的强度 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:getGravity()
@@ -523,27 +528,27 @@ myParticle:getGravity()
 
 ### <code>setPhysics()</code> \{#setPhysics}
 
-**Aliases:** `physics()`
+**别名：** `physics()`
 
-Sets if this particle has physics
+设置该粒子是否启用物理。
 
 ```lua
 setPhysics(physics)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description                                                           | Default |
-| ------- | ------------------------------------------------- | --------------------------------------------------------------------- | ------- |
-| physics | <code>[Boolean](/tutorials/types/Booleans)</code> | Boolean that turns physics on if true, and turns physics off if false | `true`  |
+| 名称    | 类型                                              | 说明                                            | 默认值 |
+| ------- | ------------------------------------------------- | ----------------------------------------------- | ------ |
+| physics | <code>[Boolean](/tutorials/types/Booleans)</code> | 布尔值，为 true 时启用物理，为 false 时关闭物理 | `true` |
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:setPhysics(false)
@@ -553,19 +558,19 @@ myParticle:setPhysics(false)
 
 ### <code>hasPhysics()</code> \{#hasPhysics}
 
-Gets if this particle has physics
+获取该粒子是否启用物理。
 
 ```lua
 hasPhysics()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                       |
-| ------------------------------------------------- | --------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | Gets if this particle has physics |
+| 类型                                              | 说明                   |
+| ------------------------------------------------- | ---------------------- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 获取该粒子是否启用物理 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:hasPhysics()
@@ -575,19 +580,19 @@ myParticle:hasPhysics()
 
 ### <code>remove()</code> \{#remove}
 
-Removes this particle from the world
+从世界中移除该粒子。
 
 ```lua
 remove()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                 | Description                       |
-| ---------------------------------------------------- | --------------------------------- |
-| <code>[Particle](/globals/Particles/Particle)</code> | Returns the particle for chaining |
+| 类型                                                 | 说明                     |
+| ---------------------------------------------------- | ------------------------ |
+| <code>[Particle](/globals/Particles/Particle)</code> | 返回该粒子，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:remove()
@@ -597,22 +602,35 @@ myParticle:remove()
 
 ### <code>isAlive()</code> \{#isAlive}
 
-Checks if this particle is not flagged for removal
+检查该粒子是否未被标记为移除。
 
 ```lua
 isAlive()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                      |
-| ------------------------------------------------- | -------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | Returns if the particle is alive |
+| 类型                                              | 说明             |
+| ------------------------------------------------- | ---------------- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 返回粒子是否存活 |
 
-**Example:**
+**示例：**
 
 ```lua
 myParticle:isAlive()
 ```
 
 ---
+
+## OmniMorph 扩展
+
+通过 `particles:newCustomParticle()` / `newTexturedParticle()` 创建的粒子还支持：
+
+- 渲染模式：Billboard / Layered / Ribbon；
+- 精灵图与多图层；
+- 运动：free / orbit / helix / bezier / tracking；
+- tick / frame 回调；
+- 动态光源与光源间隔；
+- 拖尾、渐缩/渐隐与 UV 平铺。
+
+这些能力只对自定义粒子有效，普通 `newParticle()` 粒子仍使用原版行为。详见[自定义粒子](/scripting/custom-particles)、[拖尾 Ribbon](/scripting/ribbon)、[粒子动态光源](/scripting/dynamic-lights)与[粒子运动](/scripting/particle-motion)。

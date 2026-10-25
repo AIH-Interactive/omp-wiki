@@ -1,7 +1,8 @@
 {
-  "label": "Types",
+  "label": "类型",
   "link": {
     "type": "generated-index",
-    "description": "Tutorials of the types native to Lua."
+    "description": "Lua 类型的基础教程。",
+    "slug": "/category/types"
   }
 }

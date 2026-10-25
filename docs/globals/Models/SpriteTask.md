@@ -1,13 +1,18 @@
+---
+title: SpriteTask（Sprite 渲染任务）
+sidebar_label: SpriteTask（Sprite 渲染任务）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A task for rendering a single Sprite from [newSprite](.#newSprite)
+用于通过 [newSprite](.#newSprite) 渲染单个 Sprite 的任务。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。Figura 文档中的全部信息已收录，我们正在补充更详细的说明。
 :::
 
-For this entire page assume:
+本页下列示例均假设：
 
 ```lua
 local mySprite = models:newSprite("myCoolSpriteName")
@@ -15,123 +20,123 @@ local mySprite = models:newSprite("myCoolSpriteName")
 
 ---
 
-## Sprite Task
+## Sprite 任务
 
 ### <code>setTexture()</code> \{#setTexture}
 
-**Aliases:** `texture()`
+**别名：** `texture()`
 
-Sets this task's texture
+设置该任务的纹理。
 
-The texture's width and height must be provided if the texture is a location
+如果纹理来自资源路径，必须同时提供纹理的宽度与高度。
 
-For custom textures, the dimensions are optional
+对于自定义纹理，尺寸可选。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setTexture(textureLocation, width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name            | Type                                             | Description | Default |
+| 名称            | 类型                                             | 说明        | 默认值  |
 | --------------- | ------------------------------------------------ | ----------- | ------- |
 | textureLocation | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
 | width           | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | height          | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setTexture(texture)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
+| 名称    | 类型                                              | 说明        | 默认值  |
 | ------- | ------------------------------------------------- | ----------- | ------- |
 | texture | <code>[Texture](/globals/Textures/Texture)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setTexture(texture, width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
+| 名称    | 类型                                              | 说明        | 默认值  |
 | ------- | ------------------------------------------------- | ----------- | ------- |
 | texture | <code>[Texture](/globals/Textures/Texture)</code> | -           | -       |
 | width   | <code>[Integer](/tutorials/types/Numbers)</code>  | -           | -       |
 | height  | <code>[Integer](/tutorials/types/Numbers)</code>  | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-4" label="Overload 4">
+<TabItem value="overload-4" label="重载 4">
 
 ```lua
 setTexture(textureLocation, dimensions)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name            | Type                                             | Description | Default |
+| 名称            | 类型                                             | 说明        | 默认值  |
 | --------------- | ------------------------------------------------ | ----------- | ------- |
 | textureLocation | <code>[String](/tutorials/types/Strings)</code>  | -           | -       |
 | dimensions      | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-5" label="Overload 5">
+<TabItem value="overload-5" label="重载 5">
 
 ```lua
 setTexture(texture, dimensions)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                              | Description | Default |
+| 名称       | 类型                                              | 说明        | 默认值  |
 | ---------- | ------------------------------------------------- | ----------- | ------- |
 | texture    | <code>[Texture](/globals/Textures/Texture)</code> | -           | -       |
 | dimensions | <code>[Vector2](/globals/Vectors/Vector2)</code>  | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- using a resource location
@@ -148,19 +153,19 @@ mySprite:setTexture(textures["myTexture"], 16, 16)
 
 ### <code>getTexture()</code> \{#getTexture}
 
-Returns this task's current texture
+返回该任务当前的纹理。
 
 ```lua
 getTexture()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getTexture()
@@ -170,78 +175,78 @@ mySprite:getTexture()
 
 ### <code>setColor()</code> \{#setColor}
 
-**Aliases:** `color()`
+**别名：** `color()`
 
-Sets a color multiplier for this sprite
+为该 Sprite 设置颜色乘数。
 
-Values are RGBA from 0 to 1
+取值为 0 到 1 的 RGBA。
 
-Default values are 1, alpha is optional
+默认值为 1，alpha 可选。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setColor(rgb)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | rgb  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setColor(rgba)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | rgba | <code>[Vector4](/globals/Vectors/Vector4)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-3" label="Overload 3">
+<TabItem value="overload-3" label="重载 3">
 
 ```lua
 setColor(r, g, b, a)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | a    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:setColor(world.getBiome():getWaterColor())
@@ -251,21 +256,21 @@ mySprite:setColor(world.getBiome():getWaterColor())
 
 ### <code>getColor()</code> \{#getColor}
 
-Gets the current color multiplier of this sprite
+获取该 Sprite 当前的颜色乘数。
 
-Values are RGBA from 0 to 1
+取值为 0 到 1 的 RGBA。
 
 ```lua
 getColor()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector4](/globals/Vectors/Vector4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getColor()
@@ -275,53 +280,53 @@ mySprite:getColor()
 
 ### <code>setDimensions()</code> \{#setDimensions}
 
-**Aliases:** `dimensions()`
+**别名：** `dimensions()`
 
-Sets the texture dimensions, used in UV calculation
+设置纹理尺寸，用于 UV 计算。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setDimensions(dimensions)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
+| 名称       | 类型                                             | 说明        | 默认值  |
 | ---------- | ------------------------------------------------ | ----------- | ------- |
 | dimensions | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setDimensions(width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
+| 名称   | 类型                                             | 说明        | 默认值  |
 | ------ | ------------------------------------------------ | ----------- | ------- |
 | width  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | height | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- use the long water_flow texture then make it one block
@@ -334,19 +339,19 @@ mySprite:setDimensions(32, 1024)
 
 ### <code>getDimensions()</code> \{#getDimensions}
 
-Returns the texture dimensions, used in UV calculation
+返回纹理尺寸，用于 UV 计算。
 
 ```lua
 getDimensions()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getDimensions()
@@ -356,55 +361,55 @@ mySprite:getDimensions()
 
 ### <code>setRegion()</code> \{#setRegion}
 
-**Aliases:** `region()`
+**别名：** `region()`
 
-Sets the texture UV region
+设置纹理的 UV 区域。
 
-Uses its dimensions to calculate the max UV
+使用其尺寸计算最大 UV。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setRegion(region)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
+| 名称   | 类型                                             | 说明        | 默认值  |
 | ------ | ------------------------------------------------ | ----------- | ------- |
 | region | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setRegion(width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
+| 名称   | 类型                                             | 说明        | 默认值  |
 | ------ | ------------------------------------------------ | ----------- | ------- |
 | width  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | height | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:setRegion(64, 64)
@@ -414,19 +419,19 @@ mySprite:setRegion(64, 64)
 
 ### <code>getRegion()</code> \{#getRegion}
 
-Gets the texture UV region
+获取纹理的 UV 区域。
 
 ```lua
 getRegion()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getRegion()
@@ -436,31 +441,31 @@ mySprite:getRegion()
 
 ### <code>setRenderType()</code> \{#setRenderType}
 
-**Aliases:** `renderType()`
+**别名：** `renderType()`
 
-Sets the current render type of this sprite
+设置该 Sprite 当前的渲染类型。
 
-TRANSLUCENT by default
+默认为 TRANSLUCENT。
 
-Check the docs enum command for all render types
+执行 docs enum 命令可查看所有渲染类型。
 
 ```lua
 setRenderType(renderType)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                            | Description | Default |
+| 名称       | 类型                                            | 说明        | 默认值  |
 | ---------- | ----------------------------------------------- | ----------- | ------- |
 | renderType | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:setRenderType("CUTOUT")
@@ -470,19 +475,19 @@ mySprite:setRenderType("CUTOUT")
 
 ### <code>getRenderType()</code> \{#getRenderType}
 
-Gets the name of the current render type for this sprite
+获取该 Sprite 当前渲染类型的名称。
 
 ```lua
 getRenderType()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getRenderType()
@@ -492,53 +497,53 @@ mySprite:getRenderType()
 
 ### <code>setSize()</code> \{#setSize}
 
-**Aliases:** `size()`
+**别名：** `size()`
 
-Sets the width and height used to render this sprite
+设置渲染该 Sprite 时使用的宽度与高度。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setSize(size)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | size | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setSize(width, height)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                             | Description | Default |
+| 名称   | 类型                                             | 说明        | 默认值  |
 | ------ | ------------------------------------------------ | ----------- | ------- |
 | width  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | height | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- make my small egg bigger
@@ -550,19 +555,19 @@ mySprite:setSize(16, 16)
 
 ### <code>getSize()</code> \{#getSize}
 
-Returns the width and height used to render this sprite
+返回渲染该 Sprite 时使用的宽度与高度。
 
 ```lua
 getSize()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getSize()
@@ -572,55 +577,55 @@ mySprite:getSize()
 
 ### <code>setUV()</code> \{#setUV}
 
-**Aliases:** `uv()`
+**别名：** `uv()`
 
-Sets this texture UV offset
+设置该纹理的 UV 偏移。
 
-The Region and Dimension are used to calculate the end UV
+区域与尺寸用于计算 UV 的结束点。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setUV(uv)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | uv   | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setUV(u, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | u    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | v    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- Let's make a sprite task of flowing water!
@@ -641,19 +646,19 @@ end
 
 ### <code>getUV()</code> \{#getUV}
 
-Gets this texture UV offset
+获取该纹理的 UV 偏移。
 
 ```lua
 getUV()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getUV()
@@ -663,53 +668,53 @@ mySprite:getUV()
 
 ### <code>setUVPixels()</code> \{#setUVPixels}
 
-**Aliases:** `uvPixels()`
+**别名：** `uvPixels()`
 
-Set this texture UV offset, in pixels, based on the texture's dimension
+以像素为单位设置该纹理的 UV 偏移，基于纹理的尺寸换算。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setUVPixels(uv)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | uv   | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setUVPixels(u, v)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | u    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | v    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description               |
+| 类型                                                  | 说明                      |
 | ----------------------------------------------------- | ------------------------- |
-| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | Returns self for chaining |
+| <code>[SpriteTask](/globals/Models/SpriteTask)</code> | 返回自身，便于链式调用    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- Let's make a sprite task of flowing water!
@@ -730,19 +735,19 @@ end
 
 ### <code>getUVPixels()</code> \{#getUVPixels}
 
-Get this texture UV offset, in pixels, based on the texture's dimension
+以像素为单位获取该纹理的 UV 偏移，基于纹理的尺寸换算。
 
 ```lua
 getUVPixels()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getUVPixels()
@@ -752,21 +757,21 @@ mySprite:getUVPixels()
 
 ### <code>getVertices()</code> \{#getVertices}
 
-Returns a table with all 4 vertices of this sprite
+返回包含该 Sprite 全部 4 个顶点的表。
 
-Changing the values through other functions will reset those vertices
+通过其他函数修改数值会重置这些顶点。
 
 ```lua
 getVertices()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
+| 类型                                          | 说明        |
 | --------------------------------------------- | ----------- |
 | <code>[Table](/tutorials/types/Tables)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getVertices()
@@ -774,61 +779,61 @@ mySprite:getVertices()
 
 ---
 
-## Render Task
+## 渲染任务
 
 ### <code>setLight()</code> \{#setLight}
 
-**Aliases:** `light()`
+**别名：** `light()`
 
-Sets the light override value of this task
+设置该任务的光照覆盖值。
 
-Values are given from 0 to 15, indicating the block light and sky light levels you want to use
+取值 0 到 15，分别表示要使用的方块光照与天空光照等级。
 
-Passing nil will reset the lighting override for this task
+传入 nil 会重置该任务的光照覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setLight(light)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称  | 类型                                             | 说明        | 默认值  |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | light | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setLight(blockLight, skyLight)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
+| 名称       | 类型                                             | 说明        | 默认值  |
 | ---------- | ------------------------------------------------ | ----------- | ------- |
 | blockLight | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | skyLight   | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local blockLight = world.getLightLevel(player:getPos())
@@ -840,19 +845,19 @@ mySprite:setLight(blockLight, skyLight)
 
 ### <code>getLight()</code> \{#getLight}
 
-Returns the light override value of this task
+返回该任务的光照覆盖值。
 
 ```lua
 getLight()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getLight()
@@ -862,33 +867,33 @@ mySprite:getLight()
 
 ### <code>setMatrix()</code> \{#setMatrix}
 
-**Aliases:** `matrix()`
+**别名：** `matrix()`
 
-Sets the given matrix as the position matrix for this render task
+将给定矩阵设置为该渲染任务的位置矩阵。
 
-The normal matrix is automatically calculated as the inverse transpose of this matrix
+法线矩阵会自动按该矩阵的逆转置计算。
 
-Calling this DOES NOT CHANGE the values of position, rot, or scale in the render task
+调用该函数不会改变渲染任务中 position、rot 或 scale 的值。
 
-If you call setPos() or a similar function, the effects of setMatrix() will be overwritten
+如果调用 setPos() 或类似函数，setMatrix() 的效果会被覆盖。
 
 ```lua
 setMatrix(matrix)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
+| 名称   | 类型                                              | 说明        | 默认值  |
 | ------ | ------------------------------------------------- | ----------- | ------- |
 | matrix | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:setMatrix(matrices.mat4())
@@ -898,19 +903,19 @@ mySprite:setMatrix(matrices.mat4())
 
 ### <code>getName()</code> \{#getName}
 
-Get this task's name
+获取该任务的名称。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
+| 类型                                            | 说明        |
 | ----------------------------------------------- | ----------- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getName()
@@ -920,19 +925,19 @@ mySprite:getName()
 
 ### <code>getNormalMatrix()</code> \{#getNormalMatrix}
 
-Recalculates the normal matrix for this render task, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据当前的位置、旋转、缩放与枢轴重新计算该渲染任务的法线矩阵，然后返回该矩阵。
 
 ```lua
 getNormalMatrix()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getNormalMatrix()
@@ -942,21 +947,21 @@ mySprite:getNormalMatrix()
 
 ### <code>getNormalMatrixRaw()</code> \{#getNormalMatrixRaw}
 
-Returns the normal matrix for this render task
+返回该渲染任务的法线矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before returning it
+Raw 版本的区别在于返回前不会重新计算矩阵。
 
 ```lua
 getNormalMatrixRaw()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getNormalMatrixRaw()
@@ -966,57 +971,57 @@ mySprite:getNormalMatrixRaw()
 
 ### <code>setOverlay()</code> \{#setOverlay}
 
-**Aliases:** `overlay()`
+**别名：** `overlay()`
 
-Sets the overlay override value of this task
+设置该任务的叠加层覆盖值。
 
-Values you give are 0 to 15, indicating the white overlay and the damage overlay levels you want to use
+取值 0 到 15，分别表示要使用的白色叠加层与受伤叠加层等级。
 
-Passing nil will reset the overlay override for this task
+传入 nil 会重置该任务的叠加层覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOverlay(overlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                             | Description | Default |
+| 名称    | 类型                                             | 说明        | 默认值  |
 | ------- | ------------------------------------------------ | ----------- | ------- |
 | overlay | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOverlay(whiteOverlay, hurtOverlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name         | Type                                             | Description | Default |
+| 名称         | 类型                                             | 说明        | 默认值  |
 | ------------ | ------------------------------------------------ | ----------- | ------- |
 | whiteOverlay | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | hurtOverlay  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local hurt = player:getNbt.HurtTime > 0
@@ -1027,19 +1032,19 @@ mySprite:setOverlay(hurt and 0 or nil, 1)
 
 ### <code>getOverlay()</code> \{#getOverlay}
 
-Returns the overlay override value of this task
+返回该任务的叠加层覆盖值。
 
 ```lua
 getOverlay()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getOverlay()
@@ -1049,56 +1054,56 @@ mySprite:getOverlay()
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the position of the task, relative to its attached part
+设置任务的位置，相对于其挂载的部位。
 
-Uses model coordinates
+使用模型坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:setPos(0, 16, 0)
@@ -1108,19 +1113,19 @@ mySprite:setPos(0, 16, 0)
 
 ### <code>getPos()</code> \{#getPos}
 
-Gets this task position
+获取该任务的位置。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getPos()
@@ -1130,19 +1135,19 @@ mySprite:getPos()
 
 ### <code>getPositionMatrix()</code> \{#getPositionMatrix}
 
-Recalculates the matrix for this render task, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据当前的位置、旋转、缩放与枢轴重新计算该渲染任务的矩阵，然后返回该矩阵。
 
 ```lua
 getPositionMatrix()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getPositionMatrix()
@@ -1152,21 +1157,21 @@ mySprite:getPositionMatrix()
 
 ### <code>getPositionMatrixRaw()</code> \{#getPositionMatrixRaw}
 
-Returns the position matrix for this render task
+返回该渲染任务的位置矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before getting it
+Raw 版本的区别在于读取前不会重新计算矩阵。
 
 ```lua
 getPositionMatrixRaw()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getPositionMatrixRaw()
@@ -1176,54 +1181,54 @@ mySprite:getPositionMatrixRaw()
 
 ### <code>setRot()</code> \{#setRot}
 
-**Aliases:** `rot()`
+**别名：** `rot()`
 
-Sets the rotation of the task, relative to its attached part
+设置任务的旋转，相对于其挂载的部位。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setRot(rot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
+| 名称 | 类型                                             | 说明        | 默认值  |
 | ---- | ------------------------------------------------ | ----------- | ------- |
 | rot  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setRot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:setRot(0, 45, 22.5)
@@ -1233,19 +1238,19 @@ mySprite:setRot(0, 45, 22.5)
 
 ### <code>getRot()</code> \{#getRot}
 
-Gets this task rotation
+获取该任务的旋转。
 
 ```lua
 getRot()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getRot()
@@ -1255,54 +1260,54 @@ mySprite:getRot()
 
 ### <code>setScale()</code> \{#setScale}
 
-**Aliases:** `scale()`
+**别名：** `scale()`
 
-Sets the scale of the task, relative to its attached part
+设置任务的缩放，相对于其挂载的部位。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setScale(scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
+| 名称  | 类型                                             | 说明        | 默认值  |
 | ----- | ------------------------------------------------ | ----------- | ------- |
 | scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明        | 默认值  |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:setScale(0.4, 0.4, 0.4) -- mySprite:setScale(0.4) also works
@@ -1312,19 +1317,19 @@ mySprite:setScale(0.4, 0.4, 0.4) -- mySprite:setScale(0.4) also works
 
 ### <code>getScale()</code> \{#getScale}
 
-Gets this task scale
+获取该任务的缩放。
 
 ```lua
 getScale()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
+| 类型                                             | 说明        |
 | ------------------------------------------------ | ----------- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:getScale()
@@ -1334,27 +1339,27 @@ mySprite:getScale()
 
 ### <code>setVisible()</code> \{#setVisible}
 
-**Aliases:** `visible()`
+**别名：** `visible()`
 
-Sets whether or not this task should be rendered
+设置该任务是否参与渲染。
 
 ```lua
 setVisible(visible)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
+| 名称    | 类型                                              | 说明        | 默认值  |
 | ------- | ------------------------------------------------- | ----------- | ------- |
 | visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 local myPage = action_wheel.newPage()
@@ -1367,19 +1372,19 @@ end)
 
 ### <code>isVisible()</code> \{#isVisible}
 
-Checks if this task is visible
+检查该任务是否可见。
 
 ```lua
 isVisible()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明        |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 if mySprite:isVisible() then
@@ -1391,19 +1396,19 @@ end
 
 ### <code>remove()</code> \{#remove}
 
-Removes this render task from the parent model part
+从父模型部位中移除该渲染任务。
 
 ```lua
 remove()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
+| 类型                                                  | 说明        |
 | ----------------------------------------------------- | ----------- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 mySprite:remove()

@@ -1,39 +1,44 @@
+---
+title: Animation（动画）
+sidebar_label: Animation（动画）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-Methods for specific Blockbench animations
+本页介绍操作具体 Blockbench 动画的方法。
 
-For all examples on this page assume
+本页所有示例均假定：
 
 ```lua
 local myAnim = animations.myModel.myAnimation
 ```
 
-(and that this is a valid animation path)
+（并假定这是一条有效的动画路径。）
 
-For an explanation on indexing animations, see the [Animations Tutorial](/tutorials/Animations)
+关于动画索引的说明，请参阅[动画教程](/tutorials/Animations)。
 
 ---
 
-## Play/Stop \{#Play-Stop}
+## 播放与停止 \{#Play-Stop}
 
 ### <code>play()</code> \{#play}
 
-Initializes the animation
+初始化动画。
 
-Resume the animation if it was paused
+如果动画处于暂停状态，则继续播放。
 
 ```lua
 play()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:play()
@@ -43,19 +48,19 @@ myAnim:play()
 
 ### <code>stop()</code> \{#stop}
 
-Stop the animation
+停止动画。
 
 ```lua
 stop()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:stop()
@@ -65,19 +70,19 @@ myAnim:stop()
 
 ### <code>pause()</code> \{#pause}
 
-Pause the animation's playback
+暂停动画的播放。
 
 ```lua
 pause()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:pause()
@@ -87,23 +92,23 @@ myAnim:pause()
 
 ### <code>restart()</code> \{#restart}
 
-Restarts the animation
+重新开始动画。
 
-Plays the animation if it was stopped
+如果动画已停止，则直接播放。
 
-This behavior can also be reproduced by stopping then playing the animation
+先停止再播放也能得到相同的效果。
 
 ```lua
 restart()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:restart()
@@ -113,48 +118,48 @@ myAnim:restart()
 
 ### <code>setPlaying()</code> \{#setPlaying}
 
-**Aliases:** `playing()`
+**别名：** `playing()`
 
-A function that merges "play" and "stop" together
+把“播放”和“停止”合并为一个函数。
 
-Takes a boolean parameter, where if true, the animation will play, and when false, the animation will stop
+接受一个布尔参数：为 true 时播放动画，为 false 时停止动画。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPlaying()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2" default>
+<TabItem value="overload-2" label="重载 2" default>
 
 ```lua
 setPlaying(bool)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                              | Description                                                          | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ------------------------------------------------- | -------------------------------------------------------------------- | ------- |
-| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | True or false value that dictates if the animation will play or stop | `false` |
+| bool | <code>[Boolean](/tutorials/types/Booleans)</code> | 布尔值，决定动画播放还是停止 | `false` |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example (Overload 2):**
+**示例（重载 2）：**
 
 ```lua
 -- This example would be in a function like a tick event
@@ -167,19 +172,19 @@ myAnim:setPlaying(crouching)
 
 ### <code>isPlaying()</code> \{#isPlaying}
 
-Checks if the animation is playing
+检查动画是否正在播放。
 
 ```lua
 isPlaying()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                                                     |
+| 类型 | 说明 |
 | ------------------------------------------------- | --------------------------------------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | Returns true if the animation is playing, and false if it isn't |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 动画正在播放时返回 true，否则返回 false |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:isPlaying()
@@ -189,19 +194,19 @@ myAnim:isPlaying()
 
 ### <code>isStopped()</code> \{#isStopped}
 
-Checks if the animation is stopped
+检查动画是否已停止。
 
 ```lua
 isStopped()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                                                     |
+| 类型 | 说明 |
 | ------------------------------------------------- | --------------------------------------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | Returns true if the animation is stopped, and false if it isn't |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 动画已停止时返回 true，否则返回 false |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:isStopped()
@@ -211,19 +216,19 @@ myAnim:isStopped()
 
 ### <code>isPaused()</code> \{#isPaused}
 
-Checks if the animation is paused
+检查动画是否已暂停。
 
 ```lua
 isPaused()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                                                    |
+| 类型 | 说明 |
 | ------------------------------------------------- | -------------------------------------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | Returns true if the animation is paused, and false if it isn't |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 动画已暂停时返回 true，否则返回 false |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:isPaused()
@@ -233,35 +238,35 @@ myAnim:isPaused()
 
 ### <code>isHolding()</code> \{#isHolding}
 
-Checks if this animation is holding on its last frame
+检查该动画是否停留在最后一帧。
 
 ```lua
 isHolding()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                                                     |
+| 类型 | 说明 |
 | ------------------------------------------------- | --------------------------------------------------------------- |
-| <code>[Boolean](/tutorials/Types/Booleans)</code> | Returns true if the animation is holding, and false if it isn't |
+| <code>[Boolean](/tutorials/Types/Booleans)</code> | 动画正在停留时返回 true，否则返回 false |
 
 ---
 
 ### <code>getPlayState()</code> \{#getPlayState}
 
-Get the animation's playback state
+获取动画的播放状态。
 
 ```lua
 getPlayState()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                                |
+| 类型 | 说明 |
 | ----------------------------------------------- | ------------------------------------------ |
-| <code>[String](/tutorials/types/Strings)</code> | Returns the [PlayState](/enums/PlayStates) |
+| <code>[String](/tutorials/types/Strings)</code> | 返回[播放状态](/enums/PlayStates) |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getPlayState()
@@ -269,35 +274,35 @@ myAnim:getPlayState()
 
 ---
 
-## Timing \{#Timing}
+## 时间控制 \{#Timing}
 
 ### <code>setSpeed()</code> \{#setSpeed}
 
-**Aliases:** `speed()`
+**别名：** `speed()`
 
-Sets the animation's playback speed
+设置动画的播放速度。
 
-Negative numbers can be used for an inverted animation
+传入负数可让动画反向播放。
 
-Default speed is 1, 2 is twice the speed, and 0.5 is half the speed
+默认速度为 1，2 表示两倍速，0.5 表示半速。
 
 ```lua
 setSpeed(speed)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description                | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ----------------------------------------------- | -------------------------- | ------- |
-| speed | <code>[Number](/tutorials/types/Numbers)</code> | Sets the animation's speed | `1`     |
+| speed | <code>[Number](/tutorials/types/Numbers)</code> | 设置动画的播放速度 | `1`     |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setSpeed(2)
@@ -307,19 +312,19 @@ myAnim:setSpeed(2)
 
 ### <code>getSpeed()</code> \{#getSpeed}
 
-Gets the animation's speed
+获取动画的播放速度。
 
 ```lua
 getSpeed()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                       |
+| 类型 | 说明 |
 | ----------------------------------------------- | --------------------------------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | The animation's speed as a number |
+| <code>[Number](/tutorials/types/Numbers)</code> | 动画速度，数值形式 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getSpeed()
@@ -329,27 +334,27 @@ myAnim:getSpeed()
 
 ### <code>setLength()</code> \{#setLength}
 
-**Aliases:** `length()`
+**别名：** `length()`
 
-Set the animation's length, in seconds
+设置动画的长度，单位为秒。
 
 ```lua
 setLength(length)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description                    | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------ | ----------------------------------------------- | ------------------------------ | ------- |
-| length | <code>[Number](/tutorials/types/Numbers)</code> | The length of time, in seconds | `0`     |
+| length | <code>[Number](/tutorials/types/Numbers)</code> | 时长，单位为秒 | `0`     |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setLength(2)
@@ -359,19 +364,19 @@ myAnim:setLength(2)
 
 ### <code>getLength()</code> \{#getLength}
 
-Gets the animation's length, in seconds
+获取动画的长度，单位为秒。
 
 ```lua
 getLength()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                                |
+| 类型 | 说明 |
 | ----------------------------------------------- | ------------------------------------------ |
-| <code>[Number](/tutorials/types/Numbers)</code> | Returns the animation's length, in seconds |
+| <code>[Number](/tutorials/types/Numbers)</code> | 动画长度，单位为秒 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getLength()
@@ -381,31 +386,31 @@ myAnim:getLength()
 
 ### <code>setPriority()</code> \{#setPriority}
 
-**Aliases:** `priority()`
+**别名：** `priority()`
 
-Sets the animation's priority
+设置动画的优先级。
 
-Instead of blending, low priority animations are overridden by high priority ones
+高优先级动画会覆盖低优先级动画，而不是与之混合。
 
-The default priority of animations is 0
+动画的默认优先级为 0。
 
 ```lua
 setPriority(priority)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                             | Description                                      | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ------------------------------------------------ | ------------------------------------------------ | ------- |
-| priority | <code>[Integer](/tutorials/types/Numbers)</code> | The priority of the animation, as a whole number | `0`     |
+| priority | <code>[Integer](/tutorials/types/Numbers)</code> | 动画优先级，整数 | `0`     |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setPriority(1)
@@ -415,19 +420,19 @@ myAnim:setPriority(1)
 
 ### <code>getPriority()</code> \{#getPriority}
 
-Gets the animation's priority
+获取动画的优先级。
 
 ```lua
 getPriority()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description                             |
+| 类型 | 说明 |
 | ------------------------------------------------ | --------------------------------------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | Returns the animation's priority number |
+| <code>[Integer](/tutorials/types/Numbers)</code> | 动画的优先级数值 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getPriority()
@@ -437,27 +442,27 @@ myAnim:getPriority()
 
 ### <code>setTime()</code> \{#setTime}
 
-**Aliases:** `time()`
+**别名：** `time()`
 
-Sets the animation's playback current time, in seconds
+设置动画当前的播放时间，单位为秒。
 
 ```lua
 setTime(time)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                                  | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | -------------------------------------------- | ------- |
-| time | <code>[Number](/tutorials/types/Numbers)</code> | The time to set the animation to, in seconds | `0`     |
+| time | <code>[Number](/tutorials/types/Numbers)</code> | 要把动画设置到的时间，单位为秒 | `0`     |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setTime(1.5)
@@ -467,19 +472,19 @@ myAnim:setTime(1.5)
 
 ### <code>getTime()</code> \{#getTime}
 
-Get the animation's playback current time, in seconds
+获取动画当前的播放时间，单位为秒。
 
 ```lua
 getTime()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                                |
+| 类型 | 说明 |
 | ----------------------------------------------- | ------------------------------------------ |
-| <code>[Number](/tutorials/types/Numbers)</code> | Returns the playback time of the animation |
+| <code>[Number](/tutorials/types/Numbers)</code> | 动画的播放时间 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getTime()
@@ -489,29 +494,29 @@ myAnim:getTime()
 
 ### <code>setOffset()</code> \{#setOffset}
 
-**Aliases:** `offset()`
+**别名：** `offset()`
 
-Sets how much time to skip for the animation, in seconds
+设置动画每次循环跳过的时长，单位为秒。
 
-The time is skipped on every loop
+每次循环都会跳过这段时长。
 
 ```lua
 setOffset(offset)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description                           | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ------ | ----------------------------------------------- | ------------------------------------- | ------- |
-| offset | <code>[Number](/tutorials/types/Numbers)</code> | Time in seconds to skip for each loop | `0`     |
+| offset | <code>[Number](/tutorials/types/Numbers)</code> | 每次循环跳过的时长，单位为秒 | `0`     |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setOffset(1.75)
@@ -521,19 +526,19 @@ myAnim:setOffset(1.75)
 
 ### <code>getOffset()</code> \{#getOffset}
 
-Gets the animation's offset time, in seconds
+获取动画的偏移时间，单位为秒。
 
 ```lua
 getOffset()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                                     |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------------------------------------------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | The time that is skipped every loop, in seconds |
+| <code>[Number](/tutorials/types/Numbers)</code> | 每次循环跳过的时长，单位为秒 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getOffset()
@@ -543,27 +548,27 @@ myAnim:getOffset()
 
 ### <code>setLoop()</code> \{#setLoop}
 
-**Aliases:** `loop()`
+**别名：** `loop()`
 
-Sets the animation's [loop mode](/enums/Loop-Modes)
+设置动画的[循环模式](/enums/Loop-Modes)。
 
 ```lua
 setLoop(loop)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                            | Default  |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | -------------------------------------- | -------- |
-| loop | <code>[String](/tutorials/types/Strings)</code> | Sets the [LoopMode](/enums/Loop-Modes) | Required |
+| loop | <code>[String](/tutorials/types/Strings)</code> | 设置[循环模式](/enums/Loop-Modes) | 必填 |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setLoop("ONCE")
@@ -573,19 +578,19 @@ myAnim:setLoop("ONCE")
 
 ### <code>getLoop()</code> \{#getLoop}
 
-Gets the animation's loop mode
+获取动画的循环模式。
 
 ```lua
 getLoop()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                               |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------------------------------------- |
-| <code>[String](/tutorials/types/Strings)</code> | Returns the [LoopMode](/enums/Loop-Modes) |
+| <code>[String](/tutorials/types/Strings)</code> | 返回[循环模式](/enums/Loop-Modes) |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getLoop()
@@ -595,27 +600,27 @@ myAnim:getLoop()
 
 ### <code>setBlend()</code> \{#setBlend}
 
-**Aliases:** `blend()`
+**别名：** `blend()`
 
-Sets the animation's keyframe blend factor, which is the strength of the animation
+设置动画关键帧的混合系数，也就是动画的强度。
 
 ```lua
 setBlend(blend)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description                                  | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ----------------------------------------------- | -------------------------------------------- | ------- |
-| blend | <code>[Number](/tutorials/types/Numbers)</code> | Strength of the blend factor between 0 and 1 | `1`     |
+| blend | <code>[Number](/tutorials/types/Numbers)</code> | 混合系数强度，取值在 0 到 1 之间 | `1`     |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setBlend(.5)
@@ -625,19 +630,19 @@ myAnim:setBlend(.5)
 
 ### <code>getBlend()</code> \{#getBlend}
 
-Gets the animation's keyframe blend factor, which is the strength of the animation
+获取动画关键帧的混合系数，也就是动画的强度。
 
 ```lua
 getBlend()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                                           |
+| 类型 | 说明 |
 | ----------------------------------------------- | ----------------------------------------------------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | Gets the strength of the blend factor between 0 and 1 |
+| <code>[Number](/tutorials/types/Numbers)</code> | 混合系数强度，取值在 0 到 1 之间 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getBlend()
@@ -647,29 +652,29 @@ myAnim:getBlend()
 
 ### <code>setStartDelay()</code> \{#setStartDelay}
 
-**Aliases:** `startDelay()`
+**别名：** `startDelay()`
 
-Set how much time to wait before this animation is initialized, in seconds
+设置动画初始化前需要等待的时长，单位为秒。
 
-Note that while it is waiting, the animation is considered being played
+注意：等待期间，动画仍被视为正在播放。
 
 ```lua
 setStartDelay(delay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description                             | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ----------------------------------------------- | --------------------------------------- | ------- |
-| delay | <code>[Number](/tutorials/types/Numbers)</code> | The time in seconds to set the delay to | `0`     |
+| delay | <code>[Number](/tutorials/types/Numbers)</code> | 要设置的延迟时长，单位为秒 | `0`     |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setStartDelay(1)
@@ -679,19 +684,19 @@ myAnim:setStartDelay(1)
 
 ### <code>getStartDelay()</code> \{#getStartDelay}
 
-Gets the animation's start delay, in seconds
+获取动画的启动延迟，单位为秒。
 
 ```lua
 getStartDelay()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                                 |
+| 类型 | 说明 |
 | ----------------------------------------------- | ------------------------------------------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | The time in seconds that it's being delayed |
+| <code>[Number](/tutorials/types/Numbers)</code> | 延迟的时长，单位为秒 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getStartDelay()
@@ -701,27 +706,27 @@ myAnim:getStartDelay()
 
 ### <code>setLoopDelay()</code> \{#setLoopDelay}
 
-**Aliases:** `loopDelay()`
+**别名：** `loopDelay()`
 
-Set how much time to wait in between the loops of this animation, in seconds
+设置动画每次循环之间等待的时长，单位为秒。
 
 ```lua
 setLoopDelay(delay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                            | Description                             | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | ----- | ----------------------------------------------- | --------------------------------------- | ------- |
-| delay | <code>[Number](/tutorials/types/Numbers)</code> | The time in seconds to set the delay to | `0`     |
+| delay | <code>[Number](/tutorials/types/Numbers)</code> | 要设置的延迟时长，单位为秒 | `0`     |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setLoopDelay(1)
@@ -731,19 +736,19 @@ myAnim:setLoopDelay(1)
 
 ### <code>getLoopDelay()</code> \{#getLoopDelay}
 
-Gets the animation's loop delay, in seconds
+获取动画的循环延迟，单位为秒。
 
 ```lua
 getLoopDelay()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                                 |
+| 类型 | 说明 |
 | ----------------------------------------------- | ------------------------------------------- |
-| <code>[Number](/tutorials/types/Numbers)</code> | The time in seconds that it's being delayed |
+| <code>[Number](/tutorials/types/Numbers)</code> | 延迟的时长，单位为秒 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getLoopDelay()
@@ -751,33 +756,33 @@ myAnim:getLoopDelay()
 
 ---
 
-## Overriding \{#Overriding}
+## 覆盖 \{#Overriding}
 
 ### <code>setOverride()</code> \{#setOverride}
 
-**Aliases:** `override()`
+**别名：** `override()`
 
-Set if this animation should override all of its parts vanilla transforms
+设置该动画是否覆盖其所有部件的原版变换。
 
-Equivalent of calling "overrideRot", "overridePos" and "overrideScale" altogether
+等同于同时调用“overrideRot”“overridePos”和“overrideScale”。
 
 ```lua
 setOverride(override)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                              | Description                                                          | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ------------------------------------------------- | -------------------------------------------------------------------- | ------- |
-| override | <code>[Boolean](/tutorials/types/Booleans)</code> | True or false if it should or shouldn't override all transformations | `false` |
+| override | <code>[Boolean](/tutorials/types/Booleans)</code> | 布尔值，表示是否覆盖所有变换 | `false` |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setOverride(true)
@@ -787,27 +792,27 @@ myAnim:setOverride(true)
 
 ### <code>setOverrideRot()</code> \{#setOverrideRot}
 
-**Aliases:** `overrideRot()`
+**别名：** `overrideRot()`
 
-Set if this animation should override its parts vanilla rotation
+设置该动画是否覆盖其部件的原版旋转。
 
 ```lua
 setOverrideRot(override)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                              | Description                                               | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ------------------------------------------------- | --------------------------------------------------------- | ------- |
-| override | <code>[Boolean](/tutorials/types/Booleans)</code> | True or false if it should or shouldn't override rotation | `false` |
+| override | <code>[Boolean](/tutorials/types/Booleans)</code> | 布尔值，表示是否覆盖旋转 | `false` |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setOverrideRot(true)
@@ -817,19 +822,19 @@ myAnim:setOverrideRot(true)
 
 ### <code>getOverrideRot()</code> \{#getOverrideRot}
 
-Gets if this animation should override its parts vanilla rotation
+获取该动画是否覆盖其部件的原版旋转。
 
 ```lua
 getOverrideRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                                 |
+| 类型 | 说明 |
 | ------------------------------------------------- | ------------------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | Returns if it should be overriding rotation |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 是否覆盖旋转 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getOverrideRot()
@@ -839,27 +844,27 @@ myAnim:getOverrideRot()
 
 ### <code>setOverridePos()</code> \{#setOverridePos}
 
-**Aliases:** `overridePos()`
+**别名：** `overridePos()`
 
-Set if this animation should override its parts vanilla position
+设置该动画是否覆盖其部件的原版位置。
 
 ```lua
 setOverridePos(override)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                              | Description                                               | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ------------------------------------------------- | --------------------------------------------------------- | ------- |
-| override | <code>[Boolean](/tutorials/types/Booleans)</code> | True or false if it should or shouldn't override position | `false` |
+| override | <code>[Boolean](/tutorials/types/Booleans)</code> | 布尔值，表示是否覆盖位置 | `false` |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setOverridePos(true)
@@ -869,19 +874,19 @@ myAnim:setOverridePos(true)
 
 ### <code>getOverridePos()</code> \{#getOverridePos}
 
-Gets if this animation should override its parts vanilla position
+获取该动画是否覆盖其部件的原版位置。
 
 ```lua
 getOverridePos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                                 |
+| 类型 | 说明 |
 | ------------------------------------------------- | ------------------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | Returns if it should be overriding position |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 是否覆盖位置 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getOverridePos()
@@ -891,27 +896,27 @@ myAnim:getOverridePos()
 
 ### <code>setOverrideScale()</code> \{#setOverrideScale}
 
-**Aliases:** `overrideScale()`
+**别名：** `overrideScale()`
 
-Set if this animation should override its parts vanilla scale
+设置该动画是否覆盖其部件的原版缩放。
 
 ```lua
 setOverrideScale(override)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                              | Description                                            | Default |
+| 名称 | 类型 | 说明 | 默认值 |
 | -------- | ------------------------------------------------- | ------------------------------------------------------ | ------- |
-| override | <code>[Boolean](/tutorials/types/Booleans)</code> | True or false if it should or shouldn't override scale | `false` |
+| override | <code>[Boolean](/tutorials/types/Booleans)</code> | 布尔值，表示是否覆盖缩放 | `false` |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:setOverrideScale(true)
@@ -921,19 +926,19 @@ myAnim:setOverrideScale(true)
 
 ### <code>getOverrideScale()</code> \{#getOverrideScale}
 
-Gets if this animation should override its parts vanilla scale
+获取该动画是否覆盖其部件的原版缩放。
 
 ```lua
 getOverrideScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------- | ---------------------------------------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | Returns if it should be overriding scale |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | 是否覆盖缩放 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getOverrideScale()
@@ -941,23 +946,23 @@ myAnim:getOverrideScale()
 
 ---
 
-## Misc \{#Misc}
+## 其他 \{#Misc}
 
 ### <code>getName()</code> \{#getName}
 
-Returns this animation's name
+返回该动画的名称。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description                  |
+| 类型 | 说明 |
 | ----------------------------------------------- | ---------------------------- |
-| <code>[String](/tutorials/types/Strings)</code> | Returns the animation's name |
+| <code>[String](/tutorials/types/Strings)</code> | 动画的名称 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:getName()
@@ -967,28 +972,28 @@ myAnim:getName()
 
 ### <code>newCode()</code> \{#newCode}
 
-Adds a string to run in a determinant time
+在指定的时间点添加一段要运行的代码。
 
-If there's already code to run at that time, it is overwritten
+如果该时间点已有代码，会被覆盖。
 
 ```lua
 newCode(time, code)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description                            | Default  |
+| 名称 | 类型 | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | -------------------------------------- | -------- |
-| time | <code>[Number](/tutorials/types/Numbers)</code> | The time in seconds to add the code to | `0`      |
-| code | <code>[String](/tutorials/types/Strings)</code> | The code to run at that time           | Required |
+| time | <code>[Number](/tutorials/types/Numbers)</code> | 要添加代码的时间点，单位为秒 | `0`      |
+| code | <code>[String](/tutorials/types/Strings)</code> | 在该时间点运行的代码 | 必填 |
 
-**Returns:**
+**返回：**
 
-| Type                                                    | Description                              |
+| 类型 | 说明 |
 | ------------------------------------------------------- | ---------------------------------------- |
-| <code>[Animation](/globals/Animations/Animation)</code> | Returns the given animation for chaining |
+| <code>[Animation](/globals/Animations/Animation)</code> | 返回该动画，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim:newCode(0.5, "log('Hello World')")
@@ -996,13 +1001,13 @@ myAnim:newCode(0.5, "log('Hello World')")
 
 ---
 
-## Fields
+## 字段
 
 ### <code>name</code> \{#name}
 
-This animation's name
+该动画的名称。
 
-**Example:**
+**示例：**
 
 ```lua
 myAnim.name

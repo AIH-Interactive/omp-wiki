@@ -1,6 +1,11 @@
-These are outer layer parts used in conjunction with <code>player:isSkinLayerVisible(String)</code> to detect what parts a player has enabled via the Minecraft Skin Customizations setting.
+---
+title: 玩家模型部件（PlayerModelParts）
+sidebar_label: 玩家模型部件
+---
 
-**Example:**
+这些是外层部件，配合 <code>player:isSkinLayerVisible(String)</code> 使用，用于检测玩家在 Minecraft 的“皮肤自定义”设置中启用了哪些部件。
+
+**示例：**
 
 ```lua
 log(player:isSkinLayerVisible("HAT"))
@@ -8,14 +13,14 @@ log(player:isSkinLayerVisible("HAT"))
 
 ---
 
-## All Part Names:
+## 全部部件名称
 
-| Part           | Description                               |
-| -------------- | ----------------------------------------- |
-| `CAPE`         | The rectangle thing hanging off your back |
-| `JACKET`       | Secondary layer for the Body              |
-| `LEFT_SLEEVE`  | Secondary layer for the Left Arm          |
-| `RIGHT_SLEEVE` | Secondary layer for the Right Arm         |
-| `LEFT_PANTS`   | Secondary layer for the Left Leg          |
-| `RIGHT_PANTS`  | Secondary layer for the Right Leg         |
-| `HAT`          | Secondary layer for the Head              |
+| 部件           | 说明                   |
+| -------------- | ---------------------- |
+| `CAPE`         | 挂在背后的那块矩形布片 |
+| `JACKET`       | 身体的外层             |
+| `LEFT_SLEEVE`  | 左臂的外层             |
+| `RIGHT_SLEEVE` | 右臂的外层             |
+| `LEFT_PANTS`   | 左腿的外层             |
+| `RIGHT_PANTS`  | 右腿的外层             |
+| `HAT`          | 头部的外层             |

@@ -1,99 +1,117 @@
-The basics on how multiplayer works
+---
+sidebar_position: 8
+title: 多人游戏
+sidebar_label: 多人游戏
+---
 
-## The Cloud
+本页介绍多人游戏的基本工作原理。
 
-The cloud (also referred to as the backend or the server) is where avatars are stored for use in multiplayer. You upload one avatar to the cloud, and that avatar is what other players see equipped to you. When you look at other players, if they uploaded an avatar to the cloud, that is the avatar you see.
+## OmniMorph 云端
 
-### How to know you're connected
+OmniMorph 在原有 Figura Cloud 之外，还支持 Protobuf 协议与模型库：
 
-You have to be connected to the cloud to upload an avatar and to see other people’s avatars.
+- 在设置中填写服务器地址并选择协议；协议不兼容时不会自动切换；
+- 模型库用于浏览、下载、上传和收藏模型；
+- 衣柜上传默认对其他玩家展示，也可以单独关闭；
+- 配装/形象集的云端同步取决于后端能力；
+- 没有后端时，本地模型仍然可以正常加载。
 
-You can see if you're connected by looking at the fourth part of the avatar status bar.
+详见[云端同步](/omnimorph/sync)与[模型库](/omnimorph/library)。
 
-<img src={require("@site/static/img/multiplayer/connected.png").default} width="400" alt="The cloud connection circle displaying that the cloud is connecyed"></img><br/>
+## 云端
 
-If your fourth part is a red X, you’re not connected to the cloud.
+云端（Cloud，也称后端或服务器）用于存放在多人游戏中使用的形象。你把一个形象上传到云端后，其他玩家看到你装备的就是这个形象。查看其他玩家时，如果他们已把形象上传到云端，你看到的就是该形象。
 
-<img src={require("@site/static/img/multiplayer/disconnected.png").default} width="400" alt="The cloud connection circle displaying that the cloud is disconnected"></img><br/>
+### 如何确认已连接
 
-### How to connect to the cloud
+只有连接到云端，才能上传形象并看到其他玩家的形象。
 
-Figura will automatically attempt to connect you to the cloud when you join a server.
+查看形象状态栏的第四段，即可确认是否已连接。
 
-If you're not connected there's a few options you can try.
+<img src={require("@site/static/img/multiplayer/connected.png").default} width="400" alt="云端连接圆圈显示云端已连接"></img><br/>
 
--   Check your internet connection
--   Press the reload button, this will attempt to get information from the cloud and may connect you
--   Leave and re-join the server, or restart Minecraft
--   Check the Discord’s announcements channel for information on if the cloud is offline
+如果第四段显示红色 X，表示尚未连接到云端。
 
-### Offline Mode Servers and Cracked Accounts
+<img src={require("@site/static/img/multiplayer/disconnected.png").default} width="400" alt="云端连接圆圈显示云端未连接"></img><br/>
 
-Figura uses a player’s UUID (a value unique to every valid Minecraft account) to identify players and entities and correctly apply avatars to them from the cloud.
+### 如何连接云端
 
-Cracked (non-licensed/pirated) Minecraft accounts do not have a valid UUID of their own and as a result can’t use avatars from the cloud. There is no way around this.
+加入服务器时，Figura 会自动尝试连接云端。
 
-Offline mode servers usually scramble the UUIDs of every account (cracked or licensed) logged onto the server. And because your UUID won’t match your username anymore, even licensed accounts can’t use avatars from the cloud while in an offline mode server. For licensed accounts there may be a work around if you connected to the server before it went into offline mode. Otherwise, a plugin that attempts to fix UUIDs like easyauth may be able to solve this problem.
+如果未能连接，可以尝试以下方法。
 
-Additionally, Aternos servers are known to mess with Figura’s multiplayer capabilities even when in online mode.
+-   检查网络连接
+-   点击重新加载按钮。这会尝试从云端获取信息，可能借此建立连接
+-   离开并重新加入服务器，或重启 Minecraft
+-   查看 Discord 的公告频道，确认云端是否离线
 
-## Uploading an avatar
+### 离线模式服务器与破解账号
 
-Equip the avatar you want to upload by selecting it in the avatar list, and then press the upload button.
+Figura 使用玩家的 UUID（每个有效 Minecraft 账号独有的值）来识别玩家和实体，并从云端为它们正确应用形象。
 
-<img src={require("@site/static/img/multiplayer/upload.png").default} width="40" alt="The Figura upload button"></img><br/>
+破解（非正版或盗版）的 Minecraft 账号没有自己的有效 UUID，因此无法使用云端形象。这一点无法绕过。
 
-This does two things:
+离线模式服务器通常会打乱登录服务器的每个账号（无论破解还是正版）的 UUID。由于你的 UUID 不再与用户名匹配，即使使用正版账号，在离线模式服务器中也无法使用云端形象。如果正版账号在服务器切换到离线模式之前就已连接，可能还有变通办法。否则，可以尝试使用 easyauth 这类修复 UUID 的插件来解决问题。
 
-1. It sends the avatar to the cloud
-2. It then takes that cloud avatar (called the uploaded avatar) and equips it to you
+此外，Aternos 服务器已知会干扰 Figura 的多人游戏功能，即使在在线模式下也是如此。
+
+## 上传形象
+
+在形象列表中选择要上传的形象并装备，然后点击上传按钮。
+
+<img src={require("@site/static/img/multiplayer/upload.png").default} width="40" alt="Figura 上传按钮"></img><br/>
+
+这会完成两件事：
+
+1. 将形象发送到云端
+2. 再把这个云端形象（称为“已上传形象”）装备到你身上
 
 :::warning
-Many new users of Figura think they need to press the upload button every time they make changes to their avatar, but this is not the case. You do not need to press upload every time you save any of the avatar files, if you did not upload the avatar Figura will automatically reload the avatar and show the changes to you. If you uploaded the avatar it will stop following changes made to the files after it is uploaded.
+许多 Figura 新用户以为每次修改形象后都要点击上传按钮，其实并非如此。保存形象文件后不需要每次都点击上传。如果尚未上传该形象，Figura 会自动重新加载形象，并向你显示改动。如果已经上传，形象在上传完成后就不再跟随文件改动。
 :::
 
-### The other buttons
+### 其他按钮
 
-<img src={require("@site/static/img/multiplayer/reload.png").default} width="40" alt="The Figura reload button"></img><br/>
+<img src={require("@site/static/img/multiplayer/reload.png").default} width="40" alt="Figura 重新加载按钮"></img><br/>
 
-The reload button unequips your avatar and reloads the avatar uploaded to the cloud, which it then equips to you.
+重新加载按钮会卸下当前形象，重新加载已上传到云端的形象，然后将其装备到你身上。
 
 :::warning
-Many new users of Figura think they need to press the reload button every time they make changes to their avatar, but this is not the case. You do not need to press reload every time you save any of the avatar files, if you did not upload the avatar Figura will automatically reload the avatar and show the changes to you. This button will not show you any changes you have made to the avatar's files, and may even seemingly revert changes you have made as it reverts back to the last avatar you uploaded to the cloud.
+许多 Figura 新用户以为每次修改形象后都要点击重新加载按钮，其实并非如此。保存形象文件后不需要每次都点击重新加载。如果尚未上传该形象，Figura 会自动重新加载形象，并向你显示改动。这个按钮不会显示你对形象文件所做的任何改动，甚至可能看起来还原了你的改动，因为它会回到你最后上传到云端的形象。
 :::
 
-<img src={require("@site/static/img/multiplayer/delete.png").default} width="40" alt="The Figura delete button"></img><br/>
+<img src={require("@site/static/img/multiplayer/delete.png").default} width="40" alt="Figura 删除按钮"></img><br/>
 
-The delete button removes the uploaded avatar from the cloud.
+删除按钮会从云端移除已上传的形象。
 
-## Local vs Uploaded Avatars
+## 本地形象与已上传形象
 
-The local avatar is an avatar you have equipped that is directly linked to the files on your computer. Whenever you update one of the files on your computer the local avatar immediately updates itself to match the change.
+本地形象是你已装备、并且直接关联到电脑上文件的形象。每当更新电脑上的某个文件，本地形象都会立即同步更新。
 
-An uploaded avatar is the avatar you have uploaded to the cloud. It is completely disconnected from the files you have on your computer. This avatar will be equipped to you when you press upload, press reload, or join a single or multiplayer server. Any changes you make to the files on your computer will not be made to the uploaded avatar.
+已上传形象是你上传到云端的形象。它与电脑上的文件完全断开。点击上传、点击重新加载，或加入单人游戏或多人服务器时，这个形象会被装备到你身上。你对电脑上文件所做的任何改动都不会应用到已上传形象。
 
-## Permissions
+## 权限
 
-This menu can be accessed via the Figura menu. It’s sometimes called the trust menu.
+该菜单可从 Figura 菜单进入，有时也称为信任菜单。
 
-<img src={require("@site/static/img/multiplayer/permissions.png").default} width="800" alt="The Figura permissions menu, the button to access the advanced options is highlighted with a red square"></img><br/>
+<img src={require("@site/static/img/multiplayer/permissions.png").default} width="800" alt="Figura 权限菜单，访问高级选项的按钮用红框标出"></img><br/>
 
-The button indicated near the bottom right corner of the screen pulls up a menu that lets you adjust permission levels. Alternatively, you can click and drag player names around to move them to different levels.
+屏幕右下角附近标出的按钮会打开一个菜单，可用于调整权限等级。也可以直接拖动玩家名称，把他们移到不同等级。
 
-The permission levels and settings dictate how much of another player’s avatar you can see. The first time you see another player with a Figura avatar they’ll be put into the Default trust level. These settings are only for how YOU see other people’s avatars. Your settings will not affect how other players see your avatar.
+权限等级和设置决定你能看到多少其他玩家形象的内容。第一次看到带有 Figura 形象的玩家时，对方会被放入默认信任等级。这些设置只影响你查看其他玩家形象的方式，不会影响其他玩家查看你的形象。
 
-The default level is going to be adequate for most avatars, but notably the “Nameplate Change” setting is set to disabled by default. This means, for every player in your default level you can’t see any changes they’ve made to their nameplate. This is so people can’t make completely invisible avatars in the default level.
+默认等级足以应对大多数形象，但要注意，“名称牌更改”设置默认处于禁用状态。这意味着，对于你默认等级中的每位玩家，你都无法看到他们对名称牌所做的任何更改。这样可避免有人在默认等级下制作完全隐形的形象。
 
-Problems with permissions can be seen in someone's nameplate. A shield symbol pops up when someone's avatar is trying to do something that your permission settings for them don't allow. If you hover over it you can see which permissions are being blocked.
+权限问题会显示在玩家的名称牌上。当某人的形象尝试执行你的权限设置不允许的操作时，会出现盾牌图标。将鼠标悬停在图标上，即可查看哪些权限被阻止。
 
-<img src={require("@site/static/img/multiplayer/nameplate.png").default} width="800" alt="Screenshot of a player nameplate that has the 'This Avatar utilizes a higher Permission category!' warning. The warnings are 'Could not edit nameplate' and 'Could not cancel a sound'"></img><br/>
+<img src={require("@site/static/img/multiplayer/nameplate.png").default} width="800" alt="玩家名称牌截图，显示“此形象需要更高的权限类别！”警告。警告内容为“无法编辑名称牌”和“无法取消声音”"></img><br/>
 
-## Script Errors
+## 脚本错误
 
-Like permission issues, script errors you might see on your friend's avatar are displayed in their nameplate. You can hover over the red X for more information.
+与权限问题类似，你在朋友形象上看到的脚本错误也会显示在对方的名称牌上。将鼠标悬停在红色 X 上可查看更多信息。
 
-<img src={require("@site/static/img/multiplayer/error.png").default} width="800" alt="Screenshot of a player nameplate that has the 'This Avatar contains an error!' warning. The error cause is 'Hi, this is a test error'"></img><br/>
+<img src={require("@site/static/img/multiplayer/error.png").default} width="800" alt="玩家名称牌截图，显示“此形象包含错误！”警告。错误原因为“Hi, this is a test error”"></img><br/>
 
-Sometimes your script can error for other players, but appear fine for you. Sometimes this is caused by permissions, in which case they can simply bring your permission level to max and then reload your avatar.
+有时你的脚本会在其他玩家那里报错，但在你这里显示正常。有时这是权限导致的，此时对方只需把你的权限等级调到最高，然后重新加载你的形象。
 
-Most of the time, however, it’s caused by an error in your script. You’ll have to work with your friend in order to diagnose and solve the script error. But in the meantime they can reload your avatar to hopefully temporarily dismiss the error.
+不过大多数情况下，这是脚本中的错误导致的。你需要和朋友一起排查并解决脚本错误。在此期间，对方可以重新加载你的形象，或许能暂时消除错误。

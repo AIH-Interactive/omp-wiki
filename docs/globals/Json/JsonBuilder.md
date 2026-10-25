@@ -1,26 +1,31 @@
-JSON serializer builder
+---
+title: JsonBuilder（JSON 序列化器构建器）
+sidebar_label: JsonBuilder（JSON 序列化器构建器）
+---
+
+JSON 序列化器构建器
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>build()</code> \{#build}
 
-Builds serializer with current settings
+使用当前设置构建序列化器
 
 ```lua
 build()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                        | Description |
-| ----------------------------------------------------------- | ----------- |
-| <code>[JsonSerializer](/globals/Json/JsonSerializer)</code> | -           |
+| 类型                                                        | 说明 |
+| ----------------------------------------------------------- | ---- |
+| <code>[JsonSerializer](/globals/Json/JsonSerializer)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -28,13 +33,13 @@ build()
 
 ---
 
-## Fields
+## 字段
 
 ### <code>prettyPrinting</code> \{#prettyPrinting}
 
-Should serializer apply indentation for objects and arrays. Default - false
+序列化器是否对对象和数组应用缩进。默认值为 false
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -44,9 +49,9 @@ Should serializer apply indentation for objects and arrays. Default - false
 
 ### <code>htmlEscaping</code> \{#htmlEscaping}
 
-Should serializer escape non ASCII characters. Default - true
+序列化器是否转义非 ASCII 字符。默认值为 true
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -56,9 +61,9 @@ Should serializer escape non ASCII characters. Default - true
 
 ### <code>serializeNils</code> \{#serializeNils}
 
-Should serializer serialize nils that are put on JSON objects and arrays. Default - false
+序列化器是否序列化放入 JSON 对象和数组中的 nil。默认值为 false
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

@@ -1,22 +1,24 @@
 ---
 sidebar_position: 1
+title: VanillaModel（原版模型）
+sidebar_label: VanillaModel（原版模型）
 ---
 
-A global API that provides functions to interact with the vanilla player model and its parts
+用于操作原版玩家模型及其部件的全局 API。
 
-Accessed using the global field `vanilla_model`
+通过全局字段 `vanilla_model` 访问。
 
 ---
 
-## Groups
+## 分组
 
-Go [here](VanillaModelGroup) for functions that effect these parts
+这些部件的相关函数请参阅[此处](VanillaModelGroup)。
 
 ### <code>ALL</code> \{#ALL}
 
-Multi-part: The entirety of the vanilla model
+多部件：整个原版模型。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.ALL:setVisible(false)
@@ -26,9 +28,9 @@ vanilla_model.ALL:setVisible(false)
 
 ### <code>PLAYER</code> \{#PLAYER}
 
-Multi-part: Both the outer and inner layers of the player's skin, as well as the cape
+多部件：玩家皮肤的外层与内层，以及披风。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.PLAYER:setVisible(false)
@@ -38,9 +40,9 @@ vanilla_model.PLAYER:setVisible(false)
 
 ### <code>OUTER_LAYER</code> \{#OUTER_LAYER}
 
-Multi-part: The outer layer of the player
+多部件：玩家的外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.OUTER_LAYER:setVisible(false)
@@ -50,9 +52,9 @@ vanilla_model.OUTER_LAYER:setVisible(false)
 
 ### <code>INNER_LAYER</code> \{#INNER_LAYER}
 
-Multi-part: The main body of the player, everything except the outer layer
+多部件：玩家的主体，即除外层以外的全部部件。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.INNER_LAYER:setVisible(false)
@@ -62,9 +64,9 @@ vanilla_model.INNER_LAYER:setVisible(false)
 
 ### <code>CAPE</code> \{#CAPE}
 
-Multi-part: The player's cape
+多部件：玩家的披风。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.CAPE:setVisible(false)
@@ -74,9 +76,9 @@ vanilla_model.CAPE:setVisible(false)
 
 ### <code>ARMOR</code> \{#ARMOR}
 
-Multi-part: All armor on the model
+多部件：模型上的全部盔甲。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.ARMOR:setVisible(false)
@@ -86,9 +88,9 @@ vanilla_model.ARMOR:setVisible(false)
 
 ### <code>HELMET</code> \{#HELMET}
 
-Multi-part: The helmet model
+多部件：头盔模型。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HELMET:setVisible(false)
@@ -98,9 +100,9 @@ vanilla_model.HELMET:setVisible(false)
 
 ### <code>CHESTPLATE</code> \{#CHESTPLATE}
 
-Multi-part: The chestplate model
+多部件：胸甲模型。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.CHESTPLATE:setVisible(false)
@@ -110,9 +112,9 @@ vanilla_model.CHESTPLATE:setVisible(false)
 
 ### <code>LEGGINGS</code> \{#LEGGINGS}
 
-Multi-part: The leggings model
+多部件：护腿模型。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEGGINGS:setVisible(false)
@@ -122,9 +124,9 @@ vanilla_model.LEGGINGS:setVisible(false)
 
 ### <code>BOOTS</code> \{#BOOTS}
 
-Multi-part: The boots model
+多部件：靴子模型。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.BOOTS:setVisible(false)
@@ -134,9 +136,9 @@ vanilla_model.BOOTS:setVisible(false)
 
 ### <code>ELYTRA</code> \{#ELYTRA}
 
-Multi-part: The elytra model
+多部件：鞘翅模型。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.ELYTRA:setVisible(false)
@@ -146,9 +148,9 @@ vanilla_model.ELYTRA:setVisible(false)
 
 ### <code>HELD_ITEMS</code> \{#HELD_ITEMS}
 
-Multi-part: Items in the player's hands
+多部件：玩家手中的物品。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HELD_ITEMS:setVisible(false)
@@ -158,9 +160,9 @@ vanilla_model.HELD_ITEMS:setVisible(false)
 
 ### <code>PARROTS</code> \{#PARROTS}
 
-Multi-part: Parrots on the player's shoulders
+多部件：玩家肩上的鹦鹉。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.PARROTS:setVisible(false)
@@ -168,15 +170,15 @@ vanilla_model.PARROTS:setVisible(false)
 
 ---
 
-## Parts
+## 部件
 
-Go [here](VanillaModelPart) for functions that effect these parts
+这些部件的相关函数请参阅[此处](VanillaModelPart)。
 
 ### <code>HEAD</code> \{#HEAD}
 
-The head of the player, not including the hat
+玩家的头部，不包括帽子。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HEAD:setVisible(false)
@@ -186,9 +188,9 @@ vanilla_model.HEAD:setVisible(false)
 
 ### <code>BODY</code> \{#BODY}
 
-The body of the player, not including the outer layer
+玩家的身体，不包括外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.BODY:setVisible(false)
@@ -198,9 +200,9 @@ vanilla_model.BODY:setVisible(false)
 
 ### <code>LEFT_ARM</code> \{#LEFT_ARM}
 
-The left arm of the player, not including the outer layer
+玩家的左臂，不包括外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEFT_ARM:setVisible(false)
@@ -210,9 +212,9 @@ vanilla_model.LEFT_ARM:setVisible(false)
 
 ### <code>RIGHT_ARM</code> \{#RIGHT_ARM}
 
-The right arm of the player, not including the outer layer
+玩家的右臂，不包括外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.RIGHT_ARM:setVisible(false)
@@ -222,9 +224,9 @@ vanilla_model.RIGHT_ARM:setVisible(false)
 
 ### <code>LEFT_LEG</code> \{#LEFT_LEG}
 
-The left leg of the player, not including the outer layer
+玩家的左腿，不包括外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEFT_LEG:setVisible(false)
@@ -234,9 +236,9 @@ vanilla_model.LEFT_LEG:setVisible(false)
 
 ### <code>RIGHT_LEG</code> \{#RIGHT_LEG}
 
-The right leg of the player, not including the outer layer
+玩家的右腿，不包括外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.RIGHT_LEG:setVisible(false)
@@ -246,9 +248,9 @@ vanilla_model.RIGHT_LEG:setVisible(false)
 
 ### <code>HAT</code> \{#HAT}
 
-The outer layer of the player's head
+玩家头部的外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HAT:setVisible(false)
@@ -258,9 +260,9 @@ vanilla_model.HAT:setVisible(false)
 
 ### <code>JACKET</code> \{#JACKET}
 
-The outer layer of the player's body
+玩家身体的外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.JACKET:setVisible(false)
@@ -270,9 +272,9 @@ vanilla_model.JACKET:setVisible(false)
 
 ### <code>LEFT_SLEEVE</code> \{#LEFT_SLEEVE}
 
-The outer layer of the player's left arm
+玩家左臂的外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEFT_SLEEVE:setVisible(false)
@@ -282,9 +284,9 @@ vanilla_model.LEFT_SLEEVE:setVisible(false)
 
 ### <code>RIGHT_SLEEVE</code> \{#RIGHT_SLEEVE}
 
-The outer layer of the player's right arm
+玩家右臂的外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.RIGHT_SLEEVE:setVisible(false)
@@ -294,9 +296,9 @@ vanilla_model.RIGHT_SLEEVE:setVisible(false)
 
 ### <code>LEFT_PANTS</code> \{#LEFT_PANTS}
 
-The outer layer of the player's left leg
+玩家左腿的外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEFT_PANTS:setVisible(false)
@@ -306,9 +308,9 @@ vanilla_model.LEFT_PANTS:setVisible(false)
 
 ### <code>RIGHT_PANTS</code> \{#RIGHT_PANTS}
 
-The outer layer of the player's right leg
+玩家右腿的外层。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.RIGHT_PANTS:setVisible(false)
@@ -318,9 +320,9 @@ vanilla_model.RIGHT_PANTS:setVisible(false)
 
 ### <code>CAPE_MODEL</code> \{#CAPE_MODEL}
 
-The vanilla cape model
+原版披风模型。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.CAPE_MODEL:setVisible(false)
@@ -330,9 +332,9 @@ vanilla_model.CAPE_MODEL:setVisible(false)
 
 ### <code>FAKE_CAPE</code> \{#FAKE_CAPE}
 
-A custom copy of the cape, an attempt at storing its transformations as vanilla cape math is... weird
+披风的自定义副本。原版披风的变换计算颇为怪异，因此这个副本尝试保存披风的变换。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.FAKE_CAPE:setVisible(false)
@@ -342,9 +344,9 @@ vanilla_model.FAKE_CAPE:setVisible(false)
 
 ### <code>HELMET_ITEM</code> \{#HELMET_ITEM}
 
-The item on the armor head slot
+盔甲头部槽位中的物品。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HELMET_ITEM:setVisible(false)
@@ -354,9 +356,9 @@ vanilla_model.HELMET_ITEM:setVisible(false)
 
 ### <code>HELMET_HEAD</code> \{#HELMET_HEAD}
 
-The head of the helmet model
+头盔模型的头部。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HELMET_HEAD:setVisible(false)
@@ -366,9 +368,9 @@ vanilla_model.HELMET_HEAD:setVisible(false)
 
 ### <code>HELMET_HAT</code> \{#HELMET_HAT}
 
-The hat of the helmet model
+头盔模型的帽子。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.HELMET_HAT:setVisible(false)
@@ -378,9 +380,9 @@ vanilla_model.HELMET_HAT:setVisible(false)
 
 ### <code>CHESTPLATE_BODY</code> \{#CHESTPLATE_BODY}
 
-The body of the chestplate model
+胸甲模型的身体。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.CHESTPLATE_BODY:setVisible(false)
@@ -390,9 +392,9 @@ vanilla_model.CHESTPLATE_BODY:setVisible(false)
 
 ### <code>CHESTPLATE_LEFT_ARM</code> \{#CHESTPLATE_LEFT_ARM}
 
-The left arm of the chestplate model
+胸甲模型的左臂。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.CHESTPLATE_LEFT_ARM:setVisible(false)
@@ -402,9 +404,9 @@ vanilla_model.CHESTPLATE_LEFT_ARM:setVisible(false)
 
 ### <code>CHESTPLATE_RIGHT_ARM</code> \{#CHESTPLATE_RIGHT_ARM}
 
-The right arm of the chestplate model
+胸甲模型的右臂。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.CHESTPLATE_RIGHT_ARM:setVisible(false)
@@ -414,9 +416,9 @@ vanilla_model.CHESTPLATE_RIGHT_ARM:setVisible(false)
 
 ### <code>LEGGINGS_BODY</code> \{#LEGGINGS_BODY}
 
-The body of the leggings model
+护腿模型的身体。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEGGINGS_BODY:setVisible(false)
@@ -426,9 +428,9 @@ vanilla_model.LEGGINGS_BODY:setVisible(false)
 
 ### <code>LEGGINGS_LEFT_LEG</code> \{#LEGGINGS_LEFT_LEG}
 
-The left leg of the leggings model
+护腿模型的左腿。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEGGINGS_LEFT_LEG:setVisible(false)
@@ -438,9 +440,9 @@ vanilla_model.LEGGINGS_LEFT_LEG:setVisible(false)
 
 ### <code>LEGGINGS_RIGHT_LEG</code> \{#LEGGINGS_RIGHT_LEG}
 
-The right leg of the leggings model
+护腿模型的右腿。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEGGINGS_RIGHT_LEG:setVisible(false)
@@ -450,9 +452,9 @@ vanilla_model.LEGGINGS_RIGHT_LEG:setVisible(false)
 
 ### <code>BOOTS_LEFT_LEG</code> \{#BOOTS_LEFT_LEG}
 
-The left boot of the boots model
+靴子模型的左靴。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.BOOTS_LEFT_LEG:setVisible(false)
@@ -462,9 +464,9 @@ vanilla_model.BOOTS_LEFT_LEG:setVisible(false)
 
 ### <code>BOOTS_RIGHT_LEG</code> \{#BOOTS_RIGHT_LEG}
 
-The right boot of the boots model
+靴子模型的右靴。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.BOOTS_RIGHT_LEG:setVisible(false)
@@ -474,9 +476,9 @@ vanilla_model.BOOTS_RIGHT_LEG:setVisible(false)
 
 ### <code>LEFT_ELYTRA</code> \{#LEFT_ELYTRA}
 
-The left wing of the elytra model
+鞘翅模型的左翼。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEFT_ELYTRA:setVisible(false)
@@ -486,9 +488,9 @@ vanilla_model.LEFT_ELYTRA:setVisible(false)
 
 ### <code>RIGHT_ELYTRA</code> \{#RIGHT_ELYTRA}
 
-The right wing of the elytra model
+鞘翅模型的右翼。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.RIGHT_ELYTRA:setVisible(false)
@@ -498,9 +500,9 @@ vanilla_model.RIGHT_ELYTRA:setVisible(false)
 
 ### <code>LEFT_ITEM</code> \{#LEFT_ITEM}
 
-The item in the player's left hand
+玩家左手里的物品。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEFT_ITEM:setVisible(false)
@@ -510,9 +512,9 @@ vanilla_model.LEFT_ITEM:setVisible(false)
 
 ### <code>RIGHT_ITEM</code> \{#RIGHT_ITEM}
 
-The item in the player's right hand
+玩家右手里的物品。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.RIGHT_ITEM:setVisible(false)
@@ -522,9 +524,9 @@ vanilla_model.RIGHT_ITEM:setVisible(false)
 
 ### <code>LEFT_PARROT</code> \{#LEFT_PARROT}
 
-The Parrot in the player's left shoulder
+玩家左肩上的鹦鹉。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.LEFT_PARROT:setVisible(false)
@@ -534,9 +536,9 @@ vanilla_model.LEFT_PARROT:setVisible(false)
 
 ### <code>RIGHT_PARROT</code> \{#RIGHT_PARROT}
 
-The Parrot in the player's right shoulder
+玩家右肩上的鹦鹉。
 
-**Example:**
+**示例：**
 
 ```lua
 vanilla_model.RIGHT_PARROT:setVisible(false)

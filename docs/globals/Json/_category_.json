@@ -1,10 +1,11 @@
 {
-  "label": "Json",
+  "label": "JSON",
   "link": {
     "type": "generated-index",
-    "description": "List of all classes in the Json API."
+    "description": "JSON分类下的页面。",
+    "slug": "/category/json"
   },
   "customProps": {
-    "description": "A global API that contains features to work with JSON"
+    "description": "JSON相关的全局对象说明。"
   }
 }

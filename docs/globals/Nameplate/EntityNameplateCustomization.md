@@ -1,37 +1,42 @@
+---
+title: EntityNameplateCustomization（实体名牌定制）
+sidebar_label: EntityNameplateCustomization（实体名牌定制）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A nameplate customization that is specialized for entities
+专用于实体的名牌定制。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
 ---
 
-## Text
+## 文本
 
 ### <code>setText()</code> \{#setText}
 
-The text to use in this nameplate
+该名牌显示的文本。
 
 ```lua
 setText(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| text | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                             | Description |
-| -------------------------------------------------------------------------------- | ----------- |
-| <code>[NameplateCustomization](/globals/Nameplate/NameplateCustomization)</code> | -           |
+| 类型                                                                             | 说明 |
+| -------------------------------------------------------------------------------- | ---- |
+| <code>[NameplateCustomization](/globals/Nameplate/NameplateCustomization)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setText("Hi")
@@ -41,19 +46,19 @@ nameplate.Entity:setText("Hi")
 
 ### <code>getText()</code> \{#getText}
 
-The text to use in this nameplate
+该名牌显示的文本。
 
 ```lua
 getText()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:getText()
@@ -63,29 +68,29 @@ nameplate.Entity:getText()
 
 ### <code>setOutline()</code> \{#setOutline}
 
-**Aliases:** `outline()`
+**别名：** `outline()`
 
-Sets whether or not the nameplate should have outline
+设置名牌是否显示描边。
 
-Incompatible with "shadow"
+与 “shadow” 设置不兼容。
 
 ```lua
 setOutline(outline)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
-| outline | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称    | 类型                                              | 说明 | 默认值 |
+| ------- | ------------------------------------------------- | ---- | ------ |
+| outline | <code>[Boolean](/tutorials/types/Booleans)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setOutline(true)
@@ -95,19 +100,19 @@ nameplate.Entity:setOutline(true)
 
 ### <code>hasOutline()</code> \{#hasOutline}
 
-Gets whether or not the nameplate should have an outline
+获取名牌是否显示描边。
 
 ```lua
 hasOutline()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:hasOutline()
@@ -117,54 +122,54 @@ nameplate.Entity:hasOutline()
 
 ### <code>setOutlineColor()</code> \{#setOutlineColor}
 
-**Aliases:** `outlineColor()`
+**别名：** `outlineColor()`
 
-Sets the color used for the outline in the outline mode
+设置描边模式下使用的描边颜色。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOutlineColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| color | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOutlineColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setOutlineColor(100 / 255, 100 / 255, 100 / 255)
@@ -174,29 +179,29 @@ nameplate.Entity:setOutlineColor(100 / 255, 100 / 255, 100 / 255)
 
 ### <code>setShadow()</code> \{#setShadow}
 
-**Aliases:** `shadow()`
+**别名：** `shadow()`
 
-Sets whether or not the nameplate should have shadow
+设置名牌是否显示阴影。
 
-Incompatible with "outline"
+与 “outline” 设置不兼容。
 
 ```lua
 setShadow(shadow)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
-| ------ | ------------------------------------------------- | ----------- | ------- |
-| shadow | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称   | 类型                                              | 说明 | 默认值 |
+| ------ | ------------------------------------------------- | ---- | ------ |
+| shadow | <code>[Boolean](/tutorials/types/Booleans)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setShadow(true)
@@ -206,19 +211,19 @@ nameplate.Entity:setShadow(true)
 
 ### <code>hasShadow()</code> \{#hasShadow}
 
-Gets whether or not the nameplate should have shadow
+获取名牌是否显示阴影。
 
 ```lua
 hasShadow()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:hasShadow()
@@ -226,61 +231,61 @@ nameplate.Entity:hasShadow()
 
 ---
 
-## Nameplate Properties
+## 名牌属性
 
 ### <code>setBackgroundColor()</code> \{#setBackgroundColor}
 
-**Aliases:** `backgroundColor()`
+**别名：** `backgroundColor()`
 
-Sets the color of the nameplate background
+设置名牌背景的颜色。
 
-If the alpha value is not given, it will use the vanilla value (as in the accessibility settings)
+如果不传入 alpha 值，将使用原版数值（即无障碍设置中的数值）。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setBackgroundColor(rgba)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| rgba | <code>[Vector4](/globals/Vectors/Vector4)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| rgba | <code>[Vector4](/globals/Vectors/Vector4)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setBackgroundColor(r, g, b, a)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| a    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| r    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| g    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| b    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| a    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setBackgroundColor(100 / 255, 100 / 255, 100 / 255)
@@ -290,19 +295,19 @@ nameplate.Entity:setBackgroundColor(100 / 255, 100 / 255, 100 / 255)
 
 ### <code>getBackgroundColor()</code> \{#getBackgroundColor}
 
-Gets the set color of the nameplate background
+获取已设置的名牌背景颜色。
 
 ```lua
 getBackgroundColor()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector4](/globals/Vectors/Vector4)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector4](/globals/Vectors/Vector4)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:getBackgroundColor()
@@ -312,57 +317,57 @@ nameplate.Entity:getBackgroundColor()
 
 ### <code>setLight()</code> \{#setLight}
 
-**Aliases:** `light()`
+**别名：** `light()`
 
-Sets the light override value
+设置光照覆盖值。
 
-Values are given from 0 to 15, indicating the block light and sky light levels you want to use
+取值范围为 0 到 15，分别表示想使用的方块光照和天空光照等级。
 
-Passing nil will reset the lighting override
+传入 nil 会重置光照覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setLight(light)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| light | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| light | <code>[Vector2](/globals/Vectors/Vector2)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setLight(blockLight, skyLight)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
-| ---------- | ------------------------------------------------ | ----------- | ------- |
-| blockLight | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
-| skyLight   | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称       | 类型                                             | 说明 | 默认值 |
+| ---------- | ------------------------------------------------ | ---- | ------ |
+| blockLight | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
+| skyLight   | <code>[Integer](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setLight(15, 15)
@@ -372,19 +377,19 @@ nameplate.Entity:setLight(15, 15)
 
 ### <code>getLight()</code> \{#getLight}
 
-Gets the lighting override value
+获取光照覆盖值。
 
 ```lua
 getLight()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector2](/globals/Vectors/Vector2)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:getLight()
@@ -394,54 +399,54 @@ nameplate.Entity:getLight()
 
 ### <code>setPivot()</code> \{#setPivot}
 
-**Aliases:** `pivot()`
+**别名：** `pivot()`
 
-Sets the pivot of the nameplate, in world coordinates
+设置名牌的枢轴，使用世界坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPivot(pivot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| pivot | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| pivot | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPivot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setPivot(0, 3, 0)
@@ -451,19 +456,19 @@ nameplate.Entity:setPivot(0, 3, 0)
 
 ### <code>getPivot()</code> \{#getPivot}
 
-Gets the pivot of the nameplate, in world coordinates
+获取名牌的枢轴，使用世界坐标。
 
 ```lua
 getPivot()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:getPivot()
@@ -473,54 +478,54 @@ nameplate.Entity:getPivot()
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the position offset of the nameplate, in world coordinates
+设置名牌的位置偏移，使用世界坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
-| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称 | 类型                                             | 说明 | 默认值 |
+| ---- | ------------------------------------------------ | ---- | ------ |
+| pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setPos(0, 1, 0)
@@ -530,19 +535,19 @@ nameplate.Entity:setPos(0, 1, 0)
 
 ### <code>getPos()</code> \{#getPos}
 
-Gets the position offset of the nameplate, in world coordinates
+获取名牌的位置偏移，使用世界坐标。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:getPos()
@@ -552,54 +557,54 @@ nameplate.Entity:getPos()
 
 ### <code>setScale()</code> \{#setScale}
 
-**Aliases:** `scale()`
+**别名：** `scale()`
 
-Sets the scale factor of the nameplate
+设置名牌的缩放比例。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setScale(scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
-| scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
+| 名称  | 类型                                             | 说明 | 默认值 |
+| ----- | ------------------------------------------------ | ---- | ------ |
+| scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
-| z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| x    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| y    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
+| z    | <code>[Number](/tutorials/types/Numbers)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setScale(2, 2, 2)
@@ -609,19 +614,19 @@ nameplate.Entity:setScale(2, 2, 2)
 
 ### <code>getScale()</code> \{#getScale}
 
-Gets scale factor of the nameplate
+获取名牌的缩放比例。
 
 ```lua
 getScale()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Vector3](/globals/Vectors/Vector3)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:getScale()
@@ -631,27 +636,27 @@ nameplate.Entity:getScale()
 
 ### <code>setVisible()</code> \{#setVisible}
 
-**Aliases:** `visible()`
+**别名：** `visible()`
 
-Sets whether or not the nameplate should be rendered
+设置名牌是否渲染。
 
 ```lua
 setVisible(visible)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
-| visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
+| 名称    | 类型                                              | 说明 | 默认值 |
+| ------- | ------------------------------------------------- | ---- | ------ |
+| visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                                                         | Description               |
-| -------------------------------------------------------------------------------------------- | ------------------------- |
-| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | Returns self for chaining |
+| 类型                                                                                         | 说明                   |
+| -------------------------------------------------------------------------------------------- | ---------------------- |
+| <code>[EntityNameplateCustomization](/globals/Nameplate/EntityNameplateCustomization)</code> | 返回自身，便于链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:setVisible(false)
@@ -661,19 +666,19 @@ nameplate.Entity:setVisible(false)
 
 ### <code>isVisible()</code> \{#isVisible}
 
-Gets whether or not the nameplate should be rendered
+获取名牌是否渲染。
 
 ```lua
 isVisible()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 nameplate.Entity:isVisible()

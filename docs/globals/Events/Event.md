@@ -1,67 +1,72 @@
+---
+title: Event（事件）
+sidebar_label: Event（事件）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A hook for a certain event in Minecraft
+Minecraft 中某个事件的钩子。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
-You may register functions to one, and those functions will be called when the event occurs
+可以往一个事件上注册函数，事件发生时就会调用这些函数。
 
 ---
 
 ### <code>register()</code> \{#register}
 
-Register a function on this event
+在该事件上注册一个函数。
 
-Functions are run in registration order
+函数按注册顺序执行。
 
-An optional string argument can be given, grouping functions under that name, for an easier management later on
+可以额外传入一个字符串参数，把这些函数归到该名字下，便于之后管理。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 register(func)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                                | Description | Default |
-| ---- | --------------------------------------------------- | ----------- | ------- |
-| func | <code>[Function](/tutorials/types/Functions)</code> | -           | -       |
+| 名称 | 类型                                                | 说明 | 默认值 |
+| ---- | --------------------------------------------------- | ---- | ------ |
+| func | <code>[Function](/tutorials/types/Functions)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                        | Description               |
-| ------------------------------------------- | ------------------------- |
-| <code>[Event](/globals/Events/Event)</code> | Returns self for chaining |
+| 类型                                        | 说明                   |
+| ------------------------------------------- | ---------------------- |
+| <code>[Event](/globals/Events/Event)</code> | 返回自身，用于链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 register(func, name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                                | Description | Default |
-| ---- | --------------------------------------------------- | ----------- | ------- |
-| func | <code>[Function](/tutorials/types/Functions)</code> | -           | -       |
-| name | <code>[String](/tutorials/types/Strings)</code>     | -           | -       |
+| 名称 | 类型                                                | 说明 | 默认值 |
+| ---- | --------------------------------------------------- | ---- | ------ |
+| func | <code>[Function](/tutorials/types/Functions)</code> | -    | -      |
+| name | <code>[String](/tutorials/types/Strings)</code>     | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                        | Description               |
-| ------------------------------------------- | ------------------------- |
-| <code>[Event](/globals/Events/Event)</code> | Returns self for chaining |
+| 类型                                        | 说明                   |
+| ------------------------------------------- | ---------------------- |
+| <code>[Event](/globals/Events/Event)</code> | 返回自身，用于链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 events.TICK:register(function() end, "Name")
@@ -71,19 +76,19 @@ events.TICK:register(function() end, "Name")
 
 ### <code>clear()</code> \{#clear}
 
-Clears the given event of all its functions
+清除该事件上注册的所有函数。
 
 ```lua
 clear()
 ```
 
-**Returns:**
+**返回：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 events.TICK:clear()
@@ -93,52 +98,52 @@ events.TICK:clear()
 
 ### <code>remove()</code> \{#remove}
 
-Removes either a function from this event or when given a string, remove all functions registered under that name
+从该事件中移除一个函数；如果传入的是字符串，则移除该名字下注册的所有函数。
 
-Returns the number of functions that were removed
+返回被移除的函数数量。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 remove(name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| name | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 remove(function)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name     | Type                                                | Description | Default |
-| -------- | --------------------------------------------------- | ----------- | ------- |
-| function | <code>[Function](/tutorials/types/Functions)</code> | -           | -       |
+| 名称     | 类型                                                | 说明 | 默认值 |
+| -------- | --------------------------------------------------- | ---- | ------ |
+| function | <code>[Function](/tutorials/types/Functions)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 events.TICK:remove("Name")
@@ -148,25 +153,25 @@ events.TICK:remove("Name")
 
 ### <code>getRegisteredCount()</code> \{#getRegisteredCount}
 
-Returns the number of functions that are registered with the given name
+返回使用该名字注册的函数数量。
 
 ```lua
 getRegisteredCount(name)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| name | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| name | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
-| <code>[Integer](/tutorials/types/Numbers)</code> | -           |
+| 类型                                             | 说明 |
+| ------------------------------------------------ | ---- |
+| <code>[Integer](/tutorials/types/Numbers)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 events.TICK:getRegisteredCount("Name")

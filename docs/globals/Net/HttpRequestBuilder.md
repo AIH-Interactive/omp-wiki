@@ -1,48 +1,53 @@
+---
+title: HttpRequestBuilder（HTTP 请求构建器）
+sidebar_label: HttpRequestBuilder（HTTP 请求构建器）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A builder for HTTP request
+用于构建 HTTP 请求
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>getBody()</code> \{#getBody}
 
-Returns body of this request
+返回此请求的请求体
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 getBody()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| <code>[InputStream](/globals/Data/InputStream)</code> | -           |
+| 类型                                                  | 说明 |
+| ----------------------------------------------------- | ---- |
+| <code>[InputStream](/globals/Data/InputStream)</code> | -    |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 getBody()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                        | Description |
-| ------------------------------------------- | ----------- |
-| <code>[Buffer](/globals/Data/Buffer)</code> | -           |
+| 类型                                        | 说明 |
+| ------------------------------------------- | ---- |
+| <code>[Buffer](/globals/Data/Buffer)</code> | -    |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -52,19 +57,19 @@ getBody()
 
 ### <code>getHeaders()</code> \{#getHeaders}
 
-Returns table with all headers set for this request
+返回一个表，其中包含为此请求设置的全部请求头
 
 ```lua
 getHeaders()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                          | Description |
-| --------------------------------------------- | ----------- |
-| <code>[Table](/tutorials/types/Tables)</code> | -           |
+| 类型                                          | 说明 |
+| --------------------------------------------- | ---- |
+| <code>[Table](/tutorials/types/Tables)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -74,19 +79,19 @@ getHeaders()
 
 ### <code>getMethod()</code> \{#getMethod}
 
-Returns method of this request
+返回此请求的方法
 
 ```lua
 getMethod()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -96,19 +101,19 @@ getMethod()
 
 ### <code>getUri()</code> \{#getUri}
 
-Returns URI of this request
+返回此请求的 URI
 
 ```lua
 getUri()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
-| <code>[String](/tutorials/types/Strings)</code> | -           |
+| 类型                                            | 说明 |
+| ----------------------------------------------- | ---- |
+| <code>[String](/tutorials/types/Strings)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -118,50 +123,50 @@ getUri()
 
 ### <code>body()</code> \{#body}
 
-Sets body for this request, returns itself for chaining. If data is nil request will be sent without body
+设置此请求的请求体，并返回自身以便链式调用。如果 data 为 nil，请求将不带请求体发送
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 body(data)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                                  | Description | Default |
-| ---- | ----------------------------------------------------- | ----------- | ------- |
-| data | <code>[InputStream](/globals/Data/InputStream)</code> | -           | -       |
+| 名称 | 类型                                                  | 说明 | 默认值 |
+| ---- | ----------------------------------------------------- | ---- | ------ |
+| data | <code>[InputStream](/globals/Data/InputStream)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                               | Description               |
-| ------------------------------------------------------------------ | ------------------------- |
-| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | Returns self for chaining |
+| 类型                                                               | 说明                 |
+| ------------------------------------------------------------------ | -------------------- |
+| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | 返回自身以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 body(data)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                        | Description | Default |
-| ---- | ------------------------------------------- | ----------- | ------- |
-| data | <code>[Buffer](/globals/Data/Buffer)</code> | -           | -       |
+| 名称 | 类型                                        | 说明 | 默认值 |
+| ---- | ------------------------------------------- | ---- | ------ |
+| data | <code>[Buffer](/globals/Data/Buffer)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                               | Description               |
-| ------------------------------------------------------------------ | ------------------------- |
-| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | Returns self for chaining |
+| 类型                                                               | 说明                 |
+| ------------------------------------------------------------------ | -------------------- |
+| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | 返回自身以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -171,26 +176,26 @@ body(data)
 
 ### <code>header()</code> \{#header}
 
-Sets header for this request, returns itself for chaining. If value is nil header will be removed
+设置此请求的请求头，并返回自身以便链式调用。如果 value 为 nil，该请求头会被移除
 
 ```lua
 header(header, value)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description | Default |
-| ------ | ----------------------------------------------- | ----------- | ------- |
-| header | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
-| value  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称   | 类型                                            | 说明 | 默认值 |
+| ------ | ----------------------------------------------- | ---- | ------ |
+| header | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
+| value  | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                               | Description               |
-| ------------------------------------------------------------------ | ------------------------- |
-| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | Returns self for chaining |
+| 类型                                                               | 说明                 |
+| ------------------------------------------------------------------ | -------------------- |
+| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | 返回自身以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -200,25 +205,25 @@ header(header, value)
 
 ### <code>method()</code> \{#method}
 
-Sets method for this request, returns itself for chaining. If method is nil default value - "GET", will be used
+设置此请求的方法，并返回自身以便链式调用。如果 method 为 nil，将使用默认值 “GET”
 
 ```lua
 method(method)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                            | Description | Default |
-| ------ | ----------------------------------------------- | ----------- | ------- |
-| method | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称   | 类型                                            | 说明 | 默认值 |
+| ------ | ----------------------------------------------- | ---- | ------ |
+| method | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                               | Description               |
-| ------------------------------------------------------------------ | ------------------------- |
-| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | Returns self for chaining |
+| 类型                                                               | 说明                 |
+| ------------------------------------------------------------------ | -------------------- |
+| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | 返回自身以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -228,19 +233,19 @@ method(method)
 
 ### <code>send()</code> \{#send}
 
-Sends this request and returns Future object that will contain response object once request is done
+发送此请求，并返回一个 Future；请求完成后，其中会包含响应对象
 
 ```lua
 send()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                        | Description |
-| ------------------------------------------- | ----------- |
-| <code>[Future](/globals/Data/Future)</code> | -           |
+| 类型                                        | 说明 |
+| ------------------------------------------- | ---- |
+| <code>[Future](/globals/Data/Future)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -250,25 +255,25 @@ send()
 
 ### <code>uri()</code> \{#uri}
 
-Sets URI for this request, returns itself for chaining
+设置此请求的 URI，并返回自身以便链式调用
 
 ```lua
 uri(uri)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
-| uri  | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
+| 名称 | 类型                                            | 说明 | 默认值 |
+| ---- | ----------------------------------------------- | ---- | ------ |
+| uri  | <code>[String](/tutorials/types/Strings)</code> | -    | -      |
 
-**Returns:**
+**返回值：**
 
-| Type                                                               | Description               |
-| ------------------------------------------------------------------ | ------------------------- |
-| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | Returns self for chaining |
+| 类型                                                               | 说明                 |
+| ------------------------------------------------------------------ | -------------------- |
+| <code>[HttpRequestBuilder](/globals/Net/HttpRequestBuilder)</code> | 返回自身以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

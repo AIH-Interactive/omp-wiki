@@ -1,36 +1,38 @@
 ---
 sidebar_position: 1
+title: Net（网络 API）
+sidebar_label: Net（网络 API）
 ---
 
-A global API that contains networking related features
+包含网络相关功能的全局 API。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。已收录 Figura 文档中的全部信息，我们正在补充更易懂的说明。
 :::
 
 ---
 
 ### <code>isLinkAllowed()</code> \{#isLinkAllowed}
 
-Checks if specified link allowed for usage in networking api
+检查指定链接是否允许在网络 API 中使用。
 
 ```lua
 isLinkAllowed(link)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
+| 名称 | 类型                                            | 说明 | 默认值 |
 | ---- | ----------------------------------------------- | ----------- | ------- |
 | link | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -40,19 +42,19 @@ isLinkAllowed(link)
 
 ### <code>isNetworkingAllowed()</code> \{#isNetworkingAllowed}
 
-Checks if your avatar can use networking features. Always false if networking is OFF in settings
+检查你的形象能否使用网络功能。如果设置中关闭了网络功能，则始终返回 false。
 
 ```lua
 isNetworkingAllowed()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
+| 类型                                              | 说明 |
 | ------------------------------------------------- | ----------- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -60,13 +62,13 @@ isNetworkingAllowed()
 
 ---
 
-## Fields
+## 字段
 
 ### <code>http</code> \{#http}
 
-Instance of HttpAPI
+HttpAPI 的实例。
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

@@ -1,26 +1,31 @@
-Object that contains result of operation that cant be finished immediately
+---
+title: Future（异步结果）
+sidebar_label: Future（异步结果）
+---
+
+存放无法立即完成的操作结果的对象
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。页面已包含 Figura 文档中的全部信息，我们正在补充更详细的说明。
 :::
 
 ---
 
 ### <code>getOrError()</code> \{#getOrError}
 
-Throws error if it occurred while execution of this future, returns value otherwise
+若此 Future 执行期间发生了错误，则抛出该错误；否则返回结果值
 
 ```lua
 getOrError()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                 | Description |
-| -------------------- | ----------- |
-| <code>AnyType</code> | -           |
+| 类型                 | 说明 |
+| -------------------- | ---- |
+| <code>AnyType</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -30,19 +35,19 @@ getOrError()
 
 ### <code>getValue()</code> \{#getValue}
 
-Returns value of this future object if future was executed successfully
+若此 Future 执行成功，则返回此 Future 对象的值
 
 ```lua
 getValue()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                 | Description |
-| -------------------- | ----------- |
-| <code>AnyType</code> | -           |
+| 类型                 | 说明 |
+| -------------------- | ---- |
+| <code>AnyType</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -52,19 +57,19 @@ getValue()
 
 ### <code>hasError()</code> \{#hasError}
 
-Checks if error occurred while this future execution
+检查此 Future 执行期间是否发生了错误
 
 ```lua
 hasError()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -74,19 +79,19 @@ hasError()
 
 ### <code>isDone()</code> \{#isDone}
 
-Checks if future is done, either successfully or with error
+检查此 Future 是否已完成，无论成功还是出错
 
 ```lua
 isDone()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
-| <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
+| 类型                                              | 说明 |
+| ------------------------------------------------- | ---- |
+| <code>[Boolean](/tutorials/types/Booleans)</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon
@@ -96,19 +101,19 @@ isDone()
 
 ### <code>throwError()</code> \{#throwError}
 
-Throws an error if it occurred while execution of this future.
+若此 Future 执行期间发生了错误，则抛出该错误。
 
 ```lua
 throwError()
 ```
 
-**Returns:**
+**返回值：**
 
-| Type             | Description |
-| ---------------- | ----------- |
-| <code>nil</code> | -           |
+| 类型             | 说明 |
+| ---------------- | ---- |
+| <code>nil</code> | -    |
 
-**Example:**
+**示例：**
 
 ```lua
 -- example coming soon

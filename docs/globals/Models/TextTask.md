@@ -1,13 +1,18 @@
+---
+title: TextTask（文本任务）
+sidebar_label: TextTask（文本任务）
+---
+
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-A task for rendering some text from [newText](.#newText)
+用于通过 [newText](.#newText) 渲染文本的任务。
 
 :::warning
-This page is a WIP. It contains all the information in Figura's documentation but we're working on adding more helpful descriptions.
+本页仍在完善中。这里已经收录 Figura 文档中的全部信息，我们正在补充更易理解的说明。
 :::
 
-For this entire page assume:
+本页所有示例都假设：
 
 ```lua
 local myText = models:newText("myCoolTextName")
@@ -15,31 +20,31 @@ local myText = models:newText("myCoolTextName")
 
 ---
 
-## Text Task
+## 文本任务
 
 ### <code>setText()</code> \{#setText}
 
-**Aliases:** `text()`
+**别名：** `text()`
 
-Sets the Text for this task render
+设置此任务要渲染的文本。
 
 ```lua
 setText(text)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | text | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setText("Hi mom!")
@@ -49,19 +54,19 @@ myText:setText("Hi mom!")
 
 ### <code>getText()</code> \{#getText}
 
-Returns the Text from this task
+返回此任务的文本。
 
 ```lua
 getText()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:getText()
@@ -71,31 +76,31 @@ myText:getText()
 
 ### <code>setAlignment()</code> \{#setAlignment}
 
-**Aliases:** `alignment()`
+**别名：** `alignment()`
 
-Sets this Text alignment
+设置此文本的对齐方式。
 
-Can be either "LEFT", "RIGHT" or "CENTER"
+可取值为“LEFT”“RIGHT”或“CENTER”。
 
-Default "LEFT"
+默认值为“LEFT”。
 
 ```lua
 setAlignment(alignment)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name      | Type                                            | Description | Default |
-| --------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | alignment | <code>[String](/tutorials/types/Strings)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setAlignment("CENTER")
@@ -105,21 +110,21 @@ myText:setAlignment("CENTER")
 
 ### <code>getAlignment()</code> \{#getAlignment}
 
-Returns this Text alignment
+返回此文本的对齐方式。
 
-Default "LEFT"
+默认值为“LEFT”。
 
 ```lua
 getAlignment()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:getAlignment()
@@ -129,29 +134,29 @@ myText:getAlignment()
 
 ### <code>setBackground()</code> \{#setBackground}
 
-**Aliases:** `background()`
+**别名：** `background()`
 
-Sets if this text should render its background
+设置此文本是否渲染背景。
 
-Defaults to false
+默认为 false。
 
 ```lua
 setBackground(background)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                              | Description | Default |
-| ---------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | background | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setBackground(true)
@@ -161,57 +166,57 @@ myText:setBackground(true)
 
 ### <code>setBackgroundColor()</code> \{#setBackgroundColor}
 
-**Aliases:** `backgroundColor()`
+**别名：** `backgroundColor()`
 
-Sets the background color of this text
+设置此文本的背景颜色。
 
-If the alpha value is not given, it will use the vanilla value (as in the accessibility settings)
+如果未提供 alpha 值，则使用原版值（即辅助功能设置中的值）。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setBackgroundColor(rgba)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | rgba | <code>[Vector4](/globals/Vectors/Vector4)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setBackgroundColor(r, g, b, a)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | a    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setBackgroundColor(63 / 255, 255 / 255, 192 / 255, 203 / 255)
@@ -221,19 +226,19 @@ myText:setBackgroundColor(63 / 255, 255 / 255, 192 / 255, 203 / 255)
 
 ### <code>getBackgroundColor()</code> \{#getBackgroundColor}
 
-Gets this text's background color
+获取此文本的背景颜色。
 
 ```lua
 getBackgroundColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector4](/globals/Vectors/Vector4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:getBackgroundColor()
@@ -243,27 +248,27 @@ myText:getBackgroundColor()
 
 ### <code>setOpacity()</code> \{#setOpacity}
 
-**Aliases:** `opacity()`
+**别名：** `opacity()`
 
-Sets the opacity of this text
+设置此文本的不透明度。
 
 ```lua
 setOpacity(opacity)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                            | Description | Default |
-| ------- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | opacity | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setOpacity(0.5)
@@ -273,19 +278,19 @@ myText:setOpacity(0.5)
 
 ### <code>getOpacity()</code> \{#getOpacity}
 
-Gets the opacity of this text
+获取此文本的不透明度。
 
 ```lua
 getOpacity()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Number](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:getOpacity()
@@ -295,31 +300,31 @@ myText:getOpacity()
 
 ### <code>setOutline()</code> \{#setOutline}
 
-**Aliases:** `outline()`
+**别名：** `outline()`
 
-Toggles if the text should render with an outline
+切换文本是否渲染描边。
 
-The text will always render at full brightness if it is given an outline
+如果为文本设置描边，它会始终以全亮度渲染。
 
-Not compatible with "Shadow" and "Emissive" modes
+与“Shadow”和“Emissive”模式不兼容。
 
 ```lua
 setOutline(outline)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | outline | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setOutline(true)
@@ -329,56 +334,56 @@ myText:setOutline(true)
 
 ### <code>setOutlineColor()</code> \{#setOutlineColor}
 
-**Aliases:** `outlineColor()`
+**别名：** `outlineColor()`
 
-Sets the outline color this Text should render
+设置此文本渲染的描边颜色。
 
-Only compatible with "Outline" mode
+仅与“Outline”模式兼容。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOutlineColor(color)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | color | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOutlineColor(r, g, b)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | r    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | g    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | b    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setOutline(true)
@@ -390,19 +395,19 @@ myText:setOutlineColor(255 / 255, 192 / 255, 203 / 255)
 
 ### <code>getOutlineColor()</code> \{#getOutlineColor}
 
-Gets this tasks text outline color
+获取此任务文本的描边颜色。
 
 ```lua
 getOutlineColor()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:getOutlineColor()
@@ -412,29 +417,29 @@ myText:getOutlineColor()
 
 ### <code>setSeeThrough()</code> \{#setSeeThrough}
 
-**Aliases:** `seeThrough()`
+**别名：** `seeThrough()`
 
-Sets if this text can be seen behind walls
+设置此文本是否可隔墙可见。
 
-Defaults to false
+默认为 false。
 
 ```lua
 setSeeThrough(seeThrough)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                              | Description | Default |
-| ---------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | seeThrough | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setSeeThrough(true)
@@ -444,29 +449,29 @@ myText:setSeeThrough(true)
 
 ### <code>setShadow()</code> \{#setShadow}
 
-**Aliases:** `shadow()`
+**别名：** `shadow()`
 
-Toggles if the Text should render with a drop shadow
+切换文本是否渲染投影。
 
-Not compatible with "Outline" mode
+与“Outline”模式不兼容。
 
 ```lua
 setShadow(shadow)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
-| ------ | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | shadow | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setShadow(true)
@@ -476,31 +481,31 @@ myText:setShadow(true)
 
 ### <code>setWidth()</code> \{#setWidth}
 
-**Aliases:** `width()`
+**别名：** `width()`
 
-Sets this text's max width, wrapping the text into multiple lines
+设置此文本的最大宽度，超出后文本会自动换行成多行。
 
-A width of 0 or less does not wrap the text
+宽度为 0 或小于 0 时不换行。
 
-Defaults to 0
+默认为 0。
 
 ```lua
 setWidth(width)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | width | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setWidth(1)
@@ -510,21 +515,21 @@ myText:setWidth(1)
 
 ### <code>getWidth()</code> \{#getWidth}
 
-Gets this text's max width
+获取此文本的最大宽度。
 
-Defaults to 0
+默认为 0。
 
 ```lua
 getWidth()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Integer](/tutorials/types/Numbers)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:getWidth()
@@ -534,27 +539,27 @@ myText:getWidth()
 
 ### <code>setWrap()</code> \{#setWrap}
 
-**Aliases:** `wrap()`
+**别名：** `wrap()`
 
-Sets if this text should wrap lines
+设置此文本是否自动换行。
 
 ```lua
 setWrap(wrap)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                              | Description | Default |
-| ---- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | wrap | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description               |
-| ------------------------------------------------- | ------------------------- |
-| <code>[TextTask](/globals/Models/TextTask)</code> | Returns self for chaining |
+| 类型 | 说明 |
+| --- | --- |
+| <code>[TextTask](/globals/Models/TextTask)</code> | 返回自身，以便链式调用 |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:setWrap(true)
@@ -564,21 +569,21 @@ myText:setWrap(true)
 
 ### <code>hasBackground()</code> \{#hasBackground}
 
-Check if this text should render its background
+检查此文本是否渲染背景。
 
-Defaults to false
+默认为 false。
 
 ```lua
 hasBackground()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:hasBackground()
@@ -588,19 +593,19 @@ myText:hasBackground()
 
 ### <code>hasOutline()</code> \{#hasOutline}
 
-Checks if this task text has an outline
+检查此任务文本是否带有描边。
 
 ```lua
 hasOutline()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:hasOutline()
@@ -610,19 +615,19 @@ myText:hasOutline()
 
 ### <code>hasShadow()</code> \{#hasShadow}
 
-Checks if this task text has shadow
+检查此任务文本是否带有投影。
 
 ```lua
 hasShadow()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:hasShadow()
@@ -632,19 +637,19 @@ myText:hasShadow()
 
 ### <code>hasWrap()</code> \{#hasWrap}
 
-Check if this text should wrap lines
+检查此文本是否自动换行。
 
 ```lua
 hasWrap()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:hasWrap()
@@ -654,21 +659,21 @@ myText:hasWrap()
 
 ### <code>isSeeThrough()</code> \{#isSeeThrough}
 
-Check if this text can be seen behind walls
+检查此文本是否可隔墙可见。
 
-Defaults to false
+默认为 false。
 
 ```lua
 isSeeThrough()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myText:isSeeThrough()
@@ -676,61 +681,61 @@ myText:isSeeThrough()
 
 ---
 
-## Render Task
+## 渲染任务
 
 ### <code>setLight()</code> \{#setLight}
 
-**Aliases:** `light()`
+**别名：** `light()`
 
-Sets the light override value of this task
+设置此任务的光照覆盖值。
 
-Values are given from 0 to 15, indicating the block light and sky light levels you want to use
+取值 0 到 15，分别表示要使用的方块光照和天空光照等级。
 
-Passing nil will reset the lighting override for this task
+传入 nil 会重置此任务的光照覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setLight(light)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | light | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setLight(blockLight, skyLight)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name       | Type                                             | Description | Default |
-| ---------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | blockLight | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | skyLight   | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local blockLight = world.getLightLevel(player:getPos())
@@ -742,19 +747,19 @@ myBlock:setLight(blockLight, skyLight)
 
 ### <code>getLight()</code> \{#getLight}
 
-Returns the light override value of this task
+返回此任务的光照覆盖值。
 
 ```lua
 getLight()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getLight()
@@ -764,33 +769,33 @@ myBlock:getLight()
 
 ### <code>setMatrix()</code> \{#setMatrix}
 
-**Aliases:** `matrix()`
+**别名：** `matrix()`
 
-Sets the given matrix as the position matrix for this render task
+把指定矩阵设置为此渲染任务的位置矩阵。
 
-The normal matrix is automatically calculated as the inverse transpose of this matrix
+法线矩阵会自动按该矩阵的逆转置计算。
 
-Calling this DOES NOT CHANGE the values of position, rot, or scale in the render task
+调用此方法不会改变渲染任务中 position、rot 或 scale 的值。
 
-If you call setPos() or a similar function, the effects of setMatrix() will be overwritten
+如果之后调用 setPos() 或类似函数，setMatrix() 的效果会被覆盖。
 
 ```lua
 setMatrix(matrix)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name   | Type                                              | Description | Default |
-| ------ | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | matrix | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:setMatrix(matrices.mat4())
@@ -800,19 +805,19 @@ myBlock:setMatrix(matrices.mat4())
 
 ### <code>getName()</code> \{#getName}
 
-Get this task's name
+获取此任务的名称。
 
 ```lua
 getName()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                            | Description |
-| ----------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[String](/tutorials/types/Strings)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getName()
@@ -822,19 +827,19 @@ myBlock:getName()
 
 ### <code>getNormalMatrix()</code> \{#getNormalMatrix}
 
-Recalculates the normal matrix for this render task, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据当前的位置、旋转、缩放和轴心重新计算此渲染任务的法线矩阵，然后返回该矩阵。
 
 ```lua
 getNormalMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getNormalMatrix()
@@ -844,21 +849,21 @@ myBlock:getNormalMatrix()
 
 ### <code>getNormalMatrixRaw()</code> \{#getNormalMatrixRaw}
 
-Returns the normal matrix for this render task
+返回此渲染任务的法线矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before returning it
+Raw 版本的区别在于：返回前不会重新计算矩阵。
 
 ```lua
 getNormalMatrixRaw()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Matrix3](/globals/Matrices/Matrix3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getNormalMatrixRaw()
@@ -868,57 +873,57 @@ myBlock:getNormalMatrixRaw()
 
 ### <code>setOverlay()</code> \{#setOverlay}
 
-**Aliases:** `overlay()`
+**别名：** `overlay()`
 
-Sets the overlay override value of this task
+设置此任务的叠加层覆盖值。
 
-Values you give are 0 to 15, indicating the white overlay and the damage overlay levels you want to use
+取值 0 到 15，分别表示要使用的白色叠加层和受伤叠加层等级。
 
-Passing nil will reset the overlay override for this task
+传入 nil 会重置此任务的叠加层覆盖。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setOverlay(overlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                             | Description | Default |
-| ------- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | overlay | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setOverlay(whiteOverlay, hurtOverlay)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name         | Type                                             | Description | Default |
-| ------------ | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | whiteOverlay | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 | hurtOverlay  | <code>[Integer](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 local hurt = player:getNbt.HurtTime > 0
@@ -929,19 +934,19 @@ myBlock:setOverlay(hurt and 0 or nil, 1)
 
 ### <code>getOverlay()</code> \{#getOverlay}
 
-Returns the overlay override value of this task
+返回此任务的叠加层覆盖值。
 
 ```lua
 getOverlay()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector2](/globals/Vectors/Vector2)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getOverlay()
@@ -951,56 +956,56 @@ myBlock:getOverlay()
 
 ### <code>setPos()</code> \{#setPos}
 
-**Aliases:** `pos()`
+**别名：** `pos()`
 
-Sets the position of the task, relative to its attached part
+设置任务的位置，坐标相对于其挂载的部件。
 
-Uses model coordinates
+使用模型坐标。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setPos(pos)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | pos  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setPos(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:setPos(0, 16, 0)
@@ -1010,19 +1015,19 @@ myBlock:setPos(0, 16, 0)
 
 ### <code>getPos()</code> \{#getPos}
 
-Gets this task position
+获取此任务的位置。
 
 ```lua
 getPos()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getPos()
@@ -1032,19 +1037,19 @@ myBlock:getPos()
 
 ### <code>getPositionMatrix()</code> \{#getPositionMatrix}
 
-Recalculates the matrix for this render task, based on its current position, rotation, scale, and pivot, then returns this matrix
+根据当前的位置、旋转、缩放和轴心重新计算此渲染任务的矩阵，然后返回该矩阵。
 
 ```lua
 getPositionMatrix()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getPositionMatrix()
@@ -1054,21 +1059,21 @@ myBlock:getPositionMatrix()
 
 ### <code>getPositionMatrixRaw()</code> \{#getPositionMatrixRaw}
 
-Returns the position matrix for this render task
+返回此渲染任务的位置矩阵。
 
-The Raw version of the function is different in that it doesn't recalculate the matrix before getting it
+Raw 版本的区别在于：获取前不会重新计算矩阵。
 
 ```lua
 getPositionMatrixRaw()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Matrix4](/globals/Matrices/Matrix4)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getPositionMatrixRaw()
@@ -1078,54 +1083,54 @@ myBlock:getPositionMatrixRaw()
 
 ### <code>setRot()</code> \{#setRot}
 
-**Aliases:** `rot()`
+**别名：** `rot()`
 
-Sets the rotation of the task, relative to its attached part
+设置任务的旋转，角度相对于其挂载的部件。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setRot(rot)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                             | Description | Default |
-| ---- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | rot  | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setRot(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:setRot(0, 45, 22.5)
@@ -1135,19 +1140,19 @@ myBlock:setRot(0, 45, 22.5)
 
 ### <code>getRot()</code> \{#getRot}
 
-Gets this task rotation
+获取此任务的旋转。
 
 ```lua
 getRot()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getRot()
@@ -1157,54 +1162,54 @@ myBlock:getRot()
 
 ### <code>setScale()</code> \{#setScale}
 
-**Aliases:** `scale()`
+**别名：** `scale()`
 
-Sets the scale of the task, relative to its attached part
+设置任务的缩放，相对于其挂载的部件。
 
 <Tabs>
-<TabItem value="overload-1" label="Overload 1">
+<TabItem value="overload-1" label="重载 1">
 
 ```lua
 setScale(scale)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name  | Type                                             | Description | Default |
-| ----- | ------------------------------------------------ | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | scale | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
-<TabItem value="overload-2" label="Overload 2">
+<TabItem value="overload-2" label="重载 2">
 
 ```lua
 setScale(x, y, z)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name | Type                                            | Description | Default |
-| ---- | ----------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | x    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | y    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 | z    | <code>[Number](/tutorials/types/Numbers)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
 </TabItem>
 </Tabs>
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:setScale(0.4, 0.4, 0.4) -- myBlock:setScale(0.4) also works
@@ -1214,19 +1219,19 @@ myBlock:setScale(0.4, 0.4, 0.4) -- myBlock:setScale(0.4) also works
 
 ### <code>getScale()</code> \{#getScale}
 
-Gets this task scale
+获取此任务的缩放。
 
 ```lua
 getScale()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                             | Description |
-| ------------------------------------------------ | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Vector3](/globals/Vectors/Vector3)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:getScale()
@@ -1236,27 +1241,27 @@ myBlock:getScale()
 
 ### <code>setVisible()</code> \{#setVisible}
 
-**Aliases:** `visible()`
+**别名：** `visible()`
 
-Sets whether or not this task should be rendered
+设置此任务是否渲染。
 
 ```lua
 setVisible(visible)
 ```
 
-**Parameters:**
+**参数：**
 
-| Name    | Type                                              | Description | Default |
-| ------- | ------------------------------------------------- | ----------- | ------- |
+| 名称 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | --- |
 | visible | <code>[Boolean](/tutorials/types/Booleans)</code> | -           | -       |
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 local myPage = action_wheel.newPage()
@@ -1269,19 +1274,19 @@ end)
 
 ### <code>isVisible()</code> \{#isVisible}
 
-Checks if this task is visible
+检查此任务是否可见。
 
 ```lua
 isVisible()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                              | Description |
-| ------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[Boolean](/tutorials/types/Booleans)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 if myBlock:isVisible() then
@@ -1293,19 +1298,19 @@ end
 
 ### <code>remove()</code> \{#remove}
 
-Removes this render task from the parent model part
+从父级模型部件中移除此渲染任务。
 
 ```lua
 remove()
 ```
 
-**Returns:**
+**返回：**
 
-| Type                                                  | Description |
-| ----------------------------------------------------- | ----------- |
+| 类型 | 说明 |
+| --- | --- |
 | <code>[RenderTask](/globals/Models/RenderTask)</code> | -           |
 
-**Example:**
+**示例：**
 
 ```lua
 myBlock:remove()

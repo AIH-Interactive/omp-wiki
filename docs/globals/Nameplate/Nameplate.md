@@ -1,46 +1,48 @@
 ---
 sidebar_position: 1
+title: Nameplate（名称牌）
+sidebar_label: Nameplate（名称牌）
 ---
 
-A global API which is used for customizing your player's nameplate in chat, above your head, and in the tab list
+用于自定义玩家名称牌的全局 API，覆盖聊天栏、头顶和 Tab 列表。
 
 ---
 
 ### <code>CHAT</code> \{#CHAT}
 
-A customization for your nameplate in the chat
+聊天栏中名称牌的自定义项。
 
-See [NameplateCustomization](../globals/Nameplate/NameplateCustomization) for `Chat` functions
+关于 `Chat` 系列函数，见 [NameplateCustomization](../globals/Nameplate/NameplateCustomization)。
 
 ---
 
 ### <code>ENTITY</code> \{#ENTITY}
 
-A customization for your nameplate above your head
+头顶名称牌的自定义项。
 
-See [EntityNameplateCustomization](../globals/Nameplate/EntityNameplateCustomization) for `Entity` functions
+关于 `Entity` 系列函数，见 [EntityNameplateCustomization](../globals/Nameplate/EntityNameplateCustomization)。
 
 ---
 
 ### <code>LIST</code> \{#LIST}
 
-A customization for your nameplate in the tab list
+Tab 列表中名称牌的自定义项。
 
-See [NameplateCustomization](../globals/Nameplate/NameplateCustomization) for `List` functions
+关于 `List` 系列函数，见 [NameplateCustomization](../globals/Nameplate/NameplateCustomization)。
 
 ---
 
 ### <code>ALL</code> \{#ALL}
 
-A group that manages all your nameplate customizations at once
+一次性管理全部名称牌自定义项的分组。
 
-See [NameplateCustomizationGroup](../globals/Nameplate/NameplateCustomizationGroup) for `All` functions
+关于 `All` 系列函数，见 [NameplateCustomizationGroup](../globals/Nameplate/NameplateCustomizationGroup)。
 
 ---
 
-## Using JSON
+## 使用 JSON
 
-If you wish to change the properties of the text outside of just the text, you can use json to change things like color, boldness, or any other properties you can give text in Minecraft, including via the color codes. You can also use a json text generator from anywhere online.
+如果除了文本内容本身，还想修改文本的属性，可以用 JSON 设置颜色、加粗，或 Minecraft 文本支持的其他属性，包括通过颜色代码设置。也可以直接使用网上任意一个 JSON 文本生成器。
 
 <!-- prettier-ignore -->
 ```lua
@@ -54,4 +56,4 @@ nameplate.All:setText(
 )
 ```
 
-Here's an example, you **_must_** wrap all the json given in apostrophes (') like in this example. A json generator will not come with the apostrophes around it, you need to add those yourself. To make things easier, you can use `toJson` like in the second example above.
+下面是一个示例。所有 JSON **_必须_** 像示例这样用单引号（'）包裹。JSON 生成器的输出不会自带单引号，需要你自行添加。为简化操作，可以像上面的第二个示例那样使用 `toJson`。
