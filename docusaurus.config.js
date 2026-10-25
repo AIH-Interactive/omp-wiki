@@ -74,8 +74,7 @@ const config = {
         title: "OmniMorph 文档",
         logo: {
           alt: "OmniMorph Logo",
-          src: "img/logo.svg",
-          srcDark: "img/logoDark.svg",
+          src: "img/logo.png",
         },
         items: [
           {
