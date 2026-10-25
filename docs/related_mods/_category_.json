@@ -1,0 +1,8 @@
+{
+  "label": "相关模组",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "介绍与 Figura、YSM 模型生态配合的第三方项目。这些项目由各自的作者维护，不属于 OmniMorph。"
+  }
+}
