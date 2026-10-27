@@ -8,12 +8,12 @@ title: OmniMorph Wiki
 
 欢迎来到 OmniMorph 中文文档。OmniMorph 是基于 [Figura](https://github.com/FiguraMC/Figura) 的 Minecraft Java 客户端模型模组，在统一的衣柜、预览和交互界面中使用 **Figura Avatar** 与 **YSM 模型**。
 
-当前文档对应 OmniMorph `1.0.0-alpha.4.1`（Minecraft 26.1.2 / Fabric / Java 25）。全站正文已完成中文化；部分 API 页面仍在补充更易懂的说明，未完成处会标注状态。
+当前文档对应 OmniMorph `1.0.0-alpha.5`（Minecraft 26.1.2 / Fabric / Java 25）。全站正文已完成中文化；部分 API 页面仍在补充更易懂的说明，未完成处会标注状态。
 
 ## 从这里开始
 
 | 我是…… | 建议阅读 |
-| --- | --- |
+| -------------------- | ----------------------------------------------------------------------------------- |
 | 刚安装，想先看到模型 | [创建形象](/start_here/Avatar) → [模型文件格式](/start_here/Avatar%20File%20Format) |
 | 想管理多个模型与装扮 | [OmniMorph 功能](/omnimorph) |
 | 想写 Lua 脚本 | [脚本新特性](/scripting) → [API 参考](/globals/Player) |
@@ -32,7 +32,7 @@ title: OmniMorph Wiki
 ## 文档状态说明
 
 | 标记 | 含义 |
-| --- | --- |
+| -------- | ---------------------------------------- |
 | 稳定 | 当前版本可用，行为已由源码或验收记录支持 |
 | 预览 | 功能存在，但界面或行为可能变化 |
 | 依赖后端 | 需要兼容后端与相应能力开关 |

@@ -16,7 +16,8 @@ title: 脚本新特性
 ## 可用范围
 
 | 接口 | 普通脚本 | 装饰脚本 | 说明 |
-| --- | --- | --- | --- |
+| ------------------------------------------------------- | -------- | ------------------------------ | ----------------------------------- |
+| [`ysm_display`](/scripting/ysm-display)                 | 是       | 见接口页面                     | 只读查询玩家状态与已加载的 YSM 状态 |
 | [`ysm_model`](/scripting/ysm-model) | 是 | 是 | YSM 模型查询与控制 |
 | [`ysm_actions`](/scripting/ysm-actions) | 是 | 是 | YSM 动作与轮盘 |
 | [`avatar_controls`](/scripting/avatar-controls) | 是 | 是（别名 `cosmetic_controls`） | 模型专用设置 |
@@ -29,6 +30,7 @@ title: 脚本新特性
 
 ## YSM
 
+-   [`ysm_display`](/scripting/ysm-display)：玩家状态与已加载的 YSM 动作、控制器状态。
 - [`ysm_model`](/scripting/ysm-model)：部件、定位器、挂点、骨骼世界矩阵、纹理、动画、控制器、函数/事件、动作、控件、子实体。
 - [`ysm_actions`](/scripting/ysm-actions)：动作定义、播放/停止、轮盘页/槽、键位绑定。
 

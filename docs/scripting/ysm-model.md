@@ -7,7 +7,7 @@ sidebar_label: ysm_model（YSM 模型）
 # ysm_model
 
 > 状态：稳定
-> 适用版本：OmniMorph 1.0.0-alpha.4.1
+> 适用版本：OmniMorph 1.0.0-alpha.5
 > 可用范围：普通脚本、装饰脚本
 
 `ysm_model` 是 YSM 模型的只读/受限控制接口，用来访问部件、定位器、挂点、动画、纹理、动作、控件与子实体。
@@ -27,7 +27,7 @@ end
 ## 模型信息
 
 | 方法 | 返回 | 说明 |
-| --- | --- | --- |
+| -------------------------------- | ---------- | ----------------------------- |
 | `isYsm()` | 布尔 | 当前模型是否为 YSM |
 | `getKind()` | 字符串 | 模型类型；无运行时返回 `none` |
 | `getTexture()` | 字符串 | 当前纹理 id |
@@ -37,7 +37,7 @@ end
 ## 部件
 
 | 方法 | 返回 | 说明 |
-| --- | --- | --- |
+| -------------------------- | ----------------------- | -------------- |
 | `getPart(name)` | `ysm_model_part` 或 nil | 按名称获取部件 |
 | `getParts()` | 集合 | 全部部件 |
 | `getRootParts()` | 数组 | 根部件 |
@@ -47,7 +47,7 @@ end
 `ysm_model_part` 的方法：
 
 | 方法 | 返回 | 说明 |
-| --- | --- | --- |
+| -------------------------------------------------------- | ---------- | ------------ |
 | `getName()` | 字符串 | 名称 |
 | `getParent()` | 部件或 nil | 父部件 |
 | `getChildren()` | 数组 | 子部件 |
@@ -72,7 +72,7 @@ part:setScale(1.2, 1.2, 1.2)
 ## 定位器与挂点
 
 | 方法 | 返回 | 说明 |
-| --- | --- | --- |
+| -------------------------------- | ----------------------------- | ---------------- |
 | `getLocator(name)` | `ysm_locator` 或 nil | 按名称获取定位器 |
 | `getLocators()` | 数组 | 全部定位器 |
 | `getLocatorWorldMatrix(name)` | `Matrix4` | 定位器世界矩阵 |
@@ -98,7 +98,7 @@ part:setScale(1.2, 1.2, 1.2)
 ## 动画
 
 | 方法 | 说明 |
-| --- | --- |
+| --------------------------------------- | --------------------- |
 | `isNativeStateMachineEnabled()` | 原生状态机是否开启 |
 | `setNativeStateMachineEnabled(bool)` | 开启/关闭原生状态机 |
 | `isNativeAnimationEnabled(name)` | 单个原生动画是否启用 |
@@ -123,10 +123,34 @@ part:setScale(1.2, 1.2, 1.2)
 }
 ```
 
+## 状态机只读查询（alpha.5）
+
+| 方法                            | 返回         | 说明                                                                                                 |
+| ------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------- |
+| `getActionState()`              | 字符串       | 当前基础动作状态；无 YSM 运行时时为空字符串                                                          |
+| `getNativeAnimation()`          | 字符串       | 当前原生动画名；无运行时时为空字符串                                                                 |
+| `getHandActions()`              | 表           | `left` 和 `right` 各包含 `hold`、`action` 动画名及 `paused` 布尔值；无运行时为空表，动画名可能为 nil |
+| `getControllerState(name)`      | 字符串或 nil | 指定控制器当前状态                                                                                   |
+| `getControllerStateTime(name)`  | 数字         | 当前状态的时间，单位为秒；无运行时或名称为 nil 时为 0                                                |
+| `getControllerStateNames(name)` | 字符串数组   | 指定控制器声明的状态名；找不到时为空数组                                                             |
+
+```lua
+local state = ysm_model:getControllerState("controller.animation.example")
+if state then
+    log(state .. " " .. ysm_model:getControllerStateTime("controller.animation.example"))
+end
+local hands = ysm_model:getHandActions()
+if hands.left then
+    log(tostring(hands.left.action))
+end
+```
+
+这些方法只读取当前模型的运行状态；查询其他玩家已加载的 YSM 模型可参考 [`ysm_display`](/scripting/ysm-display)。
+
 ## 函数、事件与同步键
 
 | 方法 | 返回 | 说明 |
-| --- | --- | --- |
+| --------------------- | ---------- | ---------------- |
 | `getFunctions()` | 字符串数组 | 模型函数调试名 |
 | `getEvents()` | 表 | 事件名到监听列表 |
 | `getRecentEvents()` | 字符串数组 | 最近事件 |
@@ -137,7 +161,7 @@ part:setScale(1.2, 1.2, 1.2)
 ## 动作与控件
 
 | 方法 | 返回 | 说明 |
-| --- | --- | --- |
+| --------------- | ---------- | -------------------------- |
 | `getActions()` | 字符串数组 | 动作 id |
 | `getControls()` | 字符串数组 | YSM 控件 id（`ysm.` 前缀） |
 
@@ -147,14 +171,10 @@ part:setScale(1.2, 1.2, 1.2)
 
 ```lua
 function events.tick()
-    if not ysm_model:isYsm() then
-        return
-    end
+    if not ysm_model:isYsm() then return end
 
     local head = ysm_model:getPart("Head")
-    if not head then
-        return
-    end
+    if not head then return end
 
     local pos = head:getWorldPos()
     particles:newParticle("minecraft:flame", pos)

@@ -6,7 +6,7 @@ title: OmniMorph 是什么
 # OmniMorph 是什么
 
 > 状态：稳定
-> 适用版本：OmniMorph 1.0.0-alpha.4.1
+> 适用版本：OmniMorph 1.0.0-alpha.5
 
 OmniMorph 是基于 [Figura](https://github.com/FiguraMC/Figura) 的 Minecraft Java 客户端模型模组。它在保留 Figura Avatar、Lua、权限和界面体系的基础上，加入了 **YSM 模型支持**、**统一衣柜**、**装饰与配装**、**模型库与云端同步**等能力。
 
@@ -21,7 +21,7 @@ OmniMorph 是基于 [Figura](https://github.com/FiguraMC/Figura) 的 Minecraft J
 ## 支持的内容
 
 | 类型 | 支持形式 |
-| --- | --- |
+| ----------- | --------------------------------------- |
 | Figura 形象 | 目录或 ZIP，根目录含 `avatar.json` |
 | YSM 模型 | 受支持格式的目录、ZIP、加密 `.ysm` |
 | 装饰 | 含 `cosmetic.json` 的目录或 ZIP |
@@ -32,11 +32,11 @@ OmniMorph 是基于 [Figura](https://github.com/FiguraMC/Figura) 的 Minecraft J
 ## 运行环境
 
 | 项目 | 版本 |
-| --- | --- |
+| -------------- | ------------- |
 | Minecraft Java | 26.1.2 |
 | 模组加载器 | Fabric |
 | Java | 25 |
-| 模组版本 | 1.0.0-alpha.4.1 |
+| 模组版本       | 1.0.0-alpha.5 |
 
 ## 能力边界
 
